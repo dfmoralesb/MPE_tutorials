@@ -1,0 +1,167 @@
+IQ-TREE 2.0.7 built Jun 17 2020
+
+Input file name: Locus_1370.x.phy
+Type of analysis: ModelFinder + tree reconstruction + non-parametric bootstrap (200 replicates)
+Random seed number: 55671
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 5 sequences with 294 nucleotide sites
+Number of constant sites: 294 (= 100% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 294 (= 100% of all sites)
+Number of parsimony informative sites: 0
+Number of distinct site patterns: 15
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: F81+F
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+F81+F              -393.217     806.435 +    0.425     807.212 +    0.463     843.270 +    0.924
+HKY+F              -393.217     808.435 +    0.156     809.371 +    0.157     848.954 +   0.0539
+TPM2+F             -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+TN+F               -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+K3Pu+F             -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+TPM2u+F            -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+TPM3+F             -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+TPM3u+F            -393.217     810.435 +   0.0575     811.545 +   0.0531     854.637 -  0.00314
+JC                 -407.573     829.145 - 4.97e-06     829.537 - 6.58e-06     854.930 -  0.00271
+TIM+F              -393.217     812.435 -   0.0211     813.735 -   0.0178     860.321 - 0.000183
+TIM2+F             -393.217     812.435 -   0.0211     813.735 -   0.0178     860.321 - 0.000183
+TIM3+F             -393.217     812.435 -   0.0211     813.735 -   0.0178     860.321 - 0.000183
+K2P                -407.573     831.145 - 1.83e-06     831.650 - 2.29e-06     860.614 - 0.000158
+TVM+F              -393.217     814.435 -  0.00778     815.940 -  0.00589     866.005 - 1.07e-05
+TNe                -407.573     833.145 - 6.73e-07     833.779 - 7.88e-07     866.297 - 9.23e-06
+K3P                -407.573     833.145 - 6.73e-07     833.779 - 7.88e-07     866.297 - 9.23e-06
+GTR+F              -393.217     816.435 -  0.00286     818.161 -  0.00194     871.688 - 6.23e-07
+TIM2e              -407.573     835.145 - 2.48e-07     835.923 -  2.7e-07     871.981 - 5.38e-07
+TIM3e              -407.573     835.145 - 2.48e-07     835.923 -  2.7e-07     871.981 - 5.38e-07
+TIMe               -407.573     835.145 - 2.48e-07     835.923 -  2.7e-07     871.981 - 5.38e-07
+TVMe               -407.573     837.145 - 9.11e-08     838.081 - 9.17e-08     877.665 - 3.14e-08
+SYM                -407.573     839.145 - 3.35e-08     840.256 - 3.09e-08     883.348 - 1.83e-09
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: F81+F
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 1.0000
+  A-T: 1.0000
+  C-G: 1.0000
+  C-T: 1.0000
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.3575
+  pi(C) = 0.1631
+  pi(G) = 0.1838
+  pi(T) = 0.2956
+
+Rate matrix Q:
+
+  A   -0.8869    0.2251    0.2538     0.408
+  C    0.4935    -1.155    0.2538     0.408
+  G    0.4935    0.2251    -1.127     0.408
+  T    0.4935    0.2251    0.2538   -0.9724
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -393.2159 (s.e. 5.3956)
+Unconstrained log-likelihood (without tree): -454.5171
+Number of free parameters (#branches + #model parameters): 10
+Akaike information criterion (AIC) score: 806.4319
+Corrected Akaike information criterion (AICc) score: 807.2093
+Bayesian information criterion (BIC) score: 843.2677
+
+Total tree length (sum of branch lengths): 0.0000
+Sum of internal branch lengths: 0.0000 (0.0000% of tree length)
+
+WARNING: 2 near-zero internal branches (<0.0034) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+NOTE: Tree is UNROOTED although outgroup taxon 'A_arboreum_153' is drawn at root
+Numbers in parentheses are  standard bootstrap support (%)
+
++***********************************************************A_arboreum_153
+|
+|     +***********************************************************A_balsamiferum_TM178
+|  +**| (26)
+|  |  +***********************************************************A_stuessyi_TM2031
++**| (26)
+|  +***********************************************************A_leucoblepharu
+|
++***********************************************************Aeo_korneliuslemsii
+
+Tree in newick format:
+
+(A_arboreum_153:0.0000005000,((A_balsamiferum_TM178:0.0000005000,A_stuessyi_TM2031:0.0000005000)26:0.0000000000,A_leucoblepharu:0.0000005000)26:0.0000000000,Aeo_korneliuslemsii:0.0000005000);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 200 bootstrap trees
+Log-likelihood of consensus tree: -393.217267
+Robinson-Foulds distance between ML tree and consensus tree: 2
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++*******************A_arboreum_153
+|
+|                                       +*******************A_balsamiferum_TM178
+|                   +*******************| (26)
+|                   |                   +*******************A_stuessyi_TM2031
++*******************| (29)
+|                   +*******************Aeo_korneliuslemsii
+|
++*******************A_leucoblepharu
+
+
+Consensus tree in newick format: 
+
+(A_arboreum_153:0.0000010000,((A_balsamiferum_TM178:0.0000010000,A_stuessyi_TM2031:0.0000010000)26:0.0000010000,Aeo_korneliuslemsii:0.0000010000)29:0.0000010000,A_leucoblepharu:0.0000010000);
+
+TIME STAMP
+----------
+
+Date and time: Thu Nov 25 21:41:03 2021
+Total CPU time used: 0.176233 seconds (0h:0m:0s)
+Total wall-clock time used: 0.08230781555 seconds (0h:0m:0s)
+

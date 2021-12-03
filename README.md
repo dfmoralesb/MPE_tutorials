@@ -21,6 +21,6 @@ This repository contains the instructions and data for the *Tree building and ti
 
 ### * Requirements (data)
 
-* All data (e.g, alignments), input files (e.g., XML for BEAST) and output files will be located in the **DATA** folder of this repository.
+* All data (e.g, DNA alignments), input files (e.g., XML for BEAST) and output files will be located in the **DATA** folder of this repository.
 
 Add description of each folder

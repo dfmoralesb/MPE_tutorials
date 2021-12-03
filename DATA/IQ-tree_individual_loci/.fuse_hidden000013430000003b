@@ -1,0 +1,3241 @@
+IQ-TREE multicore version 2.1.3 COVID-edition for Linux 64-bit built Apr 21 2021
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    p620-big (AVX2, FMA3, 503 GB RAM)
+Command: iqtree2 -m MFP -s Locus_1026.x.phy -T 4 -b 200 -wbt --seqtype DNA --prefix Locus_1026.iqtree
+Seed:    223128 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Nov 25 21:14:34 2021
+Kernel:  AVX+FMA - 4 threads (128 CPU cores detected)
+
+Reading alignment file Locus_1026.x.phy ... Phylip format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 7 sequences with 366 columns, 31 distinct patterns
+5 parsimony-informative, 7 singleton sites, 354 constant sites
+                      Gap/Ambiguity  Composition  p-value
+   1  A_arboreum_153          5.19%    passed     99.11%
+   2  A_balsamiferum_TM178    5.46%    passed     99.40%
+   3  A_gorgoneum_TM185       5.46%    passed     99.40%
+   4  A_leucoblepharu         5.19%    passed     99.79%
+   5  A_saundersii_merged     5.46%    passed     88.72%
+   6  A_stuessyi_TM2031       5.19%    passed     99.79%
+   7  Aeo_korneliuslemsii     1.64%    passed     96.96%
+****  TOTAL                   4.80%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+
+WARNING: 4 threads for alignment length 31 will slow down analysis
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Perform fast likelihood tree search using GTR+I+G model...
+Estimate model parameters (epsilon = 5.000)
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -577.040
+Optimal log-likelihood: -577.040
+Rate parameters:  A-C: 34.09632  A-G: 50.30771  A-T: 9.38512  C-G: 100.00000  C-T: 22.86184  G-T: 1.00000
+Base frequencies:  A: 0.236  C: 0.193  G: 0.218  T: 0.353
+Proportion of invariable sites: 0.483
+Gamma shape alpha: 0.250
+Parameters optimization took 1 rounds (0.006 sec)
+
+WARNING: Estimated model parameters are at boundary that can cause numerical instability!
+
+Time for fast ML tree search: 0.019 seconds
+
+NOTE: ModelFinder requires 0 MB RAM!
+ModelFinder will test up to 286 DNA models (sample size: 366) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  1  GTR+F         578.023      19  1194.047     1196.243     1268.197
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  2  GTR+F+I       577.051      20  1194.102     1196.536     1272.154
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  3  GTR+F+G4      577.113      20  1194.226     1196.661     1272.279
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  4  GTR+F+I+G4    577.040      21  1196.080     1198.766     1278.035
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  5  GTR+F+R2      577.702      21  1197.405     1200.091     1279.360
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  6  GTR+F+R3      577.561      23  1201.123     1204.351     1290.884
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 14  SYM           587.697      16  1207.395     1208.953     1269.837
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 15  SYM+I         586.658      17  1207.316     1209.075     1273.661
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 16  SYM+G4        586.750      17  1207.501     1209.259     1273.845
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 17  SYM+I+G4      586.642      18  1209.284     1211.255     1279.531
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 27  TVM+F         578.330      18  1192.659     1194.631     1262.907
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 28  TVM+F+I       577.379      19  1192.758     1194.955     1266.908
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 29  TVM+F+G4      577.431      19  1192.862     1195.059     1267.012
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 30  TVM+F+I+G4    577.372      20  1194.744     1197.178     1272.796
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 40  TVMe          587.919      15  1205.839     1207.210     1264.378
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 41  TVMe+I        586.903      16  1205.806     1207.364     1268.248
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 42  TVMe+G4       586.984      16  1205.968     1207.527     1268.410
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 43  TVMe+I+G4     586.890      17  1207.779     1209.538     1274.124
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 53  TIM3+F        579.383      17  1192.766     1194.524     1259.110
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 54  TIM3+F+I      578.323      18  1192.647     1194.618     1262.894
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 55  TIM3+F+G4     578.429      18  1192.857     1194.829     1263.105
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 56  TIM3+F+I+G4   578.315      19  1194.630     1196.826     1268.780
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 66  TIM3e         589.039      14  1206.077     1207.274     1260.714
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 67  TIM3e+I       587.886      15  1205.771     1207.143     1264.311
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 68  TIM3e+G4      588.033      15  1206.066     1207.438     1264.606
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 69  TIM3e+I+G4    587.879      16  1207.757     1209.316     1270.200
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 79  TIM2+F        583.673      17  1201.345     1203.104     1267.690
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 80  TIM2+F+I      582.468      18  1200.937     1202.908     1271.184
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 81  TIM2+F+G4     582.643      18  1201.285     1203.257     1271.533
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 82  TIM2+F+I+G4   582.465      19  1202.931     1205.127     1277.081
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 92  TIM2e         592.293      14  1212.586     1213.782     1267.222
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 93  TIM2e+I       590.906      15  1211.813     1213.184     1270.352
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 94  TIM2e+G4      591.190      15  1212.380     1213.752     1270.920
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 95  TIM2e+I+G4    590.917      16  1213.834     1215.392     1276.276
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+105  TIM+F         583.010      17  1200.021     1201.779     1266.366
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+106  TIM+F+I       581.586      18  1199.171     1201.143     1269.419
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+107  TIM+F+G4      581.896      18  1199.793     1201.764     1270.040
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+108  TIM+F+I+G4    581.605      19  1201.210     1203.406     1275.360
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+118  TIMe          591.535      14  1211.071     1212.267     1265.707
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+119  TIMe+I        590.002      15  1210.004     1211.375     1268.543
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+120  TIMe+G4       590.386      15  1210.773     1212.144     1269.312
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+121  TIMe+I+G4     590.048      16  1212.096     1213.655     1274.538
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+131  TPM3u+F       579.682      16  1191.364     1192.923     1253.806
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+132  TPM3u+F+I     578.584      17  1191.168     1192.927     1257.513
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+133  TPM3u+F+G4    578.697      17  1191.394     1193.153     1257.739
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+134  TPM3u+F+I+G4  578.583      18  1193.166     1195.137     1263.413
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+144  TPM3+F        579.682      16  1191.364     1192.923     1253.806
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+145  TPM3+F+I      578.584      17  1191.168     1192.926     1257.513
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+146  TPM3+F+G4     578.697      17  1191.394     1193.153     1257.739
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+147  TPM3+F+I+G4   578.583      18  1193.166     1195.137     1263.413
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+157  TPM2u+F       583.981      16  1199.962     1201.520     1262.404
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+158  TPM2u+F+I     582.837      17  1199.675     1201.434     1266.020
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+159  TPM2u+F+G4    582.979      17  1199.958     1201.716     1266.302
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+160  TPM2u+F+I+G4  582.836      18  1201.673     1203.644     1271.920
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+170  TPM2+F        583.981      16  1199.962     1201.520     1262.404
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+171  TPM2+F+I      582.837      17  1199.675     1201.434     1266.020
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+172  TPM2+F+G4     582.979      17  1199.958     1201.716     1266.302
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+173  TPM2+F+I+G4   582.836      18  1201.673     1203.644     1271.920
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+183  K3Pu+F        583.317      16  1198.634     1200.193     1261.076
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+184  K3Pu+F+I      581.946      17  1197.892     1199.650     1264.236
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+185  K3Pu+F+G4     582.220      17  1198.441     1200.199     1264.785
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+186  K3Pu+F+I+G4   581.954      18  1199.907     1201.878     1270.155
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+196  K3P           591.760      13  1209.520     1210.554     1260.254
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+197  K3P+I         590.229      14  1208.459     1209.655     1263.096
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+198  K3P+G4        590.610      14  1209.219     1210.416     1263.856
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+199  K3P+I+G4      590.274      15  1210.547     1211.918     1269.087
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+209  TN+F          584.023      16  1200.047     1201.606     1262.489
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+210  TN+F+I        582.787      17  1199.574     1201.333     1265.919
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+211  TN+F+G4       582.977      17  1199.955     1201.713     1266.299
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+212  TN+F+I+G4     582.786      18  1201.573     1203.544     1271.820
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+222  TNe           592.595      13  1211.191     1212.225     1261.925
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+223  TNe+I         591.185      14  1210.370     1211.566     1265.006
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+224  TNe+G4        591.481      14  1210.962     1212.159     1265.599
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+225  TNe+I+G4      591.198      15  1212.396     1213.767     1270.935
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+235  HKY+F         584.330      15  1198.660     1200.032     1257.200
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+236  HKY+F+I       583.145      16  1198.290     1199.849     1260.733
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+237  HKY+F+G4      583.308      16  1198.615     1200.174     1261.057
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+238  HKY+F+I+G4    583.145      17  1200.291     1202.049     1266.635
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+248  K2P           592.820      12  1209.640     1210.523     1256.471
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+249  K2P+I         591.409      13  1208.817     1209.851     1259.552
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+250  K2P+G4        591.706      13  1209.411     1210.446     1260.146
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+251  K2P+I+G4      591.422      14  1210.845     1212.042     1265.482
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+261  F81+F         584.430      14  1196.859     1198.056     1251.496
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+262  F81+F+I       583.240      15  1196.479     1197.851     1255.019
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+263  F81+F+G4      583.405      15  1196.809     1198.181     1255.349
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+264  F81+F+I+G4    583.239      16  1198.479     1200.038     1260.921
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+274  JC            592.896      11  1207.792     1208.538     1250.721
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+275  JC+I          591.497      12  1206.994     1207.878     1253.826
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+276  JC+G4         591.786      12  1207.573     1208.457     1254.404
+WARNING: 4 threads for alignment length 31 will slow down analysis
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+277  JC+I+G4       591.509      13  1209.018     1210.052     1259.752
+Akaike Information Criterion:           TPM3+F+I
+Corrected Akaike Information Criterion: TPM3+F
+Bayesian Information Criterion:         JC
+Best-fit model: JC chosen according to BIC
+
+All model information printed to Locus_1026.iqtree.model.gz
+CPU time for ModelFinder: 0.885 seconds (0h:0m:0s)
+Wall-clock time for ModelFinder: 0.376 seconds (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 1
+
+Creating bootstrap alignment (seed: 223128)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -591.573
+Optimal log-likelihood: -591.543
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000210 sec (of wall-clock time) 0.000727 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000113 sec (of wall-clock time) 0.000113 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -591.546
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.014 second
+Computing log-likelihood of 83 initial trees ... 0.020 seconds
+Current best score: -588.663
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -588.649
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+BETTER TREE FOUND at iteration 4: -588.649
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+Iteration 10 / LogL: -588.649 / Time: 0h:0m:0s
+Iteration 20 / LogL: -588.649 / Time: 0h:0m:0s
+Finish initializing candidate tree set (5)
+Current best tree score: -588.649 / CPU time: 0.061
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+Iteration 60 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -607.838 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+Iteration 90 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -588.649
+Iteration 100 / LogL: -588.649 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 105 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -588.649
+Optimal log-likelihood: -588.649
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -588.649
+Total tree length: 0.039
+
+Total number of iterations: 105
+CPU time used for tree search: 0.907 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.210 sec (0h:0m:0s)
+Total CPU time used: 1.174 sec (0h:0m:1s)
+Total wall-clock time used: 0.319 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 2
+
+Creating bootstrap alignment (seed: 223129)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 27 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -619.748
+Optimal log-likelihood: -619.706
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000361 sec (of wall-clock time) 0.000124 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000112 sec (of wall-clock time) 0.000112 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -619.709
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 77 initial trees ... 0.014 seconds
+Current best score: -614.692
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -614.626
+BETTER TREE FOUND at iteration 3: -614.626
+Iteration 10 / LogL: -614.626 / Time: 0h:0m:0s
+Iteration 20 / LogL: -614.626 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -614.626 / CPU time: 0.060
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -614.626
+UPDATE BEST LOG-LIKELIHOOD: -614.626
+Iteration 30 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -614.626
+Iteration 40 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -614.627 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -614.626
+UPDATE BEST LOG-LIKELIHOOD: -614.626
+Iteration 100 / LogL: -614.626 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 104 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -614.626
+Optimal log-likelihood: -614.626
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -614.626
+Total tree length: 0.054
+
+Total number of iterations: 104
+CPU time used for tree search: 0.975 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.219 sec (0h:0m:0s)
+Total CPU time used: 1.103 sec (0h:0m:1s)
+Total wall-clock time used: 0.258 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 3
+
+Creating bootstrap alignment (seed: 223130)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -561.390
+Optimal log-likelihood: -561.375
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000202 sec (of wall-clock time) 0.000541 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000104 sec (of wall-clock time) 0.000104 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -561.379
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 70 initial trees ... 0.011 seconds
+Current best score: -561.375
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -561.375
+BETTER TREE FOUND at iteration 8: -561.375
+Iteration 10 / LogL: -561.375 / Time: 0h:0m:0s
+Iteration 20 / LogL: -561.375 / Time: 0h:0m:0s
+Finish initializing candidate tree set (18)
+Current best tree score: -561.375 / CPU time: 0.047
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+BETTER TREE FOUND at iteration 35: -561.375
+UPDATE BEST LOG-LIKELIHOOD: -561.375
+Iteration 40 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 130 / LogL: -561.375 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 136 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -561.375
+Optimal log-likelihood: -561.375
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -561.375
+Total tree length: 0.024
+
+Total number of iterations: 136
+CPU time used for tree search: 0.678 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.148 sec (0h:0m:0s)
+Total CPU time used: 0.803 sec (0h:0m:0s)
+Total wall-clock time used: 0.191 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 4
+
+Creating bootstrap alignment (seed: 223131)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.001 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -595.150
+Optimal log-likelihood: -595.138
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000196 sec (of wall-clock time) 0.000726 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000091 sec (of wall-clock time) 0.000089 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -598.542
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.008 second
+Computing log-likelihood of 88 initial trees ... 0.013 seconds
+Current best score: -595.137
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -595.137
+UPDATE BEST LOG-LIKELIHOOD: -595.137
+Iteration 10 / LogL: -595.138 / Time: 0h:0m:0s
+Iteration 20 / LogL: -595.138 / Time: 0h:0m:0s
+Finish initializing candidate tree set (10)
+Current best tree score: -595.137 / CPU time: 0.044
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -595.137 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -595.137 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -595.137 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -595.138 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -595.137 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -595.138 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -595.138 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -595.138 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -595.137
+Optimal log-likelihood: -595.137
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -595.137
+Total tree length: 0.044
+
+Total number of iterations: 102
+CPU time used for tree search: 0.518 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.111 sec (0h:0m:0s)
+Total CPU time used: 0.670 sec (0h:0m:0s)
+Total wall-clock time used: 0.172 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 5
+
+Creating bootstrap alignment (seed: 223132)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -583.412
+Optimal log-likelihood: -583.395
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000125 sec (of wall-clock time) 0.000520 sec(of CPU time)
+Computing RapidNJ tree took 0.000117 sec (of wall-clock time) 0.000113 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -583.400
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.012 seconds
+Current best score: -583.395
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -583.395
+Iteration 10 / LogL: -583.395 / Time: 0h:0m:0s
+Iteration 20 / LogL: -583.395 / Time: 0h:0m:0s
+Finish initializing candidate tree set (18)
+Current best tree score: -583.395 / CPU time: 0.042
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+BETTER TREE FOUND at iteration 21: -583.395
+UPDATE BEST LOG-LIKELIHOOD: -583.395
+Iteration 30 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -583.395
+Iteration 50 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -583.395 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 122 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -583.395
+Optimal log-likelihood: -583.395
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.004 sec)
+BEST SCORE FOUND : -583.395
+Total tree length: 0.035
+
+Total number of iterations: 122
+CPU time used for tree search: 0.691 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.147 sec (0h:0m:0s)
+Total CPU time used: 0.857 sec (0h:0m:0s)
+Total wall-clock time used: 0.189 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 6
+
+Creating bootstrap alignment (seed: 223133)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.002 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -592.933
+Optimal log-likelihood: -592.917
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000188 sec (of wall-clock time) 0.000669 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000126 sec (of wall-clock time) 0.000123 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -591.385
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 80 initial trees ... 0.014 seconds
+Current best score: -591.385
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -591.385
+BETTER TREE FOUND at iteration 2: -591.384
+Iteration 10 / LogL: -591.384 / Time: 0h:0m:0s
+Iteration 20 / LogL: -592.917 / Time: 0h:0m:0s
+Finish initializing candidate tree set (7)
+Current best tree score: -591.384 / CPU time: 0.060
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+Iteration 30 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+Iteration 90 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+UPDATE BEST LOG-LIKELIHOOD: -591.384
+Iteration 100 / LogL: -591.384 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -591.384
+Optimal log-likelihood: -591.384
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -591.384
+Total tree length: 0.038
+
+Total number of iterations: 103
+CPU time used for tree search: 0.870 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.214 sec (0h:0m:0s)
+Total CPU time used: 0.973 sec (0h:0m:0s)
+Total wall-clock time used: 0.257 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 7
+
+Creating bootstrap alignment (seed: 223134)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -598.050
+Optimal log-likelihood: -598.036
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000238 sec (of wall-clock time) 0.000837 sec(of CPU time)
+Computing RapidNJ tree took 0.000124 sec (of wall-clock time) 0.000121 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -598.038
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 81 initial trees ... 0.013 seconds
+Current best score: -597.511
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -597.236
+Iteration 10 / LogL: -597.236 / Time: 0h:0m:0s
+Iteration 20 / LogL: -597.236 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -597.236 / CPU time: 0.060
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -597.236
+Iteration 30 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.236
+Iteration 60 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -597.237 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -597.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -597.237 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -597.236
+Optimal log-likelihood: -597.236
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -597.236
+Total tree length: 0.041
+
+Total number of iterations: 102
+CPU time used for tree search: 0.932 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.205 sec (0h:0m:0s)
+Total CPU time used: 1.046 sec (0h:0m:1s)
+Total wall-clock time used: 0.248 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 8
+
+Creating bootstrap alignment (seed: 223135)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -569.771
+Optimal log-likelihood: -569.756
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000774 sec (of wall-clock time) 0.002311 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000128 sec (of wall-clock time) 0.000125 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -569.761
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 76 initial trees ... 0.010 seconds
+Current best score: -569.756
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -569.756
+BETTER TREE FOUND at iteration 10: -569.756
+Iteration 10 / LogL: -569.756 / Time: 0h:0m:0s
+Iteration 20 / LogL: -569.756 / Time: 0h:0m:0s
+Finish initializing candidate tree set (17)
+Current best tree score: -569.756 / CPU time: 0.042
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -569.758 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -569.756 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -569.758 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -569.756 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -569.756 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -569.756 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -569.758 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -569.758 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -569.756 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 111 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -569.756
+Optimal log-likelihood: -569.756
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -569.756
+Total tree length: 0.029
+
+Total number of iterations: 111
+CPU time used for tree search: 0.570 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.118 sec (0h:0m:0s)
+Total CPU time used: 0.661 sec (0h:0m:0s)
+Total wall-clock time used: 0.152 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 9
+
+Creating bootstrap alignment (seed: 223136)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 28 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -610.735
+Optimal log-likelihood: -610.719
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000205 sec (of wall-clock time) 0.000940 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000124 sec (of wall-clock time) 0.000121 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -610.723
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 78 initial trees ... 0.018 seconds
+Current best score: -610.719
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -610.719
+BETTER TREE FOUND at iteration 2: -610.719
+BETTER TREE FOUND at iteration 6: -610.719
+Iteration 10 / LogL: -610.719 / Time: 0h:0m:0s
+BETTER TREE FOUND at iteration 11: -610.719
+Iteration 20 / LogL: -610.719 / Time: 0h:0m:0s
+Finish initializing candidate tree set (16)
+Current best tree score: -610.719 / CPU time: 0.065
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+BETTER TREE FOUND at iteration 41: -610.719
+UPDATE BEST LOG-LIKELIHOOD: -610.719
+Iteration 50 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 130 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 140 / LogL: -610.719 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 142 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -610.719
+Optimal log-likelihood: -610.719
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -610.719
+Total tree length: 0.050
+
+Total number of iterations: 142
+CPU time used for tree search: 0.830 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.178 sec (0h:0m:0s)
+Total CPU time used: 0.990 sec (0h:0m:0s)
+Total wall-clock time used: 0.219 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 10
+
+Creating bootstrap alignment (seed: 223137)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -572.690
+Optimal log-likelihood: -572.675
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000236 sec (of wall-clock time) 0.000592 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000103 sec (of wall-clock time) 0.000176 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -572.678
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 79 initial trees ... 0.013 seconds
+Current best score: -572.675
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -572.675
+Iteration 10 / LogL: -572.675 / Time: 0h:0m:0s
+BETTER TREE FOUND at iteration 11: -572.675
+Iteration 20 / LogL: -572.675 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -572.675 / CPU time: 0.045
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -572.675 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 112 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -572.675
+Optimal log-likelihood: -572.675
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -572.675
+Total tree length: 0.029
+
+Total number of iterations: 112
+CPU time used for tree search: 0.579 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.121 sec (0h:0m:0s)
+Total CPU time used: 0.684 sec (0h:0m:0s)
+Total wall-clock time used: 0.159 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 11
+
+Creating bootstrap alignment (seed: 223138)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -570.410
+Optimal log-likelihood: -570.396
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000399 sec (of wall-clock time) 0.000124 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000102 sec (of wall-clock time) 0.000101 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -570.400
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 77 initial trees ... 0.010 seconds
+Current best score: -570.396
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -570.396
+Iteration 10 / LogL: -570.396 / Time: 0h:0m:0s
+Iteration 20 / LogL: -570.396 / Time: 0h:0m:0s
+Finish initializing candidate tree set (17)
+Current best tree score: -570.396 / CPU time: 0.042
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -623.283 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -623.283 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -570.397 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -570.396 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -570.396 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -570.396 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -570.396 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -570.397 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -570.396
+Optimal log-likelihood: -570.396
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.005 sec)
+BEST SCORE FOUND : -570.396
+Total tree length: 0.029
+
+Total number of iterations: 102
+CPU time used for tree search: 0.555 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.113 sec (0h:0m:0s)
+Total CPU time used: 0.711 sec (0h:0m:0s)
+Total wall-clock time used: 0.160 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 12
+
+Creating bootstrap alignment (seed: 223139)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -591.696
+Optimal log-likelihood: -591.674
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000163 sec (of wall-clock time) 0.000715 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000581 sec (of wall-clock time) 0.001742 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -588.970
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.008 second
+Computing log-likelihood of 78 initial trees ... 0.013 seconds
+Current best score: -588.970
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -588.970
+UPDATE BEST LOG-LIKELIHOOD: -588.969
+BETTER TREE FOUND at iteration 4: -588.969
+Iteration 10 / LogL: -588.969 / Time: 0h:0m:0s
+Iteration 20 / LogL: -588.969 / Time: 0h:0m:0s
+Finish initializing candidate tree set (4)
+Current best tree score: -588.969 / CPU time: 0.066
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -588.969
+UPDATE BEST LOG-LIKELIHOOD: -588.969
+Iteration 30 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -588.968
+UPDATE BEST LOG-LIKELIHOOD: -588.968
+Iteration 70 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -588.968
+Iteration 90 / LogL: -588.969 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -588.968 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 105 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -588.968
+Optimal log-likelihood: -588.968
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -588.968
+Total tree length: 0.038
+
+Total number of iterations: 105
+CPU time used for tree search: 0.997 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.259 sec (0h:0m:0s)
+Total CPU time used: 1.114 sec (0h:0m:1s)
+Total wall-clock time used: 0.290 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 13
+
+Creating bootstrap alignment (seed: 223140)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -565.103
+Optimal log-likelihood: -565.084
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000111 sec (of wall-clock time) 0.000315 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000123 sec (of wall-clock time) 0.000123 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -565.088
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 75 initial trees ... 0.010 seconds
+Current best score: -565.084
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -565.084
+Iteration 10 / LogL: -565.084 / Time: 0h:0m:0s
+Iteration 20 / LogL: -565.084 / Time: 0h:0m:0s
+Finish initializing candidate tree set (18)
+Current best tree score: -565.084 / CPU time: 0.036
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -565.084 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -565.085 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -565.085 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -565.085 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -565.084
+Iteration 70 / LogL: -565.084 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -590.708 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -565.084 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -565.085 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -565.084
+Optimal log-likelihood: -565.084
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -565.084
+Total tree length: 0.027
+
+Total number of iterations: 102
+CPU time used for tree search: 0.480 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.111 sec (0h:0m:0s)
+Total CPU time used: 0.549 sec (0h:0m:0s)
+Total wall-clock time used: 0.138 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 14
+
+Creating bootstrap alignment (seed: 223141)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 22 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -582.990
+Optimal log-likelihood: -582.964
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000204 sec (of wall-clock time) 0.000000 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000123 sec (of wall-clock time) 0.000121 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -582.967
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 78 initial trees ... 0.011 seconds
+Current best score: -580.622
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -579.518
+UPDATE BEST LOG-LIKELIHOOD: -579.518
+BETTER TREE FOUND at iteration 3: -579.518
+Iteration 10 / LogL: -579.518 / Time: 0h:0m:0s
+Iteration 20 / LogL: -579.518 / Time: 0h:0m:0s
+Finish initializing candidate tree set (8)
+Current best tree score: -579.518 / CPU time: 0.140
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -579.518
+Iteration 30 / LogL: -579.518 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -579.518 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -579.518 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -579.518
+Iteration 60 / LogL: -579.518 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -579.519 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -579.519 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -579.519 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -579.518 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 104 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -579.518
+Optimal log-likelihood: -579.518
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -579.518
+Total tree length: 0.033
+
+Total number of iterations: 104
+CPU time used for tree search: 0.938 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.255 sec (0h:0m:0s)
+Total CPU time used: 1.091 sec (0h:0m:1s)
+Total wall-clock time used: 0.298 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 15
+
+Creating bootstrap alignment (seed: 223142)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -615.158
+Optimal log-likelihood: -615.138
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.007 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000214 sec (of wall-clock time) 0.000703 sec(of CPU time)
+Computing RapidNJ tree took 0.000118 sec (of wall-clock time) 0.000117 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -615.141
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.013 seconds
+Current best score: -614.611
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -614.319
+Iteration 10 / LogL: -614.319 / Time: 0h:0m:0s
+Iteration 20 / LogL: -615.138 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -614.319 / CPU time: 0.058
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -614.319
+UPDATE BEST LOG-LIKELIHOOD: -614.319
+Iteration 30 / LogL: -614.320 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -614.319
+Iteration 50 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -614.319 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -614.319
+Optimal log-likelihood: -614.319
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -614.319
+Total tree length: 0.050
+
+Total number of iterations: 102
+CPU time used for tree search: 0.948 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.208 sec (0h:0m:0s)
+Total CPU time used: 1.080 sec (0h:0m:1s)
+Total wall-clock time used: 0.260 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 16
+
+Creating bootstrap alignment (seed: 223143)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -582.921
+Optimal log-likelihood: -582.916
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000155 sec (of wall-clock time) 0.000497 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000122 sec (of wall-clock time) 0.000119 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -582.920
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 82 initial trees ... 0.012 seconds
+Current best score: -582.916
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -582.916
+Iteration 10 / LogL: -582.916 / Time: 0h:0m:0s
+Iteration 20 / LogL: -582.916 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -582.916 / CPU time: 0.035
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+BETTER TREE FOUND at iteration 32: -582.916
+Iteration 40 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -582.916
+Iteration 50 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -594.888 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 130 / LogL: -582.916 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 133 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -582.916
+Optimal log-likelihood: -582.916
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -582.916
+Total tree length: 0.034
+
+Total number of iterations: 133
+CPU time used for tree search: 0.639 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.134 sec (0h:0m:0s)
+Total CPU time used: 0.744 sec (0h:0m:0s)
+Total wall-clock time used: 0.172 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 17
+
+Creating bootstrap alignment (seed: 223144)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -593.052
+Optimal log-likelihood: -593.030
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000184 sec (of wall-clock time) 0.000699 sec(of CPU time)
+Computing RapidNJ tree took 0.000094 sec (of wall-clock time) 0.000092 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -593.033
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.013 seconds
+Current best score: -591.738
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -591.642
+BETTER TREE FOUND at iteration 2: -591.641
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+Iteration 10 / LogL: -591.641 / Time: 0h:0m:0s
+Iteration 20 / LogL: -593.029 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -591.641 / CPU time: 0.059
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+Iteration 30 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+Iteration 40 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+UPDATE BEST LOG-LIKELIHOOD: -591.641
+Iteration 50 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -591.641 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -591.641
+Optimal log-likelihood: -591.641
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -591.641
+Total tree length: 0.038
+
+Total number of iterations: 103
+CPU time used for tree search: 0.828 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.176 sec (0h:0m:0s)
+Total CPU time used: 0.965 sec (0h:0m:0s)
+Total wall-clock time used: 0.231 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 18
+
+Creating bootstrap alignment (seed: 223145)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -588.549
+Optimal log-likelihood: -588.543
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.001909 sec (of wall-clock time) 0.005833 sec(of CPU time)
+Computing RapidNJ tree took 0.000101 sec (of wall-clock time) 0.000100 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -588.546
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.012 second
+Computing log-likelihood of 75 initial trees ... 0.013 seconds
+Current best score: -588.393
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -587.929
+BETTER TREE FOUND at iteration 2: -587.929
+UPDATE BEST LOG-LIKELIHOOD: -587.929
+Iteration 10 / LogL: -587.929 / Time: 0h:0m:0s
+Iteration 20 / LogL: -587.929 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -587.929 / CPU time: 0.066
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -587.929
+UPDATE BEST LOG-LIKELIHOOD: -587.929
+Iteration 30 / LogL: -587.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -599.591 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -587.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -587.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -587.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -587.930 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -587.930 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -587.929 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -587.929
+UPDATE BEST LOG-LIKELIHOOD: -587.929
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -587.929
+Optimal log-likelihood: -587.929
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -587.929
+Total tree length: 0.034
+
+Total number of iterations: 103
+CPU time used for tree search: 0.898 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.204 sec (0h:0m:0s)
+Total CPU time used: 1.055 sec (0h:0m:1s)
+Total wall-clock time used: 0.260 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 19
+
+Creating bootstrap alignment (seed: 223146)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -599.793
+Optimal log-likelihood: -599.777
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000143 sec (of wall-clock time) 0.000114 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000101 sec (of wall-clock time) 0.000100 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -599.781
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 80 initial trees ... 0.010 seconds
+Current best score: -599.777
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -599.777
+Iteration 10 / LogL: -599.777 / Time: 0h:0m:0s
+Iteration 20 / LogL: -599.777 / Time: 0h:0m:0s
+Finish initializing candidate tree set (16)
+Current best tree score: -599.777 / CPU time: 0.047
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -599.778 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -599.778 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -599.777 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -599.777
+Optimal log-likelihood: -599.777
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -599.777
+Total tree length: 0.047
+
+Total number of iterations: 102
+CPU time used for tree search: 0.539 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.111 sec (0h:0m:0s)
+Total CPU time used: 0.633 sec (0h:0m:0s)
+Total wall-clock time used: 0.145 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 20
+
+Creating bootstrap alignment (seed: 223147)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -600.680
+Optimal log-likelihood: -600.652
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000156 sec (of wall-clock time) 0.000648 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000100 sec (of wall-clock time) 0.000098 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -600.653
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 77 initial trees ... 0.013 seconds
+Current best score: -600.652
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -600.652
+Iteration 10 / LogL: -600.652 / Time: 0h:0m:0s
+Iteration 20 / LogL: -600.652 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -600.652 / CPU time: 0.059
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -600.652 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -600.652 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -600.653 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -600.653 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -600.652 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -600.653 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -600.652 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -600.652 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -600.652
+Optimal log-likelihood: -600.652
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -600.652
+Total tree length: 0.048
+
+Total number of iterations: 102
+CPU time used for tree search: 0.596 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.127 sec (0h:0m:0s)
+Total CPU time used: 0.746 sec (0h:0m:0s)
+Total wall-clock time used: 0.172 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 21
+
+Creating bootstrap alignment (seed: 223148)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 28 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -627.830
+Optimal log-likelihood: -627.803
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000181 sec (of wall-clock time) 0.000628 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000098 sec (of wall-clock time) 0.000097 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -627.806
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 81 initial trees ... 0.024 seconds
+Current best score: -625.954
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -624.131
+Iteration 10 / LogL: -624.131 / Time: 0h:0m:0s
+Iteration 20 / LogL: -624.131 / Time: 0h:0m:0s
+Finish initializing candidate tree set (5)
+Current best tree score: -624.131 / CPU time: 0.073
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -624.131
+Iteration 30 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -624.131 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -624.131
+Optimal log-likelihood: -624.131
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -624.131
+Total tree length: 0.056
+
+Total number of iterations: 102
+CPU time used for tree search: 0.893 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.190 sec (0h:0m:0s)
+Total CPU time used: 1.014 sec (0h:0m:1s)
+Total wall-clock time used: 0.232 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 22
+
+Creating bootstrap alignment (seed: 223149)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -614.943
+Optimal log-likelihood: -614.926
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000160 sec (of wall-clock time) 0.000440 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000099 sec (of wall-clock time) 0.000099 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -609.880
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 75 initial trees ... 0.012 seconds
+Current best score: -609.880
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -609.878
+BETTER TREE FOUND at iteration 2: -609.875
+Iteration 10 / LogL: -609.875 / Time: 0h:0m:0s
+Iteration 20 / LogL: -609.875 / Time: 0h:0m:0s
+Finish initializing candidate tree set (7)
+Current best tree score: -609.875 / CPU time: 0.080
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+Iteration 30 / LogL: -609.875 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -609.876 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+Iteration 50 / LogL: -609.875 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+Iteration 60 / LogL: -609.875 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+Iteration 70 / LogL: -609.875 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -609.875
+Iteration 80 / LogL: -623.652 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -623.651 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -609.875 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -609.875
+Optimal log-likelihood: -609.875
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -609.875
+Total tree length: 0.050
+
+Total number of iterations: 103
+CPU time used for tree search: 0.924 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.243 sec (0h:0m:0s)
+Total CPU time used: 1.007 sec (0h:0m:1s)
+Total wall-clock time used: 0.273 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 23
+
+Creating bootstrap alignment (seed: 223150)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 27 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -616.570
+Optimal log-likelihood: -616.544
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000185 sec (of wall-clock time) 0.000674 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000099 sec (of wall-clock time) 0.000096 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -616.547
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 83 initial trees ... 0.018 seconds
+Current best score: -616.279
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -615.063
+UPDATE BEST LOG-LIKELIHOOD: -615.063
+Iteration 10 / LogL: -615.064 / Time: 0h:0m:0s
+UPDATE BEST LOG-LIKELIHOOD: -615.063
+UPDATE BEST LOG-LIKELIHOOD: -615.063
+Iteration 20 / LogL: -615.063 / Time: 0h:0m:0s
+Finish initializing candidate tree set (7)
+Current best tree score: -615.063 / CPU time: 0.086
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -615.064 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -615.063
+Iteration 60 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -615.064 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -615.063 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -615.063
+Optimal log-likelihood: -615.063
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -615.063
+Total tree length: 0.050
+
+Total number of iterations: 102
+CPU time used for tree search: 0.876 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.202 sec (0h:0m:0s)
+Total CPU time used: 0.982 sec (0h:0m:0s)
+Total wall-clock time used: 0.244 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 24
+
+Creating bootstrap alignment (seed: 223151)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -629.715
+Optimal log-likelihood: -629.700
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000405 sec (of wall-clock time) 0.000950 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000101 sec (of wall-clock time) 0.000098 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -624.240
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 77 initial trees ... 0.012 seconds
+Current best score: -624.240
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -624.237
+BETTER TREE FOUND at iteration 2: -624.236
+Iteration 10 / LogL: -624.236 / Time: 0h:0m:0s
+Iteration 20 / LogL: -629.700 / Time: 0h:0m:0s
+Finish initializing candidate tree set (5)
+Current best tree score: -624.236 / CPU time: 0.051
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+Iteration 30 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+Iteration 40 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -624.236
+Iteration 50 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -624.236 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -624.236
+Optimal log-likelihood: -624.236
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -624.236
+Total tree length: 0.058
+
+Total number of iterations: 103
+CPU time used for tree search: 0.909 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.224 sec (0h:0m:0s)
+Total CPU time used: 1.007 sec (0h:0m:1s)
+Total wall-clock time used: 0.264 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 25
+
+Creating bootstrap alignment (seed: 223152)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -605.814
+Optimal log-likelihood: -605.800
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000258 sec (of wall-clock time) 0.000783 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000089 sec (of wall-clock time) 0.000089 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -605.803
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 83 initial trees ... 0.014 seconds
+Current best score: -604.316
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -603.448
+Iteration 10 / LogL: -603.449 / Time: 0h:0m:0s
+Iteration 20 / LogL: -603.449 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -603.448 / CPU time: 0.066
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -603.448
+UPDATE BEST LOG-LIKELIHOOD: -603.448
+Iteration 30 / LogL: -603.449 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -603.448
+Iteration 40 / LogL: -603.449 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -603.449 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -603.448 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -603.448 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -603.448
+UPDATE BEST LOG-LIKELIHOOD: -603.448
+Iteration 80 / LogL: -603.448 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -603.448 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -603.448 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -603.448
+Optimal log-likelihood: -603.448
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -603.448
+Total tree length: 0.044
+
+Total number of iterations: 102
+CPU time used for tree search: 1.032 sec (0h:0m:1s)
+Wall-clock time used for tree search: 0.244 sec (0h:0m:0s)
+Total CPU time used: 1.084 sec (0h:0m:1s)
+Total wall-clock time used: 0.266 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 26
+
+Creating bootstrap alignment (seed: 223153)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -595.748
+Optimal log-likelihood: -595.735
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000453 sec (of wall-clock time) 0.000953 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000089 sec (of wall-clock time) 0.000087 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -595.738
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.012 seconds
+Current best score: -595.735
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -595.735
+BETTER TREE FOUND at iteration 2: -595.735
+Iteration 10 / LogL: -595.735 / Time: 0h:0m:0s
+BETTER TREE FOUND at iteration 13: -595.735
+Iteration 20 / LogL: -595.735 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -595.735 / CPU time: 0.037
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+BETTER TREE FOUND at iteration 29: -595.735
+Iteration 30 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -595.735
+Iteration 40 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 130 / LogL: -595.735 / Time: 0h:0m:0s (0h:0m:-1s left)
+TREE SEARCH COMPLETED AFTER 130 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -595.735
+Optimal log-likelihood: -595.735
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -595.735
+Total tree length: 0.041
+
+Total number of iterations: 130
+CPU time used for tree search: 0.623 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.138 sec (0h:0m:0s)
+Total CPU time used: 0.754 sec (0h:0m:0s)
+Total wall-clock time used: 0.187 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 27
+
+Creating bootstrap alignment (seed: 223154)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -608.733
+Optimal log-likelihood: -608.703
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.001410 sec (of wall-clock time) 0.005395 sec(of CPU time)
+Computing RapidNJ tree took 0.000111 sec (of wall-clock time) 0.000109 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -608.706
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.013 seconds
+Current best score: -607.915
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -607.749
+Iteration 10 / LogL: -607.749 / Time: 0h:0m:0s
+Iteration 20 / LogL: -607.749 / Time: 0h:0m:0s
+Finish initializing candidate tree set (5)
+Current best tree score: -607.749 / CPU time: 0.049
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -607.749
+Iteration 30 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -607.749
+Iteration 50 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -612.945 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -607.749
+Iteration 90 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -607.749
+Iteration 100 / LogL: -607.749 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -607.749
+Optimal log-likelihood: -607.749
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -607.749
+Total tree length: 0.048
+
+Total number of iterations: 102
+CPU time used for tree search: 0.887 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.190 sec (0h:0m:0s)
+Total CPU time used: 1.001 sec (0h:0m:1s)
+Total wall-clock time used: 0.226 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 28
+
+Creating bootstrap alignment (seed: 223155)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 22 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -621.099
+Optimal log-likelihood: -621.094
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000308 sec (of wall-clock time) 0.008161 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000116 sec (of wall-clock time) 0.000113 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -628.167
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 85 initial trees ... 0.012 seconds
+Current best score: -621.094
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -621.094
+UPDATE BEST LOG-LIKELIHOOD: -621.094
+UPDATE BEST LOG-LIKELIHOOD: -621.094
+Iteration 10 / LogL: -621.094 / Time: 0h:0m:0s
+Iteration 20 / LogL: -621.094 / Time: 0h:0m:0s
+Finish initializing candidate tree set (11)
+Current best tree score: -621.094 / CPU time: 0.037
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 21: -620.807
+UPDATE BEST LOG-LIKELIHOOD: -620.807
+Iteration 30 / LogL: -621.094 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -620.807 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -620.807 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -621.095 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -621.094 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -621.095 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -620.808 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -620.808 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -620.808 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -620.807 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 122 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -620.807
+Optimal log-likelihood: -620.807
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -620.807
+Total tree length: 0.055
+
+Total number of iterations: 122
+CPU time used for tree search: 0.810 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.167 sec (0h:0m:0s)
+Total CPU time used: 0.944 sec (0h:0m:0s)
+Total wall-clock time used: 0.211 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 29
+
+Creating bootstrap alignment (seed: 223156)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -565.317
+Optimal log-likelihood: -565.310
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.001195 sec (of wall-clock time) 0.002865 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000088 sec (of wall-clock time) 0.000086 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -565.311
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 73 initial trees ... 0.010 seconds
+Current best score: -565.310
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -565.310
+Iteration 10 / LogL: -565.310 / Time: 0h:0m:0s
+Iteration 20 / LogL: -565.310 / Time: 0h:0m:0s
+Finish initializing candidate tree set (20)
+Current best tree score: -565.310 / CPU time: 0.040
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -565.310
+Iteration 40 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -565.311 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -565.310 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -565.310
+Optimal log-likelihood: -565.310
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -565.310
+Total tree length: 0.026
+
+Total number of iterations: 102
+CPU time used for tree search: 0.500 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.109 sec (0h:0m:0s)
+Total CPU time used: 0.572 sec (0h:0m:0s)
+Total wall-clock time used: 0.143 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 30
+
+Creating bootstrap alignment (seed: 223157)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 22 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -600.620
+Optimal log-likelihood: -600.604
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000245 sec (of wall-clock time) 0.001029 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000081 sec (of wall-clock time) 0.000081 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -600.607
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 81 initial trees ... 0.013 seconds
+Current best score: -600.597
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -599.477
+Iteration 10 / LogL: -599.477 / Time: 0h:0m:0s
+UPDATE BEST LOG-LIKELIHOOD: -599.477
+UPDATE BEST LOG-LIKELIHOOD: -599.477
+Iteration 20 / LogL: -600.604 / Time: 0h:0m:0s
+Finish initializing candidate tree set (7)
+Current best tree score: -599.477 / CPU time: 0.077
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -599.477
+UPDATE BEST LOG-LIKELIHOOD: -599.477
+Iteration 30 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -599.477 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -599.477
+Optimal log-likelihood: -599.477
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -599.477
+Total tree length: 0.041
+
+Total number of iterations: 102
+CPU time used for tree search: 0.923 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.202 sec (0h:0m:0s)
+Total CPU time used: 1.043 sec (0h:0m:1s)
+Total wall-clock time used: 0.235 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 31
+
+Creating bootstrap alignment (seed: 223158)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 21 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -567.525
+Optimal log-likelihood: -567.513
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000160 sec (of wall-clock time) 0.000397 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000082 sec (of wall-clock time) 0.000080 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -567.517
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 76 initial trees ... 0.011 seconds
+Current best score: -567.513
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -567.513
+BETTER TREE FOUND at iteration 2: -567.513
+Iteration 10 / LogL: -567.513 / Time: 0h:0m:0s
+Iteration 20 / LogL: -567.513 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -567.513 / CPU time: 0.037
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+BETTER TREE FOUND at iteration 21: -567.513
+Iteration 30 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -580.618 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -567.513 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 122 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -567.513
+Optimal log-likelihood: -567.513
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -567.513
+Total tree length: 0.026
+
+Total number of iterations: 122
+CPU time used for tree search: 0.578 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.120 sec (0h:0m:0s)
+Total CPU time used: 0.731 sec (0h:0m:0s)
+Total wall-clock time used: 0.177 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 32
+
+Creating bootstrap alignment (seed: 223159)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 25 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -575.827
+Optimal log-likelihood: -575.811
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000255 sec (of wall-clock time) 0.001043 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000108 sec (of wall-clock time) 0.000108 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -575.816
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 74 initial trees ... 0.010 seconds
+Current best score: -575.811
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -575.811
+Iteration 10 / LogL: -575.811 / Time: 0h:0m:0s
+Iteration 20 / LogL: -575.811 / Time: 0h:0m:0s
+Finish initializing candidate tree set (16)
+Current best tree score: -575.811 / CPU time: 0.042
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -575.812 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -575.811 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -575.812 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -575.811 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -575.812 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -575.812 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -575.813 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -575.811 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -575.811
+Optimal log-likelihood: -575.811
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.003 sec)
+BEST SCORE FOUND : -575.811
+Total tree length: 0.032
+
+Total number of iterations: 102
+CPU time used for tree search: 0.585 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.121 sec (0h:0m:0s)
+Total CPU time used: 0.742 sec (0h:0m:0s)
+Total wall-clock time used: 0.161 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 33
+
+Creating bootstrap alignment (seed: 223160)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 21 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -574.408
+Optimal log-likelihood: -574.406
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000465 sec (of wall-clock time) 0.001904 sec(of CPU time)
+Computing RapidNJ tree took 0.000110 sec (of wall-clock time) 0.000110 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -588.554
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 80 initial trees ... 0.017 seconds
+Current best score: -574.405
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -574.405
+BETTER TREE FOUND at iteration 2: -574.405
+Iteration 10 / LogL: -574.405 / Time: 0h:0m:0s
+Iteration 20 / LogL: -574.406 / Time: 0h:0m:0s
+Finish initializing candidate tree set (12)
+Current best tree score: -574.405 / CPU time: 0.043
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -574.405
+Iteration 40 / LogL: -574.406 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -574.405
+Iteration 50 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -574.406 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -574.405 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -574.405
+Optimal log-likelihood: -574.405
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -574.405
+Total tree length: 0.028
+
+Total number of iterations: 103
+CPU time used for tree search: 0.613 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.131 sec (0h:0m:0s)
+Total CPU time used: 0.757 sec (0h:0m:0s)
+Total wall-clock time used: 0.167 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 34
+
+Creating bootstrap alignment (seed: 223161)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -620.081
+Optimal log-likelihood: -620.058
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000169 sec (of wall-clock time) 0.000823 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000110 sec (of wall-clock time) 0.000107 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -620.061
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.014 seconds
+Current best score: -615.625
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -615.492
+UPDATE BEST LOG-LIKELIHOOD: -615.492
+Iteration 10 / LogL: -615.492 / Time: 0h:0m:0s
+Iteration 20 / LogL: -620.058 / Time: 0h:0m:0s
+Finish initializing candidate tree set (9)
+Current best tree score: -615.492 / CPU time: 0.063
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -615.492
+Iteration 30 / LogL: -615.492 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -615.492
+Iteration 40 / LogL: -615.492 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -615.493 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -615.492 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -615.494 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -615.492 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -615.493 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -615.492
+UPDATE BEST LOG-LIKELIHOOD: -615.492
+Iteration 100 / LogL: -615.492 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -615.492
+Optimal log-likelihood: -615.492
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -615.492
+Total tree length: 0.053
+
+Total number of iterations: 102
+CPU time used for tree search: 0.986 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.226 sec (0h:0m:0s)
+Total CPU time used: 1.129 sec (0h:0m:1s)
+Total wall-clock time used: 0.266 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 35
+
+Creating bootstrap alignment (seed: 223162)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 22 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -588.702
+Optimal log-likelihood: -588.692
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000210 sec (of wall-clock time) 0.000702 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000109 sec (of wall-clock time) 0.000107 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -588.694
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.008 second
+Computing log-likelihood of 79 initial trees ... 0.007 seconds
+Current best score: -584.614
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -584.414
+BETTER TREE FOUND at iteration 2: -584.414
+UPDATE BEST LOG-LIKELIHOOD: -584.414
+Iteration 10 / LogL: -584.414 / Time: 0h:0m:0s
+Iteration 20 / LogL: -588.691 / Time: 0h:0m:0s
+Finish initializing candidate tree set (8)
+Current best tree score: -584.414 / CPU time: 0.040
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+Iteration 30 / LogL: -588.692 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+Iteration 40 / LogL: -584.414 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+Iteration 50 / LogL: -584.414 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -584.413 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -584.414 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+Iteration 80 / LogL: -584.413 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -584.413
+Iteration 90 / LogL: -584.414 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -584.413 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -584.413
+Optimal log-likelihood: -584.413
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -584.413
+Total tree length: 0.035
+
+Total number of iterations: 103
+CPU time used for tree search: 0.882 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.200 sec (0h:0m:0s)
+Total CPU time used: 0.995 sec (0h:0m:0s)
+Total wall-clock time used: 0.244 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 36
+
+Creating bootstrap alignment (seed: 223163)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -577.656
+Optimal log-likelihood: -577.636
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000123 sec (of wall-clock time) 0.000356 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000118 sec (of wall-clock time) 0.000116 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -577.639
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 84 initial trees ... 0.013 seconds
+Current best score: -577.636
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -577.636
+Iteration 10 / LogL: -577.636 / Time: 0h:0m:0s
+Iteration 20 / LogL: -577.636 / Time: 0h:0m:0s
+Finish initializing candidate tree set (19)
+Current best tree score: -577.636 / CPU time: 0.047
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -577.636
+Iteration 30 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+BETTER TREE FOUND at iteration 31: -577.636
+BETTER TREE FOUND at iteration 35: -577.636
+Iteration 40 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+BETTER TREE FOUND at iteration 48: -577.636
+Iteration 50 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -577.636
+Iteration 60 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 110 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 120 / LogL: -589.870 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 130 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 140 / LogL: -577.636 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -577.636
+TREE SEARCH COMPLETED AFTER 149 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -577.636
+Optimal log-likelihood: -577.636
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -577.636
+Total tree length: 0.033
+
+Total number of iterations: 149
+CPU time used for tree search: 0.921 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.213 sec (0h:0m:0s)
+Total CPU time used: 1.003 sec (0h:0m:1s)
+Total wall-clock time used: 0.242 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 37
+
+Creating bootstrap alignment (seed: 223164)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 26 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -608.897
+Optimal log-likelihood: -608.876
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000236 sec (of wall-clock time) 0.000169 sec(of CPU time)
+Computing RapidNJ tree took 0.000124 sec (of wall-clock time) 0.000123 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -608.878
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 80 initial trees ... 0.013 seconds
+Current best score: -608.093
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -607.929
+Iteration 10 / LogL: -607.930 / Time: 0h:0m:0s
+Iteration 20 / LogL: -608.875 / Time: 0h:0m:0s
+Finish initializing candidate tree set (7)
+Current best tree score: -607.929 / CPU time: 0.056
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -607.929
+UPDATE BEST LOG-LIKELIHOOD: -607.929
+Iteration 30 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -607.929
+Iteration 40 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -607.929
+Iteration 50 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -613.247 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -607.929 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -607.929
+Optimal log-likelihood: -607.929
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -607.929
+Total tree length: 0.047
+
+Total number of iterations: 102
+CPU time used for tree search: 0.869 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.189 sec (0h:0m:0s)
+Total CPU time used: 0.995 sec (0h:0m:0s)
+Total wall-clock time used: 0.238 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 38
+
+Creating bootstrap alignment (seed: 223165)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -599.503
+Optimal log-likelihood: -599.487
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000169 sec (of wall-clock time) 0.000496 sec(of CPU time)
+Computing RapidNJ tree took 0.000106 sec (of wall-clock time) 0.000105 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -599.489
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.010 second
+Computing log-likelihood of 79 initial trees ... 0.013 seconds
+Current best score: -599.387
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -598.996
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 10 / LogL: -598.996 / Time: 0h:0m:0s
+Iteration 20 / LogL: -599.487 / Time: 0h:0m:0s
+Finish initializing candidate tree set (4)
+Current best tree score: -598.996 / CPU time: 0.077
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 30 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 50 / LogL: -609.290 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 60 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 70 / LogL: -609.290 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -598.996
+Iteration 80 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -598.996 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -598.996
+Optimal log-likelihood: -598.996
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+BEST SCORE FOUND : -598.996
+Total tree length: 0.041
+
+Total number of iterations: 102
+CPU time used for tree search: 1.055 sec (0h:0m:1s)
+Wall-clock time used for tree search: 0.246 sec (0h:0m:0s)
+Total CPU time used: 1.144 sec (0h:0m:1s)
+Total wall-clock time used: 0.276 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 39
+
+Creating bootstrap alignment (seed: 223166)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -568.115
+Optimal log-likelihood: -568.105
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000169 sec (of wall-clock time) 0.000497 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000142 sec (of wall-clock time) 0.000227 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -568.108
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.011 second
+Computing log-likelihood of 77 initial trees ... 0.011 seconds
+Current best score: -568.098
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -566.672
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+BETTER TREE FOUND at iteration 4: -566.672
+Iteration 10 / LogL: -566.672 / Time: 0h:0m:0s
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 20 / LogL: -566.672 / Time: 0h:0m:0s
+Finish initializing candidate tree set (5)
+Current best tree score: -566.672 / CPU time: 0.070
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 30 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 40 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 50 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 60 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+UPDATE BEST LOG-LIKELIHOOD: -566.672
+Iteration 70 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -566.672 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 105 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -566.672
+Optimal log-likelihood: -566.672
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -566.672
+Total tree length: 0.026
+
+Total number of iterations: 105
+CPU time used for tree search: 1.061 sec (0h:0m:1s)
+Wall-clock time used for tree search: 0.266 sec (0h:0m:0s)
+Total CPU time used: 1.152 sec (0h:0m:1s)
+Total wall-clock time used: 0.300 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 40
+
+Creating bootstrap alignment (seed: 223167)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 24 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -600.318
+Optimal log-likelihood: -600.300
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000178 sec (of wall-clock time) 0.000648 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000113 sec (of wall-clock time) 0.000110 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -600.304
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.009 second
+Computing log-likelihood of 80 initial trees ... 0.016 seconds
+Current best score: -598.729
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -597.919
+Iteration 10 / LogL: -597.919 / Time: 0h:0m:0s
+Iteration 20 / LogL: -597.919 / Time: 0h:0m:0s
+Finish initializing candidate tree set (6)
+Current best tree score: -597.919 / CPU time: 0.067
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 30 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 50 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 60 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 70 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 90 / LogL: -605.450 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+Iteration 100 / LogL: -597.919 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -597.919
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -597.919
+Optimal log-likelihood: -597.919
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.000 sec)
+BEST SCORE FOUND : -597.919
+Total tree length: 0.041
+
+Total number of iterations: 102
+CPU time used for tree search: 1.068 sec (0h:0m:1s)
+Wall-clock time used for tree search: 0.288 sec (0h:0m:0s)
+Total CPU time used: 1.184 sec (0h:0m:1s)
+Total wall-clock time used: 0.334 sec (0h:0m:0s)
+
+===> START BOOTSTRAP REPLICATE NUMBER 41
+
+Creating bootstrap alignment (seed: 223168)...
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+WARNING: 4 threads for alignment length 23 will slow down analysis
+
+NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -613.915
+Optimal log-likelihood: -613.905
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters...
+Computing ML distances took 0.000168 sec (of wall-clock time) 0.000547 sec(of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing RapidNJ tree took 0.000121 sec (of wall-clock time) 0.000121 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -612.526
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.008 second
+Computing log-likelihood of 78 initial trees ... 0.014 seconds
+Current best score: -612.526
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -612.526
+BETTER TREE FOUND at iteration 2: -612.525
+Iteration 10 / LogL: -612.525 / Time: 0h:0m:0s
+Iteration 20 / LogL: -613.905 / Time: 0h:0m:0s
+Finish initializing candidate tree set (4)
+Current best tree score: -612.525 / CPU time: 0.064
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+UPDATE BEST LOG-LIKELIHOOD: -612.525
+Iteration 30 / LogL: -612.525 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -612.525 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -612.525
+Iteration 50 / LogL: -612.525 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -612.525
+Iteration 60 / LogL: -612.525 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -612.525 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -612.525

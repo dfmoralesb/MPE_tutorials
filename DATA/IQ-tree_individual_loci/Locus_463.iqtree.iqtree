@@ -1,0 +1,205 @@
+IQ-TREE 2.0.7 built Jun 17 2020
+
+Input file name: Locus_463.x.phy
+Type of analysis: ModelFinder + tree reconstruction + non-parametric bootstrap (200 replicates)
+Random seed number: 435477
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 4 sequences with 271 nucleotide sites
+Number of constant sites: 268 (= 98.893% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 268 (= 98.893% of all sites)
+Number of parsimony informative sites: 0
+Number of distinct site patterns: 8
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: JC
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+JC                 -397.393     804.786 +    0.059     805.013 +   0.0752     822.797 +    0.814
+JC+I               -397.393     806.786 -   0.0217     807.104 -   0.0264     828.399 -   0.0495
+K2P                -397.393     806.786 -   0.0217     807.104 -   0.0264     828.399 -   0.0495
+JC+G4              -397.393     806.786 -   0.0217     807.104 -   0.0264     828.399 -   0.0495
+K3P                -396.031     806.062 -   0.0312     806.488 -    0.036     831.277 -   0.0117
+F81+F              -393.666     803.332 +    0.122     803.882 +    0.132     832.149 -  0.00758
+TNe                -396.744     807.488 -   0.0153     807.913 -   0.0176     832.702 -  0.00575
+K2P+I              -397.393     808.786 -  0.00798     809.212 -  0.00921     834.001 -    0.003
+K2P+G4             -397.393     808.786 -  0.00798     809.212 -  0.00921     834.001 -    0.003
+TIMe               -395.380     806.760 -    0.022     807.310 -   0.0238     835.577 -  0.00137
+K3P+I              -396.031     808.062 -   0.0115     808.611 -   0.0124     836.879 - 0.000713
+K3P+G4             -396.031     808.062 -   0.0115     808.611 -   0.0124     836.879 - 0.000713
+HKY+F              -393.666     805.332 -   0.0449     806.022 -   0.0454     837.751 - 0.000461
+F81+F+I            -393.666     805.332 -   0.0449     806.022 -   0.0454     837.751 - 0.000461
+F81+F+G4           -393.666     805.332 -   0.0449     806.022 -   0.0454     837.751 - 0.000461
+TIM3e              -396.739     809.479 -  0.00564     810.028 -  0.00612     838.296 - 0.000351
+TIM2e              -396.740     809.481 -  0.00564     810.030 -  0.00612     838.298 - 0.000351
+TNe+I              -396.744     809.488 -  0.00562     810.037 -   0.0061     838.304 - 0.000349
+TNe+G4             -396.744     809.488 -  0.00562     810.037 -   0.0061     838.304 - 0.000349
+K3Pu+F             -392.347     804.694 +   0.0617     805.540 +   0.0578     840.715 - 0.000105
+TIMe+I             -395.380     808.760 -  0.00808     809.450 -  0.00818     841.180 -  8.3e-05
+TIMe+G4            -395.380     808.760 -  0.00808     809.450 -  0.00818     841.180 -  8.3e-05
+TN+F               -393.050     806.100 -   0.0306     806.946 -   0.0286     842.121 - 5.18e-05
+TVMe               -396.001     810.002 -  0.00434     810.692 -  0.00439     842.421 - 4.46e-05
+TPM3+F             -393.634     807.268 -   0.0171     808.114 -    0.016     843.289 - 2.89e-05
+TPM3u+F            -393.634     807.268 -   0.0171     808.114 -    0.016     843.289 - 2.89e-05
+TPM2+F             -393.652     807.304 -   0.0167     808.150 -   0.0157     843.325 - 2.84e-05
+TPM2u+F            -393.652     807.304 -   0.0167     808.150 -   0.0157     843.325 - 2.84e-05
+HKY+F+I            -393.666     807.332 -   0.0165     808.178 -   0.0154     843.353 -  2.8e-05
+HKY+F+G4           -393.666     807.332 -   0.0165     808.178 -   0.0154     843.353 -  2.8e-05
+TIM3e+G4           -396.735     811.470 -  0.00209     812.159 -  0.00211     843.889 - 2.14e-05
+TIM3e+I            -396.735     811.470 -  0.00209     812.159 -  0.00211     843.889 - 2.14e-05
+TIM2e+G4           -396.740     811.481 -  0.00207     812.170 -   0.0021     843.900 - 2.13e-05
+TIM2e+I            -396.740     811.481 -  0.00207     812.170 -   0.0021     843.900 - 2.13e-05
+TIM+F              -391.730     805.460 -   0.0421     806.479 -   0.0361     845.083 - 1.18e-05
+K3Pu+F+I           -392.347     806.694 -   0.0227     807.713 -   0.0195     846.317 - 6.36e-06
+K3Pu+F+G4          -392.347     806.694 -   0.0227     807.713 -   0.0195     846.318 - 6.36e-06
+SYM                -395.351     810.702 -  0.00306     811.548 -  0.00286     846.723 - 5.19e-06
+TIM3+F             -393.018     808.036 -   0.0116     809.056 -  0.00996     847.660 - 3.25e-06
+TIM2+F             -393.038     808.076 -   0.0114     809.095 -  0.00977     847.699 - 3.19e-06
+TN+F+I             -393.050     808.100 -   0.0112     809.119 -  0.00965     847.723 - 3.15e-06
+TN+F+G4            -393.050     808.100 -   0.0112     809.119 -  0.00965     847.723 - 3.15e-06
+TVMe+I             -396.001     812.002 -   0.0016     812.849 -   0.0015     848.024 - 2.71e-06
+TVMe+G4            -396.001     812.002 -   0.0016     812.849 -   0.0015     848.024 - 2.71e-06
+TPM3+F+G4          -393.634     809.268 -  0.00627     810.287 -  0.00538     848.891 - 1.76e-06
+TPM3u+F+G4         -393.634     809.268 -  0.00627     810.287 -  0.00538     848.891 - 1.76e-06
+TPM3+F+I           -393.634     809.268 -  0.00627     810.287 -  0.00538     848.891 - 1.76e-06
+TPM3u+F+I          -393.634     809.268 -  0.00627     810.287 -  0.00538     848.891 - 1.76e-06
+TPM2u+F+I          -393.652     809.304 -  0.00616     810.323 -  0.00529     848.927 - 1.72e-06
+TPM2+F+I           -393.652     809.304 -  0.00616     810.323 -  0.00529     848.927 - 1.72e-06
+TPM2+F+G4          -393.652     809.304 -  0.00616     810.323 -  0.00529     848.927 - 1.72e-06
+TPM2u+F+G4         -393.652     809.304 -  0.00616     810.323 -  0.00529     848.927 - 1.72e-06
+TIM+F+I            -391.730     807.460 -   0.0155     808.669 -   0.0121     850.685 - 7.16e-07
+TIM+F+G4           -391.730     807.460 -   0.0155     808.669 -   0.0121     850.685 - 7.16e-07
+TVM+F              -392.257     808.513 -  0.00915     809.722 -  0.00714     851.738 - 4.23e-07
+SYM+G4             -395.350     812.699 -  0.00113     813.719 - 0.000968     852.323 - 3.16e-07
+SYM+I              -395.350     812.699 -  0.00113     813.719 - 0.000968     852.323 - 3.16e-07
+TIM3+F+G4          -393.018     810.036 -  0.00427     811.246 -  0.00333     853.262 - 1.97e-07
+TIM3+F+I           -393.018     810.036 -  0.00427     811.246 -  0.00333     853.262 - 1.97e-07
+TIM2+F+G4          -393.038     810.076 -  0.00419     811.285 -  0.00327     853.302 - 1.94e-07
+TIM2+F+I           -393.038     810.076 -  0.00419     811.286 -  0.00327     853.302 - 1.94e-07
+GTR+F              -391.632     809.263 -  0.00629     810.680 -  0.00442     856.091 -  4.8e-08
+TVM+F+I            -392.249     810.499 -  0.00339     811.915 -  0.00238     857.326 - 2.59e-08
+TVM+F+G4           -392.256     810.512 -  0.00337     811.929 -  0.00237     857.340 - 2.57e-08
+GTR+F+I            -391.632     811.263 -  0.00231     812.904 -  0.00145     861.693 - 2.91e-09
+GTR+F+G4           -391.632     811.263 -  0.00231     812.904 -  0.00145     861.693 - 2.91e-09
+GTR+F+R2           -391.636     813.273 - 0.000847     815.155 - 0.000472     867.304 - 1.76e-10
+GTR+F+I+G4         -391.641     813.282 - 0.000843     815.165 -  0.00047     867.314 - 1.75e-10
+GTR+F+R3           -391.638     817.275 - 0.000114     819.694 - 4.88e-05     878.512 - 6.49e-13
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: JC
+
+Rate parameter R:
+
+  A-C: 1.0000
+  A-G: 1.0000
+  A-T: 1.0000
+  C-G: 1.0000
+  C-T: 1.0000
+  G-T: 1.0000
+
+State frequencies: (equal frequencies)
+
+Rate matrix Q:
+
+  A        -1    0.3333    0.3333    0.3333
+  C    0.3333        -1    0.3333    0.3333
+  G    0.3333    0.3333        -1    0.3333
+  T    0.3333    0.3333    0.3333        -1
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -397.3931 (s.e. 10.7699)
+Unconstrained log-likelihood (without tree): -392.6511
+Number of free parameters (#branches + #model parameters): 5
+Akaike information criterion (AIC) score: 804.7862
+Corrected Akaike information criterion (AICc) score: 805.0126
+Bayesian information criterion (BIC) score: 822.7968
+
+Total tree length (sum of branch lengths): 0.0111
+Sum of internal branch lengths: 0.0000 (0.0090% of tree length)
+
+WARNING: 1 near-zero internal branches (<0.0037) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+NOTE: Tree is UNROOTED although outgroup taxon 'A_ciliatum_135' is drawn at root
+Numbers in parentheses are  standard bootstrap support (%)
+
++----------------------------A_ciliatum_135
+|
+|  +----------------------------------------------------------A_urbicum_TM2001
++**| (74)
+|  +**Aeo_haworthii
+|
++**A_volkerii_TM194
+
+Tree in newick format:
+
+(A_ciliatum_135:0.0036991444,(A_urbicum_TM2001:0.0074166241,Aeo_haworthii:0.0000010000)74:0.0000010000,A_volkerii_TM194:0.0000010000);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 200 bootstrap trees
+Log-likelihood of consensus tree: -397.394327
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++----------------------------A_ciliatum_135
+|
+|  +----------------------------------------------------------A_urbicum_TM2001
++--| (74)
+|  +--Aeo_haworthii
+|
++--A_volkerii_TM194
+
+
+Consensus tree in newick format: 
+
+(A_ciliatum_135:0.0036991439,(A_urbicum_TM2001:0.0074152027,Aeo_haworthii:0.0000028057)74:0.0000028057,A_volkerii_TM194:0.0000028057);
+
+TIME STAMP
+----------
+
+Date and time: Thu Nov 25 22:46:33 2021
+Total CPU time used: 0.116501 seconds (0h:0m:0s)
+Total wall-clock time used: 0.05584406853 seconds (0h:0m:0s)
+
