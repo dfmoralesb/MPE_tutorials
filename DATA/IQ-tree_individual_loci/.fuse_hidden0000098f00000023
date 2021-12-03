@@ -1,1 +1,0 @@
-iqtree2 -m MFP -s Locus_1016.x.phy -T 4 -b 200 -wbt --seqtype DNA --prefix Locus_1016.iqtree
