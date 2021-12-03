@@ -5,7 +5,7 @@ This repository contains the instructions and data for the *Tree building and ti
 
 ## Preparation
 
-### * Requirements
+### * Requirements (software)
 
 
 * **IQ-TREE:** IQ-TREE v.2.0.7. Newer versions might be buggy, specially with ultrafast bootstrap annotation. You can find this version of IQ-TREE for Mac OS X, Linux, or Windows can be found on [https://github.com/Cibiv/IQ-TREE/releases](https://github.com/Cibiv/IQ-TREE/releases?page=1).
@@ -17,3 +17,10 @@ This repository contains the instructions and data for the *Tree building and ti
 * **BEAST2:** The BEAST2 package v.2.6.6. includes BEAUti, BEAST2, TreeAnnotator, and other tools (e.g., Densitree). The package can be found on the BEAST2 website [https://www.beast2.org](https://www.beast2.org). As all these programs are also written in Java and they all are compatible with any OS. Download the version that comes *with java*.
 
 * **Tracer:** Tracer is also written in Java. The program can be found on [https://github.com/beast-dev/tracer/releases](https://github.com/beast-dev/tracer/releases).
+
+
+### * Requirements (data)
+
+* All data (e.g, alignments), input files (e.g., XML for BEAST) and output files will be located in the **DATA** folder of this repository.
+
+Add description of each folder
