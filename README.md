@@ -68,4 +68,4 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 		
 * Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.
 
-<p align="center"><img src="img/figtree1.png" alt="FigTree" width="600"></p>
+<p align="center"><img src="images/figtree1.png" alt="FigTree" width="600"></p>
