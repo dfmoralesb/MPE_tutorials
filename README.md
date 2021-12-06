@@ -64,7 +64,7 @@ This repository contains the instructions and data for the ***Tree building and 
 
 Here we will explore how phylogenetic trees are encoded in Newick format, the format most commonly used in phylogenetic sofware, and we will visualize the maximum-likelihood phylogeny generated with IQ-TREE with the program [FigTree](http://tree.bio.ed.ac.uk/software/figtree/). For more detail about the newick format see [here](http://evolution.genetics.washington.edu/phylip/newicktree.html).
 
-* Open the file [`Locus_1562.x.phy.treefile`](res/Locus_1562.x.phy.treefile) in a text editor, or on the command line using, for example, the `less` command:
+* Open the file `Locus_1562.x.phy.treefile` in a text editor, or on the command line using, for example, the `less` command:
 
 		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy.treefile
 		
@@ -98,7 +98,7 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 * This command will run the Replicates for bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
 
 
-* Open file [`Locus_1562.x.bs.treefile`](Locus_1562.x.bs.treefile) in FigTree. You can use the less option as before and copy and paste the tree string on FigTree.
+* Open file `Locus_1562.x.bs.treefile` in FigTree. You can use the less option as before and copy and paste the tree string on FigTree.
 
 		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs.treefile
 
@@ -106,15 +106,33 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 * To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. <p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
 
-* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of the 2420 alignment in the folder `DATA/IQ-tree_individual_loc/input`. 
+* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of the 2420 alignments in the folder `DATA/IQ-tree_individual_loc/input`. 
 
-	You do not need to do this as all the output files are already located in `DATA/IQ-tree_individual_loc/output`. But you could do it with a bash loop like
+	You do not need to do this as all the output files are already located in `DATA/IQ-tree_individual_loc/output`. But you could do it with a bash loop like:
 	
 	
 		for i in $(ls *.phy)
 		do
 		iqtree2 -s $i -b 200
 		done
+
+
+## Inferring a concatenated ML tree
+
+Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 2419 loci. The input data is located in `DATA/IQ-tree_concatenated/input`.
+
+* You can see the size of the concatenated matrix by typing.
+
+		head -n 1 DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy
+		
+* You will see an put like below that that means that the alignment contains 21 taxa and 848730 aligned columns.
+
+		21 848730
+
+		
+
+
+848730
 
 
 
