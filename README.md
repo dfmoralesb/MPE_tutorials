@@ -128,19 +128,30 @@ Here we are going to infer a ML tree with IQ-tree using a concatenated alignment
 * You will see an put like below that that means that the alignment contains 21 taxa and 848730 aligned columns.
 
 		21 848730
-
 		
+* In this case we are going to use do a Partitioned maximum-likelihood inference. This means that we are going to split the alignment by loci and allow IQ-TREE to determine the ideal partitioning scheme itself. For this new need a 'partion' file and the option `q`. The partion file is located in the same directory as the alignment. 
+
+You can see the beginning (head) of the file by typing.
+
+		 head DATA/IQ-tree_concatenated/input/concatenated_aln.model
+		 
+And also can see the end (tail) 
+
+		tail DATA/IQ-tree_concatenated/input/concatenated_aln.model
+
+	<p align="center"><img src="images/partition.png" alt="FigTree" 
+	
+The partition file specifies the kind of partition `DNA` a unique name of each partion (e.g. `fasta_files/Locus_597.x.phy.fa;` this is just the name of the original alignment file) and the size of each partition (i.e. the range of the each partion in the alignment).
+
+* To tell IQ-TREE to determine the ideal partitioning scheme itself, we need to use the options `-m MFP --merge`. This tells IQ-TREE to perform model selection on each partition and combine similar partiton to find the best scheme. This uses the implementation of Kalyaanamoorthy et al. ([2017](http://dx.doi.org/10.1038/nmeth.4285))
+
+* Also in this occasion we are going to use ultrafast bootstrap procedure with the `-B` option. IQ-TREE recommends a a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable also after a lower number of replicates. See Hoang et al. ([2017](https://academic.oup.com/mbe/article/35/2/518/4565479)) for more details. 
 
 
-848730
+		iqtree2  -m MFP --merge -s concatenated_2419_loci.fa -T 120 -B 1000 -q concatenated_aln.model --prefix DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci
+
+* This run analysis should a considered larget than the previous one analyses of individual loci. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case I will use `-T 120`. If not sure about the number of CPUs available you can use `-T AUTO`
+
+* You do not need to run this as it will take too much time. The output files for this analyses are located at `DATA/IQ-tree_concatenated/output`.
 
 
-
-
-
-
-###
-* The analysis should a bit longer than the previous one. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case I will use `-T 120`. If not sure about the number of CPUs available you can use `-T AUTO`
-
-		iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy -b 200 --prefix Locus_1562.x.bs -T 120
-###
