@@ -139,7 +139,7 @@ And also can see the end (tail)
 
 		tail DATA/IQ-tree_concatenated/input/concatenated_aln.model
 
-<p align="center"><img src="images/partition.png" alt="FigTree" width="900"></p>
+<p align="center"><img src="images/partition.png" alt="partition" width="900"></p>
 
 	
 The partition file specifies the kind of partition `DNA` a unique name of each partion (e.g. `fasta_files/Locus_597.x.phy.fa;` this is just the name of the original alignment file) and the size of each partition (i.e. the range of the each partion in the alignment).
