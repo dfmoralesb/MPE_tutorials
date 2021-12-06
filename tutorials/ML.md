@@ -1,6 +1,12 @@
-## Maximum-Likelihood Phylogenetic Inference
+## Table of contents
 
-* Tutorial on phylogenetic inference with maximum likelihood with IQ-TREE
+* [Maximum-likelihood phylogenetic inference with IQ-TREE](#iqtree)
+* [Reading and visualizing tree files](#figtree)
+* [Assessing node support with bootstrapping](#boot)
+* [Inferring a concatenated ML tree](#concat)
+
+<a name="iqtree"></a>
+## Maximum-likelihood phylogenetic inference with IQ-TREE
 
 	Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
 
@@ -22,6 +28,7 @@
 
 * All output file names were automatically chosen based on the name of the input file. This be changed this using the `--prefix` option.
 
+<a name="figtree"></a>
 ## Reading and visualizing tree files
 
 Here we will explore how phylogenetic trees are encoded in Newick format, the format most commonly used in phylogenetic sofware, and we will visualize the maximum-likelihood phylogeny generated with IQ-TREE with the program [FigTree](http://tree.bio.ed.ac.uk/software/figtree/). For more detail about the newick format see [here](http://evolution.genetics.washington.edu/phylip/newicktree.html).
@@ -42,6 +49,7 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 
 * Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
 
+<a name="boot"></a>
 ## Assessing node support with bootstrapping
 
 To identify which nodes in the phylogeny are more or less trustworthy, we will now perform a bootstrap analysis.
@@ -82,7 +90,7 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 		iqtree2 -s $i -b 200
 		done
 
-
+<a name="concat"></a>
 ## Inferring a concatenated ML tree
 
 Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 2419 loci. The input data is located in `DATA/IQ-tree_concatenated/input`.

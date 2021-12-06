@@ -37,7 +37,7 @@ This repository contains the instructions and data for the ***Tree building and 
 		git clone https://github.com/dfmoralesb/MPE_tutorials.git
 		
 		
-## Phylogenetic inference
+## Phylogenetic inference tutorials
 
 * [Maximum-Likelihood Phylogenetic Inference](tutorials/ML.md)<br>A tutorial on phylogenetic inference with maximum likelihood using IQ-TREE
 
