@@ -40,17 +40,17 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 		iqtree2 --help
 
-<p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="600"></p>		
+<p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="1200"></p>		
 		
 * IQ-TREE cand be started as easily as just providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
 		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy
 		
-<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="600"></p>		
+<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="1200"></p>		
 
 * Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files. Write down the maximum-likelihood value.
 
-* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `Locus_1562.x.phy.treefile`:<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="600"></p>
+* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `Locus_1562.x.phy.treefile`:<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="1200"></p>
 
 * All output file names were automatically chosen based on the name of the input file. This be changed this using the `--prefix` option.
 
@@ -68,16 +68,16 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 		
 * Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.
 
-<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="600"></p>
+<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="1200"></p>
 
 * To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.
 
-<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="600"></p>
+<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="1200"></p>
 
 * Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
 
-<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="600"></p>
+<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="1200"></p>
 
 * Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot
 
-<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="600"></p>
+<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="1200"></p>
