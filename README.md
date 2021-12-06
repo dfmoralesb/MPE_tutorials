@@ -69,3 +69,15 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 * Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.
 
 <p align="center"><img src="images/figtree_1.png" alt="FigTree" width="600"></p>
+
+* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.
+
+<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="600"></p>
+
+* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
+
+<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="600"></p>
+
+* Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot
+
+<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="600"></p>
