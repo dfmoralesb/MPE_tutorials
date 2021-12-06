@@ -101,6 +101,9 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 * Open file `Locus_1562.x.bs.treefile` in FigTree. You can use the less option as before and copy and paste the tree string on FigTree.
 
 		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs.treefile
+		
+	It should look like this:
+		(A_arboreum_153:0.0000010000,(((((((A_balsamiferum_TM178:0.0000010000,A_leucoblepharu:0.0000010000)99:0.0030520595,(A_gorgoneum_TM185:0.0000010000,A_stuessyi_TM2031:0.0000010000)69:0.0028660844)57:0.0028566025,A_cuneatum_134:0.0057936629)13:0.0000010000,A_canariense_TM189:0.0028860818)32:0.0028788372,((((A_goochiae_TM184:0.0000010000,A_lindleyi_TM190:0.0000010000)90:0.0086815307,A_saundersii_merged:0.0029990833)56:0.0030101098,Mon_mura_111:0.0315848208)53:0.0030486613,A_sedifolium_TM187:0.0029239609)91:0.0151842687)21:0.0000010000,((((A_ciliatum_135:0.0000010000,Aeo_haworthii:0.0000010000)57:0.0000010000,((A_nobile_TM191:0.0000010000,A_urbicum_TM2001:0.0000010000)21:0.0000010000,A_volkerii_TM194:0.0000010000)14:0.0000010000)15:0.0000010000,A_valverdense_TM2131:0.0000010000)84:0.0029242856,A_davidbramwellii_TM2021:0.0028736910)56:0.0029108013)13:0.0000010000,Aeo_glutinosum:0.0028585680)97:0.0086808756,Aeo_korneliuslemsii:0.0000010000);
 
 * Once again root the tree with "Mon_mura_111" and sort the taxa with "Increasing node order". 
 
@@ -155,4 +158,15 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 
 * You do not need to run this as it will take too much time. The output files for this analyses are located at `DATA/IQ-tree_concatenated/output`.
 
+* Open the file `IQtree2_concatenated_2419_loci.treefile`
 
+		less DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.treefile
+
+	It should look like this:
+		(A_arboreum_153:0.0014849078,(A_balsamiferum_TM178:0.0011535530,(((((A_cuneatum_134:0.0065514518,A_canariense_TM189:0.0072583511)100:0.0015530642,Aeo_glutinosum:0.0090574484)100:0.0023872758,(((((A_ciliatum_135:0.0026558778,A_volkerii_TM194:0.0024888707)100:0.0009839747,A_urbicum_TM2001:0.0042130349)100:0.0012161129,Aeo_haworthii:0.0022985151)100:0.0014098253,A_davidbramwellii_TM2021:0.0056304679)100:0.0023965907,(A_valverdense_TM2131:0.0052622481,A_nobile_TM191:0.0082347492)100:0.0020565574)100:0.0032489645)87:0.0016314676,(((A_goochiae_TM184:0.0064710978,A_lindleyi_TM190:0.0061792425)100:0.0097779590,Mon_mura_111:0.0434930391)84:0.0012266869,(A_saundersii_merged:0.0128397974,A_sedifolium_TM187:0.0140337688)100:0.0025872713)100:0.0048456363)100:0.0053188993,((A_stuessyi_TM2031:0.0005572773,A_leucoblepharu:0.0009037328)99:0.0006215380,A_gorgoneum_TM185:0.0010816831)100:0.0022975052)100:0.0054524452)100:0.0008226453,Aeo_korneliuslemsii:0.0019086054);
+	
+* Again root the tree with "Mon_mura_111", sort the taxa with "Increasing node order" and display the node support. You can see how the brach lengths and bootstrap support differ from a single-locus tree. <p align="center"><img src="images/concat.png" alt="partition" width="900"></p>
+
+
+
+	
