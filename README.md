@@ -50,7 +50,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 		
 * IQ-TREE cand be started as easily as just providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
-		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy
+		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
 		
 <p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
@@ -72,21 +72,13 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 		
 		(A_arboreum_153:0.0000010000,(((((((A_balsamiferum_TM178:0.0000010000,A_leucoblepharu:0.0000010000):0.0030523931,(A_gorgoneum_TM185:0.0000010000,A_stuessyi_TM2031:0.0000010000):0.0028665085):0.0028569672,A_cuneatum_134:0.0057941060):0.0000010000,A_canariense_TM189:0.0028868572):0.0028790905,((((A_goochiae_TM184:0.0000010000,A_lindleyi_TM190:0.0000010000):0.0086830962,A_saundersii_merged:0.0029994261):0.0030109370,Mon_mura_111:0.0315882241):0.0030478381,A_sedifolium_TM187:0.0029232996):0.0151856647):0.0000010000,(((A_ciliatum_135:0.0000010000,Aeo_haworthii:0.0000010000):0.0000010000,(((A_nobile_TM191:0.0000000000,A_volkerii_TM194:0.0000000000):0.0000010000,A_urbicum_TM2001:0.0000010000):0.0000010000,A_valverdense_TM2131:0.0000010000):0.0000010000):0.0029245985,A_davidbramwellii_TM2021:0.0028736162):0.0029110197):0.0000010000,Aeo_glutinosum:0.0028595971):0.0086818059,Aeo_korneliuslemsii:0.0000010000);
 		
-* Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.
+* Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
 
-<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
+* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="900"></p>
 
-* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.
+* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="900"></p>
 
-<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="900"></p>
-
-* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
-
-<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="900"></p>
-
-* Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot
-
-<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
+* Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
 
 ## Assessing node support with bootstrapping
 
