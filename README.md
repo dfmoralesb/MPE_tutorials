@@ -32,7 +32,7 @@ This repository contains the instructions and data for the ***Tree building and 
 
 ### Before you start
 
-* You will need to clone this repository to get all the data on the local computed
+* You will need to clone this repository to get all the data on the local computer.
 
 		git clone https://github.com/dfmoralesb/MPE_tutorials.git
 
@@ -40,19 +40,19 @@ This repository contains the instructions and data for the ***Tree building and 
 
 * Tutorial on phylogenetic inference with maximum likelihood with IQ-TREE
 
-Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
+	Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
 
 * To see the many options available in IQ-TREE you can type the following in the command line:
 
 		iqtree2 --help
 
-<p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="900"></p>		
+* You can scroll up and down to check all the available options. <p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="900"></p>		
 		
 * IQ-TREE cand be started as easily as just providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
-		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
+		iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
 		
-<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
+	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses.<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
 * Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files. Write down the maximum-likelihood value.
 
