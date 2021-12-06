@@ -106,7 +106,15 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 * To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. <p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
 
+* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of the 2420 alignment in the folder `DATA/IQ-tree_individual_loc/input`. 
 
+	You do not need to do this as all the output files are already located in `DATA/IQ-tree_individual_loc/output`. But you could do it with a bash loop like
+	
+	
+		for i in $(ls *.phy)
+		do
+		iqtree2 -s $i -b 200
+		done
 
 
 
