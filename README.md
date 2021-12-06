@@ -39,12 +39,14 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 * To see the many options available in IQ-TREE you can type the following in the command line:
 
 		iqtree2 --help
-		
+
+<p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="600"></p>		
 		
 * IQ-TREE cand be started as easily as just providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
 		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy
 		
+<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="600"></p>		
 
 * Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files. Write down the maximum-likelihood value.
 
