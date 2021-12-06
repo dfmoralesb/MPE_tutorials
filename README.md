@@ -36,3 +36,16 @@ This repository contains the instructions and data for the ***Tree building and 
 
 Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
 
+* To see the many options available in IQ-TREE you can type the following in the command line:
+
+		iqtree2 --help
+		
+		
+* IQ-TREE cand be started as easily as just providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
+
+		iqtree2 -s  DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy
+		
+
+* Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files. Write down the maximum-likelihood value.
+
+* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `Locus_1562.x.phy.treefile`:<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="600"></p> all output file names were automatically chosen based on the name of the input file. This be changed this using the `--prefix` option.
