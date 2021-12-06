@@ -35,6 +35,16 @@ This repository contains the instructions and data for the ***Tree building and 
 * You will need to clone this repository to get all the data on the local computer.
 
 		git clone https://github.com/dfmoralesb/MPE_tutorials.git
+		
+		
+## Phylogenetic inference
+
+* [Maximum-Likelihood Phylogenetic Inference](ML.md)<br>A tutorial on phylogenetic inference with maximum likelihood
+
+* [Coalescent-based Species Tree Inference](substitution_model_selection/README.md)<br>A tutorial on the selection of a substitution model for phylogenetic analysis
+
+* [Maximum-Likelihood Phylogenetic Inference](ml_phylogeny_inference/README.md)<br>A tutorial on phylogenetic inference with maximum likelihood
+
 
 ## Maximum-Likelihood Phylogenetic Inference
 
