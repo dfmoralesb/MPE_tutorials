@@ -8,7 +8,7 @@
 <a name="iqtree"></a>
 ## Maximum-likelihood phylogenetic inference with IQ-TREE
 
-	Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
+Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
 
 * To see the many options available in IQ-TREE you can type the following in the command line:
 
