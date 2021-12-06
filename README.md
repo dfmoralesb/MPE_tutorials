@@ -112,9 +112,7 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 * Once again root the tree with "Mon_mura_111" and sort the taxa with "Increasing node order". 
 
-* To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot.
-
-<p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
+* To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. <p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
 
 
 
