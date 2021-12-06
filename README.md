@@ -30,6 +30,12 @@ This repository contains the instructions and data for the ***Tree building and 
 * **ASTRAL** This folder contains the input file (e.g. all individual gene trees from ***IQ-tree_individual_loci*** in single file) and the output ASTRAL.
 
 
+### Before you start
+
+* You will need to clone this repository to get all the data on the local computed
+
+		git clone https://github.com/dfmoralesb/MPE_tutorials.git
+
 ## Maximum-Likelihood Phylogenetic Inference
 
 * Tutorial on phylogenetic inference with maximum likelihood with IQ-TREE
@@ -81,3 +87,44 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the fo
 * Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot
 
 <p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
+
+## Assessing node support with bootstrapping
+
+To identify which nodes in the phylogeny are more or less trustworthy, we will now perform a bootstrap analysis.
+
+* To see again the available options in IQ-TREE type:
+
+		iqtree2 --help
+
+* Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-b` option to perform the 'standard' non-parametric bootstrap Felsenstein ([1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x)). 
+
+
+
+		 iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy -b 200 --prefix DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs
+	
+		
+* This command will run the Replicates for bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
+
+
+* Open file [`Locus_1562.x.bs.treefile`](Locus_1562.x.bs.treefile) in FigTree. You can use the less option as before and copy and paste the tree string on FigTree.
+
+		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs.treefile
+
+* Once again root the tree with "Mon_mura_111" and sort the taxa with "Increasing node order". 
+
+* To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot.
+
+<p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
+
+
+
+
+
+
+
+
+###
+* The analysis should a bit longer than the previous one. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case I will use `-T 120`. If not sure about the number of CPUs available you can use `-T AUTO`
+
+		iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy -b 200 --prefix Locus_1562.x.bs -T 120
+###
