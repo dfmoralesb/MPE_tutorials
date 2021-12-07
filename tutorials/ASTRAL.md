@@ -37,8 +37,7 @@ ASTRAL is a java program for estimating a species tree given a set of unrooted g
 
 * You can open the `all_gene_trees_2419.tre` file with the `less` command.
 
-		less DATA/ASTRAL/input/all_gene_trees_2419.tre
-		
+		less DATA/ASTRAL/input/all_gene_trees_2419.tre	
 	The file should like below. In each tree end with the `;` character. <p align="center"><img src="images/astral_2.png" alt="IQTREE" width="900"></p>
 
 	
