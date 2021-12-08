@@ -1,0 +1,127 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="BirthDeath.t:FcC_supermatrix" spec="beast.evolution.speciation.BirthDeathGernhard08Model">
+#            <parameter id="BDDeathRate.t:FcC_supermatrix" lower="0.0" name="relativeDeathRate" spec="beast.core.parameter.RealParameter" upper="1.0">0.5</parameter>
+#            <parameter id="BDBirthRate.t:FcC_supermatrix" lower="0.0" name="birthDiffRate" spec="beast.core.parameter.RealParameter" upper="10000.0">1.0</parameter>
+#            <tree id="Tree.t:FcC_supermatrix" spec="beast.evolution.tree.Tree">
+#                <taxonset id="TaxonSet.FcC_supermatrix" spec="beast.evolution.alignment.TaxonSet">
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <prior id="BirthRatePrior.t:FcC_supermatrix" name="distribution" x="@BDBirthRate.t:FcC_supermatrix">
+#            <Uniform id="Uniform.7" name="distr" upper="1000.0"/>
+#        </prior>
+#        <prior id="DeathRatePrior.t:FcC_supermatrix" name="distribution" x="@BDDeathRate.t:FcC_supermatrix">
+#            <Uniform id="Uniform.8" name="distr"/>
+#        </prior>
+#        <prior id="FrequenciesPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter dimension="4" id="freqParameter.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter" upper="1.0">0.25</parameter>
+#            <Uniform id="Uniform.3" name="distr"/>
+#        </prior>
+#        <prior id="GammaShapePrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="gammaShape.s:FcC_supermatrix" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Exponential id="Exponential.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.0" name="mean" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </Exponential>
+#        </prior>
+#        <prior id="RateACPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="rateAC.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.1" name="alpha" spec="beast.core.parameter.RealParameter">0.05</parameter>
+#                <parameter estimate="false" id="RealParameter.2" name="beta" spec="beast.core.parameter.RealParameter">10.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="RateAGPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="rateAG.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.1" name="distr">
+#                <parameter estimate="false" id="RealParameter.3" name="alpha" spec="beast.core.parameter.RealParameter">0.05</parameter>
+#                <parameter estimate="false" id="RealParameter.4" name="beta" spec="beast.core.parameter.RealParameter">20.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="RateATPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="rateAT.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.2" name="distr">
+#                <parameter estimate="false" id="RealParameter.5" name="alpha" spec="beast.core.parameter.RealParameter">0.05</parameter>
+#                <parameter estimate="false" id="RealParameter.6" name="beta" spec="beast.core.parameter.RealParameter">10.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="RateCGPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="rateCG.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.3" name="distr">
+#                <parameter estimate="false" id="RealParameter.7" name="alpha" spec="beast.core.parameter.RealParameter">0.05</parameter>
+#                <parameter estimate="false" id="RealParameter.8" name="beta" spec="beast.core.parameter.RealParameter">10.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="RateGTPrior.s:FcC_supermatrix" name="distribution">
+#            <parameter id="rateGT.s:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Gamma id="Gamma.5" name="distr">
+#                <parameter estimate="false" id="RealParameter.11" name="alpha" spec="beast.core.parameter.RealParameter">0.05</parameter>
+#                <parameter estimate="false" id="RealParameter.12" name="beta" spec="beast.core.parameter.RealParameter">10.0</parameter>
+#            </Gamma>
+#        </prior>
+#        <prior id="MeanRatePrior.c:FcC_supermatrix" name="distribution">
+#            <parameter id="ucldMean.c:FcC_supermatrix" name="x" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <Uniform id="Uniform" name="distr" upper="Infinity"/>
+#        </prior>
+#        <prior id="ucldStdevPrior.c:FcC_supermatrix" name="distribution">
+#            <parameter id="ucldStdev.c:FcC_supermatrix" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">0.1</parameter>
+#            <Gamma id="Gamma" name="distr">
+#                <parameter estimate="false" id="RealParameter" name="alpha" spec="beast.core.parameter.RealParameter">0.5396</parameter>
+#                <parameter estimate="false" id="RealParameter1" name="beta" spec="beast.core.parameter.RealParameter">0.3819</parameter>
+#            </Gamma>
+#        </prior>
+#        <distribution id="Crown.prior" monophyletic="true" spec="beast.math.distributions.MRCAPrior" tree="@Tree.t:FcC_supermatrix">
+#            <taxonset id="Crown" spec="beast.evolution.alignment.TaxonSet">
+#                <taxon id="A_arboreum_153" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_balsamiferum_TM178" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_canariense_TM189" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_ciliatum_135" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_cuneatum_134" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_davidbramwellii_TM2021" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_goochiae_TM184" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_gorgoneum_TM185" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_leucoblepharu" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_lindleyi_TM190" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_nobile_TM191" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_saundersii_merged" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_sedifolium_TM187" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_stuessyi_TM2031" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_urbicum_TM2001" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_valverdense_TM2131" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="A_volkerii_TM194" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="Aeo_glutinosum" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="Aeo_haworthii" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="Aeo_korneliuslemsii" spec="beast.evolution.alignment.Taxon"/>
+#                <taxon id="Mon_mura_111" spec="beast.evolution.alignment.Taxon"/>
+#            </taxonset>
+#            <LogNormal id="LogNormalDistributionModel.0" meanInRealSpace="true" name="distr">
+#                <parameter estimate="false" id="RealParameter.13" name="M" spec="beast.core.parameter.RealParameter">11.62</parameter>
+#                <parameter estimate="false" id="RealParameter.14" lower="0.0" name="S" spec="beast.core.parameter.RealParameter" upper="5.0">0.25</parameter>
+#            </LogNormal>
+#        </distribution>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@FcC_supermatrix" id="treeLikelihood.FcC_supermatrix" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:FcC_supermatrix">
+#            <siteModel gammaCategoryCount="4" id="SiteModel.s:FcC_supermatrix" shape="@gammaShape.s:FcC_supermatrix" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:FcC_supermatrix" name="mutationRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:FcC_supermatrix" lower="0.0" name="proportionInvariant" spec="beast.core.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="gtr.s:FcC_supermatrix" rateAC="@rateAC.s:FcC_supermatrix" rateAG="@rateAG.s:FcC_supermatrix" rateAT="@rateAT.s:FcC_supermatrix" rateCG="@rateCG.s:FcC_supermatrix" rateGT="@rateGT.s:FcC_supermatrix" spec="beast.evolution.substitutionmodel.GTR">
+#                    <parameter estimate="false" id="rateCT.s:FcC_supermatrix" lower="0.0" name="rateCT" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                    <frequencies frequencies="@freqParameter.s:FcC_supermatrix" id="estimatedFreqs.s:FcC_supermatrix" spec="beast.evolution.substitutionmodel.Frequencies"/>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel clock.rate="@ucldMean.c:FcC_supermatrix" id="RelaxedClock.c:FcC_supermatrix" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" tree="@Tree.t:FcC_supermatrix">
+#                <LogNormal S="@ucldStdev.c:FcC_supermatrix" id="LogNormalDistributionModel.c:FcC_supermatrix" meanInRealSpace="true" name="distr">
+#                    <parameter estimate="false" id="RealParameter2" lower="0.0" name="M" spec="beast.core.parameter.RealParameter" upper="1.0">1.0</parameter>
+#                </LogNormal>
+#                <rateCategories dimension="40" id="rateCategories.c:FcC_supermatrix" spec="beast.core.parameter.IntegerParameter">1</rateCategories>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood.FcC_supermatrix	TreeHeight	rateAC	rateAG	rateAT	rateCG	rateGT	gammaShape	ucldStdev	rate.mean	rate.variance	rate.coefficientOfVariation	logP(mrca(Crown))	mrca.age(Crown)	ucldMean	BirthDeath	BDBirthRate	BDDeathRate	freqParameter.1	freqParameter.2	freqParameter.3	freqParameter.4
+0	-438558.6139018702	-438277.953920377	-280.6599814931931	-438277.953920377	0.03211800000000001	1.0	1.0	1.0	1.0	1.0	1.0	0.1	0.9525461165316365	0.006666491241954328	0.0845450622582032	-270.79389236310163	0.03211800000000001	1.0	13.127001641305045	1.0	0.5	0.25	0.25	0.25	0.25

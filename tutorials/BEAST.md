@@ -3,8 +3,8 @@
 ## Table of contents
 
 * [Divergence time estimation with BEAST2](#beast)
-* [Running ASTRAL](#running)
-* [The ASTRAL Log information](#log)
+* [Setting the XML file with BEAUti](#beaut)
+* [## Running BEAST](#beast)
 * [Branch length and support](#support)
 * [Reading and visualizing tree files](#figtree)
 
@@ -48,8 +48,21 @@
 		
 * When the window looks as in the above screenshots, click on "Save" in BEAUti's "File" menu, and name the resulting file in XML format `Aeonium_BEAST2.xml`.	<p align="center"><img src="images/beauti_9.png" alt="beauti" width="900"></p>
 
+<a name="beast"></a>
+## Running BEAST
 
+* Open the program BEAST2 and select the file [`Aeonium_BEAST2.xml` as input file, as shown in the screenshot below. When you click the "Run" button, BEAST2 will start the analysis. Running BEAST2 in this way is not convient as it usually takes several day, but it is helpful to see if the XML was correctly set up and BEAST starts without problem.
 
+<p align="center"><img src="img/beast_1.png" alt="beast" width="500"></p>
+
+* Usually BEAST2 is run in a workstation or cluster using the command line like
+
+		~/Apps/beast/bin/beast -threads 30 DATA/BEAST/input/Aeonium_BEAST2.xml
+		
+	If BEAST2 started to run correctly you will see something like this:<p align="center"><img src="img/beast_2.png" alt="beast" width="500"></p>
+
+	
+	
 
 
 
