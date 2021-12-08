@@ -1,24 +1,5 @@
 # Phylogenetic Divergence-Time Estimation
 
-A tutorial on phylogenetic divergence-time estimation with with fossils
-
-## Summary
-
-The field of phylogenetic divergence-time estimation has seen tremendous progress over the last two decades, fuelled by increasing availability of molecular data as well as many methodological advances. Some of the most noteworthy advances include the development of Bayesian phylogenetic approaches for divergence-time estimation, the introduction of relaxed-clock models, as well as the implementation of quantitative models of the fossil-sampling process. In particular the latter development promises great improvements in the accuracy of divergence-time estimates as it addresses a major shortcoming of the previously common practice of node dating in which age calibrations were usually specified arbitrarily (and therefore differently by different researchers) due to the absence of quantitative criteria.
-
-## Table of contents
-
-* [Outline](#outline)
-* [Dataset](#dataset)
-* [Requirements](#requirements)
-* [Divergence-time estimation with CladeAge](#cladeage)
-* [Divergence-time estimation with the FBD model](#fbd)
-* [Interpretation of the inferred timelines](#interpretation)
-
-<a name="outline"></a>
-
-
-
 ## Table of contents
 
 * [Divergence time estimation with BEAST2](#beast)
@@ -41,6 +22,8 @@ The field of phylogenetic divergence-time estimation has seen tremendous progres
 ## Setting the XML file with BEAUti
 
 * The XML [Extensible Markup Language](https://www.w3.org/standards/xml/core) files contains the alignement, priors, and other setting to run the analyses on BEAST.
+
+* Open the program BEAUti and import the alignment `FcC_supermatrix.nex`. To do so, click "Import Alignment" from the "File" menu and select the the file `DATA/BEAST/input/FcC_supermatrix.nex` The BEAUti window should then look as shown in the screenshot below.<p align="center"><img src="images/beauti_1.png" alt="IQTREE" width="900"></p>
 
 
 

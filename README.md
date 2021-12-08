@@ -21,13 +21,13 @@ This repository contains the instructions and data for the ***Tree building and 
 
 ### * Requirements (data)
 
-* All data (e.g, DNA alignments), input files (e.g., XML for BEAST) and output files will be located in the **DATA** folder of this repository.
+* All data (e.g, DNA alignments), input files (e.g., XML for BEAST) and output files will be located in the `DATA` folder of this repository.
 
 * **IQ-tree_individual_loci** This folder contains individual loci alignment files (*.phy) from ***ipyrad*** and output files of individual ML gene tree estimation with IQ-TREE.
 
-* **IQ-tree_concatenated** This folder contains the concatenated alignment (*.fa) from all individual loci in folder ***IQ-tree_individual_loci*** and the output files from tree estimation with IQ-TREE.
+* **IQ-tree_concatenated** This folder contains the concatenated alignment (*.fa) from all individual loci in folder `IQ-tree_individual_loci` and the output files from tree estimation with IQ-TREE.
 
-* **ASTRAL** This folder contains the input file (e.g. all individual gene trees from ***IQ-tree_individual_loci*** in single file) and the output ASTRAL.
+* **ASTRAL** This folder contains the input file (e.g. all individual gene trees from `IQ-tree_individual_loci` in single file) and the output ASTRAL.
 
 
 ### Before you start
