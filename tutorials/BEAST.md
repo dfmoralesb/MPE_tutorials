@@ -38,5 +38,18 @@
 * To time calibrate this divergence, click on the drop-down menu to the right of the button for "Crown.prior" that currently says "[none]". Then, click on the black triangle to the left of the button for "Crown.prior". Specify "11.62" as the value for "M" (that is the mean of the prior density) and "0.25" as the value for "S" (that is the standard deviation). Importantly, set a tick in the checkbox for "Mean in Real Space"; otherwise, the specified value for the mean will be considered to be in log space (meaning that its exponent would be used). In the plot to the right, you should then see that the density is centered around 11. The BEAUti window should then look as shown in the below screenshot.<p align="center"><img src="images/beauti_6.png" alt="beauti" width="900"></p>
 
 
+* Continue to the "MCMC" tab, where you can specify the run length. This analysis will require a few hundred million iterations before the MCMC chain reaches full stationarity, which would take several days of run time. We run this in advance and output fill will be located at `DATA/BEAST/input/`. Type "200000000" in the field to the right of "Chain Length".
+
+	Also change the names of the output files: Click on the triangle to the left of "tracelog" and specify "FcC_supermatrix.log" as the name of the log file, probably it will be filed automatically.In the next field for "Log Every", set the number to "5000" (instead of the default 1,000) so that only every 5,000th MCMC state is written to the log file. Click on the black triangle to the left of "screenlog" and use "5000" for Log Every". Then click on the black triangle to the left of "treelog". Specify leave 'File Name' as it is and again use "5000" as the number in the field for "Log Every". 
+	
+	<p align="center"><img src="images/beauti_7.png" alt="beauti" width="900"></p>
+	<p align="center"><img src="images/beauti_8.png" alt="beauti" width="900"></p>
+
+		
+* When the window looks as in the above screenshots, click on "Save" in BEAUti's "File" menu, and name the resulting file in XML format `Aeonium_BEAST2.xml`.	<p align="center"><img src="images/beauti_9.png" alt="beauti" width="900"></p>
+
+
+
+
 
 
