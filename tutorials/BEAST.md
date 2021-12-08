@@ -53,7 +53,7 @@
 
 * Open the program BEAST2 and select the file [`Aeonium_BEAST2.xml` as input file, as shown in the screenshot below. When you click the "Run" button, BEAST2 will start the analysis. Running BEAST2 in this way is not convient as it usually takes several day, but it is helpful to see if the XML was correctly set up and BEAST starts without problem.
 
-<p align="center"><img src="images/beast_1.png" alt="beast" width="900"></p>
+<p align="center"><img src="images/beast_1.png" alt="beast" width="500"></p>
 
 * Usually BEAST2 is run in a workstation or cluster using the command line like
 
