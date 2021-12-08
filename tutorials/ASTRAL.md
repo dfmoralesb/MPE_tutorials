@@ -81,7 +81,7 @@ Some points have to be emphasized:
 * Branch support values measure the support for a quadripartition (the four clusters around a branch) and not the bipartition, as is commonly done. 
 
 <a name="figtree"></a>
-* [Reading and visualizing tree files](#figtree)
+## [Reading and visualizing tree files](#figtree)
 
 * Open the file `ASTRAL_all_gene_trees_2419.tre` in a text editor, or on the command line using, for example, the `less` command:
 
