@@ -43,6 +43,6 @@ This repository contains the instructions and data for the ***Tree building and 
 
 * [Coalescent-based Species Tree Inference](tutorials/ASTRAL.md)<br>A tutorial on coalescent-based species tree inference with ASTRAL
 
-* [Divergence Time Estimation](ml_phylogeny_inference/README.md)<br>A tutorial on divergence time estimation with BEAST2
+* [Divergence Time Estimation](tutorials/BEAST.md)<br>A tutorial on divergence time estimation with BEAST2
 
 	
