@@ -95,7 +95,14 @@ Thus, both the calculation of ESS values as well as the visual inspection of tra
 
 * To generate a phylogeny summarizing the information from the posterior tree distribution, open the program TreeAnnotator. Specify a burnin percentage of 10, in agreement with the trace plots that we inspected earlier in Tracer, which looked stationary after the first 10% of the chain. Leave the default options for "Posterior probability limit" and "Target tree type" to generate a "Maximum clade credibility tree" (this is the most commonly used type of summary tree for Bayesian analyses; described in [Heled and Bouckaert 2013](https://bmcevolbiol.biomedcentral.com/articles/10.1186/1471-2148-13-221)). However, as "Node heights", choose "Mean heights" rather than the default "Common Ancestor heights". As input file, select `FcC_supermatrix.trees` and specify `Aeonium_dated_tree.tre`  as the output file. When the window looks as shown in the next screenshot, click "Run".<p align="center"><img src="images/annotator.png" alt="annotator" width="500"></p>
 
-* The `Aeonium_dated_tree.tre` file should look like this
+ 
+* When TreeAnnotator has finished, cou can open the `Aeonium_dated_tree.tre` file with the command `less` or `cat`
+
+		cat DATA/BEAST/output/Aeonium_dated_tree.tre
+
+And it should look like this:
+
+	
 
 		#NEXUS
 		
@@ -154,9 +161,16 @@ Thus, both the calculation of ESS values as well as the visual inspection of tra
 		
 				
 		
-* When TreeAnnotator has finished, close the program and open the new file `Aeonium_dated_tree.tre` in FigTree. To see the support values for each node, set a tick next to "Node Labels" in the menu on the left, and click on the triangle next to it. Then choose "posterior" from the drop-down menu to the right of "Display". The posterior node support values represent our confidence that a given node is monophyletic, under the assumption that the employed model is correct.
-		
-		
+* You can open `Aeonium_dated_tree.tre` in FigTree or copy and paste it directly. To see the support values for each node, set a tick next to "Node Labels" in the menu on the left, and click on the triangle next to it. Then choose "posterior" from the drop-down menu to the right of "Display". The posterior node support values represent our confidence that a given node is monophyletic, under the assumption that the employed model is correct. <p align="center"><img src="images/dated_1_.png" alt="dated" width="900"></p>
+
+* To add a time scale to the phylogeny, set a tick next to "Scale Axis" in the menu on the left. Also click the triangle next to it, remove the tick next to "Show grid" in the newly opened menu field, but set a tick next to "Reverse axis" instead. The result is shown in the next screenshot.<p align="center"><img src="images/dated_2_.png" alt="dated" width="900"></p>
+
+* To also see the confidence intervals for the age estimates, click on the triangle next to "Node Bars" in the menu on the left. Also set a tick in the checkbox for "Node Bars". Choose the first item from the drop-down menu for "Display", the "height_95%_HPD" ("HPD" = "highest posterior density"; this is the most common measure of the confidence interval in a Bayesian analysis). You should then see blue bars on each node, these indicate the age range within which the node lies with 95% certainty. The phylogeny should then look as shown below.<p align="center"><img src="images/dated_3_.png" alt="dated" width="900"></p>
+
+* You can also show the ages by selecting "height" for "Node Labels" .<p align="center"><img src="images/dated_4_.png" alt="dated" width="900"></p>
+
+* Or the ranges of "HPD" by selection  "height_95%_HDP" for "Node Labels" .<p align="center"><img src="images/dated_5_.png" alt="dated" width="900"></p>
+	
 		
 		
 		
