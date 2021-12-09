@@ -84,10 +84,12 @@ Thus, both the calculation of ESS values as well as the visual inspection of tra
 
 * Now, click on the prior probability in the list at the bottom left of the window. You'll note that the trace looks very similar to that of the posterior, which may not be surprising given that the posterior probability is a (normalized) product of the prior probability and the likelihood. Thus, the auto-correlation in the prior probability seems to drive the auto-correlation in the posterior probability. Another way to visualize this is to select both the posterior and the prior probability at the same time (you may have to shift-click to do so) and then click on the "Joint-Marginal" tab next to the "Trace" tab. You'll see once again that the two measures are strongly correlated as in the next screenshot.<p align="center"><img src="images/tracer_3.png" alt="tracer" width="900"></p>
 
+* Now, click on the prior probability in the list at the bottom left of the window. You'll note that the trace looks very similar to that of the posterior, which may not be surprising given that the posterior probability is a (normalized) product of the prior probability and the likelihood. Thus, the auto-correlation in the prior probability seems to drive the auto-correlation in the posterior probability. Another way to visualize this is to select both the posterior and the prior probability at the same time (you may have to shift-click to do so) and then click on the "Joint-Marginal" tab next to the "Trace" tab. You'll see once again that the two measures are strongly correlated as in the next screenshot.<p align="center"><img src="images/tracer_3.png" alt="tracer" width="900"></p>
 
+* Now you can select both `FcC_supermatrix.log` and `FcC_supermatrix2.log` and while selection the posterior probability you can click on "Marginal Density" and see how the two runs we perform have the same posterior distribution. <p align="center"><img src="images/tracer_4.png" alt="tracer" width="900"></p>
 
-	
-	
+* You can do the same for the "Trace" and see how both "fuzzy caterpillars" overlap. These means that both runs converge and can be combined to summarizing the posterior tree distribution.<p align="center"><img src="images/tracer_5.png" alt="tracer" width="900"></p>
+
 
 
 
