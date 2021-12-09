@@ -89,5 +89,12 @@ Thus, both the calculation of ESS values as well as the visual inspection of tra
 * You can do the same for the "Trace" and see how both "fuzzy caterpillars" overlap. These means that both runs converge and can be combined to summarizing the posterior tree distribution.<p align="center"><img src="images/tracer_5.png" alt="tracer" width="900"></p>
 
 
+<a name="treeannotator"></a>
+## Summarizing the posterior tree distribution
+
+
+* To generate a phylogeny summarizing the information from the posterior tree distribution, open the program TreeAnnotator. Specify a burnin percentage of 10, in agreement with the trace plots that we inspected earlier in Tracer, which looked stationary after the first 10% of the chain. Leave the default options for "Posterior probability limit" and "Target tree type" to generate a "Maximum clade credibility tree" (this is the most commonly used type of summary tree for Bayesian analyses; described in [Heled and Bouckaert 2013](https://bmcevolbiol.biomedcentral.com/articles/10.1186/1471-2148-13-221)). However, as "Node heights", choose "Mean heights" rather than the default "Common Ancestor heights". As input file, select `FcC_supermatrix.trees` and specify `Aeonium_dated_tree.tre`  as the output file. When the window looks as shown in the next screenshot, click "Run".<p align="center"><img src="images/annotator.png" alt="annotator" width="900"></p>
+
+
 
 
