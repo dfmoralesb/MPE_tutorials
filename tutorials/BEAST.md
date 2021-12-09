@@ -5,8 +5,8 @@
 * [Divergence time estimation with BEAST2](#beast)
 * [Setting the XML file with BEAUti](#beaut)
 * [Running BEAST](#beast)
-* [Branch length and support](#support)
-* [Reading and visualizing tree files](#figtree)
+* [Assessing MCMC stationarity with Tracer](#tracer)
+* [Summarizing the posterior tree distribution](#treeannotator)
 
 <a name="beast"></a>
 ## Divergence time estimation with BEAST2
@@ -60,6 +60,30 @@
 		~/Apps/beast/bin/beast -threads 30 DATA/BEAST/input/Aeonium_BEAST2.xml
 		
 	If BEAST2 started to run correctly you will see something like this:<p align="center"><img src="images/beast_2.png" alt="beast" width="900"></p>
+	
+	
+<a name="tracer"></a>
+## Assessing MCMC stationarity with Tracer
+
+*	In Bayesian analyses with the software BEAST2, it is rarely possible to tell *a priori* how many MCMC iterations will be required before the analysis can be considered complete. Instead, whether or not an analysis is complete is usually decided based on the inspection of the log file once BEAST2 has performed the specified number of MCMC iterations. There are various ways in which MCMC output can be used to assess whether or not an analysis can be considered complete, and in the context of phylogenetic analyses with BEAST2, the most commonly used diagnostic tools are those implemented in [Tracer](http://beast.community/tracer) ([Rambaut et al. 2018](https://academic.oup.com/sysbio/advance-article/doi/10.1093/sysbio/syy032/4989127)) or the R package [coda](https://cran.r-project.org/web/packages/coda/index.html) ([Plummer et al. 2006](https://cran.r-project.org/doc/Rnews/Rnews_2006-1.pdf#page=7)). Here, we are going to investigate run completeness with Tracer. Ideally, we should have conducted the same BEAST2 analysis multiple times; then, we could assess whether the replicate MCMC chains "converge" to the same posterior distribution, which would be a requirement for a complete MCMC analysis. I performed in advance two independent BEAST runs found in the directory `DATA/BEAST/input/`
+
+In Tracer you can do the following:
+
+1. Calculation of "effective sample sizes" (ESS). Because consecutive MCMC iterations are always highly correlated, the number of effectively independent samples obtained for each parameter is generally much lower than the total number of sampled states. Calculating ESS values for each parameter is a way to assess the number of independent samples that would be equivalent to the much larger number of auto-correlated samples drawn for these parameters. These ESS values are automatically calculated for each parameter by Tracer. As a rule of thumb, the ESS values of all model parameters, or at least of all parameters of interest, should be above 200.
+2. Visual investigation of trace plots. The traces of all parameter estimates, or at least of those parameters with low ESS values should be visually inspected to assess MCMC stationarity. A good indicator of stationarity is when the trace plot has similarities to a "fuzzy caterpillar". 
+
+Thus, both the calculation of ESS values as well as the visual inspection of trace plots should indicate stationarity of the MCMC chain; if this is not the case, the run should be resumed. For BEAST2 analyses, resuming a chain is possible with the "-resume" option when using BEAST2 on the command-line, or by selecting option "resume: appends log to existing files" in the drop-down menu at the top of the BEAST2 window when using the GUI version.
+
+* Open files `FcC_supermatrix.log` and  `FcC_supermatrix2.log` in the program Tracer. The Tracer window should then look more or less as shown in the next screenshot<p align="center"><img src="images/tracer_1_.png" alt="tracer" width="900"></p>In the top left part of the Tracer window, you'll see a list of the loaded log files. This part of the window also specifies the number of states found in this file, and the burn-in to be cut from the beginning of the MCMC chain.
+
+	In the bottom left part of the Tracer window, you'll see statistics for the estimate of the posterior probability (just named "posterior"), the likelihood, and the prior probability (just named "prior"), as well as for the parameters estimated during the analysis (except the phylogeny, which also represents a set of parameters). The second column in this part shows the mean estimates for each parameter and their ESS values. 
+
+	In the top right part of the Tracer window, you will see more detailed statistics for the parameter currently selected in the bottom left part of the window. Finally, in the bottom right, you will see a visualization of the samples taken during the MCMC search. By default, these are shown in the form of a histogram as in the above screenshot.
+
+* With the posterior probability still being selected in the list at the bottom left, click on the tab for "Trace" (at the very top right). You will see how the posterior probability changed over the course of the MCMC. This trace plot should ideally have the form of a "fuzzy caterpillar", but as you can see from the next screenshot, this is not the case for the posterior probability.<p align="center"><img src="img/tracer2.png" alt="Tracer" width="700"></p>
+
+* Now, click on the prior probability in the list at the bottom left of the window. You'll note that the trace looks very similar to that of the posterior, which may not be surprising given that the posterior probability is a (normalized) product of the prior probability and the likelihood. Thus, the auto-correlation in the prior probability seems to drive the auto-correlation in the posterior probability. Another way to visualize this is to select both the posterior and the prior probability at the same time (you may have to shift-click to do so) and then click on the "Joint-Marginal" tab next to the "Trace" tab. You'll see once again that the two measures are strongly correlated as in the next screenshot.<p align="center"><img src="img/tracer3.png" alt="Tracer" width="700"></p>
+
 
 
 	
