@@ -4,6 +4,7 @@
 * [Reading and visualizing tree files](#figtree)
 * [Assessing node support with bootstrapping](#boot)
 * [Inferring a concatenated ML tree](#concat)
+* [Alternative node support values - Concordance factors](#concordance)
 
 <a name="iqtree"></a>
 ## Maximum-likelihood phylogenetic inference with IQ-TREE
@@ -138,5 +139,19 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 		(A_arboreum_153:0.0014849078,(A_balsamiferum_TM178:0.0011535530,(((((A_cuneatum_134:0.0065514518,A_canariense_TM189:0.0072583511)100:0.0015530642,Aeo_glutinosum:0.0090574484)100:0.0023872758,(((((A_ciliatum_135:0.0026558778,A_volkerii_TM194:0.0024888707)100:0.0009839747,A_urbicum_TM2001:0.0042130349)100:0.0012161129,Aeo_haworthii:0.0022985151)100:0.0014098253,A_davidbramwellii_TM2021:0.0056304679)100:0.0023965907,(A_valverdense_TM2131:0.0052622481,A_nobile_TM191:0.0082347492)100:0.0020565574)100:0.0032489645)87:0.0016314676,(((A_goochiae_TM184:0.0064710978,A_lindleyi_TM190:0.0061792425)100:0.0097779590,Mon_mura_111:0.0434930391)84:0.0012266869,(A_saundersii_merged:0.0128397974,A_sedifolium_TM187:0.0140337688)100:0.0025872713)100:0.0048456363)100:0.0053188993,((A_stuessyi_TM2031:0.0005572773,A_leucoblepharu:0.0009037328)99:0.0006215380,A_gorgoneum_TM185:0.0010816831)100:0.0022975052)100:0.0054524452)100:0.0008226453,Aeo_korneliuslemsii:0.0019086054);
 	
 * Again root the tree with "Mon_mura_111", sort the taxa with "Increasing node order" and display the node support. You can see how the brach lengths and bootstrap support differ from a single-locus tree. <p align="center"><img src="images/concat.png" alt="partition" width="900"></p>
+
+
+
+<a name="concordance"></a>
+## Alternative node support values - Concordance factors
+
+* When working with phylogenomic data sets, it is pretty common that tradicional node support values like bootstrap to be always high. This is due to the large amount of data available that make even know incorrect topologies to have high support, making this support measures inappropriate for large data sets. Several alternative and more appropriate node support measures that quantify for genealogical concordance like [Concordance factors in IQ-Tree](http://www.iqtree.org/doc/Concordance-Factor).
+
+* To calculate concordance factors in IQ-Tree you need the concatenated alignment and the inferred tree. You can run IQ-Tree like:
+
+		iqtree2 -t DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.iqtree -s DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy --scf 100 --prefix DATA/IQ-tree_concatenated/output/sCF_concord -T 8
+		
+* Open the file `sCF_concord.cf.tree` in Figtree, rooted and display the "Node labels"
+<p align="center"><img src="images/concon.png" alt="partition" width="900"></p>
 
 

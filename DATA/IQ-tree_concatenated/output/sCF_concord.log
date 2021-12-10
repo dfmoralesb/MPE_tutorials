@@ -1,0 +1,48 @@
+IQ-TREE multicore version 2.0.7 for Mac OS X 64-bit built Jun 17 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    C02VQ0THG8WL (AVX2, FMA3, 16 GB RAM)
+Command: iqtree2 -t IQtree2_concatenated_2419_loci.treefile -s ../input/concatenated_2419_loci.phy --scf 100 --prefix sCF_concord -T 8
+Seed:    350383 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Dec 10 11:30:47 2021
+Kernel:  AVX+FMA - 8 threads (8 CPU cores detected)
+
+Reading alignment file ../input/concatenated_2419_loci.phy ... Phylip format detected
+Alignment most likely contains DNA/RNA sequences
+WARNING: 900 sites contain only gaps or ambiguous characters.
+Alignment has 21 sequences with 848730 columns, 75520 distinct patterns
+15361 parsimony-informative, 31596 singleton sites, 801773 constant sites
+                          Gap/Ambiguity  Composition  p-value
+   1  A_arboreum_153             55.11%    failed      0.00%
+   2  A_balsamiferum_TM178       68.34%    failed      0.00%
+   3  A_cuneatum_134             51.23%    failed      0.00%
+   4  A_goochiae_TM184           75.70%    failed      0.00%
+   5  A_lindleyi_TM190           73.56%    failed      0.00%
+   6  A_stuessyi_TM2031          34.97%    failed      0.00%
+   7  Aeo_glutinosum             61.30%    passed     26.39%
+   8  Aeo_korneliuslemsii        54.37%    failed      4.05%
+   9  A_canariense_TM189         64.36%    failed      0.00%
+  10  A_ciliatum_135             43.25%    failed      0.00%
+  11  A_davidbramwellii_TM2021   52.55%    failed      0.00%
+  12  A_gorgoneum_TM185          72.96%    failed      0.00%
+  13  A_leucoblepharu            61.23%    failed      0.00%
+  14  A_saundersii_merged        62.81%    failed      0.85%
+  15  A_urbicum_TM2001           38.96%    failed      0.00%
+  16  A_volkerii_TM194           55.20%    failed      0.22%
+  17  Aeo_haworthii              42.62%    failed      0.00%
+  18  A_valverdense_TM2131       42.79%    failed      0.00%
+  19  A_nobile_TM191             65.93%    failed      0.00%
+  20  A_sedifolium_TM187         71.93%    failed      0.00%
+  21  Mon_mura_111               94.80%    failed      0.00%
+WARNING: 16 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                      59.24%  20 sequences failed composition chi2 test (p-value<5%; df=3)
+Reading tree IQtree2_concatenated_2419_loci.treefile ...
+un-rooted tree with 21 taxa and 39 branches
+Computing site concordance factor...
+0.155 sec
+Tree with concordance factors written to sCF_concord.cf.tree
+Annotated tree (best viewed in FigTree) written to sCF_concord.cf.tree.nex
+Tree with branch IDs written to sCF_concord.cf.branch
+Concordance factors per branch printed to sCF_concord.cf.stat
+Date and Time: Fri Dec 10 11:30:48 2021
