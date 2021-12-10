@@ -154,4 +154,6 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 * Open the file `sCF_concord.cf.tree` in Figtree, rooted and display the "Node labels"
 <p align="center"><img src="images/concon.png" alt="partition" width="900"></p>
 
+* In principle, sCF values can range from 0% (no sites are concordant with the focal branch) to 100% (all sites are concordant with the focal branch). In practice however, empirical sCF values are rarely lower than 33%. This is due to an important underlying difference in the way that the two values are calculated. The sCF is calculated from quartets, so a single site can only support one of three topologies. Because of this, if there is no consistent information in an alignment (e.g., if a long alignment were generated at random) we expect a roughly equal proportion of sites supporting each of the three trees, leading to an sCF value of ∼33%. 
+
 
