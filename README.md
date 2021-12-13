@@ -45,6 +45,6 @@ This repository contains the instructions and data for the ***Tree building and 
 
 * [Divergence Time Estimation](tutorials/BEAST.md)<br>A tutorial on divergence time estimation with BEAST2
 
-	Here we are going to cover (briefly) only a the most relevant aspects of those topic. If you are interested in see more in-detail tutorial you can refer to great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials) or always refer to the materials provided from the authors.
+	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorial you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
 
 	

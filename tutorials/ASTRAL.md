@@ -13,13 +13,13 @@
 ASTRAL is a java program for estimating a species tree given a set of unrooted gene trees. ASTRAL is statistically consistent under multi-species coalescent model (and thus is useful for handling ILS).
 
 
-* To see the many options available in ATRAL you can type the following in the command line:
+* To see the many options available in ASTRAL you can type the following in the command line:
 
 		java -jar astral.5.7.8.jar
 
-	The path where the *.jar file will depend of the local computer you are using. For example in my case is:
+	The path where the *.jar file will depend of the local computer you are using. In this case you will need to type:
 
-		java -jar ~/Apps/ASTRAL/Astral/astral.5.7.7.jar
+		java -jar /home/morales/Apps/ASTRAL/astral.5.7.7.jar
 		
 <p align="center"><img src="images/astral_1.png" alt="IQTREE" width="900"></p>
 
@@ -40,11 +40,11 @@ ASTRAL is a java program for estimating a species tree given a set of unrooted g
 
 		less DATA/ASTRAL/input/all_gene_trees_2419.tre
 		
-	The file should look like below. In each tree end with the `;` character. <p align="center"><img src="images/astral_2.png" alt="IQTREE" width="900"></p>
+	The file should look like below. In each tree ends with the `;` character. <p align="center"><img src="images/astral_2.png" alt="IQTREE" width="900"></p>
 	
-* To run ASTRAL just need to provide the gene trees file with the `-i` option and name the output file with the `-o` file. 
+* To run ASTRAL just need to provide the gene trees file with the `-i` option and the output file name with the `-o` file. 
 
-		java -jar ~/Apps/ASTRAL/Astral/astral.5.7.7.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre
+		java -jar /home/morales/Apps/ASTRAL/astral.5.7.7.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre
 
 <a name="log"></a>
 
@@ -59,8 +59,8 @@ ASTRAL is a java program for estimating a species tree given a set of unrooted g
 		
 Here are some of the important information captured in the log:
 
-* Number of taxa, and their names. Double check these to make sure they are correct.
-* Number of genes. 
+* Number of taxa, and their names.
+* Number of genes trees. 
 * Version of ASTRAL used in your analysis.
 * The normalized quartet score (proportion of input gene tree quartet trees satisfied by the species tree). This is a number between zero and one; the higher this number, the *less* discordant your gene trees are. 
 * The final optimization score is similar to the above number, but is not normalized (the number of gene tree quartets satisfied by the species tree).
@@ -78,7 +78,6 @@ Some points have to be emphasized:
 
 * ASTRAL only estimates branch lengths for internal branches.
 * Branch lengths are in coalescent units and are a direct measure of the amount of discordance in the gene trees. As such, they are prone to underestimation because of statistical noise in gene tree estimation.   
-* Branch support values measure the support for a quadripartition (the four clusters around a branch) and not the bipartition, as is commonly done. 
 
 <a name="figtree"></a>
 ## [Reading and visualizing tree files](#figtree)
@@ -87,11 +86,11 @@ Some points have to be emphasized:
 
 		less DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre
 		
-	You'll see a long string containing the taxon IDs, each of which is followed by a colon and a number, and together with these, the taxon IDs are embedded in parentheses.
+	ASTRAL also uses the Newick format, so you will see a long string containing the taxon IDs, each of which is followed by a colon and a number, and together with these, the taxon IDs are embedded in parentheses.
 		
 		(A_arboreum_153,(Aeo_korneliuslemsii,(A_balsamiferum_TM178,((A_gorgoneum_TM185,(A_stuessyi_TM2031,A_leucoblepharu)0.67:0.04140183420105119)1:0.2515003565922507,(((A_sedifolium_TM187,A_saundersii_merged)1:0.16294045620301306,(Mon_mura_111,(A_goochiae_TM184,A_lindleyi_TM190)1:1.4677740706543891)0.63:0.07067275703338496)1:0.5938435957339435,((Aeo_glutinosum,(A_canariense_TM189,A_cuneatum_134)0.95:0.09178105157440875)1:0.2798843477636087,(A_nobile_TM191,(A_valverdense_TM2131,((Aeo_haworthii,(A_urbicum_TM2001,(A_ciliatum_135,A_volkerii_TM194)1:0.09768764985752253)1:0.14800582754101912)1:0.13832617842998599,A_davidbramwellii_TM2021)1:0.16272862004839833)0.15:0.07428611918466975)1:0.2655371803121577)0:0.04748169986273744)1:0.3747948750498705)1:0.626671805099933)1:0.1858824808939674):0.0);
 		
-* Open FigTree, copy the above short part of the tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/asfigtree_1.png" alt="FigTree" width="900"></p>
+* Open FigTree, copy the above tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/asfigtree_1.png" alt="FigTree" width="900"></p>
 
 * To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.<p align="center"><img src="images/asfigtree_2.png" alt="FigTree" width="900"></p>
 
