@@ -54,7 +54,7 @@ ASTRAL is a java program for estimating a species tree given a set of unrooted g
 * It is recommend to save the ([`stderr`](https://en.wikipedia.org/wiki/Standard_streams), to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to screen and also redirecting it to a file.
 
 
-		java -jar ~/Apps/ASTRAL/Astral/astral.5.7.8.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre 2> >(tee -a DATA/ASTRAL/output/ASTRAL.log >&2)	
+		java -jar /home/morales/Apps/ASTRAL/astral.5.7.8.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre 2> >(tee -a DATA/ASTRAL/output/ASTRAL.log >&2)	
 		
 		
 Here are some of the important information captured in the log:
