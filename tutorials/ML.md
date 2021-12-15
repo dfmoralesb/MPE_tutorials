@@ -150,6 +150,10 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 
 		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 -t DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.iqtree -s DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy --scf 100 --prefix DATA/IQ-tree_concatenated/output/sCF_concord -T 8
 		
+To open the file
+
+	less DATA/IQ-tree_concatenated/output/sCF_concord.cf.tree
+		
 * Open the file `sCF_concord.cf.tree` in Figtree, rooted and display the "Node labels"
 <p align="center"><img src="images/concon.png" alt="partition" width="900"></p>
 
