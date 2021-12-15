@@ -19,7 +19,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 		
 * IQ-TREE can be started just by providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
+		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/ -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
 		
 	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses.<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
@@ -57,7 +57,7 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 * To see again the available options in IQ-TREE type:
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/iqtree2 --help
+		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/ --help
 
 * Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-b` option to perform the standard non-parametric bootstrap Felsenstein ([1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x)). 
 
@@ -123,7 +123,7 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 * In this occasion we are going to use ultrafast bootstrap procedure with the `-B` option. IQ-TREE recommends a a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable also after a lower number of replicates. See Hoang et al. ([2017](https://academic.oup.com/mbe/article/35/2/518/4565479)) for more details. 
 
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/iqtree2  -m MFP --merge -s concatenated_2419_loci.fa -T 120 -B 1000 -q concatenated_aln.model --prefix DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci
+		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2/  -m MFP --merge -s concatenated_2419_loci.fa -T 120 -B 1000 -q concatenated_aln.model --prefix DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci
 
 * Running this analysis should be considerabl longer than the previous analysis of one individual locus. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case, I will use `-T 120`. If not sure about the number of CPUs available you can use `-T AUTO`
 
