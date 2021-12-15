@@ -19,7 +19,7 @@ ASTRAL is a java program for estimating a species tree given a set of unrooted g
 
 	The path where the *.jar file will depend of the local computer you are using. In this case you will need to type:
 
-		java -jar /home/morales/Apps/ASTRAL/astral.5.7.7.jar
+		java -jar /home/morales/Apps/ASTRAL/astral.5.7.8.jar
 		
 <p align="center"><img src="images/astral_1.png" alt="IQTREE" width="900"></p>
 
