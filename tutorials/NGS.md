@@ -2,7 +2,7 @@
 
 * [FASTQ files](#fastq)
 * [QC of FASTQ files](#qc)
-* [Assessing node support with bootstrapping](#boot)
+* [Deduplication](#dedup)
 * [Inferring a concatenated ML tree](#concat)
 * [Alternative node support values - Concordance factors](#concordance)
 
@@ -99,31 +99,69 @@ TIP: You can also run as many files you need at the same time with the wildcard 
 
 Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one
 
-	mulitqc .
+	multiqc --filename multiqc_report_raw .
 	
 You will see this
 
 	/// MultiQC 🔍 v1.27.1
 
        file_search | Search path: /data_tmp/mpemaster/data/00_raw_reads
-         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 12/12
+         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 15/15
             fastqc | Found 4 reports
-     write_results | Data        : multiqc_data
-     write_results | Report      : multiqc_report.html
+     write_results | Data        : multiqc_report_raw_data
+     write_results | Report      : multiqc_report_raw.html
            multiqc | MultiQC complete
 
 One is done you will see file called `multiqc_report.html` You need to download to your laptop as before
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/00_raw_reads/multiqc_report.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/00_raw_reads/multiqc_report_raw.html .
 	
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc.png" alt="multiqc" width="900"></p>
+Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc_raw_.png" alt="multiqcraw" width="900"></p>
 
 
+<a name="dedup"></a>
+## Deduplication of raw reads
+
+The process of deduplication aims to remove PCR duplicates generated during library preparation and hybridization steps. While this deduplicated reads doesn't really affect the assembly process, removing them will help to speed up the assembly process and avoid skews on the coverage calculation during assembly
+
+We are going to to deduplicate the reads with the tool `clumpify.sh` of `BBmap`
+
+First let create a new directory were to place the deduplicated reads
+
+	mkdir /data_tmp/mpemaster/data/01_dedup
+
+To deduplicate the first pair of reads do
 
 
+	clumpify.sh in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+	
+You will see something like this
 
+	java -ea -Xmx199355m -Xms199355m -cp /home/mpemaster/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ clump.Clumpify in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+	Executing clump.Clumpify [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, ziplevel=9, dedupe=t]
+	Version 38.84
+	
+	Read Estimate:          51540788
+	Memory Estimate:        39322 MB
+	Memory Available:       163436 MB
+	Set groups to 1
+	Executing clump.KmerSort1 [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/mpemaster/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, groups=1, ecco=false, rename=false, shortname=f, unpair=false, repair=false, namesort=false, ow=true, ziplevel=9, dedupe=t]
 
+Run `clumpy` for the other pair as well
 
+	clumpify.sh in1=MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz in2=MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz out1=/data_tmp/mpemaster/data/01_dedup/MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz out2=/data_tmp/mpemaster/data/01_dedup/MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+	
+Now we are going to run `fastq` and `multiqc` on the deduplicated read to see do they look now
+
+	cd /data_tmp/mpemaster/data/01_dedup #to move to the directory where the deduplicated reads are
+	fastqc *dedup.fastq.gz -t 4
+	multiqc --filename multiqc_report_dedup . 
+	
+Copy the report of the deduplicated read so we can comprate with the raw one
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/01_dedup/multiqc_report_dedup.html .
+
+Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup_.png" alt="multiqcdedup" width="900"></p>
 
 
 
