@@ -116,7 +116,8 @@ One is done you will see file called `multiqc_report.html` You need to download 
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/00_raw_reads/multiqc_report_raw.html .
 	
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc_raw_.png" alt="multiqcraw" width="900"></p>
+Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
+
 
 
 <a name="dedup"></a>
@@ -161,7 +162,7 @@ Copy the report of the deduplicated read so we can comprate with the raw one
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/01_dedup/multiqc_report_dedup.html .
 
-Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup_.png" alt="multiqcdedup" width="900"></p>
+Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
 
 
 
