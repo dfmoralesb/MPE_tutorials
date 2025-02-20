@@ -5,6 +5,24 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 ## Preparation
 
+Workstation account assigment
+
+| Student | account name |
+| -------- | ------- |
+| Alexander James	Dietrick | mpeuser1 |
+| Alexandra	Eisenbeil | mpeuser2 |
+| Danila	Blagomirov | mpeuser3 |
+| Dikshitha	Siddegowda | mpeuser4 |
+| Ece	Cinar | mpeuser5 |
+| Helin Meral	Yalcin | mpeuser6 |
+| Jain Mary	Jose | mpeuser7 |
+| Jiajun	Ling | mpeuser8 |
+| Kweku Acheampong	Boakye | mpeuser9 |
+| Sushmit	Bhattacharya | mpeuser10 |
+| Yusuf	Bozkurt | mpeuser11 |
+| Zizheng	Yan | mpeuser12 |
+
+
 ### Requirements (sofware) - The following software has been already installed in each account.
 
 
@@ -12,7 +30,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 * [multiqc](https://seqera.io/multiqc/)
 
-* [BBmap](https://sourceforge.net/projects/bbmap/) Includes ***Clumpify**** (Read deduplication) and ***BBduk**** (Raw reads adaptor removal and cleaning) 
+* [BBmap](https://sourceforge.net/projects/bbmap/) Includes **Clumpify** (Read deduplication) and **BBduk** (Raw reads adaptor removal and cleaning) 
 
 * [CAPTUS](https://edgardomortiz.github.io/captus.docs/) We will use version 1.1.1 [https://github.com/edgardomortiz/Captus](https://github.com/edgardomortiz/Captus).
 
