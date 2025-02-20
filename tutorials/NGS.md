@@ -3,7 +3,7 @@
 * [FASTQ files](#fastq)
 * [QC of FASTQ files](#qc)
 * [Deduplication](#dedup)
-* [Inferring a concatenated ML tree](#concat)
+* [Adaptor removal and cleaning of low quality read](#adaptor)
 * [Alternative node support values - Concordance factors](#concordance)
 
 <a name="fastq"></a>
@@ -165,9 +165,66 @@ Copy the report of the deduplicated read so we can comprate with the raw one
 Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
 
 
+<a name="adaptor"></a>
+## Adaptor removal and cleaning of low quality read
 
+We are going to remove illumina sequencing adaptor and low quality reads using `bbduk`
 
+First we are going to remove the adaptors
 
+	bbduk.sh in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/mpemaster/data/others/adapters.fa
+
+You should start seeing this
+
+	java -ea -Xmx102106m -Xms102106m -cp /home/mpemaster/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/mpemaster/data/others/adapters.fa
+	Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, ref=/data_tmp/mpemaster/data/others/adapters.fa]
+	Version 38.84
+	
+	0.035 seconds.
+	Initial:
+	Memory: max=107072m, total=107072m, free=106988m, used=84m
+	
+	Added 797 kmers; time: 	0.013 seconds.
+	Memory: max=107072m, total=107072m, free=106854m, used=218m
+
+Once is done you can run `bbduk` for the other pair of files
+
+	bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz out=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz out2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz ref=/data_tmp/mpemaster/data/others/adapters.fa
+
+Now let's create a new directory were we will place final clean files
+
+	mkdir /data_tmp/mpemaster/data/02_clean
+
+Run `bbduk` to remove low quality reads
+
+	bbduk.sh in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+
+You should see this
+
+	java -ea -Xmx102100m -Xms102100m -cp /home/mpemaster/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+	Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, out1=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz, out2=/data_tmp/mpemaster/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz, qtrim=rl, trimq=20, minavgquality=20]
+	Version 38.84
+	
+	0.033 seconds.
+	Initial:
+	Memory: max=107072m, total=107072m, free=106988m, used=84m
+	
+
+Now run `bbduk` for the other sample
+
+	bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/mpemaster/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/mpemaster/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+
+Finally let's create a report for the final clean read so we can compare it with the raw reads
+
+	cd /data_tmp/mpemaster/data/02_clean
+	fastqc * -t 4
+	multiqc --filename multiqc_report_clean .
+	
+Copy the report to your laptop and open in the browser
+
+	scp -P 22110 mpemaster@10.153.134.10:/data_tmp/mpemaster/data/02_clean/multiqc_report_clean.html .
+
+<p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
 
 
 
