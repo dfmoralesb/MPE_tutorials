@@ -5,7 +5,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 ## Preparation
 
-Workstation account assigment
+#### Workstation account assignment
 
 | Student | account name |
 | -------- | ------- |
@@ -22,8 +22,13 @@ Workstation account assigment
 | Yusuf	Bozkurt | mpeuser11 |
 | Zizheng	Yan | mpeuser12 |
 
+#### How to login to the workstation
 
-### Requirements (sofware) - The following software has been already installed in each account.
+
+
+
+
+#### Requirements (sofware) - The following software has been already installed in each account.
 
 
 * [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -45,7 +50,7 @@ Workstation account assigment
 * [ASTRAL and ASTRAL-Pro](https://github.com/chaoszhang/ASTER) Part of the ASTER family of species tree estimator package
 
 
-### You need to install this in each of your working laptops.
+#### You need to install this in each of your working laptops.
 
 * [FigTree](https://github.com/rambaut/figtree/releases) v1.4.4 will be used for tree visualization. 
 
