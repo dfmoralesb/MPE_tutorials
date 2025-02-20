@@ -24,7 +24,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 #### How to login to the workstation
 
-***ssh -p 22110 [username]@10.153.134.10***
+	sh -p 22110 [username]@10.153.134.10
 
 
 
