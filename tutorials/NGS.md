@@ -1,7 +1,7 @@
 ## Table of contents
 
-* [Fastq files](#fastq)
-* [Reading and visualizing tree files](#figtree)
+* [FASTQ files](#fastq)
+* [QC of FASTQ files](#qc)
 * [Assessing node support with bootstrapping](#boot)
 * [Inferring a concatenated ML tree](#concat)
 * [Alternative node support values - Concordance factors](#concordance)
@@ -9,54 +9,85 @@
 <a name="fastq"></a>
 ## NGS data - FASTQ files
 
-To see an example of raw data go to
+* To see an example of raw data go to
 
 	cd /data_tmp/[username]/data/00_raw_reads
 	ls
 	
-You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
+* You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
 
 	MELI_Aglaia_spectabilis_G09645_R1.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz
 	MELI_Aglaia_spectabilis_G09645_R2.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz
 
-There are two file per each species corresponding to the left and right reads as this is paired-end data
+* There are two file per each species corresponding to the left and right reads as this is paired-end data
 
-A FASTQ file has four line-separated fields per sequence. To see the sequence files do
+* A FASTQ file has four line-separated fields per sequence. To see the sequence files do
 
 	zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 
-You will see this
+* You will see this
 
 	@A00119:588:HVWJMDRXY:2:2101:4182:1000 1:N:0:TCAGGCTT+TTCATGCG
 	TTGCGAAGCCGAGCACCTCCCTTACACAACCCTCGACCTCCCAGTAACCACCACCGAGCTCAGAGCCGTTGGTAGTCGCCGAAAAATGCCGCACCAACACCGTGAAGCTCGGCTTCTTCTTCCCGTCGATTCGCCGTCCTCAAAGCCATT
 	+
 	FFFFFFFFFFF,FFFF:FFFF:FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFF:,FFFFFFFFFFFFFFFFFFFFFFF,:FFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFF:FFFF:FFF:::FFFFFFFFF:F,FFF::,
 
-Line 1 begins with a '@' character and is followed by a sequence identifier and an optional description from the sequencing machine
-Line 2 is the sequence
-Line 3 begins with a '+' character. Usually the only character in the line.
-Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.
+* Line 1 begins with a '@' character and is followed by a sequence identifier and an optional description from the sequencing machine
+* Line 2 is the sequence
+* Line 3 begins with a '+' character. Usually the only character in the line.
+* Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.
 
-The quality goes from 0 to 40
+* The quality goes from 0 to 40
 
 | ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? | @ | A | B | C | D | E | F | G | H | I | 
 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 |
 
-| Student | username |
-| -------- | ------- |
-| Alexander James	Dietrick | mpeuser1 |
-| Alexandra	Eisenbeil | mpeuser2 |
-| Danila	Blagomirov | mpeuser3 |
-| Dikshitha	Siddegowda | mpeuser4 |
-| Ece	Cinar | mpeuser5 |
-| Helin Meral	Yalcin | mpeuser6 |
-| Jain Mary	Jose | mpeuser7 |
-| Jiajun	Ling | mpeuser8 |
-| Kweku Acheampong	Boakye | mpeuser9 |
-| Sushmit	Bhattacharya | mpeuser10 |
-| Yusuf	Bozkurt | mpeuser11 |
-| Zizheng	Yan | mpeuser12 |
+* If you check the other file for the same sample 
+
+	zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	
+* You can see that line 1 is identical except for the number of the read
+	
+	@A00119:588:HVWJMDRXY:2:2101:4182:1000 2:N:0:TCAGGCTT+TTCATGCG
+	TGAAGACGAGGAAGAGGAGGAGGAGGATAGTCTGTTAGCGGTGGTTGTGGCCCCTGAATGTCATTGAGGACGGCGAATCGACGGGAAGAAGAAGCCGAGCTTCACGGTGTTGGTGCGGCATTTTTCGGCGACTACCAACGGCTCTGAGCT
+	+
+	FF:FF:FFF,,:,:FF:FF,:FFF,,F,FFF:FFF:FF,FFFFF:FFFFF:F:F:,:F:,,FFF:,FF:F:,F::FFFF,FFF,FFFFFF:FFFFF:FFFFFF::,,:FF,:FFFFFFFFF:FFFF,:FFFF:F::F:F:FFF:F:F,FF
+
+
+<a name="qc"></a>
+
+* Now we are going to do quality control of the sequencing data with FastQC
+
+* First load the conda environment call `captus` in there we will have most of the tools we need for QC and assembly
+
+	conda activate captus
+	
+* Now you can run FastQC in one of the files
+
+	fastqc MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	
+You will see the on the screen the progress
+
+	Started analysis of MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	Approx 5% complete for MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	Approx 10% complete for MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	...
+	
+One FastQC is done you will have two new files for that sequence file:
+
+	MELI_Aglaia_spectabilis_G09645_R1_fastqc.html
+	MELI_Aglaia_spectabilis_G09645_R1_fastqc.zip
+
+The first is a `html` report that you download and open locally in your internet browser and the second is a `zip` contining the stat files that we will use later.
+
+To copy the `html` file to your laptop do
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html .
+	
+Open the `html` file in your internet browser and you should see something like this
+
+* Open FigTree, copy the above tree string and paste it into a new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
 
 
 
