@@ -60,26 +60,17 @@ The password will be provided at the beginning of the the first practicum.
 
 
 
-
 ### * Requirements (data)
 
-* All data (e.g, DNA alignments), input files (e.g., XML for BEAST) and output files will be located in the `DATA` folder of this repository.
+All data for analyses and output will be located in
 
-* **IQ-tree_individual_loci** This folder contains individual loci alignment files (*.phy) from ***ipyrad*** and output files of individual ML gene tree estimation with IQ-TREE.
-
-* **IQ-tree_concatenated** This folder contains the concatenated alignment (*.fa) from all individual loci in folder `IQ-tree_individual_loci` and the output files from tree estimation with IQ-TREE.
-
-* **ASTRAL** This folder contains the input file (e.g. all individual gene trees from `IQ-tree_individual_loci` in single file) and the output ASTRAL.
-
-
-### Before you start
-
-* You will need to clone this repository to get all the data on the local computer.
-
-		git clone https://github.com/dfmoralesb/MPE_tutorials.git
+	/data_tmp/[username]/data
 		
 		
-## Phylogenetic inference tutorials
+## Tutorials
+
+* [NGS data and target enrichment](tutorials/ML.md)<br>A tutorial on NGS data and target enrichment data
+
 
 * [Maximum-Likelihood Phylogenetic Inference](tutorials/ML.md)<br>A tutorial on phylogenetic inference with maximum likelihood using IQ-TREE
 
