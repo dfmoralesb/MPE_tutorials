@@ -1,22 +1,39 @@
-# MPE_gene_tree_estimation_tutorial
+# MPE tutorials
 
-This repository contains the instructions, tutorial, and data for the Molecular Phylogenetics and Evolution of Plants course.
+This repository contains the instructions and tutorias for the Molecular Phylogenetics and Evolution of Plants course.
 
 
 ## Preparation
 
-### * Requirements (software)
+### Requirements (sofware) - The following software has been already installed in each account.
 
 
-* **IQ-TREE:** IQ-TREE v.2.0.7. Newer versions might be buggy, specially with ultrafast bootstrap annotation. You can find this version of IQ-TREE for Mac OS X, Linux, or Windows can be found on [https://github.com/Cibiv/IQ-TREE/releases](https://github.com/Cibiv/IQ-TREE/releases?page=1).
+* [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
-* **FigTree:** [FigTree](http://tree.bio.ed.ac.uk/software/figtree/) v1.4.4 will be used for tree visualization. Executables for Mac OS X, Linux, and Windows can be found on [https://github.com/rambaut/figtree/releases](https://github.com/rambaut/figtree/releases).
+* [multiqc](https://seqera.io/multiqc/)
 
-* **ASTRAL** [ASTRAL](https://github.com/smirarab/ASTRAL) v.5.7.8. This program is written in Java and it should be compatible with any OS. It can be found on [https://github.com/smirarab/ASTRAL](https://github.com/smirarab/ASTRAL)
+* [BBmap](https://sourceforge.net/projects/bbmap/) Includes ***Clumpify**** (Read deduplication) and ***BBduk**** (Raw reads adaptor removal and cleaning) 
 
-* **BEAST2:** The BEAST2 package v.2.6.6. includes BEAUti, BEAST2, TreeAnnotator, and other tools (e.g., Densitree). The package can be found on the BEAST2 website [https://www.beast2.org](https://www.beast2.org). As all these programs are also written in Java and they all are compatible with any OS. Download the version that comes *with java*.
+* [CAPTUS](https://edgardomortiz.github.io/captus.docs/) We will use version 1.1.1 [https://github.com/edgardomortiz/Captus](https://github.com/edgardomortiz/Captus).
 
-* **Tracer:** Tracer is also written in Java. The program can be found on [https://github.com/beast-dev/tracer/releases](https://github.com/beast-dev/tracer/releases).
+* [MAFFT](https://mafft.cbrc.jp/alignment/software/)
+
+* [ClipKIT](https://github.com/JLSteenwyk/ClipKIT)
+
+* [IQ-TREE2](http://www.iqtree.org/)
+
+* [TreeShrink](https://github.com/uym2/TreeShrink) It works with Version 1.3.9 (older versions won't work)
+
+* [ASTRAL and ASTRAL-Pro](https://github.com/chaoszhang/ASTER) Part of the ASTER family of species tree estimator package
+
+
+### You need to install this in each of your working laptops.
+
+* [FigTree](https://github.com/rambaut/figtree/releases) v1.4.4 will be used for tree visualization. 
+
+* [Aliview](https://ormbunkar.se/aliview/) Use to visualize alignment
+
+
 
 
 ### * Requirements (data)
