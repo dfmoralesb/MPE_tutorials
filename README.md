@@ -1,6 +1,6 @@
 # MPE_gene_tree_estimation_tutorial
 
-This repository contains the instructions and data for the ***Tree building and time divergence estimation*** section of the Molecular Phylogenetics and Evolution of Plants course.
+This repository contains the instructions, tutorial, and data for the Molecular Phylogenetics and Evolution of Plants course.
 
 
 ## Preparation
