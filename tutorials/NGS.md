@@ -87,6 +87,8 @@ To copy the `html` file to your laptop do
 	
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/fastqc.png" alt="fastqc" width="900"></p>
 
+Now we will go over the main parts of the report. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=bz93ReOv87Y)
+
 
 
 Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
