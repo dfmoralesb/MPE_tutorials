@@ -119,6 +119,28 @@ One is done you will see file called `multiqc_report.html` You need to download 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc.png" alt="multiqc" width="900"></p>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
 
 * To see the many options available in IQ-TREE you can type the following in the command line:
