@@ -57,13 +57,13 @@ You can see that line 1 is identical except for the number of the read
 
 <a name="qc"></a>
 
-Now we are going to do quality control of the sequencing data with FastQC
+Now we are going to do quality control of the sequencing data with `fastqc`
 
 First load the conda environment call `captus` in there we will have most of the tools we need for QC and assembly
 
 	conda activate captus
 	
-Now you can run FastQC in one of the files
+Now you can run `fastqc` in one of the files
 
 	fastqc MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 	
@@ -89,6 +89,34 @@ Open the `html` file in your internet browser and you should see something like 
 
 Now we will go over the main parts of the report. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=bz93ReOv87Y)
 
+Now you need to run `fastqc` for the remaning files
+
+	fastqc MELI_Aglaia_spectabilis_G09645_R2.fastq.gz MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz -t 3
+	
+TIP: You can also run as many files you need at the same time with the wildcard `*` and `t` equivalent to the number of files to run in one in an individual processor (Do not do this during the course; it's just an example)
+
+	echo fastqc * -t #
+
+Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one
+
+	mulitqc .
+	
+You will see this
+
+	/// MultiQC 🔍 v1.27.1
+
+       file_search | Search path: /data_tmp/mpemaster/data/00_raw_reads
+         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 12/12
+            fastqc | Found 4 reports
+     write_results | Data        : multiqc_data
+     write_results | Report      : multiqc_report.html
+           multiqc | MultiQC complete
+
+One is done you will see file called `multiqc_report.html` You need to download to your laptop as before
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/mpemaster/data/00_raw_reads/multiqc_report.html .
+	
+Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc.png" alt="multiqc" width="900"></p>
 
 
 Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths but also all parameter of the substitution model (e.g., GTR) assumed in the inference. 
