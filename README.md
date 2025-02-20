@@ -7,7 +7,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 #### Workstation account assignment
 
-| Student | account name |
+| Student | username |
 | -------- | ------- |
 | Alexander James	Dietrick | mpeuser1 |
 | Alexandra	Eisenbeil | mpeuser2 |
@@ -24,7 +24,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 #### How to login to the workstation
 
-
+***ssh -p 22110 [username]@10.153.134.10***
 
 
 
