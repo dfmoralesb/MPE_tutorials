@@ -265,7 +265,7 @@ Copy the report to your laptop and open in the browser
 
 These reads are ready for assembly!!!
 
-We will see the report the the clean reads of all 30 samples in the next tutorial.
+We will see the report of the clean reads of all 30 samples in the next tutorial.
 
 
 
