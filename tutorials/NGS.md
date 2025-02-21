@@ -17,23 +17,23 @@
 <a name="fastq"></a>
 ## NGS data - FASTQ files
 
-To see an example of raw data go to
+* To see an example of raw data go to
 
 	cd /data_tmp/[username]/data/00_raw_reads
 	ls
 	
-You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
+* You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
 
 	MELI_Aglaia_spectabilis_G09645_R1.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz
 	MELI_Aglaia_spectabilis_G09645_R2.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz
 
-There are two file per each species corresponding to the left and right reads as this is paired-end data
+* There are two file per each species corresponding to the left and right reads as this is paired-end data
 
-A FASTQ file has four line-separated fields per sequence. To see the sequence files do
+* A FASTQ file has four line-separated fields per sequence. To see the sequence files do
 
 	zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 
-You will see this
+* You will see this
 
 	@A00119:588:HVWJMDRXY:2:2101:4182:1000 1:N:0:TCAGGCTT+TTCATGCG
 	TTGCGAAGCCGAGCACCTCCCTTACACAACCCTCGACCTCCCAGTAACCACCACCGAGCTCAGAGCCGTTGGTAGTCGCCGAAAAATGCCGCACCAACACCGTGAAGCTCGGCTTCTTCTTCCCGTCGATTCGCCGTCCTCAAAGCCATT
