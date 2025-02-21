@@ -115,14 +115,14 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 	
 	You will see this
 
-	/// MultiQC 🔍 v1.27.1
-
-       file_search | Search path: /data_tmp/[username]/data/00_raw_reads
-         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 15/15
-            fastqc | Found 4 reports
-     write_results | Data        : multiqc_report_raw_data
-     write_results | Report      : multiqc_report_raw.html
-           multiqc | MultiQC complete
+		/// MultiQC 🔍 v1.27.1
+	
+    	file_search | Search path: /data_tmp/[username]/data/00_raw_reads
+    		searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 15/15
+    		fastqc | Found 4 reports
+    		write_results | Data        : multiqc_report_raw_data
+    		write_results | Report      : multiqc_report_raw.html
+    		multiqc | MultiQC complete
 
 * One is done you will see file called `multiqc_report.html` You need to download to your laptop as before.
 
