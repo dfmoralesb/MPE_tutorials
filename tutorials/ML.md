@@ -25,9 +25,13 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 		
 * IQ-TREE can be started just by providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy 
+		cd /data_tmp/[username]/data/04_individual_aln
+
+		iqtree -s 4471.aln.clipkit 
 		
-	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses.<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
+	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses.
+	
+	<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
 * Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
 
