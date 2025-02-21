@@ -27,7 +27,7 @@
 		MELI_Aglaia_spectabilis_G09645_R1.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz
 		MELI_Aglaia_spectabilis_G09645_R2.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz
 
-* There are two file per each species corresponding to the left and right reads as this is paired-end data
+There are two file per each species corresponding to the left and right reads as this is paired-end data
 
 * A FASTQ file has four line-separated fields per sequence. To see the sequence files do
 
@@ -64,8 +64,9 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 
 <a name="qc"></a>
+## NGS data - QC
 
-Now we are going to do quality control of the sequencing data with `fastqc`
+* Now we are going to do quality control of the sequencing data with `fastqc`
 
 * First load the conda environment call `captus` in there we will have most of the tools we need for QC and assembly
 
