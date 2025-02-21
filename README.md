@@ -54,10 +54,9 @@ The password will be provided at the beginning of the the first practicum.
 
 #### You need to install this in each of your working laptops.
 
+* [Aliview](https://ormbunkar.se/aliview/) Use to visualize alignments
+
 * [FigTree](https://github.com/rambaut/figtree/releases) v1.4.4 will be used for tree visualization. 
-
-* [Aliview](https://ormbunkar.se/aliview/) Use to visualize alignment
-
 
 
 ### * Requirements (data)

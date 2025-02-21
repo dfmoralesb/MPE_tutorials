@@ -6,6 +6,12 @@
 * [Inferring a concatenated ML tree](#concat)
 * [Alternative node support values - Concordance factors](#concordance)
 
+### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+Make sure to activate the `CONDA` environment
+
+	conda activate captus
+
 <a name="iqtree"></a>
 ## Maximum-likelihood phylogenetic inference with IQ-TREE
 
@@ -13,7 +19,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 * To see the many options available in IQ-TREE you can type the following in the command line:
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 --help
+		iqtree --help
 
 * You can scroll up and down to check all the available options. <p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="900"></p>		
 		

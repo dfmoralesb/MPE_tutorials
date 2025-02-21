@@ -94,7 +94,7 @@ To copy the `html` file to your laptop do
 #### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html ~/Desktop
 	
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/fastqc.png" alt="fastqc" width="900"></p>
 
@@ -127,7 +127,7 @@ One is done you will see file called `multiqc_report.html` You need to download 
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html ~/Desktop
 	
 Open the `html` file in your internet browser and you should see something like the picture below. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=qPbIlO_KWN0)
 
@@ -140,7 +140,7 @@ To see the report `multiqc_report_all_samples_raw.html` for all 30 samples go to
 #### There you can find the report for this and future steps for all samples
 
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_raw.html ~/Desktop
 
 
 <p align="center"><img src="images/multiqc_raw_all.png" alt="multiqcrawall" width="900"></p>
@@ -203,7 +203,7 @@ To see the report `multiqc_report_all_samples_dedup.html` for all 30 samples go 
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 	
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_dedup.html ~/Desktop
 
 
 <p align="center"><img src="images/multiqc_dedup_all.png" alt="multiqcdedupwall" width="900"></p>
@@ -272,7 +272,7 @@ Copy the report to your laptop and open in the browser
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/02_clean/multiqc_report_clean.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/02_clean/multiqc_report_clean.html ~/Desktop
 
 <p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
 

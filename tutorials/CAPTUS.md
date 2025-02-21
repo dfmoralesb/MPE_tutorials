@@ -102,7 +102,7 @@ Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/captus-clean_report.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/captus-clean_report.html ~/Desktop
 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
@@ -130,7 +130,7 @@ To see the `mulitqc` report `multiqc_report_all_samples_clean.html` for all 30 s
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_clean.html ~/Desktop
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
@@ -196,7 +196,7 @@ Now copy the assemble report to you laptop
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
- 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/02_assemblies/captus-assemble_report.html .
+ 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/02_assemblies/captus-assemble_report.html ~/Desktop
 
 Open it on your browser and you should see this
 
@@ -258,7 +258,7 @@ You can copy the report to you laptop to see it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-assemble_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-assemble_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_assemble_all.png" alt="assembleall" width="900"></p>
 
@@ -334,7 +334,7 @@ Now copy the assemble report to you laptop
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 
- 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/03_extractions/captus-extract_report.html .
+ 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/03_extractions/captus-extract_report.html ~/Desktop
 
 Open it on your browser and you should see this
 
@@ -373,7 +373,7 @@ Again copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-extract_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-extract_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_extraction_all.pne.png" alt="extractall" width="900"></p>
 
@@ -413,7 +413,7 @@ Now cp the `FASTA` file on your laptop and visualize it on `AliView`
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.fna .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.fna ~/Desktop
 	
 Open `AliView` on you laptop and drag the 4471.fna file. You should see the following
 	
@@ -459,7 +459,7 @@ Copy the alignment to your laptop and open it in `AliView` as we did before
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln ~/Desktop
 	
 You should see 
 
@@ -502,7 +502,7 @@ Copy the alignment to your laptop and open it in `AliView` as we did before
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln.clipkit .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln.clipkit ~/Desktop
 	
 You should see 
 
@@ -562,7 +562,7 @@ Copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/04_alignments/captus-align_report.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/04_alignments/captus-align_report.html ~/Desktop
 
 <p align="center"><img src="images/captus_align.png" alt="captusalign" width="900"></p>
 
@@ -609,6 +609,6 @@ Again copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-align_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-align_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_aling_all.png" alt="aligntall" width="900"></p>
