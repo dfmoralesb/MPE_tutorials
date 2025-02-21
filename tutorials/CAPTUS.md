@@ -45,7 +45,7 @@ To run the first module of `captus` do
 
 	captus clean -r 00_dedup_reads --trimq 20 --maq 20 --qc_program fastqc --threads 4 --concurrent 2
 
-You will see something like this
+You will start seing something like this
 
 	Starting Captus-assembly: CLEAN (2025-02-21 10:14:07)
 	    Welcome to the read cleaning step of Captus-assembly. In this step, Captus will perform adaptor trimming and quality
@@ -75,6 +75,8 @@ You will see something like this
 	
 	     Output directory: /data_tmp/[username]/data/03_captus/01_clean_reads
 	                       Output directory successfully created
+
+It should take a couple of minutes to finish
 	
 Once `captus` is finished you will see a directory called `01_clean_reads` Make a list of file and directories there
 
@@ -97,7 +99,7 @@ Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
-#### All the screen output that you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors.
+#### All the screen output that you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors. This is the case for all four modules of `CAPTUS`
 
 In case you want to create a similar report we did before with `multiqc` you can do it with
 
@@ -117,16 +119,18 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 <a name="assemble"></a>
 ## Assemble - assembly of reads
 
-Using the cleaned reads produced by the previous step, Captus will perform de novo assembly using `MEGAHIT`.  An HTML report summarizing several assembly statistics is also produced after this step.
+Using the cleaned reads produced by the previous step, `CAPTUS` will perform de novo assembly using `MEGAHIT`.  An HTML report summarizing several assembly statistics is also produced after this step.
 
 To run the first module of `captus` do
 
+	cd /data_tmp/[username]/data/03_captus/
+
 	captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
 	
-Then you should see this
+Then you should start seing this
 
 
-	tarting Captus-assembly: ASSEMBLE (2025-02-21 11:10:03)
+	Starting Captus-assembly: ASSEMBLE (2025-02-21 11:10:03)
 	   Welcome to the de novo assembly step of Captus-assembly. In this step, Captus will use MEGAHIT to assemble your input reads. It is
 	lso possible to subsample a number of reads using reformat.sh from BBTools prior to assembly, this is useful while performing tests or
 	hen including samples with considerably higher sequencing depth in a dataset.
@@ -159,7 +163,7 @@ The assembly of this two samples should take 20 minutes
 
 Once is finished you will see a directory called `02_assemblies` Move to that directory and make a list
 
-	cd 02_assemlies
+	cd 02_assemblies
 	ls
 	
 You should see
@@ -175,234 +179,148 @@ Open it on your browser and you should see this
 
 <p align="center"><img src="images/captus_assemble.png" alt="captus_assemble" width="900"></p>
 
+To see the actual output of `captus` you can go one of the samples directories and see the assembly `FASTA` file
+
+	cd MELI_Aglaia_spectabilis__captus-asm/01_assembly
+	
+	less assembly.fasta
+	
+And you should see something like this
 
 
+	>NODE_0_length_332_cov_1.0000_k_159_flag_0
+	TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATTTTGCA
+	CAAATACACTCCAAATCAAAAATTCCCAATTTCGAATTCGGATCCTAGGATTCACTATTTATCCGAACCCTAATTCCCCA
+	AATTCATCCACCAATCCTCACAATTTCAACCCCAATTCAACAATTATACACTCAATTAAATCAAACACCATTCAATTTAA
+	TCAATTTCAACCAAATTAATCACGGAACCCTAAATTCCCAAAAATCCGAAATTCTCCCAATTGTCAAATTCATCAATTCT
+	CTAAAATTCATC
+	>NODE_9093_length_638_cov_1.0000_k_159_flag_1
+	CTGTTGACTCTAGATTTGCTATTACTTTGGTAGTAAATGAACGAAGAAAATACCGTAGATTTCTAGATGGGTTGAGACCA
+	GCGATTAAGTCACGATTGTCCATGCTGAAGTTGGTAGTATATTCGGATTTGGTAGACCGAGCAGTAATCGTAGAAAGGGA
+	TGTAGAGGAGGCTCAAAAAGCTCGGGATCAATTCAATCGAAGAAGAGCTAGTCGGGGCCAGGGGAGAAGTAATGAGAATC
+	GATGGCATAATTCGGGATAACAAAGAACTGGCGATGGTAAGAATCAGAGAGGAGGAGGACAAGGGGGTTTTCAGTGATCA
+	ATGGGTGTAGACAGATTCAGACCACAAATGTAGAAACCCTACAGCCAATGCGAACATTATAGGAAATTTCATTTTGGGAA
+	GTGTTATAAGTTATCGCAGAACTGCTTCTCCTGTGGAAAGGTGGGACACTTAGCTAATAAGTGTCAGGATAGGAGAGGTA
+	TTACCCCAGAACAAGAAACAAAAAGTGGAAGGATGTGTGTGTGCCCTTACAAAACAGGATGCACAAGCAACAAACGAAGT
+	GGCATCAGGTACTTTAACTCTTTTTAATAAGAAAGTTAAAGTACTATTTGATCCTGGTGCTACACATTCATATCGTCT
+	>NODE_1_length_462_cov_1.0000_k_159_flag_1
+	CATTCACTTTCTTCCACCATTCACATGTTCAACAATGCAATTAATTGCTTTTTTACTTTTTAGGAAATGTCACCAATGCA
+	TGAAGACTTGTAAGACATGTCTAGCATATTAGGAGTAGGTTTATTTATTGCACTTGAAGACTTTGGAAGACAATGTCCAA
+	CGTTCACTGTTCATTGCTACAGTGCAACGGATATATTTGCTTTCCATCTTGTATATATTCTGTAATCTACACCAAATGAA
+	ACACAACAACTTGTTATCTTTTTAATTCTCTTCTTCTTCTTCTCTCTTCTTGCTGAAATCAAAATAATGCACCGAGCACA
+	TTTATGAGATTGATGAATCATGTTTTGCGTGCATACATAGGTAGGTTTGTTGTTGTTTACTTTGATGATATTCTCATTTA
+	TAGCAAAAACTTGGATGATCATGTTGTGCATTTAAATTCAGTTTTGGATGTGCTTAGACAAG
+	>NODE_13639_length_835_cov_19.0000_k_159_flag_1
+	TTGCGAAGCAAATCAAGCTATTAAAGCCCAAACTAGTACAAGTAGCTATATCAAATACTGTATTTAACCAACATCAAATG
+	TTTCAATAGTGACTTCCAAGATCATCGGAGTCATTCTAGCATGGAAAAAATTCTTTAATTTCCATCACAAAGAAATAAAA
+	GGGAAATTTATGAAGAAGAAATTCTATTAATTCAGAAAAGGAAAAAGGAAAACAGATGATAGATAAGAAGAATGCAGATC
+	TTCTGTAGCATTATAGTCAACCACCTTAGCTGAAGTATCTATTACAAGAAACCTACCAAGCATGTTTGAGACATGATGGA
+	CAACTACAAGTTTCGTCTTCCTCGAAATTGTTTCCTTCAACTTGTCCACGTCTGGAATTTCATCATCATTTAAATCCAAA
+	AACTTCAAAATGATACCGGTCTTTTGAGCTACAAGTTGCCAGGGCACAAGAGCACTGTGATGTTCAGCAACTGTGAGTAT
+	GATCTGCAAGAAAAATAATGTCATGCAACACCTTGAACTGTATATGTAGAATAACTGTAAGAGCCACACTCAGGGTCCAT
+	TGTAAGAACACTATTAAACAGAAATAATTGAGTCACGTAAATATTGAAGTGGATATGGGATTAAATATAAACATAAACAG
+	AGATTCAATTTCTACCAAGCGTTGACAAAAAATTGTAAAAGGGAAGCATTTAAATCTTGTGAGAACAGGATAAGCAAGTA
+	GCAAAGATATGTTCTTTAAAATATCAGAATGGATTGTTCCATTGTTCTGCTGTTCCAGACCTATAAAACCCTATTTTGAG
+	TGATTTTATAAAAAATAGAAAGATGGACAAGTCGT
+	
+Where `>NODE_0_length_332_cov_1.0000_k_159_flag_0` is the fasta header (Always starting with the `>` character). Name of the sequence and any other information.
+
+And `TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATTTTGCA...` is the actual sequence
 
 
+<a name="extract"></a>
+## Extract - identification of target regions
 
-To see an example of raw data go to
+During this step `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence datasetsets (aminoacids or nucleotides) and then extract them. Proteins can be provided in either aminoacid or nucleotide, these are searched and extracted using `Scipio`  Like in the previous steps, Captus will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
 
-	cd /data_tmp/[username]/data/00_raw_reads
+To run the extract module do
+
+	cd /data_tmp/[username]/data/03_captus/
+	
+	captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
+
+Then you should start seeing this 
+
+	Starting Captus-assembly: EXTRACT (2025-02-21 12:20:30)
+	    Welcome to the marker extraction step of Captus-assembly. In this step, Captus will use Scipio to search within your FASTA assemblies
+	and recover any set of reference proteins provided through '--nuc_refs', '--ptd_refs', and/or '--mit_refs'. Captus includes some
+	reference protein sets to work with Plants like the 'Angiosperms353' protein set for nuclear genes, and two organellar protein reference
+	sets 'SeedPlantsPTD' for plastids, and 'SeedPlantsMIT' for mitochondria.
+	    If you have references that are not proteins (e.g. non-coding regions, gene sequences including introns, full mRNAs, etc.) You can
+	provide these miscellaneous DNA references with '--dna_refs' and Captus will use BLAT to find and extract matches in your assemblies.
+	    Finally, if you want to explore the usefulness of the contigs that were not hit by any protein or other DNA references after the
+	Captus' extraction process, or simply if you do not have reference sets to test, you can try the option '--cluster_leftovers' to attempt
+	sequence clustering across samples in order to discover homologous markers.
+	    For more information, please see https://github.com/edgardomortiz/Captus
+	
+	           Captus version: v1.1.1
+	                  Command: /home/mpemaster/miniconda3/envs/captus/bin/captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
+	                 Max. RAM: 249.0GB (out of 251.5GB)
+	             Max. Threads: 4 (out of 64)
+	
+	             Dependencies:
+	                Scipio   : v1.4.1 OK
+	                ├─BioPerl: v1.7.8 OK
+	                └─YAML   : v1.30 OK
+	                BLAT     : v37x1 OK
+	                MMseqs2  : not used
+	                MAFFT    : not used
+	
+	         Python libraries:
+	                    numpy: v1.23.5 OK
+	                   pandas: v2.2.2 OK
+	                   plotly: v6.0.0 OK
+	
+	    Captus assemblies dir: /data_tmp/mpemaster/data/03_captus/02_assemblies
+	                           VALID Captus assemblies directory with 2 samples and 2 'assembly.fasta' files
+	
+	   Total assemblies found: 2
+	
+	         Output directory: /data_tmp/mpemaster/data/03_captus/03_extractions
+	                           Output directory successfully created
+
+
+It should take 10 minutes to complete
+
+Once is finished you will see a directory called `03_extractions` Move to that directory and make a list
+
+	cd 03_extractions
 	ls
 	
-You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
+You should see
 
-	MELI_Aglaia_spectabilis_G09645_R1.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz
-	MELI_Aglaia_spectabilis_G09645_R2.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz
+	captus-extract.log        captus-extract_report.html  MELI_Aglaia_spectabilis__captus-ext
+	captus-extract_refs.json  captus-extract_stats.tsv    MELI_Dysoxylum_alliaceum__captus-ext
 
-There are two file per each species corresponding to the left and right reads as this is paired-end data
+Now copy the assemble report to you laptop
 
-A FASTQ file has four line-separated fields per sequence. To see the sequence files do
+ 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/03_extractions/captus-extract_report.html .
 
-	zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+Open it on your browser and you should see this
 
-You will see this
+<p align="center"><img src="images/captu_extraction.png" alt="captus_extraction" width="900"></p>
 
-	@A00119:588:HVWJMDRXY:2:2101:4182:1000 1:N:0:TCAGGCTT+TTCATGCG
-	TTGCGAAGCCGAGCACCTCCCTTACACAACCCTCGACCTCCCAGTAACCACCACCGAGCTCAGAGCCGTTGGTAGTCGCCGAAAAATGCCGCACCAACACCGTGAAGCTCGGCTTCTTCTTCCCGTCGATTCGCCGTCCTCAAAGCCATT
-	+
-	FFFFFFFFFFF,FFFF:FFFF:FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFF:,FFFFFFFFFFFFFFFFFFFFFFF,:FFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFF:FFFF:FFF:::FFFFFFFFF:F,FFF::,
+To see the actual output of `captus` you can go one of the samples directories and see the assembly `FASTA` file
 
-Line 1 begins with a '@' character and is followed by a sequence identifier and an optional description from the sequencing machine
-Line 2 is the sequence
-Line 3 begins with a '+' character. Usually the only character in the line.
-Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.
-
-The quality goes from 0 to 40
-
-| ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? | @ | A | B | C | D | E | F | G | H | I | 
-| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
-| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 |
-
-If you check the other file for the same sample 
-
-	zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	cd MELI_Aglaia_spectabilis__captus-ext/01_coding_NUC
 	
-You can see that line 1 is identical except for the number of the read
+	less NUC_coding_NT.fna
 	
-	@A00119:588:HVWJMDRXY:2:2101:4182:1000 2:N:0:TCAGGCTT+TTCATGCG
-	TGAAGACGAGGAAGAGGAGGAGGAGGATAGTCTGTTAGCGGTGGTTGTGGCCCCTGAATGTCATTGAGGACGGCGAATCGACGGGAAGAAGAAGCCGAGCTTCACGGTGTTGGTGCGGCATTTTTCGGCGACTACCAACGGCTCTGAGCT
-	+
-	FF:FF:FFF,,:,:FF:FF,:FFF,,F,FFF:FFF:FF,FFFFF:FFFFF:F:F:,:F:,,FFF:,FF:F:,F::FFFF,FFF,FFFFFF:FFFFF:FFFFFF::,,:FF,:FFFFFFFFF:FFFF,:FFFF:F::F:F:FFF:F:F,FF
-
-
-<a name="qc"></a>
-
-Now we are going to do quality control of the sequencing data with `fastqc`
-
-First load the conda environment call `captus` in there we will have most of the tools we need for QC and assembly
-
-	conda activate captus
-	
-Now you can run `fastqc` in one of the files
-
-	fastqc MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
-	
-You will see the on the screen the progress
-
-	Started analysis of MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
-	Approx 5% complete for MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
-	Approx 10% complete for MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
-	...
-	
-One FastQC is done you will have two new files for that sequence file:
-
-	MELI_Aglaia_spectabilis_G09645_R1_fastqc.html
-	MELI_Aglaia_spectabilis_G09645_R1_fastqc.zip
-
-The first is a `html` report that you download and open locally in your internet browser and the second is a `zip` contining the stat files that we will use later.
-
-To copy the `html` file to your laptop do
-
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html .
-	
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/fastqc.png" alt="fastqc" width="900"></p>
-
-Now we will go over the main parts of the report. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=bz93ReOv87Y)
-
-Now you need to run `fastqc` for the remaning files
-
-	fastqc MELI_Aglaia_spectabilis_G09645_R2.fastq.gz MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz -t 3
-	
-TIP: You can also run as many files you need at the same time with the wildcard `*` and `t` equivalent to the number of files to run in one in an individual processor (Do not do this during the course; it's just an example)
-
-	echo fastqc * -t #
-
-Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one
-
-	multiqc --filename multiqc_report_raw .
-	
-You will see this
-
-	/// MultiQC 🔍 v1.27.1
-
-       file_search | Search path: /data_tmp/[username]/data/00_raw_reads
-         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 15/15
-            fastqc | Found 4 reports
-     write_results | Data        : multiqc_report_raw_data
-     write_results | Report      : multiqc_report_raw.html
-           multiqc | MultiQC complete
-
-One is done you will see file called `multiqc_report.html` You need to download to your laptop as before
-
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html .
-	
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
-
-
-
-<a name="dedup"></a>
-## Deduplication of raw reads
-
-The process of deduplication aims to remove PCR duplicates generated during library preparation and hybridization steps. While this deduplicated reads doesn't really affect the assembly process, removing them will help to speed up the assembly process and avoid skews on the coverage calculation during assembly
-
-We are going to to deduplicate the reads with the tool `clumpify.sh` of `BBmap`
-
-First let create a new directory were to place the deduplicated reads
-
-	mkdir /data_tmp/[username]/data/01_dedup
-
-To deduplicate the first pair of reads do
-
-
-	clumpify.sh in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
-	
-You will see something like this
-
-	java -ea -Xmx199355m -Xms199355m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ clump.Clumpify in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
-	Executing clump.Clumpify [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, ziplevel=9, dedupe=t]
-	Version 38.84
-	
-	Read Estimate:          51540788
-	Memory Estimate:        39322 MB
-	Memory Available:       163436 MB
-	Set groups to 1
-	Executing clump.KmerSort1 [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, groups=1, ecco=false, rename=false, shortname=f, unpair=false, repair=false, namesort=false, ow=true, ziplevel=9, dedupe=t]
-
-Run `clumpy` for the other pair as well
-
-	clumpify.sh in1=MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz in2=MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz ziplevel=9 dedupe=t
-	
-Now we are going to run `fastq` and `multiqc` on the deduplicated read to see do they look now
-
-	cd /data_tmp/[username]/data/01_dedup #to move to the directory where the deduplicated reads are
-	fastqc *dedup.fastq.gz -t 4
-	multiqc --filename multiqc_report_dedup . 
-	
-Copy the report of the deduplicated read so we can comprate with the raw one
-
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/01_dedup/multiqc_report_dedup.html .
-
-Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
-
-
-<a name="adaptor"></a>
-## Adaptor removal and cleaning of low quality read
-
-We are going to remove illumina sequencing adaptor and low quality reads using `bbduk`
-
-First we are going to remove the adaptors
-
-	bbduk.sh in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
-
-You should start seeing this
-
-	java -ea -Xmx102106m -Xms102106m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
-	Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, ref=/data_tmp/[username]/data/others/adapters.fa]
-	Version 38.84
-	
-	0.035 seconds.
-	Initial:
-	Memory: max=107072m, total=107072m, free=106988m, used=84m
-	
-	Added 797 kmers; time: 	0.013 seconds.
-	Memory: max=107072m, total=107072m, free=106854m, used=218m
-
-Once is done you can run `bbduk` for the other pair of files
-
-	bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz out=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz out2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
-
-Now let's create a new directory were we will place final clean files
-
-	mkdir /data_tmp/[username]/data/02_clean
-
-Run `bbduk` to remove low quality reads
-
-	bbduk.sh in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
-
-You should see this
-
-	java -ea -Xmx102100m -Xms102100m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
-	Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz, out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz, qtrim=rl, trimq=20, minavgquality=20]
-	Version 38.84
-	
-	0.033 seconds.
-	Initial:
-	Memory: max=107072m, total=107072m, free=106988m, used=84m
-	
-
-Now run `bbduk` for the other sample
-
-	bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
-
-Finally let's create a report for the final clean read so we can compare it with the raw reads
-
-	cd /data_tmp/[username]/data/02_clean
-	fastqc * -t 4
-	multiqc --filename multiqc_report_clean .
-	
-Copy the report to your laptop and open in the browser
-
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/02_clean/multiqc_report_clean.html .
-
-<p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
-
-Now these reads are ready for assembly!!!
-
-
-
-
-
-
-
-
+And you should see something like this
+
+	>MELI_Aglaia_spectabilis__4471__00 [query=TJLC-4471] [hit=00] [wscore=0.737] [cover=99.55] [ident=87.00] [score=0.737] [length=672]
+	GTATGTGAAGCAGGATGCATATTGGAGAATCTGAGTTCTTTCCTGGACAACCATGGATTTATTATGCCACTGGACTTAGGTGCAAAAGGAAGCTGCCAAATTGGTGGAAATGTTTCAACTAATGCTGGTGGTTTGCGCCTTGTTCGTTATGGTTCACTACATGGGAATATACTTGGTATTGAAGCTGTTTTAGCAAATGGTAATGTGCTTGAAATGCTTGGGACCTTACGTAAAGATAATACTGGGTATGAATTAAAGCATTTGTTTATAGGAAGTGAAGGATCATTGGGAATTGTTACAAAAGTTTCGATTCTTACCCCTCCAAAACTTTCTTCTGTAAATTTAGCTTTTCTTGCATGCAGCGATTATTTCGGCTGTCAGAAACTTCTGCTGGAAGCAAAGAGGAAACTTGGGGAGATTCTATCAGCATTTGAGTTTTTGGATAACCAGTCAATGGATTTGGTTTTAAACCATTTGGATGGTGCTAGGAATCCGCTACCCTCCTCAAAGAACAACTTCTTTGTTTTGATTGAGACAACAGGCAGTGATGAATCTTCTGACAAAGAGAAGCTTGAGGCCTTCCTTCTTCAATCAATGGATGGTGGATTGATTTCTGATGATGTTATTGCACAAGACTTAAATCAAGTTTCGTCATTCTGGCAAATACGTGAG
+	>MELI_Aglaia_spectabilis__4471__01 [query=TJLC-4471] [hit=01] [wscore=0.386] [cover=83.04] [ident=77.96] [score=0.464] [length=561]
+	GTATGTGAAGCAGGATGCATATTGGAGGATCTGAATTCTTTCCTGGACAACCATGGATTTATTGTGCCACTGGAGTTAGGTGCAAAAACAATCTGCCAAATTGGTGGAAATGTCTCAACCAATGTTGGTAGTTTGCCCCTTGTTCGTTATGGTTTACTACATGGCAATATACTTGGCGAGGAAGCTGTTTTAGCAAATGGTAATGTGCTTGACATGCTTGGGACTTTACGCAAAGATACCACTGGGTATGAGTAAAAGCATTTGTTTATAGGAAGTGAAAGATCCTAGGGCATTTTAACCAAAGTTTCGATAATGACCCCTCCAAAACTTTCTTCTGTAAATTTAGCTTTTCTTGCATGCAGGGATTATTTCAGCTGTCAAAAACTTCTGCTGGAAGTAAAGAGGAAACCTGGGGAGATTCTATCAGCATTTGAGGTTTTGGATAACCAGACTAAGGATTTGGTGAATTATTTGGATGGTGTTAGGAATCGATTACCTTCCTCAATGCACAACTTCTATGTTTTGATTGAGACAGCGGGCAGTGATGAATCTTTTGACAAG
+	>MELI_Aglaia_spectabilis__4471__02 [query=TJLC-4471] [hit=02] [wscore=0.366] [cover=72.77] [ident=85.28] [score=0.513] [length=492] [frameshifts=383,384]
+	GAAGCTGTTTTAGTAAATGGTAATGTGCTTGTCATGCTTGGGACTTTACGTAAAGATAATACTGGGTATGAATTAAAGCATTTGGTTATAGGAAGTGAAGGATCCTTGGGAATTGTAACCAAAGTTTCGATACTTACCCCTCCAAAACTTTCTTCCGTAAATTTAGCTTTCCTTGCATGCAGCGATTATTTCAGCTGTCAGAAGCTTCTGCTGGAAGCAAAGAGGAAACTTGGGGAGATTCTATCGGCATTTTAGCTTTCGGATAACTTGTCAATGGGTTTGGTTTTAAACCGTTTGGATGGTGTTAGGAATCCGTTACCTTCCTCAATGAACAACTTCTATGTTTTGATTGAGACAACGGGCAGTGATGAATCTTTTGACTNNGGTAAGCTTGAGGCCTTCCTTCTTCAATCTATGGAGGGTGGATTGATTTCTGATGGTGTTATTGCACAAGACATAAATCAAGCTTCGTCATTCTGGCGAATACGTGAG
+	>MELI_Aglaia_spectabilis__4527__00 [query=TIUZ-4527] [hit=00] [wscore=0.782] [cover=99.77] [ident=89.24] [score=0.783] [length=1311]
+	GAGAGGGTGGTTGTGTTGGTTATTGGAGGAGGGGGAAGGGAACATGCACTTTGCTATGCTTTGAAGCGATCTCCCTCTTGTGATGCTGTATTTTGTGCTCCTGGCAATGCCGGGATATCCAGCTCAGGGGATGCAACCTGTATCTCGGACTTAGACATTTTAGATGGGGAGGCTGTGATTGCCTTCTGCTGCAAGTGGGGTGTGGGACTAGTTGTTGTGGGACCAGAGGCTCCTCTTGTATCGGGTCTTGCCAACAAACTAGTAAAAGCTGGAATTCCTACTTTTGGCCCGTCTTCAGAAGCTGCTGCTCTGGAAGGTTCTAAGAACTTTATGAAGAATTTATGTGACAAATACAGCATTCCTACTGCTAAGTATAAAACGTTTACAGATCCATCTGCGGCAAAGCAATATATTCAAGAGCAAGGAGCACCTATTGTCGTCAAAGCAGATGGCTTGGCTGCTGGAAAAGGAGTTATTGTTGCTATGACATTGGAGGAAGCATATGAAGCCGTTGATTCAATGCTGGTCAAAAATACTTTTGGTTCTGCAGGGAGCTGTGTTGTTATTGAAGAATTTCTTGAAGGTGAAGAAGCTTCATTTTTTGCCCTTGTGGATGGAGAGAATGCCATACCTCTAGAATCTGCCCAGGACCATAAACGAGTAGGTGATGGTGATACGGGGCCCAACACTGGTGGGATGGGGGCATACTCTCCAGCACCTGTCTTAACAAGAGATCTTCAGTCTTTGGTCATGGAATCCATAATTCTCCCCACAGTGAAAGGAATGTCCGAAGAAGGATGCAGGTTTGTTGGGGTCTTATATGCTGGGCTCATGATTGAGAAGAAGTCTGGCTTGCCTAAACTAATTGAGTACAATGTTCGATTTGGAGATCCAGAGTGTCAGGTCTTGATGGTGAGGTTGGAGTCTGATCTGGCACAAGTTCTACTTGCAGCTTGTCGAGGAGAGCTAACTGGGGTAACATTAAACTGGTCCACGGGGTCTGCCATGGTGGTAGTAATGGCAAGCAGGGGATACCCAGGATCCTATGAGAAAGGTGGTGTGATACAGAACCTTGAAGAAGCAGAACAAGTTGCGCCATCTGTTAAAATATTTCATGCTGGGACTGCACTTGACTCAGATGGCTACTTCATTGCCACCGGAGGCCGTGTTCTTGGGGTTACTGCAAAGGGAAACGATCTTCAAGAGGCACGAGATAGAGCTTATCAAGCAGTAGAGGAAATTAACTGGCCAGGAGGATTCTATCGGTGTGATATCGGATGGAGAGCACTTCCCATAAAACAATTTGCTACG
+	>MELI_Aglaia_spectabilis__4527__01 [query=TIUZ-4527] [hit=01] [wscore=0.755] [cover=99.77] [ident=87.87] [score=0.756] [length=1311]
+	GAGAGGGTGGTTGTGTTGGTTATTGGTGGAGGGGGAAGGGAACATGCACTTTGCTATGGTTTGAAGCGATCTCCCACATGTGATGCTGTATTTTGTGCCCCTGGTAATGCTGGGATATCCAGCTCAGGGGATGCAACCTGTATTTCGGACTTAGACATTTTAGATGGGGAGGCTGTGATTGCCTTCTGCCGCAAGTGGGGTGTGGGACTAGTTGTTGTGGGACCAGAGGCTCCTCTTGTATCAGGTCTTGCCAACAAACTAGTAAAAGCTGGAATTCCTACTTTTGGCCCATCTTCAGAAGCTTCAGCTCTGGAAGGTTCTAAGAACTTTATGAAGAATTTATGTGACAAATATGGCATTCCTACTGCTAAGTATAAAACATTTACAGATCCATCTGCTGCAAAGCAATATATTCAAGATCAAGGAGTACCTATTGTTGTAAAAGCAGATGGATTGGCTGCTGGAAAAGGAGTCATTGTTGCTATGACAATGGAGGAAGCATATGAAGCTGTTGATTTGATGCTTGTCAAAAATGCTTTTGGTTCTGCAGGGGGACGTGTTGTTATTGAAGAATTTCTTGAAGGTGAAGAAGCTTCTTTCTTTGCCCTGGTGGATGGAGAGAATGCCATACCTCTTGAATCTGCCCAGGACCATAAACGAGTAGGTGATGGTGATAAGGGGCCCAACACTGGTGGGATGGGGGCATACTCTCCCGCACCTGTCTTAACGAAAGAACTTCAATCTTTGGTCATGGAATCTATAATTCTCCCCACAGTGAAAGGAATGTCTGCTGAAGGATGTAGGTTTGTTGGGGTCTTGTATGCTGGGCTCATGATTGAGAAGAAGTCTGGTTTACCTAAACTAATTGAGTACAATGTTCGATTTGGAGATCCTGAGTGTCAGGTCTTGATGGTGAGGTTGGAGTCTGATCTGGCACAAGTTCTACTTGCAGCTTGTCGAAGAGAGCTATCTGGGGTAACATTAAACTGGTCCCCGGGGTCTGCCATGGTGGTAGTAATGGCTAGTAAGGGATACCCAGGATCCTACAAGAAAGGCAGTGTGATATGGAACCTTGAAGCAGCAGAACAAGTCGCTCCATCTGTTAAAATATTTCATGCTGGAACTGCATTTGACTCAGATGGAAACTTCATTGCCACCGGGGGCCGTGTTCTTGGGCTTACTGCAAAGGGAAACAATCTTCAGGAGGCACGAGATAGAGCTTATCAAGCATTAGAGGAAATTAAGTGGCCTGGAGGATTCTATCGGCGTGATATTGGATGGAGAGCACTTCCCCAAAAACAATTTGCTACA
+	>MELI_Aglaia_spectabilis__4691__00 [query=THHD-4691] [hit=00] [wscore=0.720] [cover=86.26] [ident=91.72] [score=0.720] [length=471]
+	CAGAGACTACCTCCACTTTCAACAGAACCCAACCGATGTGAGCGTGCCTATGTTGGTAACACGATTGGCCAAGCAAATGGTGTTTACGACAAGCCAATTGATCTCCGCTTCTGCGATTACTCAAACGATCAATCCAACCTGAAGGGGAAATCCCTTGCAGCTGCACTCATGTCGGAAGCCAAATTTGACGGTGCTGACATGTCAGAAGTGGTAATGTCAAAGGCTTATGCCGTGGGAGCAAGCTTCAAGGGTACAAACTTCTCAAATGCTGTTTTAGATCGTGTGAATTTTGCAAAAGCAAATCTTCAAGGAGCTGTGTTTAAGAATACAGTACTCTCAGGCTCCACTTTCAATGAAGCTCAACTACAAGATGCAGTATTCGAGGACACAATTATTGGCTACATTGATCTTCAGAAGCTTTGCACAAATACCACCATCAATCCTGAAGGAAGAGCTGAATTGGGATGCCGA
+	>MELI_Aglaia_spectabilis__4691__01 [query=THHD-4691] [hit=01] [wscore=0.590] [cover=86.26] [ident=85.99] [score=0.621] [length=471] [frameshifts=294,426]
+	CAGAGACTGCCTCGACTTTCAGCAGAACCCAACATATGTGAGTGCGCCTATGTTGGTAACACAATCGGCCAAGCAAATGGCGTTTATGACAAGCCTATTGATCTCTGCTTATGCAGTTACTCAAACGATCAATCCAACCTTAAGGGGAAATCTCTTGCAGCTGCACTCATGTTTGAAGCCAAGTTCAATGGCGCAGATGTATCAGAAGTGGTAATGTCAAAGGCTTATGCCGTGGGAGCAAGCTTCAGGGGTGCAAACTTCTCAAATGCTGTTTTAGATCGCGTGAATTTTGANAAAAGCAATCTTCAAGGAGCTGTGTTCAAGAACACCGTACTTTCAGGCTCTACTTTCAATGAAGCTCAACTGCAAGATGCAGTGTTCGAGGACACAATTATCGGCTACATTGATCTTCAGAAGCTTTGCCANAATACCACCATCAGTCCTGAAGGAAGAGCTGAATTGGGATGCCGA
+	>MELI_Aglaia_spectabilis__4724__00 [query=UHJR-4724] [hit=00] [wscore=0.801] [cover=100.00] [ident=90.05] [score=0.801] [length=582]
+	GATGCTCTAGCTACAACCATTTCCTGTCGGAAGGCAACATTCTACAGCCGTTCAAGGTCATCACTGTGGACAAAGGGAGAGACTTCCCAGAATTTCATCAACGTTCAGGACATCTATCTTGATTGTGATCGTGACTCTATAATATACCTTGGAAAGCCTGATGGGCCCACTTGCCACACCGGGTCAGAAACTTGCTACTATACATCAGTTTTTGATGCGCTAAACGAACAGCAGGTTTGTAGCTTCAGAAATAAGTTGGCAATGACAACGTTGTACTCATTAGAGTCTACAATTTCTCAAAGGAAAGCAGAATTAGCAGCATTAGAAAATGGGAAACCTTCTTGGACTAAACGATTATTACTAGATGGCAACTTGCTGTGCTCAAAAATTCGAGAAGAAGCAGATGAGCTATGTCGAACACTAGAGGAGAACGAGGATTATTCTTGTACTGTGTCAGAGATGGCTGATGTGTTGTATCATTCAATGGTTTTGCTGGCACTCAAGGATGTAAAAGCAGAAGAAGTGCTAGAAGTTCTGCGAAAGAGGTTTTCACAATCAGGTATCGAAGAAAAGAAAAGTCGT

@@ -123,6 +123,17 @@ Open the `html` file in your internet browser and you should see something like 
 
 <p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
 
+To see the `html` report for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### There you can find the report for this and future steps for all samples
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
+
+
+<p align="center"><img src="images/multiqc_raw_all.png" alt="multiqcrawall" width="900"></p>
+
 
 
 <a name="dedup"></a>
@@ -168,6 +179,17 @@ Copy the report of the deduplicated read so we can comprate with the raw one
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/01_dedup/multiqc_report_dedup.html .
 
 Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
+
+To see the `html` report for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### There you can find the report for this and future steps for all samples
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
+
+
+<p align="center"><img src="images/multiqc_dedup_all.png" alt="multiqcdedupwall" width="900"></p>
 
 
 <a name="adaptor"></a>
@@ -231,8 +253,17 @@ Copy the report to your laptop and open in the browser
 
 <p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
 
-Now these reads are ready for assembly!!!
+These reads are ready for assembly!!!
 
+To see the `html` report for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### There you can find the report for this and future steps for all samples
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+
+<p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
 
 
