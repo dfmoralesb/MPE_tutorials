@@ -35,7 +35,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 * Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
 
-* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `4471.aln.clipkit.iqtree`
+* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `4471.aln.clipkit.treefile`
 
 	<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="900"></p>
 
@@ -44,15 +44,15 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 <a name="figtree"></a>
 ## Reading and visualizing tree files
 
-Here we will explore how phylogenetic trees are encoded in Newick format, the most commonly used format in phylogenetic sofware, and we will visualize the maximum-likelihood phylogeny generated with IQ-TREE with the program [FigTree](http://tree.bio.ed.ac.uk/software/figtree/). For more detail about the newick format see [here](http://evolution.genetics.washington.edu/phylip/newicktree.html).
+Here we will explore how phylogenetic trees are encoded in Newick format, the most commonly used format in phylogenetic sofware, and we will visualize the maximum-likelihood phylogeny generated with IQ-TREE with the program [FigTree](http://tree.bio.ed.ac.uk/software/figtree/). For more detail about the newick format see [here](https://phylipweb.github.io/phylip/newicktree.html).
 
-* Open the file `Locus_1562.x.phy.treefile` in a text editor, or on the command line using, for example, the `less` command:
+* Open the file `4471.aln.clipkit.treefile` in a text editor, or on the command line using, for example, the `less` command:
 
-		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy.treefile
+		less Locus_1562.x.phy.treefile
 		
 	You'll see a long string containing the taxon IDs, each of which is followed by a colon and a number, and together with these, the taxon IDs are embedded in parentheses.
 		
-		(A_arboreum_153:0.0000010000,(((((((A_balsamiferum_TM178:0.0000010000,A_leucoblepharu:0.0000010000):0.0030523931,(A_gorgoneum_TM185:0.0000010000,A_stuessyi_TM2031:0.0000010000):0.0028665085):0.0028569672,A_cuneatum_134:0.0057941060):0.0000010000,A_canariense_TM189:0.0028868572):0.0028790905,((((A_goochiae_TM184:0.0000010000,A_lindleyi_TM190:0.0000010000):0.0086830962,A_saundersii_merged:0.0029994261):0.0030109370,Mon_mura_111:0.0315882241):0.0030478381,A_sedifolium_TM187:0.0029232996):0.0151856647):0.0000010000,(((A_ciliatum_135:0.0000010000,Aeo_haworthii:0.0000010000):0.0000010000,(((A_nobile_TM191:0.0000000000,A_volkerii_TM194:0.0000000000):0.0000010000,A_urbicum_TM2001:0.0000010000):0.0000010000,A_valverdense_TM2131:0.0000010000):0.0000010000):0.0029245985,A_davidbramwellii_TM2021:0.0028736162):0.0029110197):0.0000010000,Aeo_glutinosum:0.0028595971):0.0086818059,Aeo_korneliuslemsii:0.0000010000);
+		(MELI_Aglaia_spectabilis__00:0.0380179390,(((((((((((MELI_Aglaia_spectabilis__01:0.0506739175,MELI_Aphanamixis_polystachya__01:0.0535434293):0.0009582787,MELI_Cabralea_canjerana__02:0.0140979167):0.0148666359,(MELI_Guarea_pubescens__01:0.0393937815,MELI_Heckeldora_staudtii__01:0.0480125875):0.0064761451):0.0012831257,MELI_Vavaea_amicorum__01:0.0825715324):0.0169487786,(((((MELI_Azadirachta_indica:0.0004927154,MELI_Melia_azedarach:0.0020470950):0.0287155251,MELI_Owenia_reticulata:0.0313943437):0.0190395806,MELI_Pterorhachis_zenkeri:0.0425344882):0.0463844845,((((MELI_Carapa_procera:0.0243152104,MELI_Swietenia_macrophylla:0.0331743798):0.0364456250,(MELI_Lovoa_sywnnertonii__00:0.0534910638,MELI_Toona_ciliata__00:0.0222303545):0.0112998021):0.0146482776,((MELI_Chukrasia_tabularis:0.0603985313,MELI_Schmardaea_microphylla:0.0932356732):0.0059751090,(MELI_Lovoa_sywnnertonii__01:0.0715604163,MELI_Toona_ciliata__01:0.0270178220):0.0144402397):0.0049209856):0.0162916902,((RUTA_Citrus_hystrix:0.0955127303,(RUTA_Ruta_graveolens__00:0.0155031330,RUTA_Ruta_graveolens__01:0.0242888190):0.1909844938):0.0167509809,RUTA_Melicope_ternata:0.1640001395):0.1252373604):0.0051787758):0.0337809330,MELI_Quivisianthe_papinae:0.0833022953):0.0114346424):0.0016806024,(MELI_Trichilia_hirta:0.0527888671,MELI_Turraea_virens:0.0849778741):0.0198736252):0.0117351016,(((MELI_Aglaia_spectabilis__02:0.0392266628,MELI_Cabralea_canjerana__01:0.0213777247):0.0096306741,(MELI_Chisocheton_longistipitatus__01:0.0385910779,(MELI_Guarea_pubescens__02:0.0440549647,(MELI_Heckeldora_staudtii__00:0.0340058439,(MELI_Neoguarea_glomerulata__00:0.0617785610,MELI_Turraeanthus_manii:0.0430127959):0.0016654293):0.0005171647):0.0020616325):0.0010408630):0.0030760053,MELI_Vavaea_amicorum__00:0.0684560127):0.0027216237):0.0060321840,MELI_Guarea_pubescens__00:0.0535230595):0.0008256918,MELI_Neoguarea_glomerulata__01:0.0498438147):0.0017009200,MELI_Dysoxylum_alliaceum:0.0457100313):0.0021620938,(MELI_Aphanamixis_polystachya__00:0.0498633453,MELI_Chisocheton_longistipitatus__00:0.0379487095):0.0092600438):0.0086872234,MELI_Cabralea_canjerana__00:0.0201619645);
 		
 * Open FigTree, copy the above tree string and paste it into a new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
 
