@@ -95,6 +95,8 @@ You should see something like this
 
 Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/captus-clean_report.html .
 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
@@ -109,6 +111,8 @@ In case you want to create a similar report we did before with `multiqc` you can
 	
 Copy the `html` report to you computer and open it in the browser. You can compare this report with the one we did in the NGS tutorial
 
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
  	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/02_qc_stats_after/multiqc_report_clean_captus.html .
 
 
@@ -119,7 +123,7 @@ To see the `mulitqc` report for all 30 samples go to
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
-#### There you can find the report for this and future steps for all samples
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
 
@@ -185,6 +189,8 @@ You should see
 
 Now copy the assemble report to you laptop
 
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
  	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/02_assemblies/captus-assemble_report.html .
 
 Open it on your browser and you should see this
@@ -239,19 +245,15 @@ Where `>NODE_0_length_332_cov_1.0000_k_159_flag_0` is the fasta header (Always s
 
 And `TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATTTTGCA...` is the actual sequence
 
-To see the `captus` report for all 30 samples go to 
+To see the `captus` report `captus-assemble_report_all_samples.html` and log `captus-assemble_all_samples.log` for all 30 samples go to 
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-assemble_report_all_samples.html .
 
-<p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
-
-The `captus` report and log for all samples is also available at `/data_tmp/mpemaster/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
-
-
-
+<p align="center"><img src="images/captus_assemble_all.png" alt="assembleall" width="900"></p>
 
 
 
@@ -351,3 +353,15 @@ And you should see something like this
 	CAGAGACTGCCTCGACTTTCAGCAGAACCCAACATATGTGAGTGCGCCTATGTTGGTAACACAATCGGCCAAGCAAATGGCGTTTATGACAAGCCTATTGATCTCTGCTTATGCAGTTACTCAAACGATCAATCCAACCTTAAGGGGAAATCTCTTGCAGCTGCACTCATGTTTGAAGCCAAGTTCAATGGCGCAGATGTATCAGAAGTGGTAATGTCAAAGGCTTATGCCGTGGGAGCAAGCTTCAGGGGTGCAAACTTCTCAAATGCTGTTTTAGATCGCGTGAATTTTGANAAAAGCAATCTTCAAGGAGCTGTGTTCAAGAACACCGTACTTTCAGGCTCTACTTTCAATGAAGCTCAACTGCAAGATGCAGTGTTCGAGGACACAATTATCGGCTACATTGATCTTCAGAAGCTTTGCCANAATACCACCATCAGTCCTGAAGGAAGAGCTGAATTGGGATGCCGA
 	>MELI_Aglaia_spectabilis__4724__00 [query=UHJR-4724] [hit=00] [wscore=0.801] [cover=100.00] [ident=90.05] [score=0.801] [length=582]
 	GATGCTCTAGCTACAACCATTTCCTGTCGGAAGGCAACATTCTACAGCCGTTCAAGGTCATCACTGTGGACAAAGGGAGAGACTTCCCAGAATTTCATCAACGTTCAGGACATCTATCTTGATTGTGATCGTGACTCTATAATATACCTTGGAAAGCCTGATGGGCCCACTTGCCACACCGGGTCAGAAACTTGCTACTATACATCAGTTTTTGATGCGCTAAACGAACAGCAGGTTTGTAGCTTCAGAAATAAGTTGGCAATGACAACGTTGTACTCATTAGAGTCTACAATTTCTCAAAGGAAAGCAGAATTAGCAGCATTAGAAAATGGGAAACCTTCTTGGACTAAACGATTATTACTAGATGGCAACTTGCTGTGCTCAAAAATTCGAGAAGAAGCAGATGAGCTATGTCGAACACTAGAGGAGAACGAGGATTATTCTTGTACTGTGTCAGAGATGGCTGATGTGTTGTATCATTCAATGGTTTTGCTGGCACTCAAGGATGTAAAAGCAGAAGAAGTGCTAGAAGTTCTGCGAAAGAGGTTTTCACAATCAGGTATCGAAGAAAAGAAAAGTCGT
+
+To see the `captus` report `captus-extract_report_all_samples.html` and log `captus-align_all_samples.log` for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-extract_report_all_samples.html .
+
+<p align="center"><img src="images/captus_extraction_all.pne.png" alt="extractall" width="900"></p>
+
+

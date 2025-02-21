@@ -86,6 +86,9 @@ The first is a `html` report that you download and open locally in your internet
 
 To copy the `html` file to your laptop do
 
+#### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html .
 	
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/fastqc.png" alt="fastqc" width="900"></p>
@@ -117,7 +120,7 @@ You will see this
 
 One is done you will see file called `multiqc_report.html` You need to download to your laptop as before.
 
-### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html .
 	
@@ -131,7 +134,6 @@ To see the `html` report for all 30 samples go to
 	
 #### There you can find the report for this and future steps for all samples
 
-### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
 
@@ -180,6 +182,8 @@ Now we are going to run `fastq` and `multiqc` on the deduplicated read to see do
 	
 Copy the report of the deduplicated read so we can comprate with the raw one
 
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/01_dedup/multiqc_report_dedup.html .
 
 Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
@@ -187,6 +191,8 @@ Open the `html` file in your internet browser<p align="center"><img src="images/
 To see the `html` report for all 30 samples go to 
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 	
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
 
@@ -250,6 +256,8 @@ Finally let's create a report for the final clean read so we can compare it with
 	multiqc --filename multiqc_report_clean .
 	
 Copy the report to your laptop and open in the browser
+
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/02_clean/multiqc_report_clean.html .
 
