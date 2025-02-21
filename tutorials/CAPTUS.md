@@ -502,6 +502,9 @@ You should see
 
 <p align="center"><img src="images/clean.png" alt="clean" width="900"></p>
 
+
+#### What is the size of the clean alignment?
+
 Now we can run `CAPTUS` on all out samples
 
 Move to the `CAPTUS` directory and run the following command
