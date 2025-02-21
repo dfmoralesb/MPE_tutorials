@@ -16,7 +16,7 @@ For a details guide of `CAPTUS` please see [here](https://edgardomortiz.github.i
 	ssh -p 22110 [username]@10.153.134.10
 
 
-* Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 
 <a name="clean"></a>
@@ -124,7 +124,7 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
 
 
-To see the `mulitqc` report for all 30 samples go to and copy the file to your laptop
+To see the `mulitqc` report `multiqc_report_all_samples_clean.html` for all 30 samples go to and copy the file to your laptop
 
 	cd /data_tmp/[username]/output/all_samples_reports
 	
@@ -321,6 +321,7 @@ It should take 10 minutes to complete
 Once is finished you will see a directory called `03_extractions` Move to that directory and make a list
 
 	cd 03_extractions
+	
 	ls
 	
 You should see
@@ -514,7 +515,7 @@ Now we can run `CAPTUS` on all out samples
 
 Move to the `CAPTUS` directory and run the following command
 
-	cd  /data_tmp/[username]/data/03_captus
+	cd /data_tmp/[username]/data/03_captus
 
 	captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
 
@@ -548,6 +549,8 @@ The whole process will take a couple of minutes
 
 The output directory `04_alignments` will have many other directories where all the alignments will be located. It will also contain the report and log files.
 
+	cd  04_alignments
+	
 	ls 04_alignments
 	
 You should see
@@ -568,7 +571,35 @@ The directory with the files that we are interested in is `03_trimmed/01_unfilte
 
 This directory will contain the `FASTA` files for the clean alignments with out the reference and up to 5 gene copies per samples. In this case all this alignments will have only two samples because is just the test data.
 
-The directory that have the equivalent files but with all 30 samples is `data_tmp/[username]/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
+	ls 03_trimmed/01_unfiltered_w_refs/01_coding_NUC/03_genes
+	
+You will see a `FASTA` file for each locus
+
+	4471.fna  5116.fna  5335.fna  5469.fna  5699.fna  5910.fna  6000.fna  6164.fna  6379.fna  6488.fna  6620.fna  6865.fna  7128.fna
+	4527.fna  5123.fna  5339.fna  5477.fna  5702.fna  5913.fna  6003.fna  6176.fna  6387.fna  6492.fna  6636.fna  6875.fna  7141.fna
+	4691.fna  5131.fna  5343.fna  5489.fna  5703.fna  5918.fna  6004.fna  6198.fna  6389.fna  6494.fna  6639.fna  6882.fna  7174.fna
+	4724.fna  5138.fna  5347.fna  5502.fna  5716.fna  5919.fna  6016.fna  6216.fna  6393.fna  6496.fna  6641.fna  6883.fna  7194.fna
+	4757.fna  5162.fna  5348.fna  5513.fna  5721.fna  5921.fna  6026.fna  6221.fna  6398.fna  6498.fna  6652.fna  6909.fna  7241.fna
+	4793.fna  5163.fna  5355.fna  5528.fna  5744.fna  5922.fna  6029.fna  6226.fna  6401.fna  6500.fna  6660.fna  6913.fna  7273.fna
+	4802.fna  5168.fna  5357.fna  5531.fna  5770.fna  5926.fna  6034.fna  6238.fna  6404.fna  6506.fna  6667.fna  6914.fna  7279.fna
+	4806.fna  5177.fna  5366.fna  5536.fna  5772.fna  5933.fna  6036.fna  6258.fna  6405.fna  6507.fna  6685.fna  6924.fna  7296.fna
+	4848.fna  5188.fna  5398.fna  5551.fna  5791.fna  5936.fna  6038.fna  6265.fna  6412.fna  6526.fna  6689.fna  6933.fna  7313.fna
+	4889.fna  5200.fna  5404.fna  5554.fna  5821.fna  5940.fna  6041.fna  6274.fna  6420.fna  6527.fna  6717.fna  6946.fna  7324.fna
+	4890.fna  5206.fna  5406.fna  5578.fna  5822.fna  5942.fna  6048.fna  6282.fna  6432.fna  6528.fna  6738.fna  6947.fna  7325.fna
+	4893.fna  5220.fna  5421.fna  5594.fna  5840.fna  5943.fna  6050.fna  6284.fna  6439.fna  6531.fna  6746.fna  6954.fna  7336.fna
+	4932.fna  5257.fna  5422.fna  5596.fna  5841.fna  5944.fna  6051.fna  6295.fna  6447.fna  6532.fna  6779.fna  6955.fna  7363.fna
+	4942.fna  5264.fna  5426.fna  5599.fna  5843.fna  5945.fna  6064.fna  6298.fna  6448.fna  6533.fna  6780.fna  6958.fna  7367.fna
+	4951.fna  5271.fna  5427.fna  5614.fna  5849.fna  5949.fna  6068.fna  6299.fna  6449.fna  6538.fna  6782.fna  6961.fna  7371.fna
+	4954.fna  5273.fna  5428.fna  5620.fna  5853.fna  5950.fna  6098.fna  6303.fna  6450.fna  6544.fna  6785.fna  6962.fna  7583.fna
+	4989.fna  5280.fna  5430.fna  5634.fna  5857.fna  5958.fna  6110.fna  6318.fna  6454.fna  6550.fna  6792.fna  6968.fna  7602.fna
+	4992.fna  5296.fna  5434.fna  5639.fna  5858.fna  5960.fna  6119.fna  6320.fna  6458.fna  6552.fna  6797.fna  6978.fna  7628.fna
+	5018.fna  5304.fna  5449.fna  5644.fna  5859.fna  5968.fna  6128.fna  6363.fna  6459.fna  6559.fna  6825.fna  6979.fna
+	5032.fna  5318.fna  5454.fna  5656.fna  5865.fna  5977.fna  6130.fna  6366.fna  6460.fna  6563.fna  6848.fna  7024.fna
+	5034.fna  5326.fna  5460.fna  5660.fna  5866.fna  5980.fna  6139.fna  6373.fna  6462.fna  6570.fna  6859.fna  7028.fna
+	5038.fna  5328.fna  5463.fna  5664.fna  5893.fna  5981.fna  6148.fna  6376.fna  6483.fna  6572.fna  6860.fna  7029.fna
+	5090.fna  5333.fna  5464.fna  5670.fna  5899.fna  5990.fna  6150.fna  6378.fna  6487.fna  6601.fna  6864.fna  7111.fna
+
+The directory that have the equivalent files but with all 30 samples is `/data_tmp/[username]/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
 
 To see the report `captus-align_report_all_samples.html` and log `captus-align_all_samples.log` of the alignment step or all 30 samples to to
 
