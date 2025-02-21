@@ -29,7 +29,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 		iqtree -s 4471.aln.clipkit 
 		
-	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses.
+	As you'll see, just providing the alignment name is sufficient to run a simple IQ-TREE analyses. The analysis should be done in a minute.
 	
 	<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
@@ -46,7 +46,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 Here we will explore how phylogenetic trees are encoded in Newick format, the most commonly used format in phylogenetic sofware, and we will visualize the maximum-likelihood phylogeny generated with IQ-TREE with the program [FigTree](http://tree.bio.ed.ac.uk/software/figtree/). For more detail about the newick format see [here](https://phylipweb.github.io/phylip/newicktree.html).
 
-* Open the file `4471.aln.clipkit.treefile` in a text editor, or on the command line using, for example, the `less` command:
+* Open the file `4471.aln.clipkit.treefile` in a text editor, or on the command line using, for example, the `cat` command:
 
 		less 4471.aln.clipkit.treefile
 		
@@ -83,24 +83,25 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 		iqtree --help
 
-* Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-b` option to perform the standard non-parametric bootstrap Felsenstein ([1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x)). 
+* Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-B` option to perform [Ultrafast Bootstrap](https://academic.oup.com/mbe/article/35/2/518/4565479) which is a significantly fast implementation of the standard non-parametric bootstrap [Felsenstein, 1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x). 
 
 
-		 /home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2  -s DATA/IQ-tree_individual_loci/input/Locus_1562.x.phy -b 200 --prefix DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs
+		 iqtree  -s 4471.aln.clipkit -B 100 --prefix 4471.aln.clipkit.bootstrap -T 4
 	
 		
-* This command will run the Replicates for bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
+* This command will run the 100 replicates for the ultrafast bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
 
+	The analysis should be done in in a minute or so.
 
-* Open file `Locus_1562.x.bs.treefile` in FigTree. You can use the `less` command as before and copy and paste the tree string on FigTree.
+* Open file `4471.aln.clipkit.bootstrap.treefile` in FigTree. You can use the `cat` command as before and copy and paste the tree string on FigTree.
 
-		less DATA/IQ-tree_individual_loci/input/Locus_1562.x.bs.treefile
+		cat 4471.aln.clipkit.bootstrap.treefile
 		
 	It should look like this:		
 		
-		(A_arboreum_153:0.0000010000,(((((((A_balsamiferum_TM178:0.0000010000,A_leucoblepharu:0.0000010000)99:0.0030520595,(A_gorgoneum_TM185:0.0000010000,A_stuessyi_TM2031:0.0000010000)69:0.0028660844)57:0.0028566025,A_cuneatum_134:0.0057936629)13:0.0000010000,A_canariense_TM189:0.0028860818)32:0.0028788372,((((A_goochiae_TM184:0.0000010000,A_lindleyi_TM190:0.0000010000)90:0.0086815307,A_saundersii_merged:0.0029990833)56:0.0030101098,Mon_mura_111:0.0315848208)53:0.0030486613,A_sedifolium_TM187:0.0029239609)91:0.0151842687)21:0.0000010000,((((A_ciliatum_135:0.0000010000,Aeo_haworthii:0.0000010000)57:0.0000010000,((A_nobile_TM191:0.0000010000,A_urbicum_TM2001:0.0000010000)21:0.0000010000,A_volkerii_TM194:0.0000010000)14:0.0000010000)15:0.0000010000,A_valverdense_TM2131:0.0000010000)84:0.0029242856,A_davidbramwellii_TM2021:0.0028736910)56:0.0029108013)13:0.0000010000,Aeo_glutinosum:0.0028585680)97:0.0086808756,Aeo_korneliuslemsii:0.0000010000);
+		(MELI_Aglaia_spectabilis__00:0.0380191497,(((((((((((MELI_Aglaia_spectabilis__01:0.0506752054,MELI_Aphanamixis_polystachya__01:0.0535450023)89:0.0009585045,MELI_Cabralea_canjerana__02:0.0140978502)100:0.0148672057,(MELI_Guarea_pubescens__01:0.0393964385,MELI_Heckeldora_staudtii__01:0.0480148296)97:0.0064759238)79:0.0012827492,MELI_Vavaea_amicorum__01:0.0825759821)100:0.0169494621,(((((MELI_Azadirachta_indica:0.0004927390,MELI_Melia_azedarach:0.0020471203)100:0.0287150227,MELI_Owenia_reticulata:0.0313953162)100:0.0190407336,MELI_Pterorhachis_zenkeri:0.0425364445)100:0.0463861504,((((MELI_Carapa_procera:0.0243155357,MELI_Swietenia_macrophylla:0.0331749157)100:0.0364473094,(MELI_Lovoa_sywnnertonii__00:0.0534921501,MELI_Toona_ciliata__00:0.0222309475)100:0.0112997555)100:0.0146492009,((MELI_Chukrasia_tabularis:0.0604013008,MELI_Schmardaea_microphylla:0.0932412654)89:0.0059747898,(MELI_Lovoa_sywnnertonii__01:0.0715635995,MELI_Toona_ciliata__01:0.0270192067)99:0.0144402359)98:0.0049197057)100:0.0162920912,((RUTA_Citrus_hystrix:0.0955186534,(RUTA_Ruta_graveolens__00:0.0155041122,RUTA_Ruta_graveolens__01:0.0242876157)100:0.1910002272)93:0.0167476141,RUTA_Melicope_ternata:0.1640168719)100:0.1252496621)94:0.0051790366)100:0.0337816812,MELI_Quivisianthe_papinae:0.0833058020)100:0.0114346130)70:0.0016805028,(MELI_Trichilia_hirta:0.0527898689,MELI_Turraea_virens:0.0849819570)100:0.0198736602)100:0.0117354579,(((MELI_Aglaia_spectabilis__02:0.0392278898,MELI_Cabralea_canjerana__01:0.0213782169)100:0.0096307368,(MELI_Chisocheton_longistipitatus__01:0.0385930601,(MELI_Guarea_pubescens__02:0.0440566759,(MELI_Heckeldora_staudtii__00:0.0340066527,(MELI_Neoguarea_glomerulata__00:0.0617810110,MELI_Turraeanthus_manii:0.0430148729)47:0.0016660968)53:0.0005168096)56:0.0020618474)69:0.0010400015)93:0.0030760948,MELI_Vavaea_amicorum__00:0.0684575517)96:0.0027216476)100:0.0060321857,MELI_Guarea_pubescens__00:0.0535240875)80:0.0008254210,MELI_Neoguarea_glomerulata__01:0.0498460103)85:0.0017009147,MELI_Dysoxylum_alliaceum:0.0457119769)89:0.0021621374,(MELI_Aphanamixis_polystachya__00:0.0498655165,MELI_Chisocheton_longistipitatus__00:0.0379500863)48:0.0092601942)55:0.0086864611,MELI_Cabralea_canjerana__00:0.0201624965);
 
-* Open the file or copy and paste in FigTree. Root the tree with "Mon_mura_111" and sort the taxa with "Increasing node order". 
+* Open the file or copy and paste in FigTree. Root the tree with Rutaceae and sort the nodes as before. 
 
 * To see node-support values based on bootstrapping, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. <p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
 

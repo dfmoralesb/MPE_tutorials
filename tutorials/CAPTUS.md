@@ -8,7 +8,7 @@
 
 * We are going to use `CAPTUS` to do each of these parts. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
 
-* For a details guide of `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
+* For a detailed guide of `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
 
 #### How to login to the workstation
