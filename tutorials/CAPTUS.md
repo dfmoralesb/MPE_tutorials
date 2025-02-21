@@ -500,7 +500,7 @@ Copy the alignment to your laptop and open it in `AliView` as we did before
 	
 You should see 
 
-<p align="center"><img src="images/aligned.png" alt="aligned" width="900"></p>
+<p align="center"><img src="images/clean.png" alt="aligned" width="900"></p>
 
 Now we can run `CAPTUS` on all out samples
 
