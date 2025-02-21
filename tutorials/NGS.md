@@ -4,7 +4,6 @@
 * [QC of FASTQ files](#qc)
 * [Deduplication](#dedup)
 * [Adaptor removal and cleaning of low quality read](#adaptor)
-* [Alternative node support values - Concordance factors](#concordance)
 
 <a name="fastq"></a>
 ## NGS data - FASTQ files
@@ -225,6 +224,8 @@ Copy the report to your laptop and open in the browser
 	scp -P 22110 mpemaster@10.153.134.10:/data_tmp/mpemaster/data/02_clean/multiqc_report_clean.html .
 
 <p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
+
+Now these reads are ready for assembly!!!
 
 
 
