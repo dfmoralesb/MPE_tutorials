@@ -100,7 +100,7 @@ TIP: You can also run as many files you need at the same time with the wildcard 
 
 	echo fastqc * -t #
 
-Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one
+Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one. https://www.youtube.com/watch?v=qPbIlO_KWN0
 
 	multiqc --filename multiqc_report_raw .
 	
@@ -119,7 +119,9 @@ One is done you will see file called `multiqc_report.html` You need to download 
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html .
 	
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
+Open the `html` file in your internet browser and you should see something like the picture below. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=qPbIlO_KWN0)
+
+<p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
 
 
 
