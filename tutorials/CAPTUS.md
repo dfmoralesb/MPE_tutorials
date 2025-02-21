@@ -6,7 +6,7 @@
 * [Align - individual loci alignment and cleaning](#align)
 
 
-We are going to use CAPTUS to do each of this steps. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
+We are going to use CAPTUS to do each of this part. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
 
 For a details guide of CAPTUS please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
@@ -39,7 +39,7 @@ Now we are going to "copy" the deduplicated reads to a new directory using symbo
 	
 	for i in /data_tmp/[username]/data/01_dedup/*.dedup.fastq.gz; do ln -s $i .; done
 	
-To run the fist module of `captus` do
+To run the first module of `captus` do
 
 	cd /data_tmp/[username]/data/03_captus/
 
@@ -97,6 +97,8 @@ Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
+All the screen output that you saw during the execution of `captus` in in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors.
+
 In case you want to create a similar report we did before with `multiqc` you can do it with
 
 	cd 02_qc_stats_after
@@ -109,6 +111,73 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 
 
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
+
+
+
+<a name="assemble"></a>
+## Assemble - assembly of reads
+
+Using the cleaned reads produced by the previous step, Captus will perform de novo assembly using `MEGAHIT`.  An HTML report summarizing several assembly statistics is also produced after this step.
+
+To run the first module of `captus` do
+
+	captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
+	
+Then you should see this
+
+
+	tarting Captus-assembly: ASSEMBLE (2025-02-21 11:10:03)
+	   Welcome to the de novo assembly step of Captus-assembly. In this step, Captus will use MEGAHIT to assemble your input reads. It is
+	lso possible to subsample a number of reads using reformat.sh from BBTools prior to assembly, this is useful while performing tests or
+	hen including samples with considerably higher sequencing depth in a dataset.
+	   Since you provided a directory name, Captus will look in that location for all the FASTQ files that contain the string '_R1' in their
+	ames and match them with their respective '_R2' pairs. If the '_R2' can not be found, the sample is treated as single-end. Sample names
+	re derived from the text found before the '_R1' string.The full set of reads per sample will be assembled, no subsampling will be
+	erformed.
+	   For more information, please see https://github.com/edgardomortiz/Captus
+	
+	      Captus version: v1.1.1
+	             Command: /home/mpemaster/miniconda3/envs/captus/bin/captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
+	            Max. RAM: 249.0GB (out of 251.5GB)
+	        Max. Threads: 4 (out of 64)
+	
+	        Dependencies:
+	             MEGAHIT: v1.2.9 OK
+	     megahit_toolkit: v1.2.9 OK
+	             BBTools: not used
+	              Salmon: not used
+	
+	    Python libraries:
+	               numpy: v1.23.5 OK
+	              pandas: v2.2.2 OK
+	              plotly: v6.0.0 OK
+	
+	    Output directory: /data_tmp/mpemaster/data/03_captus/02_assemblies
+	                      Output directory successfully created
+	
+The assembly of this two samples should take 20 minutes
+
+Once is finished you will see a directory called `02_assemblies` Move to that directory and make a list
+
+	cd 02_assemlies
+	ls
+	
+You should see
+
+	captus-assemble_assembly_stats.tsv  captus-assemble_length_stats.tsv  captus-assemble_report.html          MELI_Dysoxylum_alliaceum__captus-asm
+	captus-assemble_depth_stats.tsv     captus-assemble.log               MELI_Aglaia_spectabilis__captus-asm
+
+Now copy the assemble report to you laptop
+
+ 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/02_assemblies/captus-assemble_report.html .
+
+Open it on your browser and you should see this
+
+<p align="center"><img src="images/captus_assemble.png" alt="captus_assemble" width="900"></p>
+
+
+
+
 
 
 To see an example of raw data go to
