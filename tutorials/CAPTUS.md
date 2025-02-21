@@ -121,7 +121,7 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 
 To see the `mulitqc` report for all 30 samples go to and copy the file to your laptop
 
-	cd /data_tmp/mpemaster/output/all_samples_reports
+	cd /data_tmp/[username]/output/all_samples_reports
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
@@ -129,7 +129,7 @@ To see the `mulitqc` report for all 30 samples go to and copy the file to your l
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
-The `captus` report and log for all samples is also available at `/data_tmp/mpemaster/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+The `captus` report and log for all samples is also available at `/data_tmp/[username]/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
 
 
 <a name="assemble"></a>
@@ -157,7 +157,7 @@ Then you should start seing this
 	   For more information, please see https://github.com/edgardomortiz/Captus
 	
 	      Captus version: v1.1.1
-	             Command: /home/mpemaster/miniconda3/envs/captus/bin/captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
+	             Command: /home/[username]/miniconda3/envs/captus/bin/captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
 	            Max. RAM: 249.0GB (out of 251.5GB)
 	        Max. Threads: 4 (out of 64)
 	
@@ -172,7 +172,7 @@ Then you should start seing this
 	              pandas: v2.2.2 OK
 	              plotly: v6.0.0 OK
 	
-	    Output directory: /data_tmp/mpemaster/data/03_captus/02_assemblies
+	    Output directory: /data_tmp/[username]/data/03_captus/02_assemblies
 	                      Output directory successfully created
 	
 The assembly of this two samples should take 20 minutes
@@ -247,7 +247,7 @@ And `TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATT
 
 To see the `captus` report `captus-assemble_report_all_samples.html` and log `captus-assemble_all_samples.log` for all 30 samples go to 
 
-	cd /data_tmp/mpemaster/output/all_samples_reports
+	cd /data_tmp/[username]/output/all_samples_reports
 	
 You can copy the report to you laptop to see it
 	
@@ -285,7 +285,7 @@ Then you should start seeing this
 	    For more information, please see https://github.com/edgardomortiz/Captus
 	
 	           Captus version: v1.1.1
-	                  Command: /home/mpemaster/miniconda3/envs/captus/bin/captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
+	                  Command: /home/[username]/miniconda3/envs/captus/bin/captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
 	                 Max. RAM: 249.0GB (out of 251.5GB)
 	             Max. Threads: 4 (out of 64)
 	
@@ -302,12 +302,12 @@ Then you should start seeing this
 	                   pandas: v2.2.2 OK
 	                   plotly: v6.0.0 OK
 	
-	    Captus assemblies dir: /data_tmp/mpemaster/data/03_captus/02_assemblies
+	    Captus assemblies dir: /data_tmp/[username]/data/03_captus/02_assemblies
 	                           VALID Captus assemblies directory with 2 samples and 2 'assembly.fasta' files
 	
 	   Total assemblies found: 2
 	
-	         Output directory: /data_tmp/mpemaster/data/03_captus/03_extractions
+	         Output directory: /data_tmp/[username]/data/03_captus/03_extractions
 	                           Output directory successfully created
 
 
@@ -361,7 +361,7 @@ And you should see something like this
 
 To see the `captus` report `captus-extract_report_all_samples.html` and log `captus-align_all_samples.log` for all 30 samples go to 
 
-	cd /data_tmp/mpemaster/output/all_samples_reports
+	cd /data_tmp/[username]/output/all_samples_reports
 	
 Again copy the report to your laptop to open it	
 	
@@ -379,9 +379,9 @@ In this step `CAPTUS` will process the results from the extract command. First, 
 
 #### Before we run `CAPTUS` for aligning we are going to do an example alignment and cleaning for one locus so you understand what is `CAPTUS` doing
 
-The example fasta file `4471.fna` is on `/data_tmp/mpemaster/data/04_individual_aln`
+The example fasta file `4471.fna` is on `/data_tmp/[username]/data/04_individual_aln`
 
-	cd /data_tmp/mpemaster/data/04_individual_aln
+	cd /data_tmp/[username]/data/04_individual_aln
 	
 	less 4471.fna
 	
@@ -407,9 +407,169 @@ Now cp the `FASTA` file on your laptop and visualize it on `AliView`
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.fna .
 	
-Now open `AliView` on you laptop and drag the 4471.fna file. You should see the following
+Open `AliView` on you laptop and drag the 4471.fna file. You should see the following
 	
 <p align="center"><img src="images/unaligned.png" alt="unaligned" width="900"></p>
 
+Now we are going to align this gene with `MAFFT`
+
+In the workstation make sure you are in `/data_tmp/[username]/data/04_individual_aln`
+
+	cd /data_tmp/[username]/data/04_individual_aln
+	
+Then to run `MAFFT` type
+
+	mafft --auto --thread 4 4471.fna > 4471.aln
+	
+You will see 
+
+	nthread = 4
+	nthreadpair = 4
+	nthreadtb = 4
+	ppenalty_ex = 0
+	stacksize: 8192 kb
+	generating a scoring matrix for nucleotide (dist=200) ... done
+	Gap Penalty = -1.53, +0.00, +0.00
+	
+	
+	
+	Making a distance matrix ..
+	
+	There are 13 ambiguous characters.
+	    1 / 40 (thread    0)
+	done.
+	
+	Constructing a UPGMA tree (efffree=0) ...
+	   30 / 40
+	done.
+	
+	Progressive alignment 1/2...
+
+The alignment should be done in a few seconds and the output file is `4471.aln`
+
+Copy the alignment to your laptop and open it in `AliView` as we did before
+
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln .
+	
+You should see 
+
+<p align="center"><img src="images/aligned.png" alt="aligned" width="900"></p>
+
+#### What is the size of the alignment? 
+
+Now we are going to clean (mask) the alignment based on the percentage of samples per column with `ClipKit`
+
+	clipkit -m gappy --gaps 0.7 4471.aln
+
+	You will see 
+	
+	-------------
+	| Arguments |
+	-------------
+	Input file: 4471.aln (format: fasta)
+	Output file: 4471.aln.clipkit (format: fasta)
+	Sequence type: Nucleotides
+	Gaps threshold: 0.7
+	Trimming mode: gappy
+	Create complementary output: False
+	Create log file: False
+	
+	...
+	
+	---------------------
+	| Output Statistics |
+	---------------------
+	Number of sites kept: 3032
+	Number of sites trimmed: 3012
+	
+	Percentage of alignment trimmed: 49.835%
+	
+	Execution time: 0.331s
+
+The output file will be called `4471.aln.clipkit`
+
+Copy the alignment to your laptop and open it in `AliView` as we did before
+
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln.clipkit .
+	
+You should see 
+
+<p align="center"><img src="images/aligned.png" alt="aligned" width="900"></p>
+
+Now we can run `CAPTUS` on all out samples
+
+Move to the `CAPTUS` directory and run the following command
+
+	cd  /data_tmp/[username]/data/03_captus
+
+	captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
+
+You will start seeing this 
+
+	arting Captus-assembly: ALIGN (2025-02-21 14:38:24)
+	  Welcome to the alignment step of Captus-assembly. In this step, Captus will collect all the extracted markers across all samples in '03_extractions' and group them by marker. Then Captus
+	ll align each marker using MAFFT or MUSCLE. If given, the reference loci are also included as alignment guides and removed after alignment
+	  For more information, please see https://github.com/edgardomortiz/Captus
+	
+	          Captus version: v1.1.1
+	                 Command: /home/[username]/miniconda3/envs/captus/bin/captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
+	                Max. RAM: 249.0GB (out of 251.5GB)
+	            Max. Threads: 4 (out of 64)
+	
+	            Dependencies:
+	                   MAFFT: v7.525 OK
+	                  MUSCLE: not used
+	                 ClipKIT: v1.4.1 OK
+	
+	        Python libraries:
+	                   numpy: v1.23.5 OK
+	                  pandas: v2.2.2 OK
+	                  plotly: v6.0.0 OK
+	
+	        Output directory: /data_tmp/[username]/data/03_captus/04_alignments
+	                          Output directory successfully created
+	
+
+The whole process will take a couple of minutes
+
+The output directory `04_alignments` will have many other directories where all the alignments will be located. It will also contain the report and log files.
+
+	ls 04_alignments
+	
+You should see
+
+	01_unaligned  02_untrimmed  03_trimmed  captus-align_alignments.tsv  captus-align_astral-pro.tsv  captus-align.log  captus-align_report.html  captus-align_samples.tsv
+
+
+Copy the report to your laptop to open it	
+	
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[mpeusername]/data/03_captus/04_alignments/captus-align_report.html .
+
+<p align="center"><img src="images/captus_align.png" alt="captusalign" width="900"></p>
+
+
+The directory with the files that we are interested in is `03_trimmed/01_unfiltered_w_refs/01_coding_NUC/03_genes`
+
+This directory will contain the `FASTA` files for the clean alignments with out the reference and up to 5 gene copies per samples. In this case all this alignments will have only two samples because is just the test data.
+
+The directory that have the equivalent files but with all 30 samples is `data_tmp/[username]/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
+
+To see the report `captus-align_report_all_samples.html` and log `captus-align_all_samples.log` of the alignment step or all 30 samples to to
+
+	cd /data_tmp/[username]/output/all_samples_reports
+	
+Again copy the report to your laptop to open it	
+	
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-align_report_all_samples.html .
+
+<p align="center"><img src="images/captus_aling_all.png" alt="aligntall" width="900"></p>
