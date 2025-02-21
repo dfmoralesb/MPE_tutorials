@@ -48,19 +48,31 @@ Here we will explore how phylogenetic trees are encoded in Newick format, the mo
 
 * Open the file `4471.aln.clipkit.treefile` in a text editor, or on the command line using, for example, the `less` command:
 
-		less Locus_1562.x.phy.treefile
+		less 4471.aln.clipkit.treefile
 		
 	You'll see a long string containing the taxon IDs, each of which is followed by a colon and a number, and together with these, the taxon IDs are embedded in parentheses.
 		
 		(MELI_Aglaia_spectabilis__00:0.0380179390,(((((((((((MELI_Aglaia_spectabilis__01:0.0506739175,MELI_Aphanamixis_polystachya__01:0.0535434293):0.0009582787,MELI_Cabralea_canjerana__02:0.0140979167):0.0148666359,(MELI_Guarea_pubescens__01:0.0393937815,MELI_Heckeldora_staudtii__01:0.0480125875):0.0064761451):0.0012831257,MELI_Vavaea_amicorum__01:0.0825715324):0.0169487786,(((((MELI_Azadirachta_indica:0.0004927154,MELI_Melia_azedarach:0.0020470950):0.0287155251,MELI_Owenia_reticulata:0.0313943437):0.0190395806,MELI_Pterorhachis_zenkeri:0.0425344882):0.0463844845,((((MELI_Carapa_procera:0.0243152104,MELI_Swietenia_macrophylla:0.0331743798):0.0364456250,(MELI_Lovoa_sywnnertonii__00:0.0534910638,MELI_Toona_ciliata__00:0.0222303545):0.0112998021):0.0146482776,((MELI_Chukrasia_tabularis:0.0603985313,MELI_Schmardaea_microphylla:0.0932356732):0.0059751090,(MELI_Lovoa_sywnnertonii__01:0.0715604163,MELI_Toona_ciliata__01:0.0270178220):0.0144402397):0.0049209856):0.0162916902,((RUTA_Citrus_hystrix:0.0955127303,(RUTA_Ruta_graveolens__00:0.0155031330,RUTA_Ruta_graveolens__01:0.0242888190):0.1909844938):0.0167509809,RUTA_Melicope_ternata:0.1640001395):0.1252373604):0.0051787758):0.0337809330,MELI_Quivisianthe_papinae:0.0833022953):0.0114346424):0.0016806024,(MELI_Trichilia_hirta:0.0527888671,MELI_Turraea_virens:0.0849778741):0.0198736252):0.0117351016,(((MELI_Aglaia_spectabilis__02:0.0392266628,MELI_Cabralea_canjerana__01:0.0213777247):0.0096306741,(MELI_Chisocheton_longistipitatus__01:0.0385910779,(MELI_Guarea_pubescens__02:0.0440549647,(MELI_Heckeldora_staudtii__00:0.0340058439,(MELI_Neoguarea_glomerulata__00:0.0617785610,MELI_Turraeanthus_manii:0.0430127959):0.0016654293):0.0005171647):0.0020616325):0.0010408630):0.0030760053,MELI_Vavaea_amicorum__00:0.0684560127):0.0027216237):0.0060321840,MELI_Guarea_pubescens__00:0.0535230595):0.0008256918,MELI_Neoguarea_glomerulata__01:0.0498438147):0.0017009200,MELI_Dysoxylum_alliaceum:0.0457100313):0.0021620938,(MELI_Aphanamixis_polystachya__00:0.0498633453,MELI_Chisocheton_longistipitatus__00:0.0379487095):0.0092600438):0.0086872234,MELI_Cabralea_canjerana__00:0.0201619645);
 		
-* Open FigTree, copy the above tree string and paste it into a new FigTree window. You'll see a phylogeny as shown in the screenshot below.<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
+* Open FigTree, copy the above tree string and paste it into a new FigTree window. You'll see a phylogeny as shown in the screenshot below.
 
-* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use "Mon_mura_111" as root. Click on the branch leading to "Mon_mura_111", as shown in the next screenshot.<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="900"></p>
+<p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
 
-* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="900"></p>
+* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use the samples of Rutaceae. Click on the branch leading to "RUTA_Citrus_hystrix, RUTA_Ruta_graveolens, and RUTA_Melicope_ternata", as shown in the next screenshot.
 
-* Finally, we could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
+<p align="center"><img src="images/figtree_2.png" alt="FigTree" width="900"></p>
+
+* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
+
+<p align="center"><img src="images/figtree_3.png" alt="FigTree" width="900"></p>
+
+* Finally, we could sort the taxa according to node order. To do so, select "Order nodes" -> "increasing" in FigTree's "Tree" menu. This should move Rutaceae to the bottom of the plot
+
+<p align="center"><img src="images/figtree_4.png" alt="FigTree" width="900"></p>
+
+* If instead you use "Order nodes" -> "decreasing" then Rutaceae would be on the top of the plot. Both phylogenies are exactly the same, the relationship do not change. How you order the nodes is a matter of preference.
+
+<p align="center"><img src="images/figtree_5.png" alt="FigTree" width="900"></p>
 
 <a name="boot"></a>
 ## Assessing node support with bootstrapping
@@ -69,7 +81,7 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 * To see again the available options in IQ-TREE type:
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 --help
+		iqtree --help
 
 * Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-b` option to perform the standard non-parametric bootstrap Felsenstein ([1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x)). 
 
