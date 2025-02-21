@@ -5,9 +5,14 @@
 * [Extract - identification of target regions](#extract)
 * [Align - individual loci alignment and cleaning](#align)
 
+
 We are going to use CAPTUS to do each of this steps. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
 
 For a details guide of CAPTUS please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
+
+
+* Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
 
 <a name="clean"></a>
 ## Clean - adaptor removal and cleaning of low quality read
