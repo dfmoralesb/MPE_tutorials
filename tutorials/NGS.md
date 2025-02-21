@@ -6,7 +6,12 @@
 * [Adaptor removal and cleaning of low quality read](#adaptor)
 
 
-* Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+#### How to login to the workstation
+
+	ssh -p 22110 [username]@10.153.134.10
+
+
+### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 
 <a name="fastq"></a>
@@ -135,7 +140,7 @@ To see the `html` report for all 30 samples go to
 #### There you can find the report for this and future steps for all samples
 
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
 
 
 <p align="center"><img src="images/multiqc_raw_all.png" alt="multiqcrawall" width="900"></p>
@@ -152,6 +157,10 @@ We are going to to deduplicate the reads with the tool `clumpify.sh` of `BBmap`
 First let create a new directory were to place the deduplicated reads
 
 	mkdir /data_tmp/[username]/data/01_dedup
+	
+Now let's move back to the folder with the raw data
+
+	cd /data_tmp/[username]/data/00_raw_reads
 
 To deduplicate the first pair of reads do
 
@@ -194,7 +203,7 @@ To see the `html` report for all 30 samples go to
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 	
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
 
 
 <p align="center"><img src="images/multiqc_dedup_all.png" alt="multiqcdedupwall" width="900"></p>

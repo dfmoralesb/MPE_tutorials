@@ -11,6 +11,11 @@ We are going to use `CAPTUS` to do each of these parts. The advantage of this ki
 For a details guide of `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
 
+#### How to login to the workstation
+
+	ssh -p 22110 [username]@10.153.134.10
+
+
 * Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 
@@ -125,7 +130,7 @@ To see the `mulitqc` report for all 30 samples go to and copy the file to your l
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
@@ -253,7 +258,7 @@ You can copy the report to you laptop to see it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-assemble_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-assemble_report_all_samples.html .
 
 <p align="center"><img src="images/captus_assemble_all.png" alt="assembleall" width="900"></p>
 
@@ -367,7 +372,7 @@ Again copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-extract_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-extract_report_all_samples.html .
 
 <p align="center"><img src="images/captus_extraction_all.pne.png" alt="extractall" width="900"></p>
 
@@ -554,7 +559,7 @@ Copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[mpeusername]/data/03_captus/04_alignments/captus-align_report.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/04_alignments/captus-align_report.html .
 
 <p align="center"><img src="images/captus_align.png" alt="captusalign" width="900"></p>
 
@@ -573,6 +578,6 @@ Again copy the report to your laptop to open it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-align_report_all_samples.html .
+	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-align_report_all_samples.html .
 
 <p align="center"><img src="images/captus_aling_all.png" alt="aligntall" width="900"></p>
