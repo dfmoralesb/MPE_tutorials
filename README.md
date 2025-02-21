@@ -69,7 +69,9 @@ All data for analyses and output will be located in
 		
 ## Tutorials
 
-* [NGS data and target enrichment](tutorials/NGS.md)<br>A tutorial on NGS data and target enrichment data
+* [NGS data](tutorials/NGS.md)<br>A tutorial on NGS data and target enrichment data
+
+* [Target enrichment data processing](tutorials/CAPTUS.md)<br>A tutorial on how to process target enrichment data
 
 * [Maximum-Likelihood Phylogenetic Inference](tutorials/ML.md)<br>A tutorial on phylogenetic inference with maximum likelihood using IQ-TREE
 

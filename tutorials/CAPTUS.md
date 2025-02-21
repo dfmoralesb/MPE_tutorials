@@ -83,7 +83,7 @@ Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/captus-clean_report.html .
 
-Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean_.png" alt="clean" width="900"></p>
+Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
 
 
