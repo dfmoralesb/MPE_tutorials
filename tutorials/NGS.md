@@ -133,9 +133,9 @@ Open the `html` file in your internet browser and you should see something like 
 
 <p align="center"><img src="images/multiqc_raw.png" alt="multiqcraw" width="900"></p>
 
-To see the `html` report for all 30 samples go to 
+To see the report `multiqc_report_all_samples_raw.html` for all 30 samples go to 
 
-	cd /data_tmp/mpemaster/output/all_samples_reports
+	cd /data_tmp/[username]/output/all_samples_reports
 	
 #### There you can find the report for this and future steps for all samples
 
@@ -197,9 +197,9 @@ Copy the report of the deduplicated read so we can comprate with the raw one
 
 Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
 
-To see the `html` report for all 30 samples go to 
+To see the report `multiqc_report_all_samples_dedup.html` for all 30 samples go to 
 
-	cd /data_tmp/mpemaster/output/all_samples_reports
+	cd /data_tmp/[username]/output/all_samples_reports
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 	
@@ -213,6 +213,10 @@ To see the `html` report for all 30 samples go to
 ## Adaptor removal and cleaning of low quality read
 
 We are going to remove illumina sequencing adaptor and low quality reads using `bbduk`
+
+Move back to the directory where the deduplicated reads are
+
+	/data_tmp/[username]/data/01_dedup
 
 First we are going to remove the adaptors
 
