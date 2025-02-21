@@ -22,18 +22,18 @@
 		cd /data_tmp/[username]/data/00_raw_reads
 		ls
 	
-* You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
+	You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
 
 		MELI_Aglaia_spectabilis_G09645_R1.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz
 		MELI_Aglaia_spectabilis_G09645_R2.fastq.gz  MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz
 
-There are two file per each species corresponding to the left and right reads as this is paired-end data
+	There are two file per each species corresponding to the left and right reads as this is paired-end data
 
 * A FASTQ file has four line-separated fields per sequence. To see the sequence files do
 
 		zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 
-* You will see this
+	You will see this
 
 		@A00119:588:HVWJMDRXY:2:2101:4182:1000 1:N:0:TCAGGCTT+TTCATGCG
 		TTGCGAAGCCGAGCACCTCCCTTACACAACCCTCGACCTCCCAGTAACCACCACCGAGCTCAGAGCCGTTGGTAGTCGCCGAAAAATGCCGCACCAACACCGTGAAGCTCGGCTTCTTCTTCCCGTCGATTCGCCGTCCTCAAAGCCATT
@@ -55,7 +55,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 		zless MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 	
-* You can see that line 1 is identical except for the number of the read
+	You can see that line 1 is identical except for the number of the read
 	
 		@A00119:588:HVWJMDRXY:2:2101:4182:1000 2:N:0:TCAGGCTT+TTCATGCG
 		TGAAGACGAGGAAGAGGAGGAGGAGGATAGTCTGTTAGCGGTGGTTGTGGCCCCTGAATGTCATTGAGGACGGCGAATCGACGGGAAGAAGAAGCCGAGCTTCACGGTGTTGGTGCGGCATTTTTCGGCGACTACCAACGGCTCTGAGCT
@@ -74,9 +74,9 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 	
 * Now you can run `fastqc` in one of the files
 
-	 fastqc MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
+	 	fastqc MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 	
-* You will see the on the screen the progress
+	You will see the on the screen the progress
 
 		Started analysis of MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
 		Approx 5% complete for MELI_Aglaia_spectabilis_G09645_R1.fastq.gz
@@ -113,7 +113,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 		multiqc --filename multiqc_report_raw .
 	
-You will see this
+	You will see this
 
 	/// MultiQC 🔍 v1.27.1
 
@@ -168,7 +168,7 @@ You will see this
 
 		clumpify.sh in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
 	
-* You will see something like this
+	You will see something like this
 
 		java -ea -Xmx199355m -Xms199355m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ clump.Clumpify in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
 		Executing clump.Clumpify [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, ziplevel=9, dedupe=t]
@@ -223,7 +223,7 @@ You will see this
 
 		bbduk.sh in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
 
-* You should start seeing this
+	You should start seeing this
 
 		java -ea -Xmx102106m -Xms102106m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
 		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, ref=/data_tmp/[username]/data/others/adapters.fa]
@@ -248,7 +248,7 @@ You will see this
 
 		bbduk.sh in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
 
-* You should see this
+	You should see this
 
 		java -ea -Xmx102100m -Xms102100m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
 		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz, out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz, qtrim=rl, trimq=20, minavgquality=20]
@@ -261,7 +261,7 @@ You will see this
 
 * Now run `bbduk` for the other sample
 
-* 	bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+		bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
 
 * Finally let's create a report for the final clean read so we can compare it with the raw reads
 
