@@ -119,7 +119,7 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
 
 
-To see the `mulitqc` report for all 30 samples go to 
+To see the `mulitqc` report for all 30 samples go to and copy the file to your laptop
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
@@ -249,6 +249,8 @@ To see the `captus` report `captus-assemble_report_all_samples.html` and log `ca
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
+You can copy the report to you laptop to see it
+	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/captus-assemble_report_all_samples.html .
@@ -260,7 +262,7 @@ To see the `captus` report `captus-assemble_report_all_samples.html` and log `ca
 <a name="extract"></a>
 ## Extract - identification of target regions
 
-During this step `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence datasetsets (aminoacids or nucleotides) and then extract them. Proteins can be provided in either aminoacid or nucleotide, these are searched and extracted using `Scipio`  Like in the previous steps, Captus will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
+During this step `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence datasetsets (aminoacids or nucleotides) and then extract them. Proteins can be provided in either aminoacid or nucleotide, these are searched and extracted using `Scipio`  Like in the previous steps, `CAPTUS` will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
 
 To run the extract module do
 
@@ -323,6 +325,9 @@ You should see
 
 Now copy the assemble report to you laptop
 
+#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+
+
  	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/03_extractions/captus-extract_report.html .
 
 Open it on your browser and you should see this
@@ -357,6 +362,8 @@ And you should see something like this
 To see the `captus` report `captus-extract_report_all_samples.html` and log `captus-align_all_samples.log` for all 30 samples go to 
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+Again copy the report to your laptop to open it	
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
