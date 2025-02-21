@@ -115,6 +115,18 @@ Copy the `html` report to you computer and open it in the browser. You can compa
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
 
 
+To see the `mulitqc` report for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+#### There you can find the report for this and future steps for all samples
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+
+<p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
+
+The `captus` report and log for all samples is also available at `/data_tmp/mpemaster/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+
 
 <a name="assemble"></a>
 ## Assemble - assembly of reads
@@ -226,6 +238,21 @@ And you should see something like this
 Where `>NODE_0_length_332_cov_1.0000_k_159_flag_0` is the fasta header (Always starting with the `>` character). Name of the sequence and any other information.
 
 And `TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATTTTGCA...` is the actual sequence
+
+To see the `captus` report for all 30 samples go to 
+
+	cd /data_tmp/mpemaster/output/all_samples_reports
+	
+
+	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
+
+<p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
+
+The `captus` report and log for all samples is also available at `/data_tmp/mpemaster/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+
+
+
+
 
 
 <a name="extract"></a>

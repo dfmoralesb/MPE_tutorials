@@ -100,7 +100,7 @@ TIP: You can also run as many files you need at the same time with the wildcard 
 
 	echo fastqc * -t #
 
-Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one. https://www.youtube.com/watch?v=qPbIlO_KWN0
+Once `fastqc` is finished we can run `multiqc` to summarized all individual report in a single one. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=qPbIlO_KWN0)
 
 	multiqc --filename multiqc_report_raw .
 	
@@ -115,7 +115,9 @@ You will see this
      write_results | Report      : multiqc_report_raw.html
            multiqc | MultiQC complete
 
-One is done you will see file called `multiqc_report.html` You need to download to your laptop as before
+One is done you will see file called `multiqc_report.html` You need to download to your laptop as before.
+
+### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html .
 	
@@ -128,6 +130,8 @@ To see the `html` report for all 30 samples go to
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
 #### There you can find the report for this and future steps for all samples
+
+### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_raw.html .
 
@@ -184,8 +188,6 @@ To see the `html` report for all 30 samples go to
 
 	cd /data_tmp/mpemaster/output/all_samples_reports
 	
-#### There you can find the report for this and future steps for all samples
-
 	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_dedup.html .
 
 
@@ -255,17 +257,7 @@ Copy the report to your laptop and open in the browser
 
 These reads are ready for assembly!!!
 
-To see the `html` report for all 30 samples go to 
-
-	cd /data_tmp/mpemaster/output/all_samples_reports
-	
-#### There you can find the report for this and future steps for all samples
-
-	scp -P 22110 [username]@10.153.134.10://data_tmp/[mpeusername]/output/all_samples_reports/multiqc_report_all_samples_clean.html .
-
-<p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
-
-
+We will see the report the the clean reads of all 30 samples in the next tutorial.
 
 
 
