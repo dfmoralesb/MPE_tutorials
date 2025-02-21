@@ -6,9 +6,9 @@
 * [Align - individual loci alignment and cleaning](#align)
 
 
-We are going to use CAPTUS to do each of this part. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
+We are going to use `CAPTUS` to do each of this part. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
 
-For a details guide of CAPTUS please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
+For a details guide of `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
 
 * Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
@@ -97,7 +97,7 @@ Now you can copy the the `captus-clean_report.html` file to you laptop to see it
 
 Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
-All the screen output that you saw during the execution of `captus` in in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors.
+#### All the screen output that you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors.
 
 In case you want to create a similar report we did before with `multiqc` you can do it with
 
