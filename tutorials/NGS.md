@@ -6,7 +6,8 @@
 * [Adaptor removal and cleaning of low quality read](#adaptor)
 
 
-* Every time you see `[username]` in the command example you need to replace it with you own [username](README.md)<br
+* Every time you see `[username]` in the command example you need to replace it with you own [username](README.md)<br>
+
 
 <a name="fastq"></a>
 ## NGS data - FASTQ files
