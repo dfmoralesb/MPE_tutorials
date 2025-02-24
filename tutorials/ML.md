@@ -33,7 +33,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 	
 	<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
-* Scroll back in the IQ-TREE output. Which was the Best-fit model? 
+* Scroll back in the IQ-TREE output. Which one was the Best-fit model? 
 
 * Scroll to the end and there, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
 
@@ -42,6 +42,8 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 	<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="900"></p>
 
 * All output file names were automatically chosen based on the name of the input file. This be changed this using the `--prefix` option.
+
+* All input and inference parameters can be found in the files `4471.aln.clipkit.log` and `4471.aln.clipkit.iqtree`
 
 <a name="figtree"></a>
 ## Reading and visualizing tree files
@@ -85,13 +87,13 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 		iqtree --help
 
-* Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-B` option to perform [Ultrafast Bootstrap](https://academic.oup.com/mbe/article/35/2/518/4565479) which is a significantly fast implementation of the standard non-parametric bootstrap [Felsenstein, 1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x). 
+* Scroll towards the top of the help text, there you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-B` option to perform [Ultrafast Bootstrap](https://academic.oup.com/mbe/article/35/2/518/4565479) which is a significantly fast implementation of the standard non-parametric bootstrap [Felsenstein, 1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x). IQ-TREE recommends a a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable also after a lower number of replicates.
 
 
-		 iqtree  -s 4471.aln.clipkit -B 100 --prefix 4471.aln.clipkit.bootstrap -T 4
+		 iqtree  -s 4471.aln.clipkit -B 1000 --prefix 4471.aln.clipkit.bootstrap -T 4
 	
 		
-* This command will run the 100 replicates for the ultrafast bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
+* This command will run the 1000 replicates for the ultrafast bootstrap + ML tree + consensus tree. Note that we are using the `--prefix` option to rename the output files. Otherwise the file names would be the same as in the previous run and IQ-TREE will produced an error and will ask to rewrite those files. The prefix not only provides the name of the files but also the directory path for the location of the output files.
 
 	The analysis should be done in in a minute or so.
 
@@ -149,18 +151,25 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 <p align="center"><img src="images/partition.png" alt="partition" width="900"></p>
 
 	
-The partition file specifies the kind of partition `DNA` a unique name of each partion (e.g. `fasta_files/Locus_597.x.phy.fa;` this is just the name of the original alignment file) and the size of each partition (i.e. the range of the each partion in the alignment).
+The partition file specifies the kind of partition `DNA` a unique name of each partion (e.g. `4744.ortho.aln.clipkit;` this is just the name of the original alignment file) and the size of each partition (i.e. the range of the each partion in the alignment).
 
 * To tell IQ-TREE to determine the ideal partitioning scheme itself, we need to use the options `-m MFP --merge`. This tells IQ-TREE to perform model selection on each partition and combine similar partiton to find the best scheme. This uses the implementation of Kalyaanamoorthy et al. ([2017](http://dx.doi.org/10.1038/nmeth.4285))
 
-* In this occasion we are going to use ultrafast bootstrap procedure with the `-B` option. IQ-TREE recommends a a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable also after a lower number of replicates. See Hoang et al. ([2017](https://academic.oup.com/mbe/article/35/2/518/4565479)) for more details. 
+* As in the individual gene tree we are going to use ultrafast bootstrap procedure with the `-B` option. 
 
+		conda activate captus
 
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2  -m MFP --merge -s concatenated_2419_loci.fa -T 120 -B 1000 -q concatenated_aln.model --prefix DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci
+		iqtree  -m MFP --merge -s meliaceae_4_loci_concat.fa -T 4 -B 1000 -p meliaceae_4_loci_concat.model --prefix meliaceae_4_loci_concat_iqtree
 
-* Running this analysis should be considerabl longer than the previous analysis of one individual locus. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case, I will use `-T 120`. If not sure about the number of CPUs available you can use `-T AUTO`
+* Running this analysis should take longer than the previous analyses of one individual locus. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case, I will use `-T 2`. If not sure about the number of CPUs available you can use `-T AUTO`
 
-* You do not need to run this as it will take too much time. The output files for this analyses are located at `DATA/IQ-tree_concatenated/output`.
+	The	run should take a couple of minutes
+	
+* To see the partition scheme and the best model of sequence evolution for each partition open the file `meliaceae_4_loci_concat_iqtree.best_model.nex`
+
+		cat meliaceae_4_loci_concat_iqtree.best_model.nex	
+
+<p align="center"><img src="images/partition_model.png" alt="partitionmodel" width="900"></p>
 
 * Open the file `IQtree2_concatenated_2419_loci.treefile`
 
