@@ -559,7 +559,47 @@
 
 	You should see the following plot
 	
-	<p align="center"><img src="images/orthocurve.png" alt="oc" width="900"></p>
+	<p align="center"><img src="images/orthocurve.png" alt="oc" width="700"></p>
+	
+	You can also check the stats by taxon by opening the `taxon_stats.txt` back in the workstation
+	
+		column -t taxon_stats.txt
+		
+	You will see
+	
+		taxonID                           num_ortho  %ortho_out_of_total_316
+		MELI_Cabralea_canjerana           283        0.895569620253
+		MELI_Toona_ciliata                286        0.905063291139
+		MELI_Vavaea_amicorum              219        0.693037974684
+		RUTA_Melicope_ternata             308        0.974683544304
+		MELI_Owenia_reticulata            302        0.955696202532
+		RUTA_Citrus_hystrix               311        0.98417721519
+		MELI_Aphanamixis_polystachya      258        0.816455696203
+		MELI_Heckeldora_staudtii          269        0.851265822785
+		MELI_Dysoxylum_alliaceum          232        0.73417721519
+		MELI_Swietenia_macrophylla        271        0.857594936709
+		MELI_Guarea_pubescens             257        0.813291139241
+		MELI_Trichilia_hirta              165        0.522151898734
+		MELI_Schmardaea_microphylla       256        0.810126582278
+		MELI_Carapa_procera               170        0.537974683544
+		MELI_Neoguarea_glomerulata        168        0.53164556962
+		MELI_Pterorhachis_zenkeri         122        0.386075949367
+		MELI_Azadirachta_indica           304        0.962025316456
+		MELI_Melia_azedarach              252        0.79746835443
+		MELI_Lovoa_sywnnertonii           249        0.787974683544
+		MELI_Chisocheton_longistipitatus  290        0.917721518987
+		MELI_Turraea_virens               217        0.686708860759
+		MELI_Swietenia_mahagoni           26         0.0822784810127
+		MELI_Aglaia_spectabilis           298        0.943037974684
+		MELI_Turraeanthus_manii           128        0.405063291139
+		MELI_Cedrela_saltensis            10         0.0316455696203
+		MELI_Munronia_pinnata             83         0.262658227848
+		MELI_Quivisianthe_papinae         293        0.927215189873
+		MELI_Cedrela_montana              12         0.0379746835443
+		RUTA_Ruta_graveolens              312        0.987341772152
+		MELI_Chukrasia_tabularis          245        0.775316455696
+		
+	What can you tell from this table?
 
 		
 
