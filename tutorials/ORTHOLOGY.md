@@ -3,7 +3,7 @@
 * [Phylogenomics workflow](#phylo)
 * [Loci assembly, Paralog assembly, and alignment](#assembly)
 * [Tip Masking](#masking)
-* [The ASTRAL Log information](#log)
+* [Remove spurious tips](#ts)
 * [Branch length and support](#support)
 * [Reading and visualizing tree files](#figtree)
 
@@ -308,6 +308,11 @@
 	
 	
 	<p align="center"><img src="images/masked.png" alt="mm" width="900"></p>
+	
+#### Can you see any difference between the trees?
 
 
+<a name="ts"></a>
+## Remove spurious tips
 
+Outlier tips with unusually long branches are detected and removed by maximally reducing the tree diameter with TreeShrink. For details on TreeShrink see [here](https://doi.org/10.1186/s12864-018-4620-2) and [here](https://github.com/uym2/TreeShrink)
