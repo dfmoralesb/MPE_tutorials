@@ -135,7 +135,7 @@ You should see (along other information)
 
 <p align="center"><img src="images/asfigtree_3.png" alt="asfigtree_3" width="900"></p>
 
-* We could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move "Mon_mura_111" to the bottom of the plot
+* We could sort the taxa according to node order. To do so, click "Increasing node order" in FigTree's "Tree" menu. This should move all Rutaceae to the bottom of the plot
 
 <p align="center"><img src="images/asfigtree_4.png" alt="asfigtree_4" width="900"></p>
 
