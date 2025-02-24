@@ -341,12 +341,12 @@
 		RUTA_Melicope_ternata
 		RUTA_Ruta_graveolens
 		
-	Now let's make a new directory for the output of TreeShrink
+* Now let's make a new directory for the output of TreeShrink
 	
 	
 		mkdir /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts
 
-	With this you can now run TreeShrink on all the masked gene trees
+* With this you can now run TreeShrink on all the masked gene trees
 	
 			python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
 			
@@ -400,9 +400,126 @@
 <a name="ortho"></a>
 ## Orthology inference
 
-* We are going to prune orthologs the tree-based methods called Monophyletic Outgrop (MO). MO prunes by using homologs with monophyletic, non-repeating outgroups, reroot and cut paralog from root to tip. If no outgroup, only use those that do not have duplicated taxa. If there is no duplications it output 1to1 orthologs. The 1to1 orthologs here are also required to have a monophyletic outgroup.
-
-<p align="center"><img src="images/ortho.png" alt="ts" width="400"></p>
+* We are going to prune orthologs the tree-based methods called Monophyletic Outgroup (MO). The MO approach filters for homolog trees with outgroup taxa being monophyletic and single-copy, and therefore filters for single- and low-copy genes.  MO root the gene tree by the outgroups, traverse the rooted tree from root to tip, and remove the side with fewer taxa. In the case of MO, homolog trees with nonmonophyletic outgroups or duplicated taxa in the outgroups are discarded. If no taxon duplication is detected in a homolog tree, the MO approach outputs a one-to-one ortholog. 
+<p align="center"><img src="images/ortho.png" alt="ts" width="500"></p>
 
 	
+* We are going to use the output of TreeShrink to prune the orthologs.
+
+	First we need to make a taxon list file identifying which are outgroup and which are part of the ingroup
+	
+	The file, `in_out_list.txt` is located in  `/data_tmp/mpemaster/data/07_phylogenomic_analyses/`
+	
+	Read the file to see the list
+	
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/in_out_list.txt
+		
+	You should see
+	
+		IN	MELI_Aglaia_spectabilis
+		IN	MELI_Aphanamixis_polystachya
+		IN	MELI_Azadirachta_indica
+		IN	MELI_Cabralea_canjerana
+		IN	MELI_Carapa_procera
+		IN	MELI_Cedrela_montana
+		IN	MELI_Cedrela_saltensis
+		IN	MELI_Chisocheton_longistipitatus
+		IN	MELI_Chukrasia_tabularis
+		IN	MELI_Dysoxylum_alliaceum
+		IN	MELI_Guarea_pubescens
+		IN	MELI_Heckeldora_staudtii
+		IN	MELI_Lovoa_sywnnertonii
+		IN	MELI_Melia_azedarach
+		IN	MELI_Munronia_pinnata
+		IN	MELI_Neoguarea_glomerulata
+		IN	MELI_Owenia_reticulata
+		IN	MELI_Pterorhachis_zenkeri
+		IN	MELI_Quivisianthe_papinae
+		IN	MELI_Schmardaea_microphylla
+		IN	MELI_Swietenia_macrophylla
+		IN	MELI_Swietenia_mahagoni
+		IN	MELI_Toona_ciliata
+		IN	MELI_Trichilia_hirta
+		IN	MELI_Turraeanthus_manii
+		IN	MELI_Turraea_virens
+		IN	MELI_Vavaea_amicorum
+		OUT	RUTA_Citrus_hystrix
+		OUT	RUTA_Melicope_ternata
+		OUT	RUTA_Ruta_graveolens
+		
+* Now let's make a directory for the otholog inference output
+
+		mkdir /data_tmp/mpemaster/data/07_phylogenomic_analyses/05_MO_orthologs
+		
+* To see the arguments for the orthology inference script do
+
+		python /data_tmp/mpemaster/script/prune_paralogs_MO_1to1_MO.py
+		
+	You should see
+	
+		Usage:
+		python prune_paralogs_MO.py homoTreeDIR tree_file_ending minimal_taxa outDIR taxon_file
+		
+* MO pruning also requires a minimum number of taxa for the ortholog to be retain. I usually use 25% of the number of taxa. In case we will use 8
+	
+* No we can prune MO orthologs
+
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		python /data_tmp/mpemaster/script/prune_paralogs_MO_1to1_MO.py 04_ts/ ts 8 05_MO_orthologs/ in_out_list.txt
+
+	You should start seeing		
+		
+		27 ingroup taxa and 3 outgroup taxa read
+		5858.iqtree.treefile.mm.tr.ts
+		5434.iqtree.treefile.mm.tr.ts
+		7572.iqtree.treefile.mm.tr.ts
+		5910.iqtree.treefile.mm.tr.ts
+		5038.iqtree.treefile.mm.tr.ts
+		
+	It should take seconds to finish
+	
+	If you scroll back you will also notice some error messages like this
+	
+		duplicated taxa in unrooted tree
+		not enough taxa after pruning
+		not enough taxa in original tree
+		outgroup contains taxon repeats
+		outgroup non-monophyletic
+		
+	How many of those messages do you see? What do you think those messages mean?
+	
+* To see the output files do 
+
+		ls 05_MO_orthologs/
+		
+	You should see 
+	
+		4471.iqtree.ortho.tre  5366.iqtree.ortho.tre      5842.iqtree.1to1ortho.tre  6119.iqtree.ortho.tre      6487.iqtree.ortho.tre      6864.iqtree.ortho.tre
+		4527.iqtree.ortho.tre  5398.iqtree.ortho.tre      5843.iqtree.ortho.tre      6128.iqtree.ortho.tre      6488.iqtree.ortho.tre      6865.iqtree.ortho.tre
+		
+	You can see that there are `*.ortho.tree` and `1to1ortho.tre` files
+	
+	Count the total number of files
+	
+		ls 05_MO_orthologs/ | wc -l
+		
+		334
+		
+	How does this number compare with the starting number of gene trees? Are there less or more? 
+	
+	
+	You can also count  each of the two kind of ortholgos
+	
+		ls 05_MO_orthologs/*.ortho.tre | wc -l
+		
+		316
+		
+		ls 05_MO_orthologs/*.1to1ortho.tre | wc -l
+		
+		18
+
+		
+		
+
 	
