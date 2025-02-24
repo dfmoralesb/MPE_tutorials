@@ -402,7 +402,7 @@
 
 * We are going to prune orthologs the tree-based methods called Monophyletic Outgrop (MO). MO prunes by using homologs with monophyletic, non-repeating outgroups, reroot and cut paralog from root to tip. If no outgroup, only use those that do not have duplicated taxa. If there is no duplications it output 1to1 orthologs. The 1to1 orthologs here are also required to have a monophyletic outgroup.
 
-<p align="center"><img src="images/ortho.png" alt="ts" width="900"></p>
+<p align="center"><img src="images/ortho.png" alt="ts" width="400"></p>
 
 	
 	
