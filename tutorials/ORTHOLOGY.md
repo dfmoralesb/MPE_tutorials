@@ -548,6 +548,14 @@
 	
 	
 	<p align="center"><img src="images/R.png" alt="R" width="400"></p>
+	
+	In the R console type
+	
+		setwd("/data_tmp/mpemaster/data/07_phylogenomic_analyses")
+		a <- as.numeric(read.table("ortho_stats.txt")[,1]
+		a <- sort(a, decreasing=TRUE)
+		plot(a, type="l", lwd=3, ylab="Number of Taxa in Each Ortholog")
+	
 
 		
 		
