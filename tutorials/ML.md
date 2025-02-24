@@ -33,7 +33,9 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 	
 	<p align="center"><img src="images/Iqtree_2.png" alt="IQTREE" width="900"></p>		
 
-* Scroll to the end of the IQ-TREE output. There, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
+* Scroll back in the IQ-TREE output. Which was the Best-fit model? 
+
+* Scroll to the end and there, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
 
 * According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `4471.aln.clipkit.treefile`
 
@@ -109,54 +111,40 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of the 2420 alignments in the folder `DATA/IQ-tree_individual_loc/input`. 
-
-	You do not need to do this as all the output files are already located in `DATA/IQ-tree_individual_loc/output`. But you could do it with a bash loop like:
-	
-	
-		for i in $(ls *.phy)
-		do
-		iqtree2 -s $i -b 200
-		done
-
 <a name="concat"></a>
 ## Inferring a concatenated ML tree
 
-Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 2419 loci. The input data is located in `DATA/IQ-tree_concatenated/input`.
+* Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 4 loci. The input data is located in `/data_tmp/[username]/data/05_concatenated_aln`.
+
+		cd /data_tmp/[username]/data/05_concatenated_aln
 
 * You can see the size of the concatenated matrix by typing.
 
-		head -n 1 DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy
+		pxlssq -s meliaceae_4_loci_concat.fa
 		
-* You will see printed on the screen the below line. That means that the alignment contains 21 taxa and 848730 aligned columns.
+* You will see printed on the screen the below line. 
 
-		21 848730
+		File type: fasta
+		Number of sequences: 26
+		Is aligned: true
+		Sequence length: 10172
+		--------- Nucl TABLE ----------
+		Nucl        Total   Proportion
+		   A        35374     0.133753
+		   C        22638     0.085597
+		   G        28479     0.107682
+		   T        48785     0.184462
+		   -       129194     0.488498
+		   ?            2  7.56224e-06
+		 G+C        51117     0.193279
+		--------- Nucl TABLE ----------
+
 		
 * In this case we are going to use do a Partitioned maximum-likelihood inference. This means that we are going to split the alignment by loci and allow IQ-TREE to determine the ideal partitioning scheme itself. For this new need a 'partion' file and the option `q`. The partion file is located in the same directory as the alignment. 
 
-You can see the beginning (head) of the file by typing.
-
-		 head DATA/IQ-tree_concatenated/input/concatenated_aln.model
-		 
-And also can see the end (tail) 
-
-		tail DATA/IQ-tree_concatenated/input/concatenated_aln.model
+	You can see the contents of the partition file by
+	
+		cat meliaceae_4_loci_concat.model
 
 <p align="center"><img src="images/partition.png" alt="partition" width="900"></p>
 

@@ -51,6 +51,8 @@ The password will be provided at the beginning of the the first practicum.
 
 * [ASTRAL and ASTRAL-Pro](https://github.com/chaoszhang/ASTER) Part of the ASTER family of species tree estimator package
 
+* [Phyx](https://github.com/FePhyFoFum/phyx)
+
 
 #### You need to install this in each of your working laptops.
 
