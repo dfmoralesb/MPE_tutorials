@@ -1,10 +1,23 @@
 ## Table of contents
 
+* [ML inference of individual loci](#ML)
 * [Coalescent-based species tree inference with ASTRAL](#astral)
 * [Running ASTRAL](#running)
 * [The ASTRAL Log information](#log)
 * [Branch length and support](#support)
 * [Reading and visualizing tree files](#figtree)
+
+
+<a name="ML"></a>
+
+* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/mpemaster/data/06_species_tree/00_individual_loci`
+
+		cd /data_tmp/mpemaster/data/06_species_tree/00_individual_loci	
+	
+		for i in *.clipkit; do iqtree -s $i; done
+		
+	It should a couple of minutes to infer all four trees 
+
 
 <a name="astral"></a>
 ## Coalescent-based species tree inference with ASTRAL
