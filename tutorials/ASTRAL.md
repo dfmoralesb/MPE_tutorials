@@ -39,12 +39,23 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 <a name="running"></a>
 ## Running ASTRAL
 
-* To run ASTRAL you need a single file with all the individual gene trees (one per line) in Newick format. In this case we need to put all 2419 gene trees (*.treefile files) from `DATA/IQ-tree_individual_loc/output`. To do this you can use the `cat` command like this:
+* To run ASTRAL you need a single file with all the individual gene trees (one per line) in Newick format. In this case we need to put all 4 gene trees (*.treefile files) from `/data_tmp/mpemaster/data/06_species_tree/00_individual_loci`. To do this you can use the `cat` command like this:
 
-		For i in $(ls DATA/IQ-tree_individual_loci/output/*.treefile)
-		do
-		cat $i > DATA/ASTRAL/input/all_gene_trees_2419.tre
-		done
+	First let make a new directory where we will place the new astral input file
+	
+		mkdir /data_tmp/mpemaster/data/06_species_tree/01_astral
+		
+		cd /data_tmp/mpemaster/data/06_species_tree/01_astral
+		
+		for i in /data_tmp/mpemaster/data/06_species_tree/00_individual_loci/*.treefile; do cat $i >> meliaceae_4_gene_trees.tre; done
+		
+	You can verify that the file has the four trees by counting its lines
+	
+		wc -l meliaceae_4_gene_trees
+		
+	The output should be 4
+	
+		`4 meliaceae_4_gene_trees.tre`
 		
 * This file was already provided in the `DATA/IQ-tree_individual_loc/output` directory.
 
