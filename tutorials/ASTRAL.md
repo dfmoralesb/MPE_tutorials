@@ -8,6 +8,14 @@
 * [Reading and visualizing tree files](#figtree)
 
 
+#### How to login to the workstation
+
+	ssh -p 22110 [username]@10.153.134.10
+
+
+### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+
 <a name="ML"></a>
 
 * To estimate a coalescent-based species tree with ASTRAL, we need to first infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/mpemaster/data/06_species_tree/00_individual_loci`
@@ -142,6 +150,8 @@ You should see (along other information)
 * To see node-support values based on LPP, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. 
 
 <p align="center"><img src="images/asfigtree_5.png" alt="asfigtree_5" width="900"></p>
+
+* This are just quick examples. Now we need to deal with all the phylogenomic data in the next tutorial.
 
 
 

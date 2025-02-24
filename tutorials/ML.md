@@ -6,7 +6,13 @@
 * [Inferring a concatenated ML tree](#concat)
 * [Alternative node support values - Concordance factors](#concordance)
 
+#### How to login to the workstation
+
+	ssh -p 22110 [username]@10.153.134.10
+
+
 ### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
 
 Make sure to activate the `CONDA` environment
 
