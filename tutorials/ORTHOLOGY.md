@@ -518,7 +518,28 @@
 		ls 05_MO_orthologs/*.1to1ortho.tre | wc -l
 		
 	`18`
+	
+* Let's compare a cleaned homolog vs an ortholog
 
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/4471.iqtree.treefile.mm.tr.ts	
+		
+	<p align="center"><img src="images/homologdup.png" alt="hd" width="900"></p>
+
+
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/05_MO_orthologs/4471.iqtree.ortho.tre	
+		
+	<p align="center"><img src="images/orthologsc.png" alt="sc" width="900"></p>
+	
+* We can make some stats about the orthologs
+
+		python /data_tmp/mpemaster/script/ortholog_occupancy_stats.py 05_MO_orthologs/
+		
+	If you make a list on `/data_tmp/mpemaster/data/07_phylogenomic_analyses`
+
+
+		ls /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+	You should see `ortho_stats.txt` and `taxon_stats.txt`
 		
 		
 
