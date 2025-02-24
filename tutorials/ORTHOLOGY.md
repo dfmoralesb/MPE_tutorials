@@ -504,7 +504,7 @@
 	
 		ls 05_MO_orthologs/ | wc -l
 		
-		334
+	`334`
 		
 	How does this number compare with the starting number of gene trees? Are there less or more? 
 	
@@ -513,11 +513,11 @@
 	
 		ls 05_MO_orthologs/*.ortho.tre | wc -l
 		
-		316
+	`316`
 		
 		ls 05_MO_orthologs/*.1to1ortho.tre | wc -l
 		
-		18
+	`18`
 
 		
 		
