@@ -5,7 +5,7 @@
 * [Tip Masking](#masking)
 * [Remove spurious tips](#ts)
 * [Orthology inference](#ortho)
-* [Reading and visualizing tree files](#figtree)
+* [Species tree inference](#sptree)
 
 #### How to login to the workstation
 
@@ -640,10 +640,76 @@
 		4527.ortho.fa  5220.ortho.fa  5460.ortho.fa  5770.ortho.fa  5943.ortho.fa  6139.ortho.fa  6398.ortho.fa  6538.ortho.fa  6792.ortho.fa  7029.ortho.fa
 		4691.ortho.fa  5257.ortho.fa  5463.ortho.fa  5772.ortho.fa  5944.ortho.fa  6148.ortho.fa  6401.ortho.fa  6544.ortho.fa  6797.ortho.fa  ...
 		
+
+
+<a name="sptree"></a>
+## Species tree inference		
+
+* Now that we have ortholog fasta files we will process to infer individual trees and then coalescent-based and concatenation-based tree inference. All this is similar to what we did in the previous tutorials
+
+* For coalescent-based species tree inference we first need to infer individual trees from the ortholog aligments
+
+	As this takes some time, I have already done this for you. I used the exact same software and commands we learn in the previous tutorials
+	
+	The output the fasta files, alignments, clean alignments, and gene tres can be found in the directory `/data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files`
+
+		ls /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files
 		
-
-
+	You will see
+	
+		4471.iqtree.iqtree      5366.iqtree.iqtree      5842.iqtree.iqtree      6119.iqtree.iqtree      6487.iqtree.iqtree      6864.iqtree.iqtree
+		4471.iqtree.treefile    5366.iqtree.treefile    5842.iqtree.treefile    6119.iqtree.treefile    6487.iqtree.treefile    6864.iqtree.treefile
+		4471.ortho.aln          5366.ortho.aln          5842.ortho.aln          6119.ortho.aln          6487.ortho.aln          6864.ortho.aln
+		4471.ortho.aln.clipkit  5366.ortho.aln.clipkit  5842.ortho.aln.clipkit  6119.ortho.aln.clipkit  6487.ortho.aln.clipkit  ...
+		
+	Now let's make a new directory for our ASTRAL inference and concatenate all the gene trees to have the input of ASTRAL
+	
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		mkdir 07_astral
+		
+		for i in /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files/*.treefile; do cat $i >> 07_astral/meliaceae_334_MO_orthologs.tre; done
+		
+	In `07_astral` you should have the file `meliaceae_334_MO_orthologs.tre` containing the 334 individual otholog trees
+	
+		cd 07_astral
+		
+		wc -l meliaceae_334_MO_orthologs.tre
  
+ 	You should see `334 meliaceae_334_MO_orthologs.tre`
+ 	
+ 	In this occasion we are going to do an additional step before inferring the ASTRAL tree. We are going to collapse uninformative nodes from the species trees. This is to avoid introducing noise to our inference from this non-supported nodes.
+ 	
+ 		python /data_tmp/mpemaster/script/collapse_branches_bs_multiphylo.py
+ 		
+ 	You will see
+ 	
+ 		Usage:
+		python collapse_branches_bs.py inMultiTree, bs_min_value
+		
+	You just need to provide the file containing all gene trees and a bootstrap threshold to collapse the node. In this case we are going to use 70%
+	
+	
+		python /data_tmp/mpemaster/script/collapse_branches_bs_multiphylo.py meliaceae_334_MO_orthologs.tre 70
+		
+	The output file will be called `meliaceae_334_MO_orthologs.col_70.tre`
+	
+	This will be out input for ASTRAL
+	
+		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral -i meliaceae_334_MO_orthologs.col_70.tre -o meliaceae_334_MO_orthologs.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)
+		
+	This should take a few seconds and the output file will be called `meliaceae_334_MO_orthologs.ASTRAL.tr`
+	
+	Now you can open the file, plot, root, sort, and show the node label (LPP) it in Figtree and should have the following
+	
+	
+	<p align="center"><img src="images/sptreefinal.png" alt="sptreefinal" width="700"></p>
+	
+	How does this compares with the 4-locus ASTRAL tree we did in the ASTRAL tutorial
+
+	
+	
+
 		
 	
 	
@@ -651,7 +717,7 @@
 	
 	
 	
-	
+	#########
 	
 	
 	
@@ -668,6 +734,7 @@
 	
 	Also you need to specify a minium number of 
 		
+	
 
 		
 
