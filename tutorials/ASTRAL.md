@@ -34,7 +34,6 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 
 		
 <p align="center"><img src="images/astral_1.png" alt="astral1" width="900"></p>
-<p align="center"><img src="images/partition.png" alt="partition" width="900"></p>
 
 
 <a name="running"></a>
