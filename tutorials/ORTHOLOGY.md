@@ -299,7 +299,7 @@
 	
 		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile	
 		
-	<p align="center"><img src="images/unmasked.png" alt="um" width="400"></p>
+	<p align="center"><img src="images/unmasked.png" alt="um" width="900"></p>
 
 	Open, plot, root and order the nodes in Figtree of one the masked homologs trees.
 	
@@ -307,7 +307,7 @@
 		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/4471.iqtree.treefile.mm
 	
 	
-	<p align="center"><img src="images/maked.png" alt="mm" width="400"></p>
+	<p align="center"><img src="images/masked.png" alt="mm" width="900"></p>
 
 
 
