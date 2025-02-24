@@ -530,6 +530,9 @@
 		
 	<p align="center"><img src="images/orthologsc.png" alt="sc" width="900"></p>
 	
+	Can you identify the duplication in this gene	
+
+	
 * We can make some stats about the orthologs
 
 		python /data_tmp/mpemaster/script/ortholog_occupancy_stats.py 05_MO_orthologs/
@@ -540,6 +543,12 @@
 		ls /data_tmp/mpemaster/data/07_phylogenomic_analyses
 		
 	You should see `ortho_stats.txt` and `taxon_stats.txt`
+	
+	Let's open R. In you browser address bar type `10.153.134.10:8787` When you are prompted to the login information use the same username and password you have being using for login into the workstaion
+	
+	
+	<p align="center"><img src="images/R.png" alt="R" width="900"></p>
+
 		
 		
 
