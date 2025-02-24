@@ -21,7 +21,7 @@
 
 	But in general consists of the following steps.
 	
-	<p align="center"><img src="images/wf.png" alt="wf" width="900"></p>
+	<p align="center"><img src="images/wf.png" alt="wf" width="400"></p>
 
 
 <a name="assembly"></a>
