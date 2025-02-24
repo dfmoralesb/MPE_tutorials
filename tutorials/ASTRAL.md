@@ -33,7 +33,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral -h
 
 		
-<p align="center"><img src="images/astral_1.png" alt="IQTREE" width="900"></p>
+<p align="center"><img src="images/astral_1.png" alt="astral1" width="900"></p>
 
 
 <a name="running"></a>
