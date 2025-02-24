@@ -183,24 +183,3 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 
 <p align="center"><img src="images/concat.png" alt="concat" width="900"></p>
 
-
-
-<a name="concordance"></a>
-## Alternative node support values - Concordance factors
-
-* When working with phylogenomic data sets, it is pretty common that tradicional node support values like bootstrap to be always high. This is due to the large amount of data available that make even known incorrect topologies to have high support, making this support measures inappropriate for large data sets. Now there are several alternative and more appropriate node support measures that quantify for genealogical concordance like [Concordance factors in IQ-Tree](http://www.iqtree.org/doc/Concordance-Factor).
-
-* To calculate concordance factors in IQ-Tree you need the concatenated alignment and the inferred tree. You can run IQ-Tree like:
-
-		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 -t DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.iqtree -s DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy --scf 100 --prefix DATA/IQ-tree_concatenated/output/sCF_concord -T 8
-		
-To open the file
-
-	less DATA/IQ-tree_concatenated/output/sCF_concord.cf.tree
-		
-* Open the file `sCF_concord.cf.tree` in Figtree, rooted and display the "Node labels"
-<p align="center"><img src="images/concon.png" alt="partition" width="900"></p>
-
-* In principle, sCF values can range from 0% (no sites are concordant with the focal branch) to 100% (all sites are concordant with the focal branch). In practice however, empirical sCF values are rarely lower than 33%. This is due to an important underlying difference in the way that the two values are calculated. The sCF is calculated from quartets, so a single site can only support one of three topologies. Because of this, if there is no consistent information in an alignment (e.g., if a long alignment were generated at random) we expect a roughly equal proportion of sites supporting each of the three trees, leading to an sCF value of ∼33%. 
-
-
