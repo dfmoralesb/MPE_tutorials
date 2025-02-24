@@ -600,6 +600,74 @@
 		MELI_Chukrasia_tabularis          245        0.775316455696
 		
 	What can you tell from this table?
+	
+	
+* The last step is to write new and final fasta files from ortholog trees for individual tree inference and then coalescent-based and concatenation-based tree inference
+
+	You will need the script `write_ortholog_fasta_from_multiple_aln.py`
+	
+		python /data_tmp/mpemaster/script/write_ortholog_fasta_from_multiple_aln.py
+	
+	You will see
+	
+		Usage:
+		python write_ortholog_fasta_from_multiple_aln.py fasta_DIR tree_DIR fasta_file_ending(no_dot) tree_file_ending(not_dot) outDIR
+		
+		
+	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/` The otholog directory 05_MO_orthologs, the extension for the files of those two directories, `fna` and `tre`,respectively, and an output directory
+	
+	We can make a copy of this directoy
+	
+		cp -r /data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/ /data_tmp/mpemaster/data/07_phylogenomic_analyses/00_unaligned_fasta_files
+	
+	Let's create an output directory
+	
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		mkdir 06_MO_fasta_files
+		
+	Now let's write the ortholog fasta files
+	
+		python /data_tmp/mpemaster/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/ 
+	
+	You can check the output fasta files
+	
+		ls 06_MO_fasta_files/ 
+ 
+ 	A list of the new fasta files will be created
+ 	
+ 		4471.ortho.fa  5206.ortho.fa  5454.ortho.fa  5744.ortho.fa  5942.ortho.fa  6130.ortho.fa  6393.ortho.fa  6533.ortho.fa  6791.ortho.fa  7028.ortho.fa
+		4527.ortho.fa  5220.ortho.fa  5460.ortho.fa  5770.ortho.fa  5943.ortho.fa  6139.ortho.fa  6398.ortho.fa  6538.ortho.fa  6792.ortho.fa  7029.ortho.fa
+		4691.ortho.fa  5257.ortho.fa  5463.ortho.fa  5772.ortho.fa  5944.ortho.fa  6148.ortho.fa  6401.ortho.fa  6544.ortho.fa  6797.ortho.fa  ...
+		
+		
+
+
+ 
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	You will need the script `/data_tmp/mpemaster/script/concatenate_matrices_phyx.py`
+	
+		python /data_tmp/mpemaster/script/concatenate_matrices_phyx.py
+		
+	You will see
+	
+		usage: 
+		python concatenate_matrices_phix.py aln-clnDIR numofsitesFilter numoftaxaFilter outname
+		
+	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/`
+	
+	Also you need to specify a minium number of 
+		
 
 		
 
