@@ -10,7 +10,9 @@
 
 <a name="ML"></a>
 
-* To estimate a coalescent-based species tree with ASTRAL, we need to infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/mpemaster/data/06_species_tree/00_individual_loci`
+* To estimate a coalescent-based species tree with ASTRAL, we need to first infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/mpemaster/data/06_species_tree/00_individual_loci`
+
+		conda activate captus
 
 		cd /data_tmp/mpemaster/data/06_species_tree/00_individual_loci	
 	
@@ -23,16 +25,13 @@
 ## Coalescent-based species tree inference with ASTRAL
 
 
-ASTRAL is a java program for estimating a species tree given a set of unrooted gene trees. ASTRAL is statistically consistent under multi-species coalescent model (and thus is useful for handling ILS).
+ASTRAL program for estimating a species tree given a set of unrooted gene trees. ASTRAL is statistically consistent under multi-species coalescent model (and thus is useful for handling ILS).
 
 
 * To see the many options available in ASTRAL you can type the following in the command line:
 
-		java -jar astral.5.7.8.jar
+		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral -h
 
-	The path where the *.jar file will depend of the local computer you are using. In this case you will need to type:
-
-		java -jar /home/morales/Apps/ASTRAL/astral.5.7.8.jar
 		
 <p align="center"><img src="images/astral_1.png" alt="IQTREE" width="900"></p>
 
