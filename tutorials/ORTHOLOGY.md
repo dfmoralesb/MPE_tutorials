@@ -552,12 +552,15 @@
 	In the R console type
 	
 		setwd("/data_tmp/mpemaster/data/07_phylogenomic_analyses")
-		a <- as.numeric(read.table("ortho_stats.txt")[,1]
+		a <- as.numeric(read.table("ortho_stats.txt")[,1])
 		a <- sort(a, decreasing=TRUE)
 		plot(a, type="l", lwd=3, ylab="Number of Taxa in Each Ortholog")
 	
 
-		
+	You should see the following plot
+	
+	<p align="center"><img src="images/orthocurve.png" alt="oc" width="900"></p>
+
 		
 
 	
