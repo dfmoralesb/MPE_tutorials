@@ -266,6 +266,7 @@
 	
 	The output should be
 	
+		Usage:
 		python mask_tips.py treDIR tree_file_ending aln-clnDIR aln_cln_file_ending mask_paraphyletic(y/n) outDIR
 		
 	This script requires a input directory with the tree files, the file extension fo the tree files, whether or no you want to remove paraphyletic grades, and an output directory
@@ -293,7 +294,7 @@
 		4691.iqtree.treefile.mm  5366.iqtree.treefile.mm  5842.iqtree.treefile.mm  6119.iqtree.treefile.mm  6483.iqtree.treefile.mm  ...
 
 	
-* Now let's compare one original homologs vs a mask one
+* Now let's compare one original homologs vs a masked one
 	
 	Open, plot, root and order the nodes in Figtree of one the original homologs trees.
 	
@@ -315,4 +316,86 @@
 <a name="ts"></a>
 ## Remove spurious tips
 
-Outlier tips with unusually long branches are detected and removed by maximally reducing the tree diameter with TreeShrink. For details on TreeShrink see [here](https://doi.org/10.1186/s12864-018-4620-2) and [here](https://github.com/uym2/TreeShrink)
+* Outlier tips with unusually long branches are detected and removed by maximally reducing the tree diameter with TreeShrink. For details on TreeShrink see [here](https://doi.org/10.1186/s12864-018-4620-2) and [here](https://github.com/uym2/TreeShrink)
+
+* We are going to use the output of the previous step for part
+
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py
+		
+	You should see
+	
+		Usage:
+		python tree_shrink_wrapper.py inDIR tree_file_ending quantile outDIR exceptions(optional)
+
+	The outgroup list, `outgroup_list.txt`,  is located in `/data_tmp/mpemaster/data/07_phylogenomic_analyses`
+	
+	You can read the file to see the list
+	
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt
+		
+	You should see
+	
+		RUTA_Citrus_hystrix
+		RUTA_Melicope_ternata
+		RUTA_Ruta_graveolens
+		
+	Now let's make a new directory for the output of TreeShrink
+	
+	
+		mkdir /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts
+
+	With this you can now run TreeShrink on all the masked gene trees
+	
+			python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
+			
+	You should start seing something like this
+	
+	
+		Output files written to /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.mm.ts_dir with prefix /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.
+		['RUTA_Citrus_hystrix@pg_uq', 'RUTA_Melicope_ternata@pg_uq', 'RUTA_Ruta_graveolens@pg_00']
+		run_treeshrink.py -t /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
+		Launching TREESHRINK version 1.3.9
+		TREESHRINK was called as follow
+		/usr/local/bin/run_treeshrink.py -t /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
+		Testing R and BMS installation ...
+		Solving k-shrink with k = 6
+		Writing output ...
+
+
+	It should take 3 to 4 minutes to complete
+	
+	It outputs the tips that were trimmed in the file .txt and the trimmed trees in the files .ts. You would need to test different quantiles to see which one fit better your data. Make sure you open the tree file to check whether TreeShrink removes your outgroups. This is very frequent the case, so we can provide a list of outgroups to skip them from being removed.
+
+	Make a list of the output directory to verify it worked
+	
+		ls 04_ts/
+		
+	You should see
+	
+		4471.iqtree.treefile.mm.tr.ts  5434.iqtree.treefile.mm.tr.ts  5940.iqtree.treefile.mm.tr.ts  6384.iqtree.treefile.mm.tr.ts  6779.iqtree.treefile.mm.tr.ts
+		4471.iqtree.treefile.txt       5434.iqtree.treefile.txt       5940.iqtree.treefile.txt       6384.iqtree.treefile.txt       6779.iqtree.treefile.txt
+		4527.iqtree.treefile.mm.tr.ts  5449.iqtree.treefile.mm.tr.ts  5941.iqtree.treefile.mm.tr.ts  6387.iqtree.treefile.mm.tr.ts  ...
+
+	
+* Now let's compare one masked tree vs one with spurious tip removed
+	
+	Open, plot, root and order the nodes in Figtree of one makes tree
+	
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6498.iqtree.treefile.mm	
+		
+	<p align="center"><img src="images/masked1.png" alt="mm1" width="900"></p>
+
+	Open, plot, root and order the nodes in Figtree of one the masked homologs trees.
+	
+		
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6498.iqtree.treefile.mm.tr.ts	
+	
+	<p align="center"><img src="images/ts.png" alt="ts" width="900"></p>
+	
+	
+	
+	
+	
+	
