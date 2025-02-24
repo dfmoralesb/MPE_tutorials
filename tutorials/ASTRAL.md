@@ -61,20 +61,14 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 	
 		cat meliaceae_4_gene_trees
 		
-	You should see
+	The file should look like below. In each tree ends with the `;` character.
 	
 		(RUTA_Citrus_hystrix:0.0835656868,((MELI_Azadirachta_indica:0.0374672542,MELI_Owenia_reticulata:0.0157468780):0.0285962983,(((MELI_Cabralea_canjerana:0.0000021269,MELI_Aglaia_spectabilis:0.0272804312):0.0089648001,MELI_Chisocheton_longistipitatus:0.0601047198):0.0109703880,(MELI_Vavaea_amicorum:0.0403882230,MELI_Quivisianthe_papinae:0.0602748637):0.0000010000):0.0096388111):0.0033915003,(((MELI_Schmardaea_microphylla:0.0430283366,MELI_Swietenia_macrophylla:0.0422843150):0.0004802036,MELI_Toona_ciliata:0.0321956757):0.0040772837,MELI_Lovoa_sywnnertonii:0.0145910722):0.0148901425);
 		(RUTA_Citrus_hystrix:0.1584565410,(RUTA_Melicope_ternata:0.2651898507,RUTA_Ruta_graveolens:0.4093906277):0.0260760901,(((((MELI_Aglaia_spectabilis:0.0770012553,MELI_Dysoxylum_alliaceum:0.0375195596):0.0153077694,MELI_Cabralea_canjerana:0.0291996907):0.0018050631,(((MELI_Aphanamixis_polystachya:0.0565045029,MELI_Chisocheton_longistipitatus:0.0359065778):0.0016804008,(MELI_Heckeldora_staudtii:0.0497883139,MELI_Guarea_pubescens:0.0575936343):0.0024776985):0.0010051573,(MELI_Trichilia_hirta:0.0658230756,MELI_Turraea_virens:0.1285390727):0.0155774898):0.0050946256):0.0395465578,MELI_Quivisianthe_papinae:0.1520641633):0.0483593977,(((MELI_Toona_ciliata:0.0381258583,MELI_Lovoa_sywnnertonii:0.0694636002):0.0033692486,(MELI_Swietenia_macrophylla:0.0312362305,MELI_Swietenia_mahagoni:0.1029668314):0.0407022592):0.0411581809,(MELI_Chukrasia_tabularis:0.1058948108,MELI_Schmardaea_microphylla:0.0882770653):0.0264788493):0.0445313748):0.1598834165);
 		(RUTA_Citrus_hystrix:0.1170893669,(RUTA_Melicope_ternata:0.1509423566,((((((((MELI_Aglaia_spectabilis:0.0370323722,(MELI_Chisocheton_longistipitatus:0.0394875844,MELI_Guarea_pubescens:0.0356918692):0.0031230903):0.0062550246,((((MELI_Aphanamixis_polystachya:0.0329304261,MELI_Dysoxylum_alliaceum:0.0453392397):0.0052110937,MELI_Cabralea_canjerana:0.0175765665):0.0087152408,MELI_Neoguarea_glomerulata:0.0566919275):0.0046520481,(MELI_Heckeldora_staudtii:0.0323079774,MELI_Turraeanthus_manii:0.0440946216):0.0025738638):0.0007205566):0.0054016545,MELI_Vavaea_amicorum:0.0620276487):0.0034390734,MELI_Trichilia_hirta:0.0730725398):0.0020173475,MELI_Turraea_virens:0.0924493491):0.0254640046,MELI_Quivisianthe_papinae:0.0676975019):0.0253035138,((MELI_Azadirachta_indica:0.0000012558,MELI_Melia_azedarach:0.0008874175):0.0187487396,MELI_Owenia_reticulata:0.0402184327):0.0567886878):0.0036383746,(((MELI_Carapa_procera:0.0371149101,MELI_Swietenia_macrophylla:0.0319646607):0.0216835821,(MELI_Lovoa_sywnnertonii:0.0738789630,MELI_Toona_ciliata:0.0551312118):0.0017075301):0.0064581470,(MELI_Chukrasia_tabularis:0.0473990839,MELI_Schmardaea_microphylla:0.0925950472):0.0139506692):0.0216806823):0.0752666895):0.0092826957,RUTA_Ruta_graveolens:0.2107983780);
 		(RUTA_Citrus_hystrix:0.1308324361,(RUTA_Melicope_ternata:0.1118876324,RUTA_Ruta_graveolens:0.1883977338):0.0244604862,((((((MELI_Aglaia_spectabilis:0.0776746853,MELI_Vavaea_amicorum:0.0772094663):0.0030251704,MELI_Turraea_virens:0.0994840611):0.0018440015,(MELI_Cabralea_canjerana:0.0273301945,MELI_Quivisianthe_papinae:0.1166569720):0.0297243216):0.0048959298,(MELI_Aphanamixis_polystachya:0.0493491358,MELI_Chisocheton_longistipitatus:0.0471398111):0.0137173751):0.0505568677,((MELI_Azadirachta_indica:0.0000016544,MELI_Melia_azedarach:0.0000016544):0.0456343543,MELI_Owenia_reticulata:0.0369215517):0.0716872341):0.0136091249,((MELI_Toona_ciliata:0.0597434991,MELI_Swietenia_macrophylla:0.0813375148):0.0078745146,(MELI_Chukrasia_tabularis:0.0483582819,MELI_Schmardaea_microphylla:0.1489065341):0.0723267769):0.0215131794):0.0701172642);
 		
-* This file was already provided in the `DATA/IQ-tree_individual_loc/output` directory.
-
-* You can open the `all_gene_trees_2419.tre` file with the `less` command.
-
-		less DATA/ASTRAL/input/all_gene_trees_2419.tre
 		
-	The file should look like below. In each tree ends with the `;` character. <p align="center"><img src="images/astral_2.png" alt="IQTREE" width="900"></p>
 	
 * To run ASTRAL just need to provide the gene trees file with the `-i` option and the output file name with the `-o` file. 
 
