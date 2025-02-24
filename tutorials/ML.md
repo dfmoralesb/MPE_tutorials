@@ -171,15 +171,17 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 
 <p align="center"><img src="images/partition_model.png" alt="partitionmodel" width="900"></p>
 
-* Open the file `IQtree2_concatenated_2419_loci.treefile`
+* Open the file `meliaceae_4_loci_concat_iqtree.treefile`
 
-		less DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.treefile
+		cat meliaceae_4_loci_concat_iqtree.treefile
 
 	It should look like this:		
 		
-		(A_arboreum_153:0.0014849078,(A_balsamiferum_TM178:0.0011535530,(((((A_cuneatum_134:0.0065514518,A_canariense_TM189:0.0072583511)100:0.0015530642,Aeo_glutinosum:0.0090574484)100:0.0023872758,(((((A_ciliatum_135:0.0026558778,A_volkerii_TM194:0.0024888707)100:0.0009839747,A_urbicum_TM2001:0.0042130349)100:0.0012161129,Aeo_haworthii:0.0022985151)100:0.0014098253,A_davidbramwellii_TM2021:0.0056304679)100:0.0023965907,(A_valverdense_TM2131:0.0052622481,A_nobile_TM191:0.0082347492)100:0.0020565574)100:0.0032489645)87:0.0016314676,(((A_goochiae_TM184:0.0064710978,A_lindleyi_TM190:0.0061792425)100:0.0097779590,Mon_mura_111:0.0434930391)84:0.0012266869,(A_saundersii_merged:0.0128397974,A_sedifolium_TM187:0.0140337688)100:0.0025872713)100:0.0048456363)100:0.0053188993,((A_stuessyi_TM2031:0.0005572773,A_leucoblepharu:0.0009037328)99:0.0006215380,A_gorgoneum_TM185:0.0010816831)100:0.0022975052)100:0.0054524452)100:0.0008226453,Aeo_korneliuslemsii:0.0019086054);
-	
-* Open the file in FigTree, root tit with "Mon_mura_111", sort the taxa with "Increasing node order" and display the node support. You can see how the brach lengths and bootstrap support differ from a single-locus tree. <p align="center"><img src="images/concat.png" alt="partition" width="900"></p>
+		(RUTA_Citrus_hystrix:0.1333404082,((((MELI_Azadirachta_indica:0.0000022820,MELI_Melia_azedarach:0.0004332840)100:0.0352537630,MELI_Owenia_reticulata:0.0413693884)100:0.0714575929,(((((((MELI_Cabralea_canjerana:0.0280129490,(MELI_Dysoxylum_alliaceum:0.0467548646,MELI_Aphanamixis_polystachya:0.0463757195)69:0.0030437320)77:0.0065826003,MELI_Aglaia_spectabilis:0.0635843138)34:0.0020324749,MELI_Neoguarea_glomerulata:0.0662157360)38:0.0012302635,((MELI_Chisocheton_longistipitatus:0.0411742915,MELI_Guarea_pubescens:0.0405347424)98:0.0095659467,(MELI_Heckeldora_staudtii:0.0366329562,MELI_Turraeanthus_manii:0.0504721312)87:0.0028414441)42:0.0024614463)93:0.0048368051,MELI_Vavaea_amicorum:0.0767470383)55:0.0018879009,(MELI_Trichilia_hirta:0.0668925848,MELI_Turraea_virens:0.1012232421)65:0.0050327162)100:0.0297518086,MELI_Quivisianthe_papinae:0.1047196761)100:0.0310412939)94:0.0053706439,((MELI_Schmardaea_microphylla:0.1092039329,MELI_Chukrasia_tabularis:0.0640774861)100:0.0345984637,(((MELI_Swietenia_macrophylla:0.0288958230,MELI_Swietenia_mahagoni:0.0782094318)74:0.0090088279,MELI_Carapa_procera:0.0431718394)77:0.0268052469,(MELI_Toona_ciliata:0.0482342386,MELI_Lovoa_sywnnertonii:0.0662410364)85:0.0023999508)79:0.0177278780)100:0.0294898744)100:0.0968946248,(RUTA_Melicope_ternata:0.1768482942,RUTA_Ruta_graveolens:0.2584680576)77:0.0134061709);	
+
+* Open the file in FigTree, root tit with Rutaceae, sort the taxa with "Increasing node order" and display the node support. You can see how the brach lengths and bootstrap support differ from a single-locus tree. 
+
+<p align="center"><img src="images/concat.png" alt="concat" width="900"></p>
 
 
 
