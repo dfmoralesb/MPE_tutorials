@@ -246,7 +246,7 @@
 	
 		mpemaster@p620-small:/data_tmp/mpemaster/data/07_phylogenomic_analyses
 		
-	If you still see an Conda environment:
+	If you still see a Conda environment:
 	
 		(captus) mpemaster@p620-small:/data_tmp/mpemaster/data/07_phylogenomic_analyses
 		
@@ -278,12 +278,36 @@
 	
 		python /data_tmp/mpemaster/script/mask_tips.py 02_raw_homolog_trees/ treefile 01_clean_alignments/ fna y 03_masked/
 		
-	This should be do done in seconds
+	This should be done in seconds
 	
-	Now let's compare one original homologs vs a mask one
+	You can check the output by making a list
+	
+		cd 03_masked/
+		
+		ls
+		
+	Notice that the extension of the output files is `mm`
+	
+		4471.iqtree.treefile.mm  5355.iqtree.treefile.mm  5840.iqtree.treefile.mm  6110.iqtree.treefile.mm  6460.iqtree.treefile.mm  6859.iqtree.treefile.mm
+		4527.iqtree.treefile.mm  5357.iqtree.treefile.mm  5841.iqtree.treefile.mm  6114.iqtree.treefile.mm  6462.iqtree.treefile.mm  6860.iqtree.treefile.mm
+		4691.iqtree.treefile.mm  5366.iqtree.treefile.mm  5842.iqtree.treefile.mm  6119.iqtree.treefile.mm  6483.iqtree.treefile.mm  ...
+
+	
+* Now let's compare one original homologs vs a mask one
+	
+	Open, plot, root and order the nodes in Figtree of one the original homologs trees.
+	
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile	
+		
+	<p align="center"><img src="images/unmasked.png" alt="um" width="400"></p>
+
+	Open, plot, root and order the nodes in Figtree of one the masked homologs trees.
+	
+		
+		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/4471.iqtree.treefile.mm
 	
 	
-	
+	<p align="center"><img src="images/maked.png" alt="mm" width="400"></p>
 
 
 
