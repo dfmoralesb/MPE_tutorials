@@ -547,7 +547,7 @@
 	Let's open R. In you browser address bar type `10.153.134.10:8787` When you are prompted to the login information use the same username and password you have being using for login into the workstaion
 	
 	
-	<p align="center"><img src="images/R.png" alt="R" width="900"></p>
+	<p align="center"><img src="images/R.png" alt="R" width="400"></p>
 
 		
 		
