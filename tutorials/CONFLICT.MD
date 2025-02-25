@@ -443,10 +443,20 @@
 	
 	Light grey = missing
 	
-	
 	You can safe this plot as well with another name and download it to your laptop
 	
 	What is the difference between the two plots? How to this compare to the CF and QS
+	
+* Plot concordant/discordant gene trees
+
+	To plot the number of concordant and discordant gene trees for each node run the code lines 83 to 86
+	
+	You should see
+	
+	<p align="center"><img src="images/number.png" alt="prop" width="900"></p>
+	
+	As before you can save and download the plot.
+
 	
 
 	
