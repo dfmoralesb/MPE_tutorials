@@ -181,12 +181,69 @@
 	You should see
 	
 	<p align="center"><img src="images/wgdplot.png" alt="wgdplot" width="900"></p>
-
-
 	
+
+* Alternatively we can also map orthogroups by filtering them by concordant clades.
+
+  	This is a local topology filter that only maps a gene duplication event when the sister clade of the gene duplication node in the orthogroup contained a subTset of the taxa in the corresponding sister clade in the reference tree
+  
+  	The script for this mapping is `/data_tmp/mpemaster/script/map_dups_concordant.py`
+  
+  		python /data_tmp/mpemaster/script/map_dups_concordant.py
+  	
+ 	 You should see
+  
+ 	 	Usage:
+ 	 	python map_dups_concordant.py incladeDIR rooted_spTree outname
+ 	 	
+ 	 The script needs the same orthogroup directory as before, the reference tree, and output name
+  
+ 	 Let's run the script
+  
+ 	 	python /data_tmp/mpemaster/script/map_dups_concordant.py 00_orthogroups/ /data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr meliaceae_wgd_concordant
+
+	 You should start seeing
+ 
+ 		7313.iqtree.treefile.1.orthogroup
+		14 nodes concordant, among which 2 duplications detected
+		6056.iqtree.treefile.1.orthogroup
+		1 nodes concordant, among which 0 duplications detected
+		7628.iqtree.treefile.1.orthogroup
+		9 nodes concordant, among which 1 duplications detected
+		5933.iqtree.treefile.1.orthogroup
+		13 nodes concordant, among which 1 duplications detected
+		5977.iqtree.treefile.1.orthogroup
+		12 nodes concordant, among which 0 duplications detected
+		...
+
+	In the screen you can see how many concordant nodes are been mapped
 	
+	The output files are `dup_count_concord.meliaceae_wgd_concordant` and `dup_perc_concord.meliaceae_wgd_concordant`
+	
+	You can open and plot them as you did for the previous mapping
+	
+		cat  dup_count_concord.meliaceae_wgd_concordant
 		
+	You will see
 	
+		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)0/159:0.0056021936,MELI_Cabralea_canjerana:0.025582682)0/110:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)0/67:0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144)0/137:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)0/18:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)0/11:0.0018363755)0/126:0.0023701151)1/161:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)25/119:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)6/172:0.0208684956)10/24:0.0092840998,MELI_Munronia_pinnata:0.0763143712)48/71:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)13/150:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)0/255:0.0325065738,MELI_Owenia_reticulata:0.0372445257)1/119:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)0/62:0.0601215172)0/147:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)0/7:0.0356809672)0/8:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)0/187:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)0/22:0.0231644117,MELI_Carapa_procera:0.0308532123)0/211:0.0385898559)51/227:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)0/186:0.0103559063)89/270:0.0261171806)7/332:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468):0.0173378156):0.0484817959):0;	
+	
+	Plot the tree in Figtree and show the node labels
+	
+	<p align="center"><img src="images/wgdconcon.png" alt="wgdcc" width="900"></p>
+
+	
+	The same for the other tree. Show the node labels as percentages
+	
+		cat dup_perc_concord.meliaceae_wgd_concordant
+	
+	You will see
+	
+		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632):0.0056021936,MELI_Cabralea_canjerana:0.025582682):0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193):0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144):0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158):0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287):0.0018363755):0.0023701151)0.00621118012422:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)0.210084033613:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)0.0348837209302:0.0208684956)0.416666666667:0.0092840998,MELI_Munronia_pinnata:0.0763143712)0.676056338028:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)0.0866666666667:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263):0.0325065738,MELI_Owenia_reticulata:0.0372445257)0.00840336134454:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134):0.0601215172):0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088):0.0356809672):0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901):0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133):0.0231644117,MELI_Carapa_procera:0.0308532123):0.0385898559)0.224669603524:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093):0.0103559063)0.32962962963:0.0261171806)0.0210843373494:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468):0.0173378156):0.0484817959):0;
+	
+	<p align="center"><img src="images/wgdconper.png" alt="wgdcp" width="900"></p>
+
+
 		
 	
 		
