@@ -195,6 +195,103 @@
 	
 	<p align="center"><img src="images/qs.png" alt="qs" width="900"></p>
 	
-	* Here is a guide how to interpret the scores
+* Here is a guide how to interpret the scores
 	
 	<p align="center"><img src="images/qsi.png" alt="qsi" width="900"></p>
+	
+	What can you tell from the QS scores and how they compare with the CFs?
+	
+<a name="phyparts"></a>
+## Conflict analysis with Phyparts
+
+* Phyparts calculates the number of conflicting/concordant bipartitions of the gene tree in respect to a reference tree (e.g. concatenated or coalescent-based tree). This is a relatively simple mapping analysis, intended to allow for exploration of large datasets. For detail on how the mapping works see [here](https://bitbucket.org/blackrim/phyparts/wiki/Mapping_concordance_and_conflict)
+
+* Phyparts assume rooted gene trees and rooted reference tree. So we are going to root all these trees
+
+	First, let's make a new directory for Phyparts
+
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+
+		mkdir 12_phyparts
+		
+	Now let's make a directory for the rooted gene trees
+	
+		cd 12_phyparts
+		
+		mkdir 00_rooted_gene_trees
+		
+	The gene tres we are going to root are the ortholog gene trees. The same we used for ASTRAL. If you remember form the previous tutorial, the files are located here `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
+	
+	The script to root multiple gene trees at ones is `root_trees_multiple_outgroups_MO.py`
+	
+		deactivate conda
+	
+		python /data_tmp/mpemaster/script/root_trees_multiple_outgroups_MO.py
+		
+	You should see
+	
+		Usage:
+		python root_trees_mulitple_outgroup_MO.py inDIR tree_file_ending outDIR outgroup_list
+		
+	We need to provide the directory where the gene tree files are, the extension of the files, the output directory, and the list of outgroups (the same we use to run TreeShrink)
+	
+	Let's root the trees
+	
+		python /data_tmp/mpemaster/script/root_trees_multiple_outgroups_MO.py /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files treefile 00_rooted_gene_trees /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt
+
+	It should take seconds to run
+	
+	Now check the output files
+	
+		ls 00_rooted_gene_trees/
+		
+	You should seee
+	
+		4471.reroot  5162.reroot  5366.reroot  5594.reroot  5842.reroot  5949.reroot  6119.reroot  6373.reroot  6487.reroot  6639.reroot  6864.reroot  7067.reroot
+		4527.reroot  5163.reroot  5398.reroot  5596.reroot  5843.reroot  5950.reroot  6128.reroot  6376.reroot  6488.reroot  6641.reroot  6865.reroot  7111.reroot
+		4691.reroot  5168.reroot  5404.reroot  5599.reroot  5849.reroot  5958.reroot  6130.reroot  6378.reroot  6492.reroot  6649.reroot  6875.reroot  ...
+		
+	Now we can root the the concatenated tree. The same from the previous tutorial `/data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile`
+	
+	For this we can use the program `pxrr` from `Phyx`
+	
+	Type `pxrr -h` to see what are the needed arguments
+	
+		pxrr -h
+		
+	You should see
+	
+		Reroot (or unroot) a tree file and produce a newick.
+		This will take a newick- or nexus-formatted tree from a file or STDIN.
+		Output is written in newick format.
+		
+		Usage: pxrr [OPTIONS]...
+		
+		Options:
+		 -t, --treef=FILE     input tree file, STDIN otherwise
+		 -g, --outgroups=CSL  outgroup sep by commas (NO SPACES!)
+		 -f, --namesf=FILE    outgroups in a file (each on a line)
+		 -r, --ranked         turn on ordering of outgroups. will root on first one present
+		 -u, --unroot         unroot the tree
+		 -s, --silent         do not error if outgroup(s) not found
+		 -o, --outf=FILE      output tree file, STOUT otherwise
+		 -h, --help           display this help and exit
+		 -V, --version        display version and exit
+		 -C, --citation       display phyx citation and exit
+		
+		Report bugs to: <https://github.com/FePhyFoFum/phyx/issues>
+		phyx home page: <https://github.com/FePhyFoFum/phyx>
+		
+	Now we can root the tree
+	
+		pxrr -t /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile -f /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt -o meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		
+	If you plot output tree `meliaceae_MO_500_8_concat_IQtree.treefile.rr` in FigTree you should see that is rooted already
+	
+		cat meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		
+	It should look like this:
+		
+		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)100:0.0056021936,MELI_Cabralea_canjerana:0.025582682)100:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)100:0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144)100:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)88:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)97:0.0018363755)100:0.0023701151)100:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)100:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)100:0.0208684956)100:0.0092840998,MELI_Munronia_pinnata:0.0763143712)100:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)100:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)100:0.0325065738,MELI_Owenia_reticulata:0.0372445257)100:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)100:0.0601215172)100:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)100:0.0356809672)100:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)100:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)100:0.0231644117,MELI_Carapa_procera:0.0308532123)100:0.0385898559)100:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)100:0.0103559063)100:0.0261171806)100:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468)100:0.0173378156)100:0.0484817959);
+		
+		<p align="center"><img src="images/rooted.png" alt="rooted" width="900"></p>

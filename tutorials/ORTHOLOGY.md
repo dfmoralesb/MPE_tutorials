@@ -715,7 +715,8 @@
 
 		cat meliaceae_334_MO_orthologs.ASTRAL.tre
 			
-		
+	It should look like this:
+	
 		((((((((((((((MELI_Aphanamixis_polystachya,MELI_Aglaia_spectabilis)1.000000:0.821258,MELI_Cabralea_canjerana)1.000000:0.983081,MELI_Dysoxylum_alliaceum)1.000000:0.559483,MELI_Chisocheton_longistipitatus)1.000000:0.340415,(((MELI_Neoguarea_glomerulata,MELI_Guarea_pubescens)0.395510:0.013006,MELI_Heckeldora_staudtii)0.809537:0.137442,MELI_Turraeanthus_manii)0.999824:0.354462)1.000000:0.818228,MELI_Vavaea_amicorum)1.000000:0.703356,(MELI_Turraea_virens,MELI_Trichilia_hirta)1.000000:2.314540)0.999929:0.518675,MELI_Munronia_pinnata)1.000000:1.013233,MELI_Quivisianthe_papinae)1.000000:2.969098,(((MELI_Azadirachta_indica,MELI_Melia_azedarach)1.000000:5.147494,MELI_Owenia_reticulata)1.000000:2.402215,MELI_Pterorhachis_zenkeri)1.000000:3.349238)0.999999:0.284258,(((((MELI_Cedrela_saltensis,MELI_Cedrela_montana)0.998174:1.540445,MELI_Toona_ciliata)0.999932:1.897120,MELI_Lovoa_sywnnertonii)1.000000:0.616349,((MELI_Swietenia_mahagoni,MELI_Swietenia_macrophylla)0.999997:1.673976,MELI_Carapa_procera)1.000000:3.610073)1.000000:2.944631,(MELI_Chukrasia_tabularis,MELI_Schmardaea_microphylla)1.000000:1.214511)1.000000:3.783661)1.000000:5.298317,RUTA_Melicope_ternata)1.000000:0.374010,RUTA_Ruta_graveolens),RUTA_Citrus_hystrix);
 	
 	<p align="center"><img src="images/sptreefinal.png" alt="sptreefinal" width=900"></p>
