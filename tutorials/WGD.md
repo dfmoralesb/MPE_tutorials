@@ -189,7 +189,7 @@
 		
 	You should see
 	
-	<p align="center"><img src="images/wgdplot.png" alt="wgdplot" width="900"></p>
+	<p align="center"><img src="images/wgdplot.png" alt="wgdplot" width="600"></p>
 	
 
 <a name="concon"></a>
@@ -281,7 +281,7 @@
 		axis(1,pos=0)
 		axis(2,pos=0)
 		
-	<p align="center"><img src="images/wgdplot2.png" alt="wgdplot2" width="900"></p>
+	<p align="center"><img src="images/wgdplot2.png" alt="wgdplot2" width="600"></p>
 	
 	Compare both gene duplication results and see if there are any differences 
 
