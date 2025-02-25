@@ -88,7 +88,7 @@ All data for analyses and output will be located in
 
 * [Phylogenomics](tutorials/ORTHOLOGY.md)<br>A tutorial on the phylogenomics workflow - with a focus on tree-based orthology inference
 
-* [Alternative support values - Conflict analysis](CONFLICT.MD)<br>A tutorial on alternative way to measure node support - wit a focus on conflict analyses
+* [Alternative support values - Conflict analysis](tutorials/CONFLICT.MD)<br>A tutorial on alternative way to measure node support - wit a focus on conflict analyses
 
 	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorials you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
 
