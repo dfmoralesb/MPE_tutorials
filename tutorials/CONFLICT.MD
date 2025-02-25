@@ -406,7 +406,7 @@
 	
 	Then starting in the in Line 69 you will see two option for plotting the piecharts in the tree
 	
-	* `proportional` The pie charts will be proportional only the number of informing gene trees - it does not take in consideration the missing data
+* `proportional` The pie charts will be proportional only the number of informing gene trees - it does not take in consideration the missing data
 	
 	Run those 3 lines of code and you should see
 	
@@ -427,7 +427,7 @@
 			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 
 	
-	* `total including missing genes` The pie chats will include missing data and are proportional to the total number of trees - 334
+* `total including missing genes` The pie chats will include missing data and are proportional to the total number of trees - 334
 	
 	Run those 3 lines of code and you should see
 	
