@@ -92,4 +92,4 @@ All data for analyses and output will be located in
 
 	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorials you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
 
-	
+

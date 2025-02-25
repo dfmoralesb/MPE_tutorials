@@ -194,3 +194,7 @@
 	You should see this
 	
 	<p align="center"><img src="images/qs.png" alt="qs" width="900"></p>
+	
+	* Here is a guide how to interpret the scores
+	
+	<p align="center"><img src="images/qsi.png" alt="qsi" width="900"></p>
