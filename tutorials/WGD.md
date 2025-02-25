@@ -2,7 +2,7 @@
 
 * [Identifying Whole Genome Duplication](#WGD)
 * [Extracting orthogroups](#ortho)
-* [Mapping gene duplications - filter base on boostrap](#mrca)
+* [Mapping gene duplications - filter base on bootstrap](#mrca)
 * [Mapping gene duplications - filter base on concordant clades](#concon)
 
 #### How to login to the workstation
@@ -39,9 +39,9 @@
 
 	We are going to use the final homologs trees from the Phylogenomics tutorial. This files are located in `/data_tmp/$USERNAME/output/04_analyses/07_final_homologs`
 	
-	The script to extract orthogroups is `/data_tmp/mpemaster/script/extract_clades.py`
+	The script to extract orthogroups is `/data_tmp/$USERNAME/script/extract_clades.py`
 	
-		python /data_tmp/mpemaster/script/extract_clades.py
+		python /data_tmp/$USERNAME/script/extract_clades.py
 
 	You should see
 	
@@ -52,7 +52,7 @@
 	
 	Let's make a new directory for the analyses and for the orthogroups
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir -p 13_wdg/00_orthogroups
 		
@@ -60,7 +60,7 @@
 		
 	Now let's extract the orthogroups
 	
-		python /data_tmp/mpemaster/script/extract_clades.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_orthogroups ../in_out_list.txt orthogroup
+		python /data_tmp/$USERNAME/script/extract_clades.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_orthogroups ../in_out_list.txt orthogroup
 		
 	You should see 
 	
@@ -81,17 +81,17 @@
 	It should be `335`
 	
 <a name="mrca"></a>
-## Mapping gene duplications - filter base on boostrap
+## Mapping gene duplications - filter base on bootstrap
 
 	
-* Now you can map the orthogrops to the reference map. In this case we will use the rooted concatenated tree from the previous tutorial (the one you rooted for Phyparts) `meliaceae_MO_500_8_concat_IQtree.treefile.rr`
+* Now you can map the orthogroups to the reference map. In this case we will use the rooted concatenated tree from the previous tutorial (the one you rooted for Phyparts) `meliaceae_MO_500_8_concat_IQtree.treefile.rr`
 
 	This script will filter orthogroups by requiring an average bootstrap percentage of each orthogroup to be at least 70% 
 
 
-	The script you will use is `/data_tmp/mpemaster/script/extract_clades.py/map_dups_mrca.py`
+	The script you will use is `/data_tmp/$USERNAME/script/extract_clades.py/map_dups_mrca.py`
 	
-		python /data_tmp/mpemaster/script/map_dups_mrca.py
+		python /data_tmp/$USERNAME/script/map_dups_mrca.py
 		
 	Now you will see
 	
@@ -102,7 +102,7 @@
 	
 	Let's map the genome duplications now
 	
-		python /data_tmp/mpemaster/script/map_dups_mrca.py 00_orthogroups/ /data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr 8 meliaceae_wgd_mrca
+		python /data_tmp/$USERNAME/script/map_dups_mrca.py 00_orthogroups/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr 8 meliaceae_wgd_mrca
 		
 	You should start seeing
 	
@@ -147,9 +147,9 @@
 	
 * Now we will plot the gene duplication in the reference trees and identify outlier that could be a WGD. An outlier can be consider gene duplication percentage above 20% based on Yang et al. 2015
 
-	For this you will use the script `/data_tmp/mpemaster/script/plot_branch_labels.py`
+	For this you will use the script `/data_tmp/$USERNAME/script/plot_branch_labels.py`
 	
-		python /data_tmp/mpemaster/script/plot_branch_labels.py
+		python /data_tmp/$USERNAME/script/plot_branch_labels.py
 		
 	You will see
 	
@@ -158,7 +158,7 @@
 	
 	It requires the output file with percentages `dup_perc_filter70_global.meliaceae_wgd_mrca`
 	
-		python /data_tmp/mpemaster/script/plot_branch_labels.py dup_perc_filter70_global.meliaceae_wgd_mrca
+		python /data_tmp/$USERNAME/script/plot_branch_labels.py dup_perc_filter70_global.meliaceae_wgd_mrca
 		
 	You should see
 	
@@ -181,7 +181,7 @@
 	
 	In the console (bottom) type
 	
-		setwd ("/data_tmp/mpemaster/data/07_phylogenomic_analyses/13_wdg/")
+		setwd ("/data_tmp/$USERNAME/data/07_phylogenomic_analyses/13_wdg/")
 		a=read.table('dup_perc_filter70_global.meliaceae_wgd_mrca.branch_labels')
 		hist(a[,1],breaks=60,col='grey',xlab='',ylab='',main='',axes=FALSE,xlim=c(0,1))
 		axis(1,pos=0)
@@ -200,9 +200,9 @@
 
   	This is a local topology filter that only maps a gene duplication event when the sister clade of the gene duplication node in the orthogroup contained a subTset of the taxa in the corresponding sister clade in the reference tree
   
-  	The script for this mapping is `/data_tmp/mpemaster/script/map_dups_concordant.py`
+  	The script for this mapping is `/data_tmp/$USERNAME/script/map_dups_concordant.py`
   
-  		python /data_tmp/mpemaster/script/map_dups_concordant.py
+  		python /data_tmp/$USERNAME/script/map_dups_concordant.py
   	
  	 You should see
   
@@ -213,7 +213,7 @@
   
  	 Let's run the script
   
- 	 	python /data_tmp/mpemaster/script/map_dups_concordant.py 00_orthogroups/ /data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr meliaceae_wgd_concordant
+ 	 	python /data_tmp/$USERNAME/script/map_dups_concordant.py 00_orthogroups/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr meliaceae_wgd_concordant
 
 	 You should start seeing
  
@@ -258,7 +258,7 @@
 	
 	As before let's plot the WGD to see outliers
 	
-		python /data_tmp/mpemaster/script/plot_branch_labels.py dup_perc_concord.meliaceae_wgd_concordant
+		python /data_tmp/$USERNAME/script/plot_branch_labels.py dup_perc_concord.meliaceae_wgd_concordant
 
 	You can see
 	
