@@ -6,12 +6,22 @@
 * [Inferring a concatenated ML tree](#concat)
 * [Alternative node support values - Concordance factors](#concordance)
 
+
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 USERNAME@10.153.134.10
 
 
-### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you connect to the worsktation
+
+	For example for me Diego my user name is `mpemaster`
+	
+		USERNAME=mpemaster
+
 
 
 Make sure to activate the `CONDA` environment
@@ -31,7 +41,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 		
 * IQ-TREE can be started just by providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
 
-		cd /data_tmp/[username]/data/04_individual_aln
+		cd /data_tmp/$USERNAME/data/04_individual_aln
 
 		iqtree -s 4471.aln.clipkit 
 		
@@ -122,9 +132,9 @@ To identify which nodes in the phylogeny are more or less trustworthy, we will n
 <a name="concat"></a>
 ## Inferring a concatenated ML tree
 
-* Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 4 loci. The input data is located in `/data_tmp/[username]/data/05_concatenated_aln`.
+* Here we are going to infer a ML tree with IQ-tree using a concatenated alignment of the 4 loci. The input data is located in `/data_tmp/$USERNAME/data/05_concatenated_aln`.
 
-		cd /data_tmp/[username]/data/05_concatenated_aln
+		cd /data_tmp/$USERNAME/data/05_concatenated_aln
 
 * You can see the size of the concatenated matrix by typing.
 

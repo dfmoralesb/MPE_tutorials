@@ -8,12 +8,22 @@
 * [Species tree inference](#sptree)
 * [Species tree inference from homologs](homolog)
 
+
+
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 USERNAME@10.153.134.10
 
 
-### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you connect to the workstation
+
+	For example for me Diego my user name is `mpemaster`
+	
+		USERNAME=mpemaster
+
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 <a name="phylo"></a>
 ## Phylogenomics workflow with a focus on tree-based orthology inference
@@ -38,9 +48,9 @@
 
 	Here, I want you to point attention to the flag `--max_paralogs 5` meaning that the loci that we will work have up to 5 copies per sample. This is the part referred as `Paralog assesment` in the workflow. Other assembly pipelines required additional steps identify and collect gene copies. With Captus is as simple as using one flag to collect them.
 	
-* The final output of Captus for all 30 species and 353 genes is located in the directory `/data_tmp/mpemaster/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes`
+* The final output of Captus for all 30 species and 353 genes is located in the directory `/data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes`
 
-		cd /data_tmp/mpemaster/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes
+		cd /data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes
 		
 	You can see all files with the command `ls`
 	
@@ -149,13 +159,13 @@
 
 * First we going to for make a copy of the alignments to a new directory so we can reformat them
 
-		cp /data_tmp/mpemaster/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes/*.fna /data_tmp/mpemaster/data/07_phylogenomic_analyses/01_clean_alignments
+		cp /data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes/*.fna /data_tmp/$USERNAME/data/07_phylogenomic_analyses/01_clean_alignments
 		
 	
 * Now move to the new directory where the copy of the fasta files are located and use `ls` see make sure they are there
 	
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses/01_clean_alignments
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses/01_clean_alignments
 		
 		ls
 		
@@ -180,10 +190,10 @@
 	
 
 	
-	The output of IQ-tree can be found here `/data_tmp/mpemaster/output/04_analyses/00_iqtree`
+	The output of IQ-tree can be found here `/data_tmp/$USERNAME/output/04_analyses/00_iqtree`
 	
 	
-		cd /data_tmp/mpemaster/output/04_analyses/00_iqtree
+		cd /data_tmp/$USERNAME/output/04_analyses/00_iqtree
 		
 		ls
 		
@@ -201,12 +211,12 @@
 * To reformat the tree files we first are going to make a copy of all the `*.treefile` in new directory
 	
 	
-		cp /data_tmp/mpemaster/output/04_analyses/00_iqtree/*.treefile /data_tmp/mpemaster/data/07_phylogenomic_analyses/02_raw_homolog_trees
+		cp /data_tmp/$USERNAME/output/04_analyses/00_iqtree/*.treefile /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees
 		
 		
 	Make a list to see the files
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses/02_raw_homolog_trees
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees
 	
 		ls
 		
@@ -234,7 +244,7 @@
 
 	First we are going to make a new directory called `03_masked`
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir 03_masked
 		
@@ -245,15 +255,15 @@
 		
 	You should not see any conda environment name before you account name
 	
-		mpemaster@p620-small:/data_tmp/mpemaster/data/07_phylogenomic_analyses
+		$USERNAME@p620-small:/data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 	If you still see a Conda environment:
 	
-		(captus) mpemaster@p620-small:/data_tmp/mpemaster/data/07_phylogenomic_analyses
+		(captus) $USERNAME@p620-small:/data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 	or
 	
-		(base) mpemaster@p620-small:/data_tmp/mpemaster/data/07_phylogenomic_analyses
+		(base) $USERNAME@p620-small:/data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 	run the below command until you don't see any envrioment
 	
@@ -261,7 +271,7 @@
 		
 * Let's run the command to prune clade and paraphyletic grades of the same species
 
-		python /data_tmp/mpemaster/script/mask_tips.py
+		python /data_tmp/$USERNAME/script/mask_tips.py
 		
 	If you run this command you will see all the input arguments you need to provide. ####All Phython script we will use today will work the same way 
 	
@@ -274,11 +284,11 @@
 	
 	Make sure you are in the correct directory
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 	Then
 	
-		python /data_tmp/mpemaster/script/mask_tips.py 02_raw_homolog_trees/ treefile 01_clean_alignments/ fna y 03_masked/
+		python /data_tmp/$USERNAME/script/mask_tips.py 02_raw_homolog_trees/ treefile 01_clean_alignments/ fna y 03_masked/
 		
 	This should be done in seconds
 	
@@ -299,14 +309,14 @@
 	
 	Open, plot, root and order the nodes in Figtree of one the original homologs trees.
 	
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile	
 		
 	<p align="center"><img src="images/unmasked.png" alt="um" width="900"></p>
 
 	Open, plot, root and order the nodes in Figtree of one the masked homologs trees.
 	
 		
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/4471.iqtree.treefile.mm
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/4471.iqtree.treefile.mm
 	
 	
 	<p align="center"><img src="images/masked.png" alt="mm" width="900"></p>
@@ -321,20 +331,20 @@
 
 * We are going to use the output of the previous step for part
 
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
-		python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py
+		python /data_tmp/$USERNAME/script/tree_shrink_1.3.9_wrapper.py
 		
 	You should see
 	
 		Usage:
 		python tree_shrink_wrapper.py inDIR tree_file_ending quantile outDIR exceptions(optional)
 
-	The outgroup list, `outgroup_list.txt`,  is located in `/data_tmp/mpemaster/data/07_phylogenomic_analyses`
+	The outgroup list, `outgroup_list.txt`,  is located in `/data_tmp/$USERNAME/data/07_phylogenomic_analyses`
 	
 	You can read the file to see the list
 	
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/outgroup_list.txt
 		
 	You should see
 	
@@ -345,21 +355,21 @@
 * Now let's make a new directory for the output of TreeShrink
 	
 	
-		mkdir /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts
+		mkdir /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts
 
 * With this you can now run TreeShrink on all the masked gene trees
 	
-		python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
+		python /data_tmp/$USERNAME/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
 			
 	You should start seing something like this
 	
 	
-		Output files written to /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.mm.ts_dir with prefix /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.
+		Output files written to /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.mm.ts_dir with prefix /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/5562.iqtree.treefile.
 		['RUTA_Citrus_hystrix@pg_uq', 'RUTA_Melicope_ternata@pg_uq', 'RUTA_Ruta_graveolens@pg_00']
-		run_treeshrink.py -t /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
+		run_treeshrink.py -t /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
 		Launching TREESHRINK version 1.3.9
 		TREESHRINK was called as follow
-		/usr/local/bin/run_treeshrink.py -t /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
+		/usr/local/bin/run_treeshrink.py -t /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/6909.iqtree.treefile.mm -c -m per-gene -q 0.05 -o /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.ts_dir -O /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile -x /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6909.iqtree.treefile.mm.exceptions.ext
 		Testing R and BMS installation ...
 		Solving k-shrink with k = 6
 		Writing output ...
@@ -384,14 +394,14 @@
 	
 	Open, plot, root and order the nodes in Figtree of one makes tree
 	
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/03_masked/6498.iqtree.treefile.mm	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/6498.iqtree.treefile.mm	
 		
 	<p align="center"><img src="images/masked1.png" alt="mm1" width="900"></p>
 
 	Open, plot, root and order the nodes in Figtree of one the masked homologs trees.
 	
 		
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/6498.iqtree.treefile.mm.tr.ts	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6498.iqtree.treefile.mm.tr.ts	
 	
 	<p align="center"><img src="images/ts.png" alt="ts" width="900"></p>
 	
@@ -409,11 +419,11 @@
 
 	First we need to make a taxon list file identifying which are outgroup and which are part of the ingroup
 	
-	The file, `in_out_list.txt` is located in  `/data_tmp/mpemaster/data/07_phylogenomic_analyses/`
+	The file, `in_out_list.txt` is located in  `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/`
 	
 	Read the file to see the list
 	
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/in_out_list.txt
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/in_out_list.txt
 		
 	You should see
 	
@@ -450,11 +460,11 @@
 		
 * Now let's make a directory for the otholog inference output
 
-		mkdir /data_tmp/mpemaster/data/07_phylogenomic_analyses/05_MO_orthologs
+		mkdir /data_tmp/$USERNAME/data/07_phylogenomic_analyses/05_MO_orthologs
 		
 * To see the arguments for the orthology inference script do
 
-		python /data_tmp/mpemaster/script/prune_paralogs_MO_1to1_MO.py
+		python /data_tmp/$USERNAME/script/prune_paralogs_MO_1to1_MO.py
 		
 	You should see
 	
@@ -465,9 +475,9 @@
 	
 * No we can prune MO orthologs
 
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
-		python /data_tmp/mpemaster/script/prune_paralogs_MO_1to1_MO.py 04_ts/ ts 8 05_MO_orthologs/ in_out_list.txt
+		python /data_tmp/$USERNAME/script/prune_paralogs_MO_1to1_MO.py 04_ts/ ts 8 05_MO_orthologs/ in_out_list.txt
 
 	You should start seeing		
 		
@@ -522,12 +532,12 @@
 	
 * Let's compare a cleaned homolog vs an ortholog
 
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts/4471.iqtree.treefile.mm.tr.ts	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/4471.iqtree.treefile.mm.tr.ts	
 		
 	<p align="center"><img src="images/homologdup.png" alt="hd" width="900"></p>
 
 
-		cat /data_tmp/mpemaster/data/07_phylogenomic_analyses/05_MO_orthologs/4471.iqtree.ortho.tre	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/05_MO_orthologs/4471.iqtree.ortho.tre	
 		
 	<p align="center"><img src="images/orthologsc.png" alt="sc" width="900"></p>
 	
@@ -536,23 +546,23 @@
 	
 * We can make some stats about the orthologs
 
-		python /data_tmp/mpemaster/script/ortholog_occupancy_stats.py 05_MO_orthologs/
+		python /data_tmp/$USERNAME/script/ortholog_occupancy_stats.py 05_MO_orthologs/
 		
-	If you make a list on `/data_tmp/mpemaster/data/07_phylogenomic_analyses`
+	If you make a list on `/data_tmp/$USERNAME/data/07_phylogenomic_analyses`
 
 
-		ls /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		ls /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 	You should see `ortho_stats.txt` and `taxon_stats.txt`
 	
-	Let's open R. In you browser address bar type `10.153.134.10:8787` When you are prompted to the login information use the same username and password you have being using for login into the workstaion
+	Let's open R. In you browser address bar type `10.153.134.10:8787` When you are prompted to the login information use the same $USERNAME and password you have being using for login into the workstaion
 	
 	
 	<p align="center"><img src="images/R.png" alt="R" width="400"></p>
 	
 	In the R console type
 	
-		setwd("/data_tmp/mpemaster/data/07_phylogenomic_analyses")
+		setwd("/data_tmp/$USERNAME/data/07_phylogenomic_analyses")
 		a <- as.numeric(read.table("ortho_stats.txt")[,1])
 		a <- sort(a, decreasing=TRUE)
 		plot(a, type="l", lwd=3, ylab="Number of Taxa in Each Ortholog")
@@ -607,7 +617,7 @@
 
 	You will need the script `write_ortholog_fasta_from_multiple_aln.py`
 	
-		python /data_tmp/mpemaster/script/write_ortholog_fasta_from_multiple_aln.py
+		python /data_tmp/$USERNAME/script/write_ortholog_fasta_from_multiple_aln.py
 	
 	You will see
 	
@@ -615,21 +625,21 @@
 		python write_ortholog_fasta_from_multiple_aln.py fasta_DIR tree_DIR fasta_file_ending(no_dot) tree_file_ending(not_dot) outDIR
 		
 		
-	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/` The otholog directory 05_MO_orthologs, the extension for the files of those two directories, `fna` and `tre`,respectively, and an output directory
+	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/$USERNAME/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/` The otholog directory 05_MO_orthologs, the extension for the files of those two directories, `fna` and `tre`,respectively, and an output directory
 	
 	We can make a copy of this directoy
 	
-		cp -r /data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/ /data_tmp/mpemaster/data/07_phylogenomic_analyses/00_unaligned_fasta_files
+		cp -r /data_tmp/$USERNAME/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files
 	
 	Let's create an output directory
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir 06_MO_fasta_files
 		
 	Now let's write the ortholog fasta files
 	
-		python /data_tmp/mpemaster/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/ 
+		python /data_tmp/$USERNAME/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/ 
 	
 	You can check the output fasta files
 	
@@ -652,9 +662,9 @@
 
 	As this takes some time, I have already done this for you. I used the exact same software and commands we learn in the previous tutorials
 	
-	The output the fasta files, alignments, clean alignments, and gene tres can be found in the directory `/data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files`
+	The output the fasta files, alignments, clean alignments, and gene tres can be found in the directory `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
 
-		ls /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files
+		ls /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files
 		
 	You will see
 	
@@ -665,11 +675,11 @@
 		
 	Now let's make a new directory for our ASTRAL inference and concatenate all the gene trees to have the input of ASTRAL
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir 07_astral
 		
-		for i in /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files/*.treefile; do cat $i >> 07_astral/meliaceae_334_MO_orthologs.tre; done
+		for i in /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files/*.treefile; do cat $i >> 07_astral/meliaceae_334_MO_orthologs.tre; done
 		
 	In `07_astral` you should have the file `meliaceae_334_MO_orthologs.tre` containing the 334 individual otholog trees
 	
@@ -681,7 +691,7 @@
  	
  	In this occasion we are going to do an additional step before inferring the ASTRAL tree. We are going to collapse uninformative nodes from the species trees. This is to avoid introducing noise to our inference from this non-supported nodes.
  	
- 		python /data_tmp/mpemaster/script/collapse_branches_bs_multiphylo.py
+ 		python /data_tmp/$USERNAME/script/collapse_branches_bs_multiphylo.py
  		
  	You will see
  	
@@ -691,13 +701,13 @@
 	You just need to provide the file containing all gene trees and a bootstrap threshold to collapse the node. In this case we are going to use 70%
 	
 	
-		python /data_tmp/mpemaster/script/collapse_branches_bs_multiphylo.py meliaceae_334_MO_orthologs.tre 70
+		python /data_tmp/$USERNAME/script/collapse_branches_bs_multiphylo.py meliaceae_334_MO_orthologs.tre 70
 		
 	The output file will be called `meliaceae_334_MO_orthologs.col_70.tre`
 	
 	This will be out input for ASTRAL
 	
-		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral -i meliaceae_334_MO_orthologs.col_70.tre -o meliaceae_334_MO_orthologs.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)
+		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -i meliaceae_334_MO_orthologs.col_70.tre -o meliaceae_334_MO_orthologs.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)
 		
 	This should take a few seconds and the output file will be called `meliaceae_334_MO_orthologs.ASTRAL.tre`
 	
@@ -715,11 +725,11 @@
 
 * Now we can infer a concatened tree with IQ-Tree
 
-	First we need to concatened the clean alignments. The alignments are in the same directory as before `/data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files`
+	First we need to concatened the clean alignments. The alignments are in the same directory as before `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
 	
-	To concatenate the alignments and create the partition file you will need the script `/data_tmp/mpemaster/script/concatenate_matrices_phyx.py`
+	To concatenate the alignments and create the partition file you will need the script `/data_tmp/$USERNAME/script/concatenate_matrices_phyx.py`
 	
-		python /data_tmp/mpemaster/script/concatenate_matrices_phyx.py
+		python /data_tmp/$USERNAME/script/concatenate_matrices_phyx.py
 		
 	You will see
 	
@@ -731,13 +741,13 @@
 	
 	First let's make a directory where we will place the output files
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses/
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses/
 	
 		mkdir 08_concatenated_aln
 
 	Now we can run the script
 	
-		python /data_tmp/mpemaster/script/concatenate_matrices_phyx.py /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files 500 8 08_concatenated_aln/meliaceae_MO_500_8_concat
+		python /data_tmp/$USERNAME/script/concatenate_matrices_phyx.py /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files 500 8 08_concatenated_aln/meliaceae_MO_500_8_concat
 		
 	You will see
 	
@@ -793,11 +803,11 @@
 	
 		#iqtree -m TEST --merge -s meliaceae_MO_500_8_concat.fa -T 40 -B 1000 --seqtype DNA -q meliaceae_MO_500_8_concat.model --prefix meliaceae_MO_500_8_concat_IQtree
 		
-	The output files for the IQ-tree run can be found here `/data_tmp/mpemaster/output/04_analyses/10_iqtree_concatenated`
+	The output files for the IQ-tree run can be found here `/data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated`
 	
 	Plot the tree file and compare it with the ASTRAL species trees from above
 	
-		cat /data_tmp/mpemaster/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile
+		cat /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile
 		
 		(RUTA_Citrus_hystrix:0.1203095997,(RUTA_Melicope_ternata:0.1713673116,(((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)100:0.0056021936,MELI_Cabralea_canjerana:0.0255826820)100:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)100:0.0026290050,MELI_Chisocheton_longistipitatus:0.0434381144)100:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)88:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)97:0.0018363755)100:0.0023701151)100:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)100:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)100:0.0208684956)100:0.0092840998,MELI_Munronia_pinnata:0.0763143712)100:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)100:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)100:0.0325065738,MELI_Owenia_reticulata:0.0372445257)100:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)100:0.0601215172)100:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)100:0.0356809672)100:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)100:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)100:0.0231644117,MELI_Carapa_procera:0.0308532123)100:0.0385898559)100:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)100:0.0103559063)100:0.0261171806)100:0.0969635918)100:0.0173378156,RUTA_Ruta_graveolens:0.2229865468);
 	
@@ -813,11 +823,11 @@
 
 * To use ASTRAL-Pro we first need to infer the final homolog trees (similar to what we did for the orthologs)
 
-	We need to write Fasta files from the clean homologs (e.g. output of TreeShirnk `/data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts`). Also we need the same unaligned Fasta files we used before `/data_tmp/mpemaster/data/07_phylogenomic_analyses/00_unaligned_fasta_files`
+	We need to write Fasta files from the clean homologs (e.g. output of TreeShirnk `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts`). Also we need the same unaligned Fasta files we used before `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files`
 	
 	The script we will use is `write_homolog_fasta_from_multiple_aln.py`
 	
-		python /data_tmp/mpemaster/script/write_homolog_fasta_from_multiple_aln.py
+		python /data_tmp/$USERNAME/script/write_homolog_fasta_from_multiple_aln.py
 		
 	You will see
 		
@@ -826,13 +836,13 @@
 		
 	Now let's make a new directory for the output Fasta files
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir 09_homolog_fasta_files
 		
 	Now let's run the script
 	
-		python /data_tmp/mpemaster/script/write_homolog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 04_ts fna ts 09_homolog_fasta_files
+		python /data_tmp/$USERNAME/script/write_homolog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 04_ts fna ts 09_homolog_fasta_files
 		
 	Check the output files
 	
@@ -844,11 +854,11 @@
 		4527.homolog.fa  5260.homolog.fa  5502.homolog.fa  5842.homolog.fa  6003.homolog.fa  6284.homolog.fa  6487.homolog.fa  6713.homolog.fa  6978.homolog.fa
 		4691.homolog.fa  5264.homolog.fa  5513.homolog.fa  5843.homolog.fa  6004.homolog.fa  6295.homolog.fa  6488.homolog.fa  6717.homolog.fa  ...
 
-* As we did with the orthologs we need to align, clean, and infer individual gene trees. Again, because this takes time, I have done this already. The output of this can be found in `/data_tmp/mpemaster/output/04_analyses/07_final_homologs`
+* As we did with the orthologs we need to align, clean, and infer individual gene trees. Again, because this takes time, I have done this already. The output of this can be found in `/data_tmp/$USERNAME/output/04_analyses/07_final_homologs`
 	
 	You can check the contents of the directory if you want
 	
-		ls /data_tmp/mpemaster/output/04_analyses/07_final_homologs
+		ls /data_tmp/$USERNAME/output/04_analyses/07_final_homologs
 		
 	You can see a large list of files like
 	
@@ -859,11 +869,11 @@
 		
 * Now let's make a new directory for our ASTRAL-Pro inference and concatenate all the gene trees to have the input of ASTRAL-pro
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
 		mkdir 10_astral-pro
 		
-		for i in /data_tmp/mpemaster/output/04_analyses/07_final_homologs/*.treefile; do cat $i >> 10_astral-pro/meliaceae_348_homologs.tre; done
+		for i in /data_tmp/$USERNAME/output/04_analyses/07_final_homologs/*.treefile; do cat $i >> 10_astral-pro/meliaceae_348_homologs.tre; done
 		
 	Now you can check the file will all the homolog trees `meliaceae_348_homologs.tre`
 	
@@ -880,7 +890,7 @@
 		
 	Remember that our trees have the `@` simbol followed by the gene copy number (e.g. RUTA_Citrus_hystrix@pg_uq) . ASTRAL-Pro requires that all copies of the same samples be called the same (e.g., RUTA_Citrus_hystrix), so we need to remove the gene copy number. For this we will use the script `short_tip_labels_multiphylo.py`
 	
-		python /data_tmp/mpemaster/script/short_tip_labels_multiphylo.py
+		python /data_tmp/$USERNAME/script/short_tip_labels_multiphylo.py
 		
 	You should see 
 		
@@ -889,7 +899,7 @@
 		
 	Now let's run the script and check the output file `meliaceae_348_homologs_short_label.tre`
 	
-		python /data_tmp/mpemaster/script/short_tip_labels_multiphylo.py meliaceae_348_homologs.tre
+		python /data_tmp/$USERNAME/script/short_tip_labels_multiphylo.py meliaceae_348_homologs.tre
 		
 		less meliaceae_348_homologs_short_label.tre
 		
@@ -905,7 +915,7 @@
 * Now we can infer the ASTRAL-Pro species trees from homologs tree
 
 		
-		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral-pro -i meliaceae_348_homologs_short_label.tre -o meliaceae_348_homologs.ASTRAL-Pro.tre 2> >(tee -a ASTRAL.log >&2)
+		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral-pro -i meliaceae_348_homologs_short_label.tre -o meliaceae_348_homologs.ASTRAL-Pro.tre 2> >(tee -a ASTRAL.log >&2)
 
 	Now you can open the file, plot, root, sort, and show the node label (LPP) it in Figtree and should have the following
 	

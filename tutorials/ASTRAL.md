@@ -8,21 +8,31 @@
 * [Reading and visualizing tree files](#figtree)
 
 
+
+
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 USERNAME@10.153.134.10
 
 
-### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you connect to the workstation
+
+	For example for me Diego my user name is `mpemaster`
+	
+		USERNAME=mpemaster
+
+
 
 
 <a name="ML"></a>
 
-* To estimate a coalescent-based species tree with ASTRAL, we need to first infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/[username]/data/06_species_tree/00_individual_loci`
+* To estimate a coalescent-based species tree with ASTRAL, we need to first infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`
 
 		conda activate captus
 
-		cd /data_tmp/[username]/data/06_species_tree/00_individual_loci	
+		cd /data_tmp/$USERNAME/data/06_species_tree/00_individual_loci	
 	
 		for i in *.clipkit; do iqtree -s $i; done
 		
@@ -38,7 +48,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 
 * To see the many options available in ASTRAL you can type the following in the command line:
 
-		/data_tmp/[username]/apps/ASTER-Linux_old/bin/astral -h
+		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -h
 
 		
 <p align="center"><img src="images/astral_1.png" alt="astral1" width="900"></p>
@@ -47,15 +57,15 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 <a name="running"></a>
 ## Running ASTRAL
 
-* To run ASTRAL you need a single file with all the individual gene trees (one per line) in Newick format. In this case we need to put all 4 gene trees (*.treefile files) from `/data_tmp/[username]/data/06_species_tree/00_individual_loci`. To do this you can use the `cat` command like this:
+* To run ASTRAL you need a single file with all the individual gene trees (one per line) in Newick format. In this case we need to put all 4 gene trees (*.treefile files) from `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`. To do this you can use the `cat` command like this:
 
 	First let make a new directory where we will place the new astral input file
 	
-		mkdir /data_tmp/[username]/data/06_species_tree/01_astral
+		mkdir /data_tmp/$USERNAME/data/06_species_tree/01_astral
 		
-		cd /data_tmp/[username]/data/06_species_tree/01_astral
+		cd /data_tmp/$USERNAME/data/06_species_tree/01_astral
 		
-		for i in /data_tmp/[username]/data/06_species_tree/00_individual_loci/*.treefile; do cat $i >> meliaceae_4_gene_trees.tre; done
+		for i in /data_tmp/$USERNAME/data/06_species_tree/00_individual_loci/*.treefile; do cat $i >> meliaceae_4_gene_trees.tre; done
 		
 	You can verify that the file has the four trees by counting its lines
 	
@@ -90,7 +100,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 * It is recommend to save the [`stderr`](https://en.wikipedia.org/wiki/Standard_streams), to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to screen and also redirecting it to a file.
 
 
-		/data_tmp/[username]/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)	
+		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)	
 		
 		
 Here are some of the important information captured in the log:

@@ -7,7 +7,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 #### Workstation account assignment
 
-| Student | username |
+| Student | USERNAME |
 | -------- | ------- |
 | Alexander James	Dietrick | mpeuser1 |
 | Alexandra	Eisenbeil | mpeuser2 |
@@ -21,13 +21,21 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 | Sushmit	Bhattacharya | mpeuser10 |
 | Yusuf	Bozkurt | mpeuser11 |
 | Zizheng	Yan | mpeuser12 |
+| Diego or Lizzy | usermaster|
 
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 $USERNAME@10.153.134.10
 	
 The password will be provided at the beginning of the the first practicum. 
 
+### Every time you see `$USERNAME` in the example command you need to replace it with you own
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you open a terminal window
+
+	For example for me Diego my user name is `mpemaster`
+	
+		USERNAME=mpemaster
 
 
 #### Requirements (sofware) - The following software has been already installed in each account.
@@ -65,7 +73,7 @@ The password will be provided at the beginning of the the first practicum.
 
 All data for analyses and output will be located in
 
-	/data_tmp/[username]/data
+	/data_tmp/USERNAME/data
 		
 		
 ## Tutorials
@@ -80,6 +88,6 @@ All data for analyses and output will be located in
 
 * [Phylogenomics](tutorials/ORTHOLOGY.md)<br>A tutorial on the phylogenomics workflow - with a focus on tree-based orthology inference
 
-	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorial you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
+	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorials you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
 
 	

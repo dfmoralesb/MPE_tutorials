@@ -13,10 +13,18 @@
 
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 USERNAME@10.153.134.10
+
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you connect to the workstation
+
+	For example for me Diego my user name is `mpemaster`
+	
+		USERNAME=mpemaster
 
 
-### Every time you see `[username]` in the command example you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the command example you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 
 <a name="clean"></a>
@@ -32,21 +40,21 @@
 	
 * Then let's make and move to a new directory where we will put all the `captus` output directories
 
-		mkdir /data_tmp/[username]/data/03_captus
+		mkdir /data_tmp/$USERNAME/data/03_captus
 	
-		cd  /data_tmp/[username]/data/03_captus
+		cd  /data_tmp/$USERNAME/data/03_captus
 	
 * Now we are going to "copy" the deduplicated reads to a new directory using symbolic links
 
-		mkdir /data_tmp/[username]/data/03_captus/00_dedup_reads
+		mkdir /data_tmp/$USERNAME/data/03_captus/00_dedup_reads
 	
-		cd /data_tmp/[username]/data/03_captus/00_dedup_reads
+		cd /data_tmp/$USERNAME/data/03_captus/00_dedup_reads
 	
-		for i in /data_tmp/[username]/data/01_dedup/*.dedup.fastq.gz; do ln -s $i .; done
+		for i in /data_tmp/$USERNAME/data/01_dedup/*.dedup.fastq.gz; do ln -s $i .; done
 	
 * To run the first module of `captus` do
 
-		cd /data_tmp/[username]/data/03_captus/
+		cd /data_tmp/$USERNAME/data/03_captus/
 
 		captus clean -r 00_dedup_reads --trimq 20 --maq 20 --qc_program fastqc --threads 4 --concurrent 2
 
@@ -64,7 +72,7 @@
 		    For more information, please see https://github.com/edgardomortiz/Captus
 		
 		       Captus version: v1.1.1
-		              Command: /home/[username]/miniconda3/envs/captus/bin/captus clean -r 00_dedup_reads --trimq 20 --maq 20 --qc_program fastqc --threads 4 --concurrent 2
+		              Command: /home/$USERNAME/miniconda3/envs/captus/bin/captus clean -r 00_dedup_reads --trimq 20 --maq 20 --qc_program fastqc --threads 4 --concurrent 2
 		             Max. RAM: 174.3GB (out of 176.1GB)
 		         Max. Threads: 4 (out of 64)
 		
@@ -78,7 +86,7 @@
 		               pandas: v2.2.2 OK
 		               plotly: v6.0.0 OK
 		
-		     Output directory: /data_tmp/[username]/data/03_captus/01_clean_reads
+		     Output directory: /data_tmp/$USERNAME/data/03_captus/01_clean_reads
 		                       Output directory successfully created
 
 	It should take a couple of minutes to finish
@@ -102,7 +110,7 @@
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/captus-clean_report.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/captus-clean_report.html ~/Desktop
 
 * Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
@@ -118,7 +126,7 @@
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
- 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/01_clean_reads/02_qc_stats_after/multiqc_report_clean_captus.html .
+ 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/02_qc_stats_after/multiqc_report_clean_captus.html .
 
 
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
@@ -126,15 +134,15 @@
 
 * To see the `mulitqc` report `multiqc_report_all_samples_clean.html` for all 30 samples go to and copy the file to your laptop
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_clean.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_clean.html ~/Desktop
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
-* The `captus` report and log for all samples is also available at `/data_tmp/[username]/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+* The `captus` report and log for all samples is also available at `/data_tmp/$USERNAME/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
 
 
 <a name="assemble"></a>
@@ -144,7 +152,7 @@
 
 * To run the first module of `captus` do
 
-		cd /data_tmp/[username]/data/03_captus/
+		cd /data_tmp/$USERNAME/data/03_captus/
 
 		captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
 	
@@ -162,7 +170,7 @@
 		   For more information, please see https://github.com/edgardomortiz/Captus
 		
 		      Captus version: v1.1.1
-		             Command: /home/[username]/miniconda3/envs/captus/bin/captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
+		             Command: /home/$USERNAME/miniconda3/envs/captus/bin/captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
 		            Max. RAM: 249.0GB (out of 251.5GB)
 		        Max. Threads: 4 (out of 64)
 		
@@ -177,7 +185,7 @@
 		              pandas: v2.2.2 OK
 		              plotly: v6.0.0 OK
 		
-		    Output directory: /data_tmp/[username]/data/03_captus/02_assemblies
+		    Output directory: /data_tmp/$USERNAME/data/03_captus/02_assemblies
 		                      Output directory successfully created
 		
 	The assembly of this two samples should take 20 minutes
@@ -196,7 +204,7 @@
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
- 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/02_assemblies/captus-assemble_report.html ~/Desktop
+ 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/02_assemblies/captus-assemble_report.html ~/Desktop
 
 * Open it on your browser and you should see this
 
@@ -252,13 +260,13 @@
 
 * To see the `captus` report `captus-assemble_report_all_samples.html` and log `captus-assemble_all_samples.log` for all 30 samples go to 
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 * You can copy the report to you laptop to see it
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-assemble_report_all_samples.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-assemble_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_assemble_all.png" alt="assembleall" width="900"></p>
 
@@ -271,7 +279,7 @@
 
 * To run the extract module do
 
-		cd /data_tmp/[username]/data/03_captus/
+		cd /data_tmp/$USERNAME/data/03_captus/
 	
 		captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
 
@@ -290,7 +298,7 @@
 		    For more information, please see https://github.com/edgardomortiz/Captus
 		
 		           Captus version: v1.1.1
-		                  Command: /home/[username]/miniconda3/envs/captus/bin/captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
+		                  Command: /home/$USERNAME/miniconda3/envs/captus/bin/captus extract -a 02_assemblies -n Angiosperms353 --nuc_min_identity 65 --nuc_min_coverage 50 --threads 4 --concurrent 2 --ignore_depth
 		                 Max. RAM: 249.0GB (out of 251.5GB)
 		             Max. Threads: 4 (out of 64)
 		
@@ -307,12 +315,12 @@
 		                   pandas: v2.2.2 OK
 		                   plotly: v6.0.0 OK
 		
-		    Captus assemblies dir: /data_tmp/[username]/data/03_captus/02_assemblies
+		    Captus assemblies dir: /data_tmp/$USERNAME/data/03_captus/02_assemblies
 		                           VALID Captus assemblies directory with 2 samples and 2 'assembly.fasta' files
 		
 		   Total assemblies found: 2
 		
-		         Output directory: /data_tmp/[username]/data/03_captus/03_extractions
+		         Output directory: /data_tmp/$USERNAME/data/03_captus/03_extractions
 		                           Output directory successfully created
 	
 
@@ -334,7 +342,7 @@
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 
- 	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/03_extractions/captus-extract_report.html ~/Desktop
+ 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/03_extractions/captus-extract_report.html ~/Desktop
 
 * Open it on your browser and you should see this
 
@@ -367,13 +375,13 @@
 
 * To see the `captus` report `captus-extract_report_all_samples.html` and log `captus-align_all_samples.log` for all 30 samples go to 
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 * Again copy the report to your laptop to open it	
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-extract_report_all_samples.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-extract_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_extraction_all.pne.png" alt="extractall" width="900"></p>
 
@@ -385,9 +393,9 @@
 
 #### Before we run `CAPTUS` for aligning we are going to do an example alignment and cleaning for one locus so you understand what is `CAPTUS` doing
 
-* The example fasta file `4471.fna` is on `/data_tmp/[username]/data/04_individual_aln`
+* The example fasta file `4471.fna` is on `/data_tmp/$USERNAME/data/04_individual_aln`
 
-		cd /data_tmp/[username]/data/04_individual_aln
+		cd /data_tmp/$USERNAME/data/04_individual_aln
 	
 		less 4471.fna
 	
@@ -413,7 +421,7 @@
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.fna ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.fna ~/Desktop
 	
 * Open `AliView` on you laptop and drag the 4471.fna file. You should see the following
 	
@@ -421,9 +429,9 @@
 
 * Now we are going to align this gene with `MAFFT`
 
-* In the workstation make sure you are in `/data_tmp/[username]/data/04_individual_aln`
+* In the workstation make sure you are in `/data_tmp/$USERNAME/data/04_individual_aln`
 
-		cd /data_tmp/[username]/data/04_individual_aln
+		cd /data_tmp/$USERNAME/data/04_individual_aln
 	
 * Then to run `MAFFT` type
 
@@ -459,7 +467,7 @@
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln ~/Desktop
 	
 You should see 
 
@@ -502,7 +510,7 @@ You should see
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/04_individual_aln/4471.aln.clipkit ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln.clipkit ~/Desktop
 	
 You should see 
 
@@ -515,7 +523,7 @@ You should see
 
 * Move to the `CAPTUS` directory and run the following command
 
-		cd /data_tmp/[username]/data/03_captus
+		cd /data_tmp/$USERNAME/data/03_captus
 	
 	captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
 
@@ -527,7 +535,7 @@ You should see
 		  For more information, please see https://github.com/edgardomortiz/Captus
 		
 		          Captus version: v1.1.1
-		                 Command: /home/[username]/miniconda3/envs/captus/bin/captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
+		                 Command: /home/$USERNAME/miniconda3/envs/captus/bin/captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
 		                Max. RAM: 249.0GB (out of 251.5GB)
 		            Max. Threads: 4 (out of 64)
 		
@@ -541,7 +549,7 @@ You should see
 		                  pandas: v2.2.2 OK
 		                  plotly: v6.0.0 OK
 		
-		        Output directory: /data_tmp/[username]/data/03_captus/04_alignments
+		        Output directory: /data_tmp/$USERNAME/data/03_captus/04_alignments
 		                          Output directory successfully created
 		
 
@@ -562,7 +570,7 @@ You should see
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/03_captus/04_alignments/captus-align_report.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/04_alignments/captus-align_report.html ~/Desktop
 
 <p align="center"><img src="images/captus_align.png" alt="captusalign" width="900"></p>
 
@@ -599,16 +607,16 @@ You should see
 		5038.fna  5328.fna  5463.fna  5664.fna  5893.fna  5981.fna  6148.fna  6376.fna  6483.fna  6572.fna  6860.fna  7029.fna
 		5090.fna  5333.fna  5464.fna  5670.fna  5899.fna  5990.fna  6150.fna  6378.fna  6487.fna  6601.fna  6864.fna  7111.fna
 	
-* The directory that have the equivalent files but with all 30 samples is `/data_tmp/[username]/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
+* The directory that have the equivalent files but with all 30 samples is `/data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
 
 * To see the report `captus-align_report_all_samples.html` and log `captus-align_all_samples.log` of the alignment step or all 30 samples to to
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 * Again copy the report to your laptop to open it	
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/captus-align_report_all_samples.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-align_report_all_samples.html ~/Desktop
 
 <p align="center"><img src="images/captus_aling_all.png" alt="aligntall" width="900"></p>

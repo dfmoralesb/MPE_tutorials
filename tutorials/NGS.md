@@ -6,12 +6,20 @@
 * [Adaptor removal and cleaning of low quality read](#adaptor)
 
 
+
+
 #### How to login to the workstation
 
-	ssh -p 22110 [username]@10.153.134.10
+	ssh -p 22110 USERNAME@10.153.134.10
 
 
-### Every time you see `[username]` in the example command you need to replace it with you own [username](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you connect to the workstation
+
+	For example for me, Diego, my user name is `mpemaster` 
+	
+		USERNAME=mpemaster
 
 
 <a name="fastq"></a>
@@ -19,7 +27,7 @@
 
 * To see an example of raw data go to
 
-		cd /data_tmp/[username]/data/00_raw_reads
+		cd /data_tmp/$USERNAME/data/00_raw_reads
 		ls
 	
 	You will see files FASTQ for two species: <em>Aglaia_spectabilis</em> and <em>Dysoxylum_alliaceum</em>
@@ -95,7 +103,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 #### THIS NEED TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html ~/Desktop
 	
 * Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/fastqc.png" alt="fastqc" width="900"></p>
 
@@ -117,7 +125,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 		/// MultiQC 🔍 v1.27.1
 	
-    	file_search | Search path: /data_tmp/[username]/data/00_raw_reads
+    	file_search | Search path: /data_tmp/$USERNAME/data/00_raw_reads
     		searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 15/15
     		fastqc | Found 4 reports
     		write_results | Data        : multiqc_report_raw_data
@@ -128,7 +136,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/00_raw_reads/multiqc_report_raw.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/00_raw_reads/multiqc_report_raw.html ~/Desktop
 	
 * Open the `html` file in your internet browser and you should see something like the picture below. If you want to watch a detail tutorial go [here](https://www.youtube.com/watch?v=qPbIlO_KWN0)
 
@@ -136,12 +144,12 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * To see the report `multiqc_report_all_samples_raw.html` for all 30 samples go to 
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 #### There you can find the report for this and future steps for all samples
 
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_raw.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_raw.html ~/Desktop
 
 
 <p align="center"><img src="images/multiqc_raw_all.png" alt="multiqcrawall" width="900"></p>
@@ -157,36 +165,36 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * First let create a new directory were to place the deduplicated reads
 
-		mkdir /data_tmp/[username]/data/01_dedup
+		mkdir /data_tmp/$USERNAME/data/01_dedup
 	
 * Now let's move back to the folder with the raw data
 
-		cd /data_tmp/[username]/data/00_raw_reads
+		cd /data_tmp/$USERNAME/data/00_raw_reads
 
 * To deduplicate the first pair of reads do
 
 
-		clumpify.sh in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+		clumpify.sh in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
 	
 	You will see something like this
 
-		java -ea -Xmx199355m -Xms199355m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ clump.Clumpify in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
-		Executing clump.Clumpify [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, ziplevel=9, dedupe=t]
+		java -ea -Xmx199355m -Xms199355m -cp /home/$USERNAME/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ clump.Clumpify in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz out1=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz out2=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+		Executing clump.Clumpify [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, ziplevel=9, dedupe=t]
 		Version 38.84
 		
 		Read Estimate:          51540788
 		Memory Estimate:        39322 MB
 		Memory Available:       163436 MB
 		Set groups to 1
-		Executing clump.KmerSort1 [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/[username]/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, groups=1, ecco=false, rename=false, shortname=f, unpair=false, repair=false, namesort=false, ow=true, ziplevel=9, dedupe=t]
+		Executing clump.KmerSort1 [in1=MELI_Aglaia_spectabilis_G09645_R1.fastq.gz, in2=MELI_Aglaia_spectabilis_G09645_R2.fastq.gz, out1=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, out2=/data_tmp/$USERNAME/data/01_dedup/MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, groups=1, ecco=false, rename=false, shortname=f, unpair=false, repair=false, namesort=false, ow=true, ziplevel=9, dedupe=t]
 	
 * Run `clumpy` for the other pair as well
 
-		clumpify.sh in1=MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz in2=MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz out1=/data_tmp/[username]/data/01_dedup/MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz out2=/data_tmp/[username]/data/01_dedup/MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz ziplevel=9 dedupe=t
+		clumpify.sh in1=MELI_Dysoxylum_alliaceum_GAP83184_R1.fastq.gz in2=MELI_Dysoxylum_alliaceum_GAP83184_R2.fastq.gz out1=/data_tmp/$USERNAME/data/01_dedup/MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz out2=/data_tmp/$USERNAME/data/01_dedup/MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz ziplevel=9 dedupe=t
 	
 * Now we are going to run `fastq` and `multiqc` on the deduplicated read to see do they look now
 
-		cd /data_tmp/[username]/data/01_dedup #to move to the directory where the deduplicated reads are
+		cd /data_tmp/$USERNAME/data/01_dedup #to move to the directory where the deduplicated reads are
 		fastqc *dedup.fastq.gz -t 4
 		multiqc --filename multiqc_report_dedup . 
 	
@@ -194,17 +202,17 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/01_dedup/multiqc_report_dedup.html .
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/01_dedup/multiqc_report_dedup.html .
 
 * Open the `html` file in your internet browser<p align="center"><img src="images/multiqc_dedup.png" alt="multiqcdedup" width="900"></p>
 
 * To see the report `multiqc_report_all_samples_dedup.html` for all 30 samples go to 
 
-		cd /data_tmp/[username]/output/all_samples_reports
+		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 	
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/output/all_samples_reports/multiqc_report_all_samples_dedup.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_dedup.html ~/Desktop
 
 
 <p align="center"><img src="images/multiqc_dedup_all.png" alt="multiqcdedupwall" width="900"></p>
@@ -217,16 +225,16 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * Move back to the directory where the deduplicated reads are
 
-		/data_tmp/[username]/data/01_dedup
+		/data_tmp/$USERNAME/data/01_dedup
 
 * First we are going to remove the adaptors
 
-		bbduk.sh in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
+		bbduk.sh in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/$USERNAME/data/others/adapters.fa
 
 	You should start seeing this
 
-		java -ea -Xmx102106m -Xms102106m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
-		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, ref=/data_tmp/[username]/data/others/adapters.fa]
+		java -ea -Xmx102106m -Xms102106m -cp /home/$USERNAME/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz ref=/data_tmp/$USERNAME/data/others/adapters.fa
+		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.dedup.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.dedup.fastq.gz, out=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, out2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, ref=/data_tmp/$USERNAME/data/others/adapters.fa]
 		Version 38.84
 		
 		0.035 seconds.
@@ -238,20 +246,20 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * Once is done you can run `bbduk` for the other pair of files
 
-		bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz out=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz out2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz ref=/data_tmp/[username]/data/others/adapters.fa
+		bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.dedup.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz out=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz out2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz ref=/data_tmp/$USERNAME/data/others/adapters.fa
 
 * Now let's create a new directory were we will place final clean files
 
-		mkdir /data_tmp/[username]/data/02_clean
+		mkdir /data_tmp/$USERNAME/data/02_clean
 
 * Run `bbduk` to remove low quality reads
 
-		bbduk.sh in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+		bbduk.sh in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
 
 	You should see this
 
-		java -ea -Xmx102100m -Xms102100m -cp /home/[username]/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
-		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, out1=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz, out2=/data_tmp/[username]/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz, qtrim=rl, trimq=20, minavgquality=20]
+		java -ea -Xmx102100m -Xms102100m -cp /home/$USERNAME/miniconda3/envs/captus/opt/bbmap-38.84-0/current/ jgi.BBDuk in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz out1=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz out2=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+		Executing jgi.BBDuk [in=MELI_Aglaia_spectabilis_R1.adapt.fastq.gz, in2=MELI_Aglaia_spectabilis_R2.adapt.fastq.gz, out1=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R1.clean.fastq.gz, out2=/data_tmp/$USERNAME/data/02_clean/MELI_Aglaia_spectabilis_R2.clean.fastq.gz, qtrim=rl, trimq=20, minavgquality=20]
 		Version 38.84
 		
 		0.033 seconds.
@@ -261,11 +269,11 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * Now run `bbduk` for the other sample
 
-		bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/[username]/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
+		bbduk.sh in=MELI_Dysoxylum_alliaceum_R1.adapt.fastq.gz in2=MELI_Dysoxylum_alliaceum_R2.adapt.fastq.gz out1=/data_tmp/$USERNAME/data/02_clean/MELI_Dysoxylum_alliaceum_R1.clean.fastq.gz out2=/data_tmp/$USERNAME/data/02_clean/MELI_Dysoxylum_alliaceum_R2.clean.fastq.gz qtrim=rl trimq=20 minavgquality=20
 
 * Finally let's create a report for the final clean read so we can compare it with the raw reads
 
-		cd /data_tmp/[username]/data/02_clean
+		cd /data_tmp/$USERNAME/data/02_clean
 		fastqc * -t 4
 		multiqc --filename multiqc_report_clean .
 		
@@ -273,7 +281,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 #### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
 
-	scp -P 22110 [username]@10.153.134.10:/data_tmp/[username]/data/02_clean/multiqc_report_clean.html ~/Desktop
+	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/02_clean/multiqc_report_clean.html ~/Desktop
 
 <p align="center"><img src="images/multiqc_clean.png" alt="multiqclean" width="900"></p>
 
