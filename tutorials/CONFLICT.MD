@@ -383,9 +383,14 @@
 
 	Open RStudio your internet browser again, by typing `10.153.134.10:8787` and login with you workstation credentials.
 	
-	In RStudio go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/mpemaster/script/piechars.R` 
+	In RStudio go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/mpemaster/script/piechars.R` and click "Open"
 	
-	<p align="center"><img src="images/open.png" alt="open" width="300"></p>
+	<p align="center"><img src="images/open.png" alt="open" width="500"></p>
+	
+	You should see this
+	
+	<p align="center"><img src="images/open2.png" alt="open2" width="500"></p>
+
 
 	
 	
