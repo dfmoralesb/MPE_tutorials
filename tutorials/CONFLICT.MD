@@ -34,15 +34,15 @@
 	
 	Make a new directory where we will run IQ-tree
 	
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 	
 		mkdir 11_concordance_factors
 		
 		cd 11_concordance_factors
 		
-	Now we can run IQ-tree to get the gCF and sCF using the concatenated tree as reference tree. Remember from the previous tutorial that the tree should be located in `/data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated` The gene trees will be the same input trees file we use for ASTRAL in the previous tutorial located in `/data_tmp/mpemaster/data/07_phylogenomic_analyses/07_astral` use the non-collapse one `meliaceae_334_MO_orthologs.tre` And the concatenated alignment is located in `/data_tmp/mpemaster/data/07_phylogenomic_analyses/08_concatenated_aln`
+	Now we can run IQ-tree to get the gCF and sCF using the concatenated tree as reference tree. Remember from the previous tutorial that the tree should be located in `/data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated` The gene trees will be the same input trees file we use for ASTRAL in the previous tutorial located in `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/07_astral` use the non-collapse one `meliaceae_334_MO_orthologs.tre` And the concatenated alignment is located in `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/08_concatenated_aln`
 	
-		iqtree -te /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile --gcf /data_tmp/mpemaster/data/07_phylogenomic_analyses/07_astral/meliaceae_334_MO_orthologs.tre --scf 1000 -T 4 -s /data_tmp/mpemaster/data/07_phylogenomic_analyses/08_concatenated_aln/meliaceae_MO_500_8_concat.fa --prefix meliaceae_MO_500_8_concat_IQtree
+		iqtree -te /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile --gcf /data_tmp/$USERNAME/data/07_phylogenomic_analyses/07_astral/meliaceae_334_MO_orthologs.tre --scf 1000 -T 4 -s /data_tmp/$USERNAME/data/07_phylogenomic_analyses/08_concatenated_aln/meliaceae_MO_500_8_concat.fa --prefix meliaceae_MO_500_8_concat_IQtree
 
 		/home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 -t DATA/IQ-tree_concatenated/output/IQtree2_concatenated_2419_loci.iqtree -s DATA/IQ-tree_concatenated/input/concatenated_2419_loci.phy --scf 100 --prefix DATA/IQ-tree_concatenated/output/sCF_concord -T 8
 		
@@ -54,7 +54,7 @@
 		Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
 		
 		Host:    p620-small (AVX2, FMA3, 251 GB RAM)
-		Command: iqtree -te /data_tmp/mpemaster/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile --gcf /data_tmp/mpemaster/data/07_phylogenomic_analyses/07_astral/meliaceae_334_MO_orthologs.tre --scf 1000 -T 4 -s /data_tmp/mpemaster/data/07_phylogenomic_analyses/08_concatenated_aln/meliaceae_MO_500_8_concat.fa --prefix meliaceae_MO_500_8_concat_IQtree
+		Command: iqtree -te /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile --gcf /data_tmp/$USERNAME/data/07_phylogenomic_analyses/07_astral/meliaceae_334_MO_orthologs.tre --scf 1000 -T 4 -s /data_tmp/$USERNAME/data/07_phylogenomic_analyses/08_concatenated_aln/meliaceae_MO_500_8_concat.fa --prefix meliaceae_MO_500_8_concat_IQtree
 		Seed:    147240 (Using SPRNG - Scalable Parallel Random Number Generator)
 		Time:    Tue Feb 25 16:03:17 2025
 		Kernel:  AVX+FMA - 4 threads (64 CPU cores detected)
@@ -91,7 +91,7 @@
 	
 		conda deactivate
 		
-		python3 /data_tmp/mpemaster/apps/quartetsampling/pysrc/quartet_sampling.py -h
+		python3 /data_tmp/$USERNAME/apps/quartetsampling/pysrc/quartet_sampling.py -h
 		
 	And you should see a long list of options. Re
 	
@@ -114,14 +114,14 @@
 		#python3 quartet_sampling.py --tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr --align meliaceae_MO_500_8_concat.fa --genetrees meliaceae_MO_500_8_concat.model --reps 1000 --engine-exec iqtree --threads 120
 	
 	
-	Quartet sampling can take several hours to run so I have done this in advance. You can see the output files here `/data_tmp/mpemaster/output/04_analyses/12_QS`
+	Quartet sampling can take several hours to run so I have done this in advance. You can see the output files here `/data_tmp/$USERNAME/output/04_analyses/12_QS`
 
 	
 	Where `--tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr` is the rooted concatenated tree. `--align meliaceae_MO_500_8_concat.phy` is the concatenated alignment in PHYLIP format. This is simply the same alignment we used before, but in diferent format. The `concatenate_matrices_phyx.py` we have used in previous tutorial produce this file as well as the FASTA one.  `meliaceae_MO_500_8_concat.model`is the model partition. `--reps 1000` is the number of quartet repetition. `--engine-exec raxml-ng` is the software to calculate the likelihood score of each quartet. It used `raxml-ng` which is another software to estimate ML trees. It could be `iqtree` as well.
 	
 	See the files in the output directory
 	
-		ls /data_tmp/mpemaster/output/04_analyses/12_QS
+		ls /data_tmp/$USERNAME/output/04_analyses/12_QS
 		
 	You should see 
 	
@@ -232,7 +232,7 @@
 
 	First, let's make a new directory for Phyparts
 
-		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 
 		mkdir 12_phyparts
 		
@@ -248,7 +248,7 @@
 	
 		deactivate conda
 	
-		python /data_tmp/mpemaster/script/root_trees_multiple_outgroups_MO.py
+		python /data_tmp/$USERNAME/script/root_trees_multiple_outgroups_MO.py
 		
 	You should see
 	
@@ -259,7 +259,7 @@
 	
 	Let's root the trees
 	
-		python /data_tmp/mpemaster/script/root_trees_multiple_outgroups_MO.py /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files treefile 00_rooted_gene_trees /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt
+		python /data_tmp/$USERNAME/script/root_trees_multiple_outgroups_MO.py /data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files treefile 00_rooted_gene_trees /data_tmp/$USERNAME/data/07_phylogenomic_analyses/outgroup_list.txt
 
 	It should take seconds to run
 	
@@ -306,7 +306,7 @@
 		
 	Now we can root the tree
 	
-		pxrr -t /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile -f /data_tmp/mpemaster/data/07_phylogenomic_analyses/outgroup_list.txt -o meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		pxrr -t /data_tmp/$USERNAME/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile -f /data_tmp/$USERNAME/data/07_phylogenomic_analyses/outgroup_list.txt -o meliaceae_MO_500_8_concat_IQtree.treefile.rr
 		
 	If you plot output tree `meliaceae_MO_500_8_concat_IQtree.treefile.rr` in FigTree you should see that is rooted already
 	
@@ -322,7 +322,7 @@
 
 	To see the options for phyparts do
 	
-		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -h
+		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -h
 		
 	You should see
 	
@@ -342,7 +342,7 @@
 	
 	First were are going to run a simple analyses of concordance taking in consideration all nodes in the input gene trees `-a 0`
 	
-		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0
+		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0
 
 	Running this should take a few seconds and you will see 
 	
@@ -359,7 +359,7 @@
 		
 	Now were are going to do a similar analysis `-a 0`, but this time we are going to exclude the nodes that have low bootstrap support (e.g =< 70%) with the option `-s`
 	
-		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0_s70 -s 70
+		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0_s70 -s 70
 
 	As before it should take seconds to run and you should the following. 
 
@@ -383,7 +383,7 @@
 
 	Open RStudio your internet browser again, by typing `10.153.134.10:8787` and login with you workstation credentials.
 	
-	In RStudio go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/mpemaster/script/piechars.R` and click "Open"
+	In RStudio go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/$USERNAME/script/piechars.R` and click "Open"
 	
 	<p align="center"><img src="images/open.png" alt="open" width="500"></p>
 	
@@ -391,7 +391,7 @@
 	
 	<p align="center"><img src="images/open2.png" alt="open2" width="900"></p>
 	
-	Now you are going to replace in the first line of the script `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phypartss` for `/data_tmp/USERNAME/data/07_phylogenomic_analyses/12_phyparts`	
+	Now you are going to replace in the first line of the script `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phypartss` for `/data_tmp/USERNAME/data/07_phylogenomic_analyses/12_phyparts`	
 
 	Then you will see
 	
@@ -420,11 +420,11 @@
 	
 	Dark grey = uninformative (BS < 70)
 
-		If you want to save the images click in "Export" -> "Save as PDF" and provide a name (e.g. porportional.pdf). Choose "Landscape" and size of 10 by 12. The files will be saved in `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts`
+		If you want to save the images click in "Export" -> "Save as PDF" and provide a name (e.g. porportional.pdf). Choose "Landscape" and size of 10 by 12. The files will be saved in `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts`
 	
 	You can copy those files to you laptop as we did for the HTML reports in the first tutorial
 	
-			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
+			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 
 	
 * `total including missing genes` The pie chats will include missing data and are proportional to the total number of trees - 334
