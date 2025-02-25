@@ -415,7 +415,9 @@
 	Click on Zoom if you want to make the image larger.
 	
 	Blue = concordant
+
 	Red = disordant
+	
 	Dark grey = uninformative (BS < 70)
 
 		If you want to save the images click in "Export" -> "Save as PDF" and provide a name (e.g. porportional.pdf). Choose "Landscape" and size of 10 by 12. The files will be saved in `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts`
@@ -434,9 +436,13 @@
 	Click on Zoom if you want to make the image larger.
 
 	Blue = concordant
+	
 	Red = disordant
+	
 	Dark grey = uninformative (BS < 70)
+	
 	Light grey = missing
+	
 	
 	You can safe this plot as well with another name and download it to your laptop
 	
