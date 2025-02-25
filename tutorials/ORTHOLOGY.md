@@ -23,7 +23,6 @@
 	
 		USERNAME=mpemaster
 
-### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
 <a name="phylo"></a>
 ## Phylogenomics workflow with a focus on tree-based orthology inference
