@@ -453,7 +453,7 @@
 	
 	You should see
 	
-	<p align="center"><img src="images/number.png" alt="prop" width="900"></p>
+	<p align="center"><img src="images/number.png" alt="number" width="900"></p>
 	
 	As before you can save and download the plot.
 
