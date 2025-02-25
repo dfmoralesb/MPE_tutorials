@@ -1,7 +1,9 @@
 ## Table of contents
 
 * [Identifying Whole Genome Duplication](#WGD)
-
+* [Extracting orthogroups](#ortho)
+* [Mapping gene duplications - filter base on boostrap](#mrca)
+* [Mapping gene duplications - filter base on concordant clades](#concon)
 
 #### How to login to the workstation
 
@@ -27,6 +29,9 @@
 	
 	<p align="center"><img src="images/wgd.png" alt="wgd" width="800"></p>
 	
+
+<a name="ortho"></a>
+## Extracting orthogroups
 	
 * We fist need to extract rooted orthogroups from homolog trees
 
@@ -74,6 +79,10 @@
 		ls 00_orthogroups/*.orthogroup | wc -l
 		
 	It should be `335`
+	
+<a name="mrca"></a>
+## Mapping gene duplications - filter base on boostrap
+
 	
 * Now you can map the orthogrops to the reference map. In this case we will use the rooted concatenated tree from the previous tutorial (the one you rooted for Phyparts) `meliaceae_MO_500_8_concat_IQtree.treefile.rr`
 
@@ -136,7 +145,7 @@
 	<p align="center"><img src="images/wgd_per.png" alt="wgdp" width="900"></p>
 
 	
-* Now we will plot the gene duplication in the reference trees and identify outlier that could be a WGD
+* Now we will plot the gene duplication in the reference trees and identify outlier that could be a WGD. An outlier can be consider gene duplication percentage above 20% based on Yang et al. 2015
 
 	For this you will use the script `/data_tmp/mpemaster/script/plot_branch_labels.py`
 	
@@ -182,6 +191,10 @@
 	
 	<p align="center"><img src="images/wgdplot.png" alt="wgdplot" width="900"></p>
 	
+
+<a name="concon"></a>
+## Mapping gene duplications - filter base on concordant clades
+
 
 * Alternatively we can also map orthogroups by filtering them by concordant clades.
 
@@ -269,6 +282,8 @@
 		axis(2,pos=0)
 		
 	<p align="center"><img src="images/wgdplot2.png" alt="wgdplot2" width="900"></p>
+	
+	Compare both gene duplication results and see if there are any differences 
 
 
 
