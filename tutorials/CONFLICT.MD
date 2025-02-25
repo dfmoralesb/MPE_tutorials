@@ -389,7 +389,70 @@
 	
 	You should see this
 	
-	<p align="center"><img src="images/open2.png" alt="open2" width="500"></p>
+	<p align="center"><img src="images/open2.png" alt="open2" width="900"></p>
+	
+	Now you are going to replace in the first line of the script `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phypartss` for `/data_tmp/USERNAME/data/07_phylogenomic_analyses/12_phyparts`	
+
+	Then you will see
+	
+		A0<-read.tree("meliaceae_phyparts_a0.concon.tre")
+		A0S50<-read.tree("meliaceae_phyparts_a0_s70.concon.tre")
+		t1<-read.tree("meliaceae_MO_500_8_concat_IQtree.treefile.rr")
+		tng<-334
+		
+	The above lines are loading the output files of the phypart analyses that have the number of concordand and discordant trees, and the reference tree. The next line is providing the number of gene trees you mapped.
+	
+	The next block from lines 20 to 65 is calculating the proportion of concordant, discordant, uninformative, and missing. You can just run that code.
+	
+	Then starting in the in Line 69 you will see two option for plotting the piecharts in the tree
+	
+	* `proportional` The pie charts will be proportional only the number of informing gene trees - it does not take in consideration the missing data
+	
+	Run those 3 lines of code and you should see
+	
+	<p align="center"><img src="images/prop.png" alt="prop" width="900"></p>
+	
+	Click on Zoom if you want to make the image larger.
+	
+	Blue = concordant
+	Red = disordant
+	Dark grey = uninformative (BS < 70)
+
+		If you want to save the images click in "Export" -> "Save as PDF" and provide a name (e.g. porportional.pdf). Choose "Landscape" and size of 10 by 12. The files will be saved in `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts`
+	
+	You can copy those files to you laptop as we did for the HTML reports in the first tutorial
+	
+			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
+
+	
+	* `total including missing genes` The pie chats will include missing data and are proportional to the total number of trees - 334
+	
+	Run those 3 lines of code and you should see
+	
+	<p align="center"><img src="images/missing.png" alt="prop" width="900"></p>
+	
+	Click on Zoom if you want to make the image larger.
+
+	Blue = concordant
+	Red = disordant
+	Dark grey = uninformative (BS < 70)
+	Light grey = missing
+	
+	You can safe this plot as well with another name and download it to your laptop
+	
+	What is the difference between the two plots? How to this compare to the CF and QS
+	
+
+	
+	
+	
+	
+
+
+	
+	
+	
+	
 
 
 	
