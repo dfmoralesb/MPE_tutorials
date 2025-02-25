@@ -198,7 +198,7 @@
 
 * Alternatively we can also map orthogroups by filtering them by concordant clades.
 
-  	This is a local topology filter that only maps a gene duplication event when the sister clade of the gene duplication node in the orthogroup contained a subTset of the taxa in the corresponding sister clade in the reference tree
+  	This is a local topology filter that only maps a gene duplication event when the sister clade of the gene duplication node in the orthogroup contained a subset of the taxa in the corresponding sister clade in the reference tree. For me detail about this see [Cannon et al. 2015](https://doi.org/10.1093/molbev/msu296) or [Li et al. 2015](https://doi.org/10.1126/sciadv.1501084)
   
   	The script for this mapping is `/data_tmp/$USERNAME/script/map_dups_concordant.py`
   
