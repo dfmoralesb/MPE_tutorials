@@ -698,30 +698,25 @@
 	
 		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral -i meliaceae_334_MO_orthologs.col_70.tre -o meliaceae_334_MO_orthologs.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)
 		
-	This should take a few seconds and the output file will be called `meliaceae_334_MO_orthologs.ASTRAL.tr`
+	This should take a few seconds and the output file will be called `meliaceae_334_MO_orthologs.ASTRAL.tre`
 	
 	Now you can open the file, plot, root, sort, and show the node label (LPP) it in Figtree and should have the following
 	
+
+		cat meliaceae_334_MO_orthologs.ASTRAL.tre
+			
+		
+		((((((((((((((MELI_Aphanamixis_polystachya,MELI_Aglaia_spectabilis)1.000000:0.821258,MELI_Cabralea_canjerana)1.000000:0.983081,MELI_Dysoxylum_alliaceum)1.000000:0.559483,MELI_Chisocheton_longistipitatus)1.000000:0.340415,(((MELI_Neoguarea_glomerulata,MELI_Guarea_pubescens)0.395510:0.013006,MELI_Heckeldora_staudtii)0.809537:0.137442,MELI_Turraeanthus_manii)0.999824:0.354462)1.000000:0.818228,MELI_Vavaea_amicorum)1.000000:0.703356,(MELI_Turraea_virens,MELI_Trichilia_hirta)1.000000:2.314540)0.999929:0.518675,MELI_Munronia_pinnata)1.000000:1.013233,MELI_Quivisianthe_papinae)1.000000:2.969098,(((MELI_Azadirachta_indica,MELI_Melia_azedarach)1.000000:5.147494,MELI_Owenia_reticulata)1.000000:2.402215,MELI_Pterorhachis_zenkeri)1.000000:3.349238)0.999999:0.284258,(((((MELI_Cedrela_saltensis,MELI_Cedrela_montana)0.998174:1.540445,MELI_Toona_ciliata)0.999932:1.897120,MELI_Lovoa_sywnnertonii)1.000000:0.616349,((MELI_Swietenia_mahagoni,MELI_Swietenia_macrophylla)0.999997:1.673976,MELI_Carapa_procera)1.000000:3.610073)1.000000:2.944631,(MELI_Chukrasia_tabularis,MELI_Schmardaea_microphylla)1.000000:1.214511)1.000000:3.783661)1.000000:5.298317,RUTA_Melicope_ternata)1.000000:0.374010,RUTA_Ruta_graveolens),RUTA_Citrus_hystrix);
 	
-	<p align="center"><img src="images/sptreefinal.png" alt="sptreefinal" width="700"></p>
+	<p align="center"><img src="images/sptreefinal.png" alt="sptreefinal" width=900"></p>
 	
 	How does this compares with the 4-locus ASTRAL tree we did in the ASTRAL tutorial
 
-	
-	
+* Now we can infer a concatened tree with IQ-Tree
 
-		
+	First we need to concatened the clean alignments. The alignments are in the same directory as before `/data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files`
 	
-	
-	
-	
-	
-	
-	#########
-	
-	
-	
-	You will need the script `/data_tmp/mpemaster/script/concatenate_matrices_phyx.py`
+	To concatenate the alignments and create the partition file you will need the script `/data_tmp/mpemaster/script/concatenate_matrices_phyx.py`
 	
 		python /data_tmp/mpemaster/script/concatenate_matrices_phyx.py
 		
@@ -730,12 +725,87 @@
 		usage: 
 		python concatenate_matrices_phix.py aln-clnDIR numofsitesFilter numoftaxaFilter outname
 		
-	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/mpemaster/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/`
+
+	You need to specify the alignments directory from above, and also you need to specify a minimum number of sites and species, so you can filter alignments with just a few samples and potentially informative sites. There is no rule of thumb for this, but usually use 500bp and 25% of the original number of samples (in this case we will use 8) when working with target enrichment
 	
-	Also you need to specify a minium number of 
+	First let's make a directory where we will place the output files
+	
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses/
+	
+		mkdir 08_concatenated_aln
+
+	Now we can run the script
+	
+		python /data_tmp/mpemaster/script/concatenate_matrices_phyx.py /data_tmp/mpemaster/output/04_analyses/05_MO_fasta_files 500 8 08_concatenated_aln/meliaceae_MO_500_8_concat
+		
+	You will see
+	
+		Filtering ortholog matrixes
+		307 matrices passed the filter
+		Getting matrix occupancy stats
+		Supermatrix taxon occupancy stats written to 08_concatenated_aln/meliaceae_MO_500_8_concat_taxon_occupancy_stats
+		
+	How many loci passed the filter?
+	
+	In the `08_concatenated_aln` you will find the files `meliaceae_MO_500_8_concat.fa`  `meliaceae_MO_500_8_concat.model`  and `meliaceae_MO_500_8_concat_taxon_occupancy_stats.txt`
+	
+	You can the taxon statistic including the size of the concatenated matrix and occupancy
+	
+		column -t meliaceae_MO_500_8_concat_taxon_occupancy_stats.txt
+		
+	You should see
+		
+		taxon                             #orthologs  #total_charactors  perc_orthologs   perc_characters
+		MELI_Cabralea_canjerana           270         480542             0.879478827362   0.744374307777
+		MELI_Toona_ciliata                283         529458             0.921824104235   0.820146693207
+		MELI_Vavaea_amicorum              218         418797             0.71009771987    0.648729407573
+		RUTA_Melicope_ternata             296         504051             0.964169381107   0.780790470363
+		MELI_Owenia_reticulata            296         566768             0.964169381107   0.877941028401
+		RUTA_Citrus_hystrix               303         533202             0.986970684039   0.825946264125
+		MELI_Aphanamixis_polystachya      241         338665             0.785016286645   0.524602479998
+		MELI_Heckeldora_staudtii          255         408264             0.830618892508   0.632413467273
+		MELI_Dysoxylum_alliaceum          214         305099             0.697068403909   0.472607715722
+		MELI_Swietenia_macrophylla        266         488872             0.866449511401   0.757277733458
+		MELI_Guarea_pubescens             239         361680             0.778501628664   0.560253421422
+		MELI_Trichilia_hirta              153         195488             0.498371335505   0.302816912317
+		MELI_Schmardaea_microphylla       247         383576             0.804560260586   0.594170997498
+		MELI_Carapa_procera               162         186862             0.527687296417   0.28945497355
+		MELI_Neoguarea_glomerulata        155         192739             0.504885993485   0.298558626939
+		MELI_Pterorhachis_zenkeri         112         106674             0.364820846906   0.165241300256
+		MELI_Azadirachta_indica           296         531914             0.964169381107   0.823951112591
+		MELI_Melia_azedarach              240         312373             0.781758957655   0.48387536499
+		MELI_Lovoa_sywnnertonii           243         397342             0.791530944625   0.615494954033
+		MELI_Chisocheton_longistipitatus  278         434873             0.905537459283   0.673631625011
+		MELI_Turraea_virens               219         416689             0.71335504886    0.64546405087
+		MELI_Swietenia_mahagoni           21          16944              0.0684039087948  0.0262467760799
+		MELI_Aglaia_spectabilis           288         517774             0.938110749186   0.802047818578
+		MELI_Turraeanthus_manii           114         123493             0.371335504886   0.191294447499
+		MELI_Cedrela_saltensis            8           4949               0.0260586319218  0.00766615290482
+		MELI_Munronia_pinnata             71          66165              0.231270358306   0.102491615871
+		MELI_Quivisianthe_papinae         286         545384             0.931596091205   0.84481655604
+		MELI_Cedrela_montana              10          6976               0.0325732899023  0.0108060381216
+		RUTA_Ruta_graveolens              303         504971             0.986970684039   0.782215578602
+		MELI_Chukrasia_tabularis          236         329105             0.768729641694   0.509793746563
+		Supermatrix dimension 30 taxa, 307 loci and 645565  aligned columns Overall matrix occupancy 0.527170721255
+		
+	Now with this files you can run a concatenated tree. This can take many hours to run, so I have done it in advance with the command below. DO NOT run this commands
+	
+		#iqtree -m TEST --merge -s meliaceae_MO_500_8_concat.fa -T 40 -B 1000 --seqtype DNA -q meliaceae_MO_500_8_concat.model --prefix meliaceae_MO_500_8_concat_IQtree
+		
+	The output files for the IQ-tree run can be found here `/data_tmp/mpemaster/output/04_analyses/10_iqtree_concatenated`
+	
+	Plot the tree file and compare it with the ASTRAL species trees from above
+	
+		cat /data_tmp/mpemaster/output/04_analyses/10_iqtree_concatenated/meliaceae_MO_500_8_concat_IQtree.treefile
+		
+		(RUTA_Citrus_hystrix:0.1203095997,(RUTA_Melicope_ternata:0.1713673116,(((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)100:0.0056021936,MELI_Cabralea_canjerana:0.0255826820)100:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)100:0.0026290050,MELI_Chisocheton_longistipitatus:0.0434381144)100:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)88:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)97:0.0018363755)100:0.0023701151)100:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)100:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)100:0.0208684956)100:0.0092840998,MELI_Munronia_pinnata:0.0763143712)100:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)100:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)100:0.0325065738,MELI_Owenia_reticulata:0.0372445257)100:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)100:0.0601215172)100:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)100:0.0356809672)100:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)100:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)100:0.0231644117,MELI_Carapa_procera:0.0308532123)100:0.0385898559)100:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)100:0.0103559063)100:0.0261171806)100:0.0969635918)100:0.0173378156,RUTA_Ruta_graveolens:0.2229865468);
+	
+	<p align="center"><img src="images/concatfinal.png" alt="concatfinal" width="900"></p>
+
 		
 	
 
+	
 		
 
 	

@@ -87,7 +87,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 ## The ASTRAL Log information
 
 
-* It is recommend to save the ([`stderr`](https://en.wikipedia.org/wiki/Standard_streams), to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to screen and also redirecting it to a file.
+* It is recommend to save the [`stderr`](https://en.wikipedia.org/wiki/Standard_streams), to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to screen and also redirecting it to a file.
 
 
 		/data_tmp/[username]/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)	
