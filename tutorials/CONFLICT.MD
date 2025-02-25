@@ -87,9 +87,31 @@
 
 * To run QS you need a ***rooted*** reference trees and a concatenated alignment. In this case we are going to use the output of IQ-tree, the same for the concordance factors
 	
+	To see the options for QS do
+	
+		conda deactivate
+		
+		python3 /data_tmp/mpemaster/apps/quartetsampling/pysrc/quartet_sampling.py -h
+		
+	And you should see a long list of options. Re
+	
+		usage: quartet_sampling.py [-h] --tree TREE --align ALIGN --reps REPS --threads THREADS [--lnlike LNLIKE] [--result-prefix RESULT_PREFIX]
+                           [--data-type {nuc,amino,cat}] [--min-overlap MIN_OVERLAP] [--results-dir RESULTS_DIR] [--verbout] [--partitions PARTITIONS]
+                           [--genetrees GENETREES] [--temp-dir TEMP_DIR] [--retain-temp] [--clade CLADE] [--start-node-number START_NODE_NUMBER]
+                           [--stop-node-number STOP_NODE_NUMBER] [--engine {raxml-ng,raxml,paup,iqtree}] [--engine-exec ENGINE_EXEC]
+                           [--engine-model ENGINE_MODEL] [--ignore-errors] [--low-mem] [--max-random-sample-proportion MAX_RANDOM_SAMPLE_PROPORTION]
+                           [--calc-qdstats] [--verbose] [--version]
+
+		quartet_samping.py: Quartet Sampling method for phylogenetic branch support evaluation <http://www.github.com/FePhyFoFum/quartetsampling>
+
+		optional arguments:
+ 		 -h, --help            show this help message and exit
+  		--tree TREE           The input tree in Newick (parenthetical) format. (default: None)
+  		...
+	
 	This is the command I used to run QS. You don't need to run this
 	
-		#python3 ~/Apps/quartetsampling/pysrc/quartet_sampling.py --tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr --align meliaceae_MO_500_8_concat.fa --genetrees meliaceae_MO_500_8_concat.model --reps 1000 --engine-exec iqtree --threads 120
+		#python3 quartet_sampling.py --tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr --align meliaceae_MO_500_8_concat.fa --genetrees meliaceae_MO_500_8_concat.model --reps 1000 --engine-exec iqtree --threads 120
 	
 	
 	Quartet sampling can take several hours to run so I have done this in advance. You can see the output files here `/data_tmp/mpemaster/output/04_analyses/12_QS`
@@ -295,3 +317,80 @@
 		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)100:0.0056021936,MELI_Cabralea_canjerana:0.025582682)100:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)100:0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144)100:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)88:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)97:0.0018363755)100:0.0023701151)100:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)100:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)100:0.0208684956)100:0.0092840998,MELI_Munronia_pinnata:0.0763143712)100:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)100:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)100:0.0325065738,MELI_Owenia_reticulata:0.0372445257)100:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)100:0.0601215172)100:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)100:0.0356809672)100:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)100:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)100:0.0231644117,MELI_Carapa_procera:0.0308532123)100:0.0385898559)100:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)100:0.0103559063)100:0.0261171806)100:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468)100:0.0173378156)100:0.0484817959);
 		
 	<p align="center"><img src="images/rooted.png" alt="rooted" width="900"></p>
+	
+* Now we have the input needed for phyparts
+
+	To see the options for phyparts do
+	
+		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -h
+		
+	You should see
+	
+		usage: phyparts
+		 -a,--analysis <arg>   what kind of analysis (0 - concon, 1 - fullconcon,
+		                       2 - duplications)
+		 -d,--dtree <arg>      directory of trees (for deconstruct)
+		 -h,--help             show help
+		 -i,--ignore <arg>     comma separated list of things to ignore
+		 -m,--mtree <arg>      mapping tree (for mapping)
+		 -o,--outpr <arg>      prepend output files with this
+		 -s,--support <arg>    support cutoff (only keep things with greater
+		                       support than the one specified)
+		 -v,--verbose          include verbose output
+		 -x,--secret <arg>
+		 -y,--secret2
+	
+	First were are going to run a simple analyses of concordance taking in consideration all nodes in the input gene trees `-a 0`
+	
+		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0
+
+	Running this should take a few seconds and you will see 
+	
+		Read 334 trees
+		Finished initializing deconstructor
+		
+		Finished calculating clades
+		Total number of clades: 5869
+		Average number of clades/tree: 17.57185628742515
+		Total number of unique clades: 5383
+		tree:1 / 334
+		tree:2 / 334
+		...
+		
+	Now were are going to do a similar analysis `-a 0`, but this time we are going to exclude the nodes that have low bootstrap support (e.g =< 70%) with the option `-s`
+	
+		java -jar /data_tmp/mpemaster/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0_s70 -s 70
+
+	As before it should take seconds to run and you should the following. 
+
+	
+		Mapping tree:meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		Read 334 trees
+		Finished initializing deconstructor
+		Finished calculating clades
+		Total number of clades: 4409
+		Average number of clades/tree: 13.20059880239521
+		Total number of unique clades: 3996
+		tree:1 / 334
+		tree:2 / 334
+		...
+	
+	What difference do you see?
+	
+
+* Let's plot the result of phyparts in R. We are going to plot the number of concordant, discordant, uninformative, and missing as piecharts
+
+
+	Open RStudio your internet browser again, by typing `10.153.134.10:8787` and login with you workstation credentials.
+	
+	In RStudio go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/mpemaster/script/piechars.R` 
+	
+	<p align="center"><img src="images/open.png" alt="open" width="300"></p>
+
+	
+	
+	
+	
+	
+	
+	
