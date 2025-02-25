@@ -21,7 +21,7 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 | Sushmit	Bhattacharya | mpeuser10 |
 | Yusuf	Bozkurt | mpeuser11 |
 | Zizheng	Yan | mpeuser12 |
-| Diego or Lizzy | usermaster|
+| Diego or Lizzy | mpemaster|
 
 #### How to login to the workstation
 
