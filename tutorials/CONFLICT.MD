@@ -193,4 +193,4 @@
 
 	You should see this
 	
-	
+	<p align="center"><img src="images/qs.png" alt="qs" width="900"></p>
