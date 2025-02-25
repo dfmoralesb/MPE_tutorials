@@ -90,6 +90,9 @@ All data for analyses and output will be located in
 
 * [Alternative support values - Conflict analysis](tutorials/CONFLICT.MD)<br>A tutorial on alternative way to measure node support - wit a focus on conflict analyses
 
+* [Identifying Whole Genome Duplication](tutorials/WGD.MD)<br>A tutorial on mapping gene duplications using a tree-based approach
+
+
 	Here we are going to cover (briefly) only the most relevant aspects of those topic. If you are interested in more comprehensive tutorials you can refer to the great tutorials from [Michael Matschiner](https://evoinformatics.group/) [here](https://github.com/mmatschiner/tutorials). You can always refer to the materials an documentation provided by each software authors.
 
 
