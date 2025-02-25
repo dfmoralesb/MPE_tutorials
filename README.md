@@ -31,7 +31,7 @@ The password will be provided at the beginning of the the first practicum.
 
 ### Every time you see `$USERNAME` in the example command you need to replace it with you own
 
-* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. #### Do this every time you open a terminal window
+* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
 
 	For example for me Diego my user name is `mpemaster`
 	
