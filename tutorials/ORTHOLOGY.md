@@ -6,6 +6,7 @@
 * [Remove spurious tips](#ts)
 * [Orthology inference](#ortho)
 * [Species tree inference](#sptree)
+* [Species tree inference from homologs](homolog)
 
 #### How to login to the workstation
 
@@ -104,7 +105,7 @@
 
 * Now we are going to infer ML homolog trees. Here we refer to homolog trees the gene trees that have all gene copies.
 
-* To use the scripts for the phylogenomics workflow an "@" symbol needs to be added in the fasta headers to identify paralogs of the same sample.
+* To use the scripts for the phylogenomics workflow an `@` symbol needs to be added in the fasta headers to identify paralogs of the same sample.
 
 	Meaning that instead of having the long fasta headers you see above, we want something that looks like this:
 	
@@ -348,7 +349,7 @@
 
 * With this you can now run TreeShrink on all the masked gene trees
 	
-			python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
+		python /data_tmp/mpemaster/script/tree_shrink_1.3.9_wrapper.py 03_masked/ mm 0.05 04_ts/ outgroup_list.txt
 			
 	You should start seing something like this
 	
@@ -804,6 +805,120 @@
 	
 	How does the topology and node support compares with the ASTRAL tree?
 
+
+<a name="homolog"></a>
+## Species tree inference from homologs
+
+* Another way to get a coalescent species trees is to use directly the homologs trees and ASTRAL-Pro. ASTRAL-Pro can directly handle paralogs and duplication and takes as input multi-copy genes trees (homolog). The advantage of ASTRAL-Pro is that you can estimate a species trees without the need to prune orthologs and that you can potentially use all the information from the gene families that is lost during the paralog pruning. The disadvantage is ASTRAL-Pro only will output the final trees and not any ortholog or alignments, so you won't have those for downstream analyses (e.g. conflict)
+
+* To use ASTRAL-Pro we first need to infer the final homolog trees (similar to what we did for the orthologs)
+
+	We need to write Fasta files from the clean homologs (e.g. output of TreeShirnk `/data_tmp/mpemaster/data/07_phylogenomic_analyses/04_ts`). Also we need the same unaligned Fasta files we used before `/data_tmp/mpemaster/data/07_phylogenomic_analyses/00_unaligned_fasta_files`
+	
+	The script we will use is `write_homolog_fasta_from_multiple_aln.py`
+	
+		python /data_tmp/mpemaster/script/write_homolog_fasta_from_multiple_aln.py
+		
+	You will see
+		
+		Usage:
+		python write_ortholog_fasta_from_multiple_aln.py fasta_DIR tree_DIR fasta_file_ending(no_dot) tree_file_ending(not_dot) outDIR
+		
+	Now let's make a new directory for the output Fasta files
+	
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		mkdir 09_homolog_fasta_files
+		
+	Now let's run the script
+	
+		python /data_tmp/mpemaster/script/write_homolog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 04_ts fna ts 09_homolog_fasta_files
+		
+	Check the output files
+	
+		ls 09_homolog_fasta_files
+		
+	You should see 
+	
+		4471.homolog.fa  5257.homolog.fa  5489.homolog.fa  5841.homolog.fa  6000.homolog.fa  6282.homolog.fa  6483.homolog.fa  6705.homolog.fa  6969.homolog.fa
+		4527.homolog.fa  5260.homolog.fa  5502.homolog.fa  5842.homolog.fa  6003.homolog.fa  6284.homolog.fa  6487.homolog.fa  6713.homolog.fa  6978.homolog.fa
+		4691.homolog.fa  5264.homolog.fa  5513.homolog.fa  5843.homolog.fa  6004.homolog.fa  6295.homolog.fa  6488.homolog.fa  6717.homolog.fa  ...
+
+* As we did with the orthologs we need to align, clean, and infer individual gene trees. Again, because this takes time, I have done this already. The output of this can be found in `/data_tmp/mpemaster/output/04_analyses/07_final_homologs`
+	
+	You can check the contents of the directory if you want
+	
+		ls /data_tmp/mpemaster/output/04_analyses/07_final_homologs
+		
+	You can see a large list of files like
+	
+		4471.homolog.aln          5355.homolog.aln.clipkit  5840.homolog.fa           6110.iqtree.iqtree        6460.iqtree.treefile      6860.homolog.aln
+		4471.homolog.aln.clipkit  5355.homolog.fa           5840.iqtree.iqtree        6110.iqtree.treefile      6462.homolog.aln          6860.homolog.aln.clipkit
+		4471.homolog.fa           5355.iqtree.iqtree        5840.iqtree.treefile      6114.homolog.aln          6462.homolog.aln.clipkit  6860.homolog.fa
+		4471.iqtree.iqtree        5355.iqtree.treefile      5841.homolog.aln          6114.homolog.aln.clipkit  6462.homolog.fa           ...
+		
+* Now let's make a new directory for our ASTRAL-Pro inference and concatenate all the gene trees to have the input of ASTRAL-pro
+	
+		cd /data_tmp/mpemaster/data/07_phylogenomic_analyses
+		
+		mkdir 10_astral-pro
+		
+		for i in /data_tmp/mpemaster/output/04_analyses/07_final_homologs/*.treefile; do cat $i >> 10_astral-pro/meliaceae_348_homologs.tre; done
+		
+	Now you can check the file will all the homolog trees `meliaceae_348_homologs.tre`
+	
+		cd 10_astral
+		
+		less meliaceae_348_homologs.tre
+		
+	You will see 
+	
+		(RUTA_Citrus_hystrix@pg_uq:0.1010436879,(RUTA_Melicope_ternata@pg_uq:0.1520917398,(((((((((((MELI_Aglaia_spectabilis@pg_00:0.0377540011,MELI_Cabralea_canjerana@pg_00:0.0200959468)60:0.0088020893,(MELI_Chisocheton_longistipitatus@pg_00:0.0374884898,MELI_Aphanamixis_polystachya@pg_00:0.0495941722)53:0.0092511534)90:0.0021170889,MELI_Dysoxylum_alliaceum@pg_uq:0.0453230324)83:0.0016418863,MELI_Neoguarea_glomerulata@pg_01:0.0498059569)76:0.0008450383,MELI_Guarea_pubescens@pg_00:0.0525225721)100:0.0057054181,(((MELI_Aglaia_spectabilis@pg_02:0.0394774933,MELI_Cabralea_canjerana@pg_01:0.0237414088)100:0.0097921790,(MELI_Chisocheton_longistipitatus@pg_01:0.0384526635,((MELI_Heckeldora_staudtii@pg_00:0.0331733554,MELI_Neoguarea_glomerulata@pg_00:0.0612092763)52:0.0013872865,MELI_Guarea_pubescens@pg_02:0.0440118250)53:0.0019048628)69:0.0008390134)93:0.0026620286,MELI_Vavaea_amicorum@pg_00:0.0682655078)99:0.0026829342)100:0.0114538744,(MELI_Trichilia_hirta@pg_uq:0.0515734810,MELI_Turraea_virens@pg_uq:0.0822998112)100:0.0192697250)85:0.0024356239,((((MELI_Aglaia_spectabilis@pg_01:0.0503387347,MELI_Aphanamixis_polystachya@pg_01:0.0525046692)88:0.0012229015,MELI_Cabralea_canjerana@pg_02:0.0138509598)100:0.0145439584,(MELI_Guarea_pubescens@pg_01:0.0374316539,MELI_Heckeldora_staudtii@pg_01:0.0508175357)97:0.0076300352)77:0.0014212072,MELI_Vavaea_amicorum@pg_01:0.0822648181)100:0.0171637828)99:0.0117795706,MELI_Quivisianthe_papinae@pg_uq:0.0823844461)100:0.0380703851,((MELI_Azadirachta_indica@pg_uq:0.0005104939,MELI_Melia_azedarach@pg_uq:0.0010139468)100:0.0299246329,MELI_Owenia_reticulata@pg_uq:0.0295779461)100:0.0676004261)89:0.0036317324,((MELI_Swietenia_macrophylla@pg_uq:0.0652681652,(MELI_Toona_ciliata@pg_00:0.0211288789,MELI_Lovoa_sywnnertonii@pg_00:0.0536245574)100:0.0109525889)100:0.0134341887,((MELI_Toona_ciliata@pg_01:0.0279107623,MELI_Lovoa_sywnnertonii@pg_01:0.0628836439)100:0.0137734725,(MELI_Schmardaea_microphylla@pg_uq:0.0911225179,MELI_Chukrasia_tabularis@pg_uq:0.0557646655)88:0.0060798211)99:0.0060981230)100:0.0144935908)100:0.1352542552)64:0.0077968121,RUTA_Ruta_graveolens@pg_00:0.1956455778);
+		(RUTA_Citrus_hystrix@pg_00:0.1493237806,RUTA_Melicope_ternata@pg_uq:0.1316359013,(RUTA_Ruta_graveolens@pg_01:0.2051400599,(((((((((((MELI_Aglaia_spectabilis@pg_00:0.0562417133,(MELI_Cabralea_canjerana@pg_01:0.0268617325,MELI_Neoguarea_glomerulata@pg_01:0.0387016552)97:0.0118775565)48:0.0000020837,MELI_Guarea_pubescens@pg_00:0.0358863151)86:0.0118842518,MELI_Aphanamixis_polystachya@pg_00:0.0531636586)52:0.0005647019,(MELI_Chisocheton_longistipitatus@pg_00:0.0392015578,MELI_Heckeldora_staudtii@pg_uq:0.0279465390)32:0.0012515985)52:0.0019283172,(MELI_Vavaea_amicorum@pg_01:0.0855240351,MELI_Dysoxylum_alliaceum@pg_00:0.0465700182)16:0.0007046993)98:0.0102564937,MELI_Munronia_pinnata@pg_01:0.0738674945)52:0.0032450549,MELI_Turraea_virens@pg_uq:0.1123551590)37:0.0064765845,(((((MELI_Chisocheton_longistipitatus@pg_01:0.0382881526,(MELI_Turraeanthus_manii@pg_00:0.0482343452,MELI_Guarea_pubescens@pg_01:0.0482442179)77:0.0001164514)91:0.0015204907,(MELI_Aglaia_spectabilis@pg_01:0.0301603473,MELI_Aphanamixis_polystachya@pg_01:0.0417181618)99:0.0061967389)91:0.0017242244,(MELI_Vavaea_amicorum@pg_00:0.0474705448,MELI_Turraeanthus_manii@pg_01:0.0906616671)84:0.0040925217)91:0.0065626472,((MELI_Neoguarea_glomerulata@pg_00:0.0398805164,MELI_Cabralea_canjerana@pg_00:0.0220638401)52:0.0000022341,MELI_Dysoxylum_alliaceum@pg_01:0.0579596766)93:0.0029770925)100:0.0122051901,MELI_Trichilia_hirta@pg_uq:0.0658871198)39:0.0030253647)23:0.0021601414,MELI_Quivisianthe_papinae@pg_00:0.0616925898)99:0.0590370777,(((((MELI_Carapa_procera@pg_uq:0.0309333305,MELI_Swietenia_macrophylla@pg_00:0.0212032134)100:0.0310857561,MELI_Lovoa_sywnnertonii@pg_00:0.0634296662)86:0.0063627254,MELI_Toona_ciliata@pg_01:0.0443222272)100:0.0135297785,(MELI_Toona_ciliata@pg_00:0.0373713761,(MELI_Lovoa_sywnnertonii@pg_01:0.0815440731,MELI_Swietenia_macrophylla@pg_01:0.0811907855)98:0.0050130450)100:0.0150493109)100:0.0166240146,((MELI_Schmardaea_microphylla@pg_uq:0.0410072852,MELI_Munronia_pinnata@pg_00:0.1323836494)70:0.0570827399,MELI_Chukrasia_tabularis@pg_uq:0.0636670991)69:0.0157165221)70:0.0179672866)57:0.0083829832,(((MELI_Azadirachta_indica@pg_uq:0.0023358003,MELI_Melia_azedarach@pg_uq:0.0019726217)100:0.0409002688,MELI_Owenia_reticulata@pg_uq:0.0465563239)100:0.0205540925,MELI_Pterorhachis_zenkeri@pg_uq:0.0591559877)100:0.0646299547)100:0.0914349956)72:0.0203606784);
+		(RUTA_Citrus_hystrix@pg_uq:0.0852602698,(RUTA_Melicope_ternata@pg_uq:0.1479947669,((((((((((MELI_Aglaia_spectabilis@pg_00:0.0259573759,MELI_Aphanamixis_polystachya@pg_uq:0.0219470977)94:0.0071968009,MELI_Trichilia_hirta@pg_uq:0.0646094335)73:0.0019121431,(((MELI_Cabralea_canjerana@pg_00:0.0233466120,MELI_Dysoxylum_alliaceum@pg_uq:0.0461169582)94:0.0021426239,MELI_Guarea_pubescens@pg_00:0.0313453091)75:0.0012423311,MELI_Heckeldora_staudtii@pg_uq:0.0324809808)56:0.0013014639)18:0.0000020025,MELI_Turraea_virens@pg_uq:0.1086651834)96:0.0098360356,MELI_Chisocheton_longistipitatus@pg_00:0.0213303483)99:0.0186324522,((MELI_Guarea_pubescens@pg_01:0.0271205854,MELI_Chisocheton_longistipitatus@pg_01:0.0493436527)69:0.0006979583,(MELI_Vavaea_amicorum@pg_uq:0.0498719246,MELI_Cabralea_canjerana@pg_01:0.0226041967)76:0.0067523873)99:0.0219121882)81:0.0051865100,((MELI_Aglaia_spectabilis@pg_01:0.0448433576,MELI_Cabralea_canjerana@pg_02:0.0308130109)100:0.0413883082,MELI_Chisocheton_longistipitatus@pg_02:0.0793023755)91:0.0156537280)100:0.0539549622,MELI_Quivisianthe_papinae@pg_01:0.2914061512)89:0.0250484213,(((MELI_Carapa_procera@pg_uq:0.0223957054,MELI_Swietenia_macrophylla@pg_00:0.0166418847)100:0.0231186196,(MELI_Lovoa_sywnnertonii@pg_00:0.0455052741,MELI_Toona_ciliata@pg_00:0.0254636580)91:0.0060278718)98:0.0220594932,(((MELI_Chukrasia_tabularis@pg_uq:0.0310130942,MELI_Schmardaea_microphylla@pg_uq:0.0850338927)92:0.0098429533,MELI_Swietenia_macrophylla@pg_01:0.0969554247)51:0.0061769848,(MELI_Toona_ciliata@pg_01:0.0454365301,MELI_Lovoa_sywnnertonii@pg_01:0.0682873021)80:0.0053660891)97:0.0175962077)96:0.0231700797)77:0.0121508726,((MELI_Azadirachta_indica@pg_uq:0.0031173383,MELI_Melia_azedarach@pg_uq:0.0031507108)100:0.0229860685,MELI_Owenia_reticulata@pg_uq:0.0327776946)100:0.0964904480)100:0.0817399869)100:0.0984244296,RUTA_Ruta_graveolens@pg_uq:0.2043373155);
+		...
+		
+	Remember that our trees have the `@` simbol followed by the gene copy number (e.g. RUTA_Citrus_hystrix@pg_uq) . ASTRAL-Pro requires that all copies of the same samples be called the same (e.g., RUTA_Citrus_hystrix), so we need to remove the gene copy number. For this we will use the script `short_tip_labels_multiphylo.py`
+	
+		python /data_tmp/mpemaster/script/short_tip_labels_multiphylo.py
+		
+	You should see 
+		
+		Usage:
+		python short_tip_lables.py inMultiTree
+		
+	Now let's run the script and check the output file `meliaceae_348_homologs_short_label.tre`
+	
+		python /data_tmp/mpemaster/script/short_tip_labels_multiphylo.py meliaceae_348_homologs.tre
+		
+		less meliaceae_348_homologs_short_label.tre
+		
+	You should see
+	
+		(RUTA_Citrus_hystrix:0.10104,(RUTA_Melicope_ternata:0.15209,(((((((((((MELI_Aglaia_spectabilis:0.03775,MELI_Cabralea_canjerana:0.02010)60.00:0.00880,(MELI_Chisocheton_longistipitatus:0.03749,MELI_Aphanamixis_polystachya:0.04959)53.00:0.00925)90.00:0.00212,MELI_Dysoxylum_alliaceum:0.04532)83.00:0.00164,MELI_Neoguarea_glomerulata:0.04981)76.00:0.00085,MELI_Guarea_pubescens:0.05252)100.00:0.00571,(((MELI_Aglaia_spectabilis:0.03948,MELI_Cabralea_canjerana:0.02374)100.00:0.00979,(MELI_Chisocheton_longistipitatus:0.03845,((MELI_Heckeldora_staudtii:0.03317,MELI_Neoguarea_glomerulata:0.06121)52.00:0.00139,MELI_Guarea_pubescens:0.04401)53.00:0.00190)69.00:0.00084)93.00:0.00266,MELI_Vavaea_amicorum:0.06827)99.00:0.00268)100.00:0.01145,(MELI_Trichilia_hirta:0.05157,MELI_Turraea_virens:0.08230)100.00:0.01927)85.00:0.00244,((((MELI_Aglaia_spectabilis:0.05034,MELI_Aphanamixis_polystachya:0.05250)88.00:0.00122,MELI_Cabralea_canjerana:0.01385)100.00:0.01454,(MELI_Guarea_pubescens:0.03743,MELI_Heckeldora_staudtii:0.05082)97.00:0.00763)77.00:0.00142,MELI_Vavaea_amicorum:0.08226)100.00:0.01716)99.00:0.01178,MELI_Quivisianthe_papinae:0.08238)100.00:0.03807,((MELI_Azadirachta_indica:0.00051,MELI_Melia_azedarach:0.00101)100.00:0.02992,MELI_Owenia_reticulata:0.02958)100.00:0.06760)89.00:0.00363,((MELI_Swietenia_macrophylla:0.06527,(MELI_Toona_ciliata:0.02113,MELI_Lovoa_sywnnertonii:0.05362)100.00:0.01095)100.00:0.01343,((MELI_Toona_ciliata:0.02791,MELI_Lovoa_sywnnertonii:0.06288)100.00:0.01377,(MELI_Schmardaea_microphylla:0.09112,MELI_Chukrasia_tabularis:0.05576)88.00:0.00608)99.00:0.00610)100.00:0.01449)100.00:0.13525)64.00:0.00780,RUTA_Ruta_graveolens:0.19565):0.00000;
+		(RUTA_Citrus_hystrix:0.14932,RUTA_Melicope_ternata:0.13164,(RUTA_Ruta_graveolens:0.20514,(((((((((((MELI_Aglaia_spectabilis:0.05624,(MELI_Cabralea_canjerana:0.02686,MELI_Neoguarea_glomerulata:0.03870)97.00:0.01188)48.00:0.00000,MELI_Guarea_pubescens:0.03589)86.00:0.01188,MELI_Aphanamixis_polystachya:0.05316)52.00:0.00056,(MELI_Chisocheton_longistipitatus:0.03920,MELI_Heckeldora_staudtii:0.02795)32.00:0.00125)52.00:0.00193,(MELI_Vavaea_amicorum:0.08552,MELI_Dysoxylum_alliaceum:0.04657)16.00:0.00070)98.00:0.01026,MELI_Munronia_pinnata:0.07387)52.00:0.00325,MELI_Turraea_virens:0.11236)37.00:0.00648,(((((MELI_Chisocheton_longistipitatus:0.03829,(MELI_Turraeanthus_manii:0.04823,MELI_Guarea_pubescens:0.04824)77.00:0.00012)91.00:0.00152,(MELI_Aglaia_spectabilis:0.03016,MELI_Aphanamixis_polystachya:0.04172)99.00:0.00620)91.00:0.00172,(MELI_Vavaea_amicorum:0.04747,MELI_Turraeanthus_manii:0.09066)84.00:0.00409)91.00:0.00656,((MELI_Neoguarea_glomerulata:0.03988,MELI_Cabralea_canjerana:0.02206)52.00:0.00000,MELI_Dysoxylum_alliaceum:0.05796)93.00:0.00298)100.00:0.01221,MELI_Trichilia_hirta:0.06589)39.00:0.00303)23.00:0.00216,MELI_Quivisianthe_papinae:0.06169)99.00:0.05904,(((((MELI_Carapa_procera:0.03093,MELI_Swietenia_macrophylla:0.02120)100.00:0.03109,MELI_Lovoa_sywnnertonii:0.06343)86.00:0.00636,MELI_Toona_ciliata:0.04432)100.00:0.01353,(MELI_Toona_ciliata:0.03737,(MELI_Lovoa_sywnnertonii:0.08154,MELI_Swietenia_macrophylla:0.08119)98.00:0.00501)100.00:0.01505)100.00:0.01662,((MELI_Schmardaea_microphylla:0.04101,MELI_Munronia_pinnata:0.13238)70.00:0.05708,MELI_Chukrasia_tabularis:0.06367)69.00:0.01572)70.00:0.01797)57.00:0.00838,(((MELI_Azadirachta_indica:0.00234,MELI_Melia_azedarach:0.00197)100.00:0.04090,MELI_Owenia_reticulata:0.04656)100.00:0.02055,MELI_Pterorhachis_zenkeri:0.05916)100.00:0.06463)100.00:0.09143)72.00:0.02036):0.00000;
+		(RUTA_Citrus_hystrix:0.08526,(RUTA_Melicope_ternata:0.14799,((((((((((MELI_Aglaia_spectabilis:0.02596,MELI_Aphanamixis_polystachya:0.02195)94.00:0.00720,MELI_Trichilia_hirta:0.06461)73.00:0.00191,(((MELI_Cabralea_canjerana:0.02335,MELI_Dysoxylum_alliaceum:0.04612)94.00:0.00214,MELI_Guarea_pubescens:0.03135)75.00:0.00124,MELI_Heckeldora_staudtii:0.03248)56.00:0.00130)18.00:0.00000,MELI_Turraea_virens:0.10867)96.00:0.00984,MELI_Chisocheton_longistipitatus:0.02133)99.00:0.01863,((MELI_Guarea_pubescens:0.02712,MELI_Chisocheton_longistipitatus:0.04934)69.00:0.00070,(MELI_Vavaea_amicorum:0.04987,MELI_Cabralea_canjerana:0.02260)76.00:0.00675)99.00:0.02191)81.00:0.00519,((MELI_Aglaia_spectabilis:0.04484,MELI_Cabralea_canjerana:0.03081)100.00:0.04139,MELI_Chisocheton_longistipitatus:0.07930)91.00:0.01565)100.00:0.05395,MELI_Quivisianthe_papinae:0.29141)89.00:0.02505,(((MELI_Carapa_procera:0.02240,MELI_Swietenia_macrophylla:0.01664)100.00:0.02312,(MELI_Lovoa_sywnnertonii:0.04551,MELI_Toona_ciliata:0.02546)91.00:0.00603)98.00:0.02206,(((MELI_Chukrasia_tabularis:0.03101,MELI_Schmardaea_microphylla:0.08503)92.00:0.00984,MELI_Swietenia_macrophylla:0.09696)51.00:0.00618,(MELI_Toona_ciliata:0.04544,MELI_Lovoa_sywnnertonii:0.06829)80.00:0.00537)97.00:0.01760)96.00:0.02317)77.00:0.01215,((MELI_Azadirachta_indica:0.00312,MELI_Melia_azedarach:0.00315)100.00:0.02299,MELI_Owenia_reticulata:0.03278)100.00:0.09649)100.00:0.08174)100.00:0.09842,RUTA_Ruta_graveolens:0.20434):0.00000;
+		...
+		
+	Notice how now the trees done have the `@` and the gene copy number
+	
+* Now we can infer the ASTRAL-Pro species trees from homologs tree
+
+		
+		/data_tmp/mpemaster/apps/ASTER-Linux_old/bin/astral-pro -i meliaceae_348_homologs_short_label.tre -o meliaceae_348_homologs.ASTRAL-Pro.tre 2> >(tee -a ASTRAL.log >&2)
+
+	Now you can open the file, plot, root, sort, and show the node label (LPP) it in Figtree and should have the following
+	
+
+		cat meliaceae_348_homologs.ASTRAL-Pro.tre
+			
+		
+		((((((((((((((MELI_Aglaia_spectabilis,MELI_Aphanamixis_polystachya)1.000000:0.687272,MELI_Cabralea_canjerana)1.000000:0.769145,MELI_Dysoxylum_alliaceum)1.000000:0.452589,MELI_Chisocheton_longistipitatus)0.998726:0.206428,(((MELI_Heckeldora_staudtii,MELI_Neoguarea_glomerulata)0.671057:0.058431,MELI_Guarea_pubescens)0.813239:0.101580,MELI_Turraeanthus_manii)0.999933:0.357250)1.000000:0.746703,MELI_Vavaea_amicorum)1.000000:0.413182,(MELI_Trichilia_hirta,MELI_Turraea_virens)1.000000:1.891279)0.999959:0.500047,MELI_Munronia_pinnata)1.000000:0.633971,MELI_Quivisianthe_papinae)1.000000:2.930755,(((MELI_Melia_azedarach,MELI_Azadirachta_indica)1.000000:4.139811,MELI_Owenia_reticulata)1.000000:1.973058,MELI_Pterorhachis_zenkeri)1.000000:3.059724)0.999630:0.262504,(((((MELI_Cedrela_saltensis,MELI_Cedrela_montana)0.996972:1.133631,MELI_Toona_ciliata)0.976800:0.648695,MELI_Lovoa_sywnnertonii)0.999994:0.525424,((MELI_Swietenia_macrophylla,MELI_Swietenia_mahagoni)1.000000:1.734601,MELI_Carapa_procera)1.000000:2.732154)1.000000:1.507026,(MELI_Schmardaea_microphylla,MELI_Chukrasia_tabularis)1.000000:1.032111)1.000000:2.459894)1.000000:4.178097,RUTA_Melicope_ternata)1.000000:0.402803,RUTA_Ruta_graveolens),RUTA_Citrus_hystrix);	
+	
+<p align="center"><img src="images/astralpro.png" alt="astralpro" width=900"></p>
+
+	
+	 
 		
 	
 
