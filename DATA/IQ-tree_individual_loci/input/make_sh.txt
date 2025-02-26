@@ -1,4 +1,0 @@
-for i in $(ls *.phy)
-do
-echo /home/morales/Apps/iqtree-2.0.7-Linux/bin/iqtree2 -m MFP -s $i -T 4 -b 200 -wbt --seqtype DNA --prefix $(cut -d'.' -f1 <<<"$i").iqtree > $(cut -d'.' -f1 <<<"$i").iqtree2.sh
-done
