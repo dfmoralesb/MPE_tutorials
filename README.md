@@ -1,6 +1,6 @@
 # MPE tutorials
 
-This repository contains the instructions and tutorias for the **Molecular Phylogenetics and Evolution of Plants course**.
+This repository contains the instructions and tutorias for the **Molecular Phylogenetics and Evolution of Plants course - 2025**.
 
 
 ## Preparation
@@ -27,18 +27,18 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 
 	ssh -p 22110 $USERNAME@10.153.134.10
 	
-The password will be provided at the beginning of the the first practicum. 
+The password will be provided at the beginning of the first practicum. 
 
-### Every time you see `$USERNAME` in the example command you need to replace it with you own
+### Every time you see `$USERNAME` in the example command, you need to replace it with your own
 
-* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
+* To avoid having to change the `$USERNAME` for every command, you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
 
-	For example for me Diego my user name is `mpemaster`
+	For example, for me, Diego, my user name is `mpemaster`
 	
 		USERNAME=mpemaster
 
 
-#### Requirements (sofware) - The following software has been already installed in each account.
+#### Requirements (software) - The following software has already been installed in each account.
 
 
 * [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -62,7 +62,7 @@ The password will be provided at the beginning of the the first practicum.
 * [Phyx](https://github.com/FePhyFoFum/phyx)
 
 
-#### You need to install this in each of your working laptops.
+#### You need to install this on each of your working laptops.
 
 * [Aliview](https://ormbunkar.se/aliview/) Use to visualize alignments
 
@@ -71,9 +71,9 @@ The password will be provided at the beginning of the the first practicum.
 
 ### * Requirements (data)
 
-All data for analyses and output will be located in
+All data for analyses and output will be located in the workstation. If not, the tutorial will show you exactly the location of the data.
 
-	/data_tmp/USERNAME/data
+	/data_tmp/$USERNAME/data
 		
 		
 ## Tutorials
@@ -88,7 +88,7 @@ All data for analyses and output will be located in
 
 * [Phylogenomics](tutorials/ORTHOLOGY.md)<br>A tutorial on the phylogenomics workflow - with a focus on tree-based orthology inference
 
-* [Alternative support values - Conflict analysis](tutorials/CONFLICT.MD)<br>A tutorial on alternative way to measure node support - wit a focus on conflict analyses
+* [Alternative support values - Conflict analysis](tutorials/CONFLICT.MD)<br>A tutorial on alternative ways to measure node support - with a focus on conflict analyses
 
 * [Identifying Whole Genome Duplication](tutorials/WGD.md)<br>A tutorial on mapping gene duplications using a tree-based approach
 

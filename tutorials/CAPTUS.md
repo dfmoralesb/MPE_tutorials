@@ -1,40 +1,36 @@
 ## Table of contents
 
-* [Clean - adaptor removal and cleaning of low quality read](#clean)
+* [Clean - adaptor removal and cleaning of low-quality read](#clean)
 * [Assemble - assembly of reads](#assemble)
 * [Extract - identification of target regions](#extract)
 * [Align - individual loci alignment and cleaning](#align)
 
 
-* We are going to use `CAPTUS` to do each of these parts. The advantage of this kind of pipelines is that with a few commands you can automate the process of all your samples at one while keping a nice file structure and order.
+* We are going to use `CAPTUS` to do each of these parts. The advantage of this kind of pipeline is that with a few commands, you can automate the process of all your samples at once while keeping a nice file structure and order.
 
-* For a detailed guide of `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
+* For a detailed guide to `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
 
 #### How to login to the workstation
 
 	ssh -p 22110 USERNAME@10.153.134.10
 
-### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command, you need to replace it with your own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
-* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
+* To avoid having to change the `$USERNAME` for every command, you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
 
-	For example for me Diego my user name is `mpemaster`
+	For example, for me, Diego, my user name is `mpemaster`
 	
 		USERNAME=mpemaster
 
-
-### Every time you see `$USERNAME` in the command example you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
-
-
 <a name="clean"></a>
-## Clean - adaptor removal and cleaning of low quality read
+## Clean - adaptor removal and cleaning of low-quality read
 
-* This command will perform adaptor trimming followed by quality trimming using `bbduk.sh` from the BBTools suite. Once the cleaning is completed, FastQC is run on the raw and cleaned reads and a HTML report is generated summarizing the results from all the samples.
+* This command will perform adaptor trimming followed by quality trimming using `bbduk.sh` from the BBTools suite. Once the cleaning is completed, FastQC is run on the raw and cleaned reads, and an HTML report is generated summarizing the results from all the samples.
 
 * This part of `captus` will do exactly what we did before but for all samples at the time
 
-* Fist make sure to load the `captus` environment
+* Fist, make sure to load the `captus` environment
 
 		conda activate captus
 	
@@ -58,7 +54,7 @@
 
 		captus clean -r 00_dedup_reads --trimq 20 --maq 20 --qc_program fastqc --threads 4 --concurrent 2
 
-	You will start seing something like this
+	You will start seeing something like this.
 
 		Starting Captus-assembly: CLEAN (2025-02-21 10:14:07)
 		    Welcome to the read cleaning step of Captus-assembly. In this step, Captus will perform adaptor trimming and quality
@@ -91,7 +87,7 @@
 
 	It should take a couple of minutes to finish
 	
-* Once `captus` is finished you will see a directory called `01_clean_reads` Make a list of file and directories there
+* Once `captus` is finished, you will see a directory called `01_clean_reads` Make a list of files and directories there
 
 		cd 01_clean_reads
 	
@@ -106,15 +102,15 @@
 		03_qc_extras         MELI_Aglaia_spectabilis_R1.dedup.fastq.gz   MELI_Dysoxylum_alliaceum_R2.dedup.fastq.gz
 		captus-clean.log     MELI_Aglaia_spectabilis_R2.dedup.fastq.gz
 
-* Now you can copy the the `captus-clean_report.html` file to you laptop to see it
+* Now you can copy the `captus-clean_report.html` file to your laptop to see it
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/captus-clean_report.html ~/Desktop
 
-* Open the `html` file in your internet browser and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
+* Open the `html` file in your internet browser, and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
-#### All the screen output that you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors. This is the case for all four modules of `CAPTUS`
+#### All the screen output you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors. This is the case for all four modules of `CAPTUS`
 
 * In case you want to create a similar report we did before with `multiqc` you can do it with
 
@@ -122,9 +118,9 @@
 	
 		multiqc --filename multiqc_report_clean_captus .
 	
-* Copy the `html` report to you computer and open it in the browser. You can compare this report with the one we did in the NGS tutorial
+* Copy the `html` report to your computer and open it in the browser. You can compare this report with the one we did in the NGS tutorial
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/02_qc_stats_after/multiqc_report_clean_captus.html .
 
@@ -132,17 +128,17 @@
 <p align="center"><img src="images/multiqc_captus_clean.png" alt="clean_multiqc" width="900"></p>
 
 
-* To see the `mulitqc` report `multiqc_report_all_samples_clean.html` for all 30 samples go to and copy the file to your laptop
+* To see the `mulitqc` report `multiqc_report_all_samples_clean.html` for all 30 samples, go to and copy the file to your laptop
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_clean.html ~/Desktop
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
-* The `captus` report and log for all samples is also available at `/data_tmp/$USERNAME/output/all_samples_reports` if you are interested seing them they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+* The `captus` report and log for all samples is also available at `/data_tmp/$USERNAME/output/all_samples_reports` if you are interested in seeing them, they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
 
 
 <a name="assemble"></a>
@@ -156,7 +152,7 @@
 
 		captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
 	
-	Then you should start seing this
+	Then you should start seeing this
 
 
 		Starting Captus-assembly: ASSEMBLE (2025-02-21 11:10:03)
@@ -188,9 +184,9 @@
 		    Output directory: /data_tmp/$USERNAME/data/03_captus/02_assemblies
 		                      Output directory successfully created
 		
-	The assembly of this two samples should take 20 minutes
+	The assembly of these two samples should take 20 minutes
 
-* Once is finished you will see a directory called `02_assemblies` Move to that directory and make a list
+* Once it is finished you will see a directory called `02_assemblies` Move to that directory and make a list
 
 		cd 02_assemblies
 		ls
@@ -200,17 +196,17 @@
 		captus-assemble_assembly_stats.tsv  captus-assemble_length_stats.tsv  captus-assemble_report.html          MELI_Dysoxylum_alliaceum__captus-asm
 		captus-assemble_depth_stats.tsv     captus-assemble.log               MELI_Aglaia_spectabilis__captus-asm
 	
-* Now copy the assemble report to you laptop
+* Now copy the assemble report to your laptop
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/02_assemblies/captus-assemble_report.html ~/Desktop
 
-* Open it on your browser and you should see this
+* Open it on your browser, and you should see this
 
 <p align="center"><img src="images/captus_assemble.png" alt="captus_assemble" width="900"></p>
 
-* To see the actual output of `captus` you can go one of the samples directories and see the assembly `FASTA` file
+* To see the actual output of `captus`, you can go to one of the sample directories and see the assembly `FASTA` file
 
 		cd MELI_Aglaia_spectabilis__captus-asm/01_assembly
 	
@@ -262,9 +258,9 @@
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-* You can copy the report to you laptop to see it
+* You can copy the report to your laptop to see it
 	
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-assemble_report_all_samples.html ~/Desktop
 
@@ -275,9 +271,9 @@
 <a name="extract"></a>
 ## Extract - identification of target regions
 
-* During this step `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence datasetsets (aminoacids or nucleotides) and then extract them. Proteins can be provided in either aminoacid or nucleotide, these are searched and extracted using `Scipio`  Like in the previous steps, `CAPTUS` will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
+* During this step, `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence data sets (amino acids or nucleotides) and then extract them. Proteins can be provided in either amino acid or nucleotide; these are searched and extracted using `Scipio`  Like in the previous steps, `CAPTUS` will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
 
-* To run the extract module do
+* To run the extract module, do
 
 		cd /data_tmp/$USERNAME/data/03_captus/
 	
@@ -326,7 +322,7 @@
 
 	It should take 10 minutes to complete
 
-* Once is finished you will see a directory called `03_extractions` Move to that directory and make a list
+* Once it is finished, you will see a directory called `03_extractions` Move to that directory and make a list
 
 		cd 03_extractions
 	
@@ -337,18 +333,18 @@
 		captus-extract.log        captus-extract_report.html  MELI_Aglaia_spectabilis__captus-ext
 		captus-extract_refs.json  captus-extract_stats.tsv    MELI_Dysoxylum_alliaceum__captus-ext
 
-* Now copy the assemble report to you laptop
+* Now copy the assemble report to your laptop
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/03_extractions/captus-extract_report.html ~/Desktop
 
-* Open it on your browser and you should see this
+* Open it on your browser, and you should see this
 
 <p align="center"><img src="images/captu_extraction.png" alt="captus_extraction" width="900"></p>
 
-* To see the actual output of `captus` you can go one of the samples directories and see the assembly `FASTA` file
+* To see the actual output of `captus`, you can go to one of the sample directories and see the assembly `FASTA` file
 
 		cd MELI_Aglaia_spectabilis__captus-ext/01_coding_NUC
 	
@@ -377,9 +373,9 @@
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-* Again copy the report to your laptop to open it	
+* Again, copy the report to your laptop to open it	
 	
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-extract_report_all_samples.html ~/Desktop
 
@@ -389,9 +385,9 @@
 <a name="align"></a>
 ## Align - individual loci alignment and cleaning
 
-* In this step `CAPTUS` will process the results from the extract command. First, it will collect all the markers across samples and create a separate `FASTA` file per locus. Then, the reference sequences used for extraction will be added to their corresponding `FASTA` loci file to aid as an alignment guide. This is followed by alignment using MAFFT. `CAPTUS` extracts all the copies (hits) of a loci that are found in the assembly and ranks them by their similarity to the reference sequence After that the references used for guiding the alignment are removed. Finally, the alignments are trimmed using the recently published package `ClipKIT`. As in previous steps, `CAPTUS` will summarize the alignment statistics of all the markers (e.g. length, mean pairwise identity, missingness, number of informative sites, etc.) and produce an HTML report.
+* In this step, `CAPTUS` will process the results from the extract command. First, it will collect all the markers across samples and create a separate `FASTA` file per locus. Then, the reference sequences used for extraction will be added to their corresponding `FASTA` loci file to aid as an alignment guide. This is followed by alignment using MAFFT. `CAPTUS` extracts all the copies (hits) of a locus that are found in the assembly and ranks them by their similarity to the reference sequence. After that, the references are used to guiding the alignment later are removed. Finally, the alignments are trimmed using the recently published package `ClipKIT`. As in previous steps, `CAPTUS` will summarize the alignment statistics of all the markers (e.g., length, mean pairwise identity, missingness, number of informative sites, etc.) and produce an HTML report.
 
-#### Before we run `CAPTUS` for aligning we are going to do an example alignment and cleaning for one locus so you understand what is `CAPTUS` doing
+#### Before we run `CAPTUS` for aligning, we are going to do an example alignment and cleaning for one locus so you understand what is `CAPTUS` doing
 
 * The example fasta file `4471.fna` is on `/data_tmp/$USERNAME/data/04_individual_aln`
 
@@ -419,17 +415,17 @@
 	
 * Now cp the `FASTA` file on your laptop and visualize it on `AliView`
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.fna ~/Desktop
 	
-* Open `AliView` on you laptop and drag the 4471.fna file. You should see the following
+* Open `AliView` on your laptop and drag the 4471.fna file. You should see the following
 	
 <p align="center"><img src="images/unaligned.png" alt="unaligned" width="900"></p>
 
 * Now we are going to align this gene with `MAFFT`
 
-* In the workstation make sure you are in `/data_tmp/$USERNAME/data/04_individual_aln`
+* In the workstation, make sure you are in `/data_tmp/$USERNAME/data/04_individual_aln`
 
 		cd /data_tmp/$USERNAME/data/04_individual_aln
 	
@@ -461,11 +457,11 @@
 		
 		Progressive alignment 1/2...
 	
-* The alignment should be done in a few seconds and the output file is `4471.aln`
+* The alignment should be done in a few seconds, and the output file is `4471.aln`
 
 * Copy the alignment to your laptop and open it in `AliView` as we did before
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln ~/Desktop
 	
@@ -508,7 +504,7 @@ You should see
 
 * Copy the alignment to your laptop and open it in `AliView` as we did before
 
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln.clipkit ~/Desktop
 	
@@ -519,13 +515,13 @@ You should see
 
 #### What is the size of the clean alignment?
 
-* Now we can run `CAPTUS` on all out samples
+* Now we can run `CAPTUS` on all our samples
 
 * Move to the `CAPTUS` directory and run the following command
 
 		cd /data_tmp/$USERNAME/data/03_captus
 	
-	captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
+		captus align -e 03_extractions -m NUC -f GE --max_paralogs 5 --min_samples 2 --align_method mafft_auto --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 4 --concurrent 30
 
 	You will start seeing this 
 
@@ -555,7 +551,7 @@ You should see
 
 	The whole process will take a couple of minutes
 
-* The output directory `04_alignments` will have many other directories where all the alignments will be located. It will also contain the report and log files.
+* The output directory `04_alignments` will contain many other directories, in which all the alignments are located. It will also contain the report and log files.
 
 		cd  04_alignments
 	
@@ -568,7 +564,7 @@ You should see
 
 * Copy the report to your laptop to open it	
 	
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/04_alignments/captus-align_report.html ~/Desktop
 
@@ -577,7 +573,7 @@ You should see
 
 * The directory with the files that we are interested in is `03_trimmed/01_unfiltered_w_refs/01_coding_NUC/03_genes`
 
-* This directory will contain the `FASTA` files for the clean alignments with out the reference and up to 5 gene copies per samples. In this case all this alignments will have only two samples because is just the test data.
+* This directory will contain the `FASTA` files for the clean alignments without the reference and up to 5 gene copies per sample. In this case, all these alignments will have only two samples because it is just the test data.
 
 		ls 03_trimmed/01_unfiltered_w_refs/01_coding_NUC/03_genes
 	
@@ -607,15 +603,15 @@ You should see
 		5038.fna  5328.fna  5463.fna  5664.fna  5893.fna  5981.fna  6148.fna  6376.fna  6483.fna  6572.fna  6860.fna  7029.fna
 		5090.fna  5333.fna  5464.fna  5670.fna  5899.fna  5990.fna  6150.fna  6378.fna  6487.fna  6601.fna  6864.fna  7111.fna
 	
-* The directory that have the equivalent files but with all 30 samples is `/data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
+* The directory that has the equivalent files but with all 30 samples is `/data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes` We will use these files for the next steps.
 
 * To see the report `captus-align_report_all_samples.html` and log `captus-align_all_samples.log` of the alignment step or all 30 samples to to
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-* Again copy the report to your laptop to open it	
+* Again, copy the report to your laptop to open it	
 	
-#### THE FOLLOWING LINE NEEDS TO BE TYPE IN WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW
+#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-align_report_all_samples.html ~/Desktop
 

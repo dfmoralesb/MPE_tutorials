@@ -15,11 +15,11 @@
 	ssh -p 22110 USERNAME@10.153.134.10
 
 
-### Every time you see `$USERNAME` in the example command you need to replace it with you own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
+### Every time you see `$USERNAME` in the example command, you need to replace it with your own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
 
-* To avoid having to change the `$USERNAME` for every command you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
+* To avoid having to change the `$USERNAME` for every command, you can set a variable to provide the name of it. ***Do this every time you connect to the workstation***
 
-	For example for me Diego my user name is `mpemaster`
+	For example, for me, Diego, my user name is `mpemaster`
 	
 		USERNAME=mpemaster
 
@@ -28,7 +28,7 @@
 
 <a name="ML"></a>
 
-* To estimate a coalescent-based species tree with ASTRAL, we need to first infer the indvidual ML gene trees for each of locu in the directory `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`
+* To estimate a coalescent-based species tree with ASTRAL, we need to first infer the individual ML gene trees for each locus in the directory `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`
 
 		conda activate captus
 
@@ -36,17 +36,17 @@
 	
 		for i in *.clipkit; do iqtree -s $i; done
 		
-	It should a couple of minutes to infer all four trees 
+	It should take a couple of minutes to infer all four trees. 
 
 
 <a name="astral"></a>
 ## Coalescent-based species tree inference with ASTRAL
 
 
-ASTRAL program for estimating a species tree given a set of unrooted gene trees. ASTRAL is statistically consistent under multi-species coalescent model (and thus is useful for handling ILS).
+ASTRAL program for estimating a species tree given a set of unrooted gene trees. ASTRAL is statistically consistent under the multi-species coalescent model (and thus is useful for handling ILS).
 
 
-* To see the many options available in ASTRAL you can type the following in the command line:
+* To see the many options available in ASTRAL, you can type the following in the command line:
 
 		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -h
 
@@ -57,9 +57,9 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 <a name="running"></a>
 ## Running ASTRAL
 
-* To run ASTRAL you need a single file with all the individual gene trees (one per line) in Newick format. In this case we need to put all 4 gene trees (*.treefile files) from `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`. To do this you can use the `cat` command like this:
+* To run ASTRAL, you need a single file with all the individual gene trees (one per line) in Newick format. In this case, we need to put all four gene trees (*.treefile files) from `/data_tmp/$USERNAME/data/06_species_tree/00_individual_loci`. To do this, you can use the `cat` command like this:
 
-	First let make a new directory where we will place the new astral input file
+	First, let's make a new directory where we will place the new astral input file.
 	
 		mkdir /data_tmp/$USERNAME/data/06_species_tree/01_astral
 		
@@ -67,7 +67,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 		
 		for i in /data_tmp/$USERNAME/data/06_species_tree/00_individual_loci/*.treefile; do cat $i >> meliaceae_4_gene_trees.tre; done
 		
-	You can verify that the file has the four trees by counting its lines
+	You can verify that the file has the four trees by counting its lines.
 	
 		wc -l meliaceae_4_gene_trees
 		
@@ -79,7 +79,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 	
 		cat meliaceae_4_gene_trees
 		
-	The file should look like below. In each tree ends with the `;` character.
+	The file should look like the lines below. Each tree ends with the `;` character.
 	
 		(RUTA_Citrus_hystrix:0.0835656868,((MELI_Azadirachta_indica:0.0374672542,MELI_Owenia_reticulata:0.0157468780):0.0285962983,(((MELI_Cabralea_canjerana:0.0000021269,MELI_Aglaia_spectabilis:0.0272804312):0.0089648001,MELI_Chisocheton_longistipitatus:0.0601047198):0.0109703880,(MELI_Vavaea_amicorum:0.0403882230,MELI_Quivisianthe_papinae:0.0602748637):0.0000010000):0.0096388111):0.0033915003,(((MELI_Schmardaea_microphylla:0.0430283366,MELI_Swietenia_macrophylla:0.0422843150):0.0004802036,MELI_Toona_ciliata:0.0321956757):0.0040772837,MELI_Lovoa_sywnnertonii:0.0145910722):0.0148901425);
 		(RUTA_Citrus_hystrix:0.1584565410,(RUTA_Melicope_ternata:0.2651898507,RUTA_Ruta_graveolens:0.4093906277):0.0260760901,(((((MELI_Aglaia_spectabilis:0.0770012553,MELI_Dysoxylum_alliaceum:0.0375195596):0.0153077694,MELI_Cabralea_canjerana:0.0291996907):0.0018050631,(((MELI_Aphanamixis_polystachya:0.0565045029,MELI_Chisocheton_longistipitatus:0.0359065778):0.0016804008,(MELI_Heckeldora_staudtii:0.0497883139,MELI_Guarea_pubescens:0.0575936343):0.0024776985):0.0010051573,(MELI_Trichilia_hirta:0.0658230756,MELI_Turraea_virens:0.1285390727):0.0155774898):0.0050946256):0.0395465578,MELI_Quivisianthe_papinae:0.1520641633):0.0483593977,(((MELI_Toona_ciliata:0.0381258583,MELI_Lovoa_sywnnertonii:0.0694636002):0.0033692486,(MELI_Swietenia_macrophylla:0.0312362305,MELI_Swietenia_mahagoni:0.1029668314):0.0407022592):0.0411581809,(MELI_Chukrasia_tabularis:0.1058948108,MELI_Schmardaea_microphylla:0.0882770653):0.0264788493):0.0445313748):0.1598834165);
@@ -88,7 +88,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 		
 		
 	
-* To run ASTRAL just need to provide the gene trees file with the `-i` option and the output file name with the `-o` file. 
+* To run ASTRAL, you just need to provide the gene trees file with the `-i` option and the output file name with the `-o` file. 
 
 		java -jar /home/morales/Apps/ASTRAL/astral.5.7.8.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre
 
@@ -97,7 +97,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 ## The ASTRAL Log information
 
 
-* It is recommend to save the [`stderr`](https://en.wikipedia.org/wiki/Standard_streams), to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to screen and also redirecting it to a file.
+* It is recommended to save the [`stderr`](https://en.wikipedia.org/wiki/Standard_streams) to a log file to check that everything ran OK. You can do this using the `tee` command to print the `stderr` to the screen and also redirect it to a file.
 
 
 		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)	
@@ -107,7 +107,7 @@ Here are some of the important information captured in the log:
 
 		less ASTRAL.log
 
-You should see (along other information)
+You should see (along with other information)
 
 		Accurate Species TRee ALgorithm (wASTRAL-unweighted)
 		Version: v1.15.2.4
@@ -122,7 +122,7 @@ You should see (along other information)
 
 ## Branch length and support
 
-* ASTRAL measures branch length in coalescent units and also has a fast way of measuring support without a need for bootstrapping. The support measure is called *Local Posterior Probability (LPP)*. Detail about the algorithms to compute branch lengths and support and the meaning of support outputted is further described in [this paper](http://mbe.oxfordjournals.org/content/early/2016/05/12/molbev.msw079.short?rss=1).
+* ASTRAL measures branch length in coalescent units and has a fast way of measuring support without bootstrapping. The support measure is called *Local Posterior Probability (LPP)*. Detail about the algorithms to compute branch lengths and support and the meaning of support outputted is further described in [this paper](http://mbe.oxfordjournals.org/content/early/2016/05/12/molbev.msw079.short?rss=1).
 
 * Some points have to be emphasized:
 
@@ -133,7 +133,7 @@ You should see (along other information)
 <a name="figtree"></a>
 ## [Reading and visualizing tree files](#figtree)
 
-* Open the file `meliaceae_4_gene_trees.ASTRAL.tre` in a text editor, or on the command line using, for example, the `cat` command:
+* Open the file `meliaceae_4_gene_trees.ASTRAL.tre` in a text editor or on the command line using, for example, the `cat` command:
 
 		cat meliaceae_4_gene_trees.ASTRAL.tre
 		
@@ -141,15 +141,15 @@ You should see (along other information)
 		
 		(((((((((((((MELI_Dysoxylum_alliaceum,MELI_Aphanamixis_polystachya)0.425841:0.000000,MELI_Cabralea_canjerana)0.666667:0.287682,MELI_Neoguarea_glomerulata)0.666667:0.287682,(MELI_Turraeanthus_manii,MELI_Heckeldora_staudtii)0.666667:0.287682)0.500325:0.057158,((MELI_Chisocheton_longistipitatus,MELI_Guarea_pubescens)0.825438:0.575364,MELI_Aglaia_spectabilis)0.249163:0.000000)0.782360:0.433190,MELI_Vavaea_amicorum)0.666667:0.287682,MELI_Trichilia_hirta)0.416667:0.000000,MELI_Turraea_virens)0.824039:0.510826,MELI_Quivisianthe_papinae)0.952381:0.980829,((MELI_Azadirachta_indica,MELI_Melia_azedarach)0.866667:0.693147,MELI_Owenia_reticulata)0.952381:0.980829)0.952381:0.980829,((((MELI_Swietenia_macrophylla,MELI_Swietenia_mahagoni)0.333333:0.000000,MELI_Carapa_procera)0.666667:0.287682,(MELI_Lovoa_sywnnertonii,MELI_Toona_ciliata)0.713915:0.344840)0.840580:0.510826,(MELI_Chukrasia_tabularis,MELI_Schmardaea_microphylla)0.952381:0.980829)0.983740:1.203973)0.952381:0.980829,(RUTA_Ruta_graveolens,RUTA_Melicope_ternata)0.666667:0.287682),RUTA_Citrus_hystrix);		
 
-* Open FigTree, copy the above tree string, and paste it into the new FigTree window. You'll see a phylogeny as shown in the screenshot below.
+* Open FigTree, copy the above tree string and paste it into the new FigTree window. You'll see a phylogeny, as shown in the screenshot below.
 
 <p align="center"><img src="images/asfigtree_1.png" alt="asfigtree_1" width="900"></p>
 
-* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use Rutaceae as root. Click on the branch leading to all Rutaceae samplse, as shown in the next screenshot.
+* To correct the rooting of the phylogeny, we can specify an outgroup. In this case, we are going to use Rutaceae as the root. Click on the branch leading to all Rutaceae samples, as shown in the next screenshot.
 
 <p align="center"><img src="images/asfigtree_2.png" alt="asfigtree_2" width="900"></p>
 
-* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
+* With that branch selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
 
 <p align="center"><img src="images/asfigtree_3.png" alt="asfigtree_3" width="900"></p>
 
@@ -157,11 +157,11 @@ You should see (along other information)
 
 <p align="center"><img src="images/asfigtree_4.png" alt="asfigtree_4" width="900"></p>
 
-* To see node-support values based on LPP, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the below screenshot. 
+* To see node-support values based on LPP, set a tick in the checkbox for "Node Labels," and select "label" from the "Display" drop-down menu, as shown in the screenshot below. 
 
 <p align="center"><img src="images/asfigtree_5.png" alt="asfigtree_5" width="900"></p>
 
-* This are just quick examples. Now we need to deal with all the phylogenomic data in the next tutorial.
+* These are just quick examples. Now, we need to deal with all the phylogenomic data in the next tutorial.
 
 
 
