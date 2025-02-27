@@ -445,7 +445,7 @@
 	
 	You can save this plot as well with another name and download it to your laptop.
 	
-	What is the difference between the two plots? How does this compare to the CF and QS
+	#### What is the difference between the two plots? How does this compare to the CF and QS
 	
 * Plot concordant/discordant gene trees
 
