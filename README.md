@@ -38,7 +38,7 @@ The password will be provided at the beginning of the first practicum.
 		USERNAME=mpemaster
 
 
-#### Requirements (software) - The following software has already been installed in each account.
+#### Requirements (software): The following software has already been installed in each account.
 
 
 * [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -71,12 +71,14 @@ The password will be provided at the beginning of the first practicum.
 
 ### * Requirements (data)
 
-All data for analyses and output will be located in the workstation. If not, the tutorial will show you exactly the location of the data.
+All data for analyses and output will be located on the workstation. If not, the tutorial will show you exactly where the data is located.
 
 	/data_tmp/$USERNAME/data
 		
 		
 ## Tutorials
+
+By Diego
 
 * [NGS data](tutorials/NGS.md)<br>A tutorial on NGS data and target enrichment data
 
@@ -91,6 +93,23 @@ All data for analyses and output will be located in the workstation. If not, the
 * [Alternative support values - Conflict analysis](tutorials/CONFLICT.MD)<br>A tutorial on alternative ways to measure node support - with a focus on conflict analyses
 
 * [Identifying Whole Genome Duplication](tutorials/WGD.md)<br>A tutorial on mapping gene duplications using a tree-based approach
+
+By Lizzy
+
+* [Divergence Time Estimation I](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/DivergenceTimeEstimation_FossilCalibrations.md)<br>
+
+* [Divergence Time Estimation II](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/DivergenceTimeEstimation_BEAST_TargetCapture.md)<br>
+
+* [Biogeographic reconstruction with BioGeoBEARs](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Area_Reconstruction.md)<br>
+
+* [Biogeographic reconstruction with BioGeoBEARs](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Trait_Reconstruction.md)<br>
+
+
+
+
+
+
+
 
 
 
