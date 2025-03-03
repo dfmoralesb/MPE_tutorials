@@ -11,17 +11,12 @@ This repository contains the instructions and tutorias for the **Molecular Phylo
 | -------- | ------- |
 | Alexander James	Dietrick | mpeuser1 |
 | Alexandra	Eisenbeil | mpeuser2 |
-| Danila	Blagomirov | mpeuser3 |
-| Dikshitha	Siddegowda | mpeuser4 |
-| Ece	Cinar | mpeuser5 |
-| Helin Meral	Yalcin | mpeuser6 |
-| Jain Mary	Jose | mpeuser7 |
-| Jiajun	Ling | mpeuser8 |
-| Kweku Acheampong	Boakye | mpeuser9 |
-| Sushmit	Bhattacharya | mpeuser10 |
-| Yusuf	Bozkurt | mpeuser11 |
-| Zizheng	Yan | mpeuser12 |
-| Diego or Lizzy | mpemaster|
+| Dikshitha	Siddegowda | mpeuser3 |
+| Ece	Cinar | mpeuser4 |
+| Jain Mary	Jose | mpeuser5 |
+| Jiajun	Ling | mpeuser6 |
+| Sushmit	Bhattacharya | mpeuser7 |
+| Yusuf	Bozkurt | mpeuser8 |
 
 #### How to login to the workstation
 

@@ -96,11 +96,11 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 		MELI_Aglaia_spectabilis_G09645_R1_fastqc.html
 		MELI_Aglaia_spectabilis_G09645_R1_fastqc.zip
 
-* The first is an `HTML` report that you download and open locally in your internet browser, and the second is a `zip` containing the stats files that we will use later.
+* The first is a `HTML` report that you download and open locally in your internet browser, and the second is a `zip` containing the stats files that we will use later.
 
 * To copy the `html` file to your laptop, do
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 
 	scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/00_raw_reads/MELI_Aglaia_spectabilis_G09645_R1_fastqc.html ~/Desktop
@@ -134,7 +134,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * Once it is done, you will see a file called `multiqc_report.html` You need to download it to your laptop as you did before.
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/00_raw_reads/multiqc_report_raw.html ~/Desktop
 	
@@ -200,7 +200,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 	
 * Copy the report of the deduplicated read so we can compare it with the raw one
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/01_dedup/multiqc_report_dedup.html .
 
@@ -210,7 +210,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 	
 	scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_dedup.html ~/Desktop
 
@@ -279,7 +279,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 		
 * Copy the report to your laptop and open it in the browser
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/02_clean/multiqc_report_clean.html ~/Desktop
 

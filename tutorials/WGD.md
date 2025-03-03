@@ -58,7 +58,7 @@
 		
 		cd 13_wdg/
 		
-	Now let's extract the orthogroups
+	Now, let's extract the orthogroups
 	
 		python /data_tmp/$USERNAME/script/extract_clades.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_orthogroups ../in_out_list.txt orthogroup
 		
@@ -100,11 +100,11 @@
 		
 	The script requires the directory with the orthogroups from the previous step, the rooted reference tree, the minimum number of taxa (same number as in the previous step), and an output name.
 	
-	Let's map the genome duplications now
+	Let's map the genome duplications now.
 	
 		python /data_tmp/$USERNAME/script/map_dups_mrca.py 00_orthogroups/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr 8 meliaceae_wgd_mrca
 		
-	You should start seeing
+	You should start seeing:
 	
 		7313.iqtree.treefile.1.orthogroup
 		Number of taxa: 24
@@ -129,12 +129,12 @@
 	
 		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632):0.0056021936,MELI_Cabralea_canjerana:0.025582682):0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193):0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144)1/318:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158):0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287):0.0018363755):0.0023701151)15/318:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)49/318:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)7/318:0.0208684956)162/318:0.0092840998,MELI_Munronia_pinnata:0.0763143712)56/318:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)30/318:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263):0.0325065738,MELI_Owenia_reticulata:0.0372445257)3/318:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134):0.0601215172):0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088):0.0356809672):0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901):0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133):0.0231644117,MELI_Carapa_procera:0.0308532123):0.0385898559)56/318:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093):0.0103559063)96/318:0.0261171806)21/318:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468):0.0173378156):0.0484817959):0;
 	
-	Plot the tree in Figtree and show the node labels
+	Plot the tree in Figtree and show the node labels.
 	
 	<p align="center"><img src="images/wgd_count.png" alt="wgdc" width="900"></p>
 
 	
-	The same goes for the other tree. Show the node labels as percentages
+	The same goes for the other tree. Show the node labels as percentages.
 	
 		cat dup_perc_filter70_global.meliaceae_wgd_mrca
 	
@@ -177,7 +177,7 @@
 		
 	`dup_perc_filter70_global.meliaceae_wgd_mrca.branch_labels` is the output file
 		
-	Now open RStudio, your internet browser, again by typing `10.153.134.10:8787` and log in with your workstation credentials
+	Now open RStudio, your internet browser, again by typing `10.153.134.10:8787` and log in with your workstation credentials.
 	
 	In the console (bottom) type
 	
@@ -196,7 +196,7 @@
 ## Mapping gene duplications - filter based on concordant clades
 
 
-* Alternatively we can also map orthogroups by filtering them by concordant clades.
+* Alternatively, we can also map orthogroups by filtering them by concordant clades.
 
   	This is a local topology filter that only maps a gene duplication event when the sister clade of the gene duplication node in the orthogroup contained a subset of the taxa in the corresponding sister clade in the reference tree. For me detail about this see [Cannon et al. 2015](https://doi.org/10.1093/molbev/msu296) or [Li et al. 2015](https://doi.org/10.1126/sciadv.1501084)
   
@@ -209,9 +209,9 @@
  	 	Usage:
  	 	python map_dups_concordant.py incladeDIR rooted_spTree outname
  	 	
- 	 The script needs the same orthogroup directory as before, the reference tree, and the output name
+ 	 The script needs the same orthogroup directory as before, the reference tree, and the output name.
   
- 	 Let's run the script
+ 	 Let's run the script.
   
  	 	python /data_tmp/$USERNAME/script/map_dups_concordant.py 00_orthogroups/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr meliaceae_wgd_concordant
 
@@ -229,11 +229,11 @@
 		12 nodes concordant, among which 0 duplications detected
 		...
 
-	In the screen, you can see how many concordant nodes are been mapped
+	In the screen, you can see how many concordant nodes have been mapped
 	
 	The output files are `dup_count_concord.meliaceae_wgd_concordant` and `dup_perc_concord.meliaceae_wgd_concordant`
 	
-	You can open and plot them as you did for the previous mapping
+	You can open and plot them as you did for the previous mapping.
 	
 		cat  dup_count_concord.meliaceae_wgd_concordant
 		
@@ -241,12 +241,12 @@
 	
 		((((((((((((MELI_Aglaia_spectabilis:0.0375885764,MELI_Aphanamixis_polystachya:0.0419670632)0/159:0.0056021936,MELI_Cabralea_canjerana:0.025582682)0/110:0.0046142662,MELI_Dysoxylum_alliaceum:0.0482585193)0/67:0.002629005,MELI_Chisocheton_longistipitatus:0.0434381144)0/137:0.0016593652,((MELI_Heckeldora_staudtii:0.0427502585,MELI_Guarea_pubescens:0.0411445158)0/18:0.0007827064,(MELI_Neoguarea_glomerulata:0.0451238849,MELI_Turraeanthus_manii:0.0560241287)0/11:0.0018363755)0/126:0.0023701151)1/161:0.0060012439,MELI_Vavaea_amicorum:0.0762391468)25/119:0.0077188462,(MELI_Trichilia_hirta:0.0527954546,MELI_Turraea_virens:0.1002290411)6/172:0.0208684956)10/24:0.0092840998,MELI_Munronia_pinnata:0.0763143712)48/71:0.0115924912,MELI_Quivisianthe_papinae:0.0927838334)13/150:0.0330980586,(((MELI_Azadirachta_indica:0.0028085964,MELI_Melia_azedarach:0.0042547263)0/255:0.0325065738,MELI_Owenia_reticulata:0.0372445257)1/119:0.0189203949,MELI_Pterorhachis_zenkeri:0.0506308134)0/62:0.0601215172)0/147:0.0068608865,((((MELI_Toona_ciliata:0.0209736796,(MELI_Cedrela_montana:0.0246820354,MELI_Cedrela_saltensis:0.0106038088)0/7:0.0356809672)0/8:0.0186519042,MELI_Lovoa_sywnnertonii:0.0681119901)0/187:0.0045679476,((MELI_Swietenia_macrophylla:0.0124428947,MELI_Swietenia_mahagoni:0.0307433133)0/22:0.0231644117,MELI_Carapa_procera:0.0308532123)0/211:0.0385898559)51/227:0.0154981841,(MELI_Schmardaea_microphylla:0.0977996692,MELI_Chukrasia_tabularis:0.0568456093)0/186:0.0103559063)89/270:0.0261171806)7/332:0.0484817959,(RUTA_Melicope_ternata:0.1713673116,(RUTA_Citrus_hystrix:0.1203095997,RUTA_Ruta_graveolens:0.2229865468):0.0173378156):0.0484817959):0;	
 	
-	Plot the tree in Figtree and show the node labels
+	Plot the tree in Figtree and show the node labels.
 	
 	<p align="center"><img src="images/wgdconcon.png" alt="wgdcc" width="900"></p>
 
 	
-	The same goes for the other tree. Show the node labels as percentages
+	The same goes for the other tree. Show the node labels as percentages.
 	
 		cat dup_perc_concord.meliaceae_wgd_concordant
 	
@@ -256,7 +256,7 @@
 	
 	<p align="center"><img src="images/wgdconper.png" alt="wgdcp" width="900"></p>
 	
-	As before, let's plot the WGD to see outliers
+	As before, let's plot the WGD to see outliers.
 	
 		python /data_tmp/$USERNAME/script/plot_branch_labels.py dup_perc_concord.meliaceae_wgd_concordant
 
@@ -274,7 +274,7 @@
 		0.0210843373494
 		output written to dup_perc_concord.meliaceae_wgd_concordant.branch_labels
 		
-	Now go back to Rstudio and plot the percentages
+	Now go back to RStudio and plot the percentages.
 	
 		b=read.table('dup_perc_concord.meliaceae_wgd_concordant.branch_labels')
 		hist(b[,1],breaks=60,col='grey',xlab='',ylab='',main='',axes=FALSE,xlim=c(0,1))

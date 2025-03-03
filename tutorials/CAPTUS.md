@@ -104,7 +104,7 @@
 
 * Now you can copy the `captus-clean_report.html` file to your laptop to see it
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/captus-clean_report.html ~/Desktop
 
@@ -120,7 +120,7 @@
 	
 * Copy the `html` report to your computer and open it in the browser. You can compare this report with the one we did in the NGS tutorial
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/01_clean_reads/02_qc_stats_after/multiqc_report_clean_captus.html .
 
@@ -132,7 +132,7 @@
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_clean.html ~/Desktop
 
@@ -198,7 +198,7 @@
 	
 * Now copy the assemble report to your laptop
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/02_assemblies/captus-assemble_report.html ~/Desktop
 
@@ -260,7 +260,7 @@
 	
 * You can copy the report to your laptop to see it
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-assemble_report_all_samples.html ~/Desktop
 
@@ -335,7 +335,7 @@
 
 * Now copy the assemble report to your laptop
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 
  	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/03_extractions/captus-extract_report.html ~/Desktop
@@ -375,7 +375,7 @@
 	
 * Again, copy the report to your laptop to open it	
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-extract_report_all_samples.html ~/Desktop
 
@@ -405,7 +405,7 @@
 		GAAGCTGTTTTAGTAAATGGTAATGTGCTTGTCATGCTTGGGACTTTACGTAAAGATAATACTGGGTATGAATTAAAGCATTTGGTTATAGgtatgttctttctctgcgttgtaaggaagtttttgacataagcataaattaataaagggatcaattcagtgtatttgggctctttttgatgtagGAAGTGAAGGATCCTTGGGAATTGTAACCAAAGTTTCGATACTTACCCCTCCAAAACTTTCTTCCGTAAATTTAGCTTTCCTTGCATGCAGCGATTATTTCAGCTGTCAGttatgaccagtttcctctcccttagttttttttttgtcttagcatacaattttactaaatcaatccatcataatgtattaatagctttattgttttatctttctcttgataccatcatcttttgaatgtgttgttgcacttggtctggtggcagtagtttagatctactttgatcagttcgagatgtgatatgaatgcttgattctttatgttggcctttgtgtatcacagcatggccgactttgatcggttcaagattctctatgactgcttgattctcagtgatggcttttgtacatcacatcacgaatcactcaagcaggaaactggactttaggtgacgtcttgcattcatacaatttgaggttttcatcacaaatatcaaacaatatatattgtcacttcgcaactggacttcaggtgatatcttgcattcatacaccttgaggttttcatcacaaatttcaaacaatatatatggtcacttgacaattttttataatttactaaaatttgcaccattataattttcctgtgtatattgttgaaaacctgaagttgagtttgaatttattcttgtaatttccttttccagtccttcgttctataatttcttagtttcctttagcaaaaattgcaccttttcctccttatcttgattctcgtgtgtttatcagAAGCTTCTGCTGGAAGCAAAGAGGAAACTTGGGGAGATTCTATCGGCATTTTAGCTTTCGGATAACTTGTCAATGGGTTTGatgagcttttgtaatagcttatattcttattcttgactgttgacattatgcgtcacttagaaattgcagttacgctaaaacgtagttatgaactcctttacaaatttgaagcgaactttctcactcaagacattataaaccttaatttggccttaaatcttatcacaatttcctaaccttatgaatgaaaaaaacatctcaagacatctttggaatatcttcatgactctaatttgaggtggcataatacattaagaggcttcctggataatctgactaatataatctatgacggtcaacttgaatgtactctttatgaaatatctgatgaagtttttaatgtgtttctatgaagacttttaaattgctcggcgttgacatcctataatcctgttttgagttcagttgtgtggctgtatgctttacatgtaattgccgttattcttcataatcagcaggaaaggttgaaacttctgtgatatcatcattgttacgattattatcttatactttttgattggactaagttgcaagtatactttctttctcgtgaaataagaacttcttttagagatcatcctgttatttgttgcttcagaaggttacgtagttgcatatagttttgatattctcttccatttttggaatgtaatcactggattttatgtgtcagGTTTTAAACCGTTTGGATGGTGTTAGGAATCCGTTACCTTCCTCAATGAACAACTTCTATGTTTTGATTGAGACAACGGGCAGTGATGAATCTTTTGACTNNGGTaacaattgccttcatgccattatttttcagacgtttaagttctgattgcgaattgaaggatcttcattccagtttaaattaagattgcaaactgaaggagaaagtgattgatattttacatttttcttgctttcctttaaatttacataaaaaatacagaatacagcgataagttccccgatttctctgcatgtttagaatccaaccgattatgaaactaggatatgctcctgaatgaaaatctttagccgtttctattttttaggttgtttccaaacatttgacaacattttttaatttttgtttaccattttatgaatacaaattgagttcttcatgcatctttctaatctatcatcacctgatgagatgcatattttgctgatcttttctgcgatgtatttagcttcgtgaattttcttcttcttggctaacatgaatatgtgctaagattctgctatacaatattgatgtctttagagagAAGCTTGAGGCCTTCCTTCTTCAATCTATGGAGGGTGGATTGATTTCTGATGGTGTTATTGCACAAGACATAAATCAAGCTTCGTCATTCTGGCGAATACGTGAG
 		...
 	
-* To count the number of sequences you can do
+* To count the number of sequences, you can do
 
 		grep ">" 4471.fna | wc -l
 	
@@ -415,7 +415,7 @@
 	
 * Now cp the `FASTA` file on your laptop and visualize it on `AliView`
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.fna ~/Desktop
 	
@@ -461,7 +461,7 @@
 
 * Copy the alignment to your laptop and open it in `AliView` as we did before
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln ~/Desktop
 	
@@ -504,7 +504,7 @@ You should see
 
 * Copy the alignment to your laptop and open it in `AliView` as we did before
 
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/04_individual_aln/4471.aln.clipkit ~/Desktop
 	
@@ -564,7 +564,7 @@ You should see
 
 * Copy the report to your laptop to open it	
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/03_captus/04_alignments/captus-align_report.html ~/Desktop
 
@@ -611,7 +611,7 @@ You should see
 	
 * Again, copy the report to your laptop to open it	
 	
-#### THIS NEEDS TO BE TYPED IN A WINDOW IN YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
+#### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
 	scp -P 22110 $USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/captus-align_report_all_samples.html ~/Desktop
 
