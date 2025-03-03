@@ -8,7 +8,7 @@
 
 * We are going to use `CAPTUS` to do each of these parts. The advantage of this kind of pipeline is that with a few commands, you can automate the process of all your samples at once while keeping a nice file structure and order.
 
-* For a detailed guide to `CAPTUS` please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
+* For a detailed guide to `CAPTUS`, please see [here](https://edgardomortiz.github.io/captus.docs/assembly/index.html)
 
 
 #### How to login to the workstation
@@ -30,11 +30,11 @@
 
 * This part of `captus` will do exactly what we did before but for all samples at the time
 
-* Fist, make sure to load the `captus` environment
+* First, make sure to load the `captus` environment
 
 		conda activate captus
 	
-* Then let's make and move to a new directory where we will put all the `captus` output directories
+* Then, let's make and move to a new directory where we will put all the `captus` output directories
 
 		mkdir /data_tmp/$USERNAME/data/03_captus
 	
@@ -110,9 +110,9 @@
 
 * Open the `html` file in your internet browser, and you should see something like this<p align="center"><img src="images/captus_clean.png" alt="clean" width="900"></p>
 
-#### All the screen output you saw during the execution of `captus` is in the log file `captus-clean.log` This is very important as it contains all the information related to the parameter of the run and any possible errors. This is the case for all four modules of `CAPTUS`
+#### All the screen output you saw during the execution of `captus` is in the log file `captus-clean.log`. This is very important as it contains all the information related to the parameters of the run and any possible errors. This is the case for all four modules of `CAPTUS`
 
-* In case you want to create a similar report we did before with `multiqc` you can do it with
+* In case you want to create a similar report as we did it before with `multiqc`; you can do it with
 
 		cd 02_qc_stats_after
 	
@@ -138,7 +138,7 @@
 
 <p align="center"><img src="images/multiqc_clean_all.png" alt="multiqcleanall" width="900"></p>
 
-* The `captus` report and log for all samples is also available at `/data_tmp/$USERNAME/output/all_samples_reports` if you are interested in seeing them, they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
+* The `captus` report and log for all samples are also available at `/data_tmp/$USERNAME/output/all_samples_reports`; if you are interested in seeing them, they are `captus-clean_report_all_samples.html` and `captus-clean_all_samples.log`
 
 
 <a name="assemble"></a>
@@ -186,7 +186,7 @@
 		
 	The assembly of these two samples should take 20 minutes
 
-* Once it is finished you will see a directory called `02_assemblies` Move to that directory and make a list
+* Once it is finished, you will see a directory called `02_assemblies`. Move to that directory and make a list
 
 		cd 02_assemblies
 		ls
@@ -196,7 +196,7 @@
 		captus-assemble_assembly_stats.tsv  captus-assemble_length_stats.tsv  captus-assemble_report.html          MELI_Dysoxylum_alliaceum__captus-asm
 		captus-assemble_depth_stats.tsv     captus-assemble.log               MELI_Aglaia_spectabilis__captus-asm
 	
-* Now copy the assemble report to your laptop
+* Now copy the assembly report to your laptop
 
 #### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
@@ -254,7 +254,7 @@
 
 * And `TTCGACAACATAACGGCCTAAAAGTCATACCCCCGGAATCATCTCGATCCCAATTTCCATCCTGCAAGGGCAATTTTGCA...` is the actual sequence
 
-* To see the `captus` report `captus-assemble_report_all_samples.html` and log `captus-assemble_all_samples.log` for all 30 samples go to 
+* To see the `captus` report `captus-assemble_report_all_samples.html` and log `captus-assemble_all_samples.log` for all 30 samples, go to 
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
@@ -271,7 +271,7 @@
 <a name="extract"></a>
 ## Extract - identification of target regions
 
-* During this step, `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence data sets (amino acids or nucleotides) and then extract them. Proteins can be provided in either amino acid or nucleotide; these are searched and extracted using `Scipio`  Like in the previous steps, `CAPTUS` will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
+* During this step, `CAPTUS` will search the assemblies produced by the previous step for the loci contained in the provided reference target sequence data sets (amino acids or nucleotides) and then extract them. Proteins can be provided in either amino acid or nucleotide; these are searched and extracted using `Scipio`.  Like in the previous steps, `CAPTUS` will produce an HTML report summarizing the marker recovery statistics across all samples and extracted markers.
 
 * To run the extract module, do
 
@@ -333,7 +333,7 @@
 		captus-extract.log        captus-extract_report.html  MELI_Aglaia_spectabilis__captus-ext
 		captus-extract_refs.json  captus-extract_stats.tsv    MELI_Dysoxylum_alliaceum__captus-ext
 
-* Now copy the assemble report to your laptop
+* Now copy the assembly report to your laptop
 
 #### THIS NEEDS TO BE TYPED IN A WINDOW ON YOUR LOCAL COMPUTER, NOT WHILE YOU ARE CONNECTED TO THE WORKSTATION. JUST OPEN A NEW TERMINAL WINDOW.
 
@@ -385,9 +385,9 @@
 <a name="align"></a>
 ## Align - individual loci alignment and cleaning
 
-* In this step, `CAPTUS` will process the results from the extract command. First, it will collect all the markers across samples and create a separate `FASTA` file per locus. Then, the reference sequences used for extraction will be added to their corresponding `FASTA` loci file to aid as an alignment guide. This is followed by alignment using MAFFT. `CAPTUS` extracts all the copies (hits) of a locus that are found in the assembly and ranks them by their similarity to the reference sequence. After that, the references are used to guiding the alignment later are removed. Finally, the alignments are trimmed using the recently published package `ClipKIT`. As in previous steps, `CAPTUS` will summarize the alignment statistics of all the markers (e.g., length, mean pairwise identity, missingness, number of informative sites, etc.) and produce an HTML report.
+* In this step, `CAPTUS` will process the results from the extract command. First, it will collect all the markers across samples and create a separate `FASTA` file per locus. Then, the reference sequences used for extraction will be added to their corresponding `FASTA` loci file to aid as an alignment guide. This is followed by alignment using MAFFT. `CAPTUS` extracts all the copies (hits) of a locus that are found in the assembly and ranks them by their similarity to the reference sequence. After that, the references that are used to guide the alignment later are removed. Finally, the alignments are trimmed using the recently published package `ClipKIT`. As in previous steps, `CAPTUS` will summarize the alignment statistics of all the markers (e.g., length, mean pairwise identity, missingness, number of informative sites, etc.) and produce an HTML report.
 
-#### Before we run `CAPTUS` for aligning, we are going to do an example alignment and cleaning for one locus so you understand what is `CAPTUS` doing
+#### Before we run `CAPTUS` for aligning, we are going to do an example alignment and cleaning for one locus so you understand what `CAPTUS` is doing.
 
 * The example fasta file `4471.fna` is on `/data_tmp/$USERNAME/data/04_individual_aln`
 

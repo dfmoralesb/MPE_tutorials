@@ -1,6 +1,6 @@
 # MPE tutorials
 
-This repository contains the instructions and tutorias for the **Molecular Phylogenetics and Evolution of Plants course - 2025**.
+This repository contains the instructions and tutorials for the **Molecular Phylogenetics and Evolution of Plants course - 2025**.
 
 
 ## Preparation

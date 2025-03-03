@@ -26,7 +26,7 @@
 
 * IQ-Tree can calculate two kinds of concordance factors. The gene concordance factor (gCF) and the site concordance factor (sCF). For every branch of a reference tree, gCF is defined as the percentage of “decisive” gene trees containing that branch. IQ-tree can calculate the gCF while accounting for missing data. sCF is the percentage of "decisive" alignment sites supporting a branch in the reference tree. sCF is a novel measure useful when individual gene alignments are relatively uninformative, such that gene trees are uncertain. gCF and sCF complement classical measures of branch support (e.g., bootstrap) in phylogenetics by providing a full description of underlying disagreement among loci and sites. 
 
-* To calculate concordance factors, you need a reference tree (e.g., concatenated tree or coalescent-based tree; it could be any tree, for that matter) and the individual ortholog gene trees (gCF) and the concatenated ortholog alignment (sCF)
+* To calculate concordance factors, you need a reference tree (e.g., a concatenated tree or coalescent-based tree; it could be any tree, for that matter) and the individual ortholog gene trees (gCF) and the concatenated ortholog alignment (sCF)
 
 	Load the conda environment 
 	
@@ -73,9 +73,9 @@
 	The node has three values: the ultrafast bootstrap from the original tree inference, the gCF, and the sCF.
 		
 		
-	gCF ranges from 0% no gene trees support that node to 100% all gene trees support that node.
+	gCF ranges from 0%, no gene trees support that node, to 100%, all gene trees support that node.
 	
-	In principle, sCF values can range from 0% (no sites are concordant with the focal branch) to 100% (all sites are concordant with the focal branch). In practice, however, empirical sCF values are rarely lower than 33%. This is due to an important underlying difference in the way that the two values are calculated. The sCF is calculated from quartets, so a single site can only support one of three topologies. Because of this, if there is no consistent information in an alignment (e.g. if a long alignment were generated at random), we expect a roughly equal proportion of sites supporting each of the three trees, leading to an sCF value of ∼33%. 
+	In principle, sCF values can range from 0% (no sites are concordant with the focal branch) to 100% (all sites are concordant with the focal branch). In practice, however, empirical sCF values are rarely lower than 33%. This is due to an important underlying difference in the way that the two values are calculated. The sCF is calculated from quartets, so a single site can only support one of three topologies. Because of this, if there is no consistent information in an alignment (e.g., if a long alignment were generated at random), we expect a roughly equal proportion of sites supporting each of the three trees, leading to an sCF value of ∼33%. 
 
 	What patterns do you see?
 
@@ -83,9 +83,9 @@
 <a name="qs"></a>
 ## Quartet Sampling (QS)- distinguishing weakly supported branches from conflict
 
-* QS assesses the confidence, consistency, and informativeness of each internal branch by the relative frequency of the three possible quartet topologies at each node. QS estimates branch support and conflict by sampling quartets from the species tree and the corresponding concatenated alignment and calculating the proportion of the three possible topologies at each node. As a result, it simultaneously evaluates the consistency of information (Quartet Concordance, QC), the presence of secondary evolutionary histories (Quartet Differential, QD), and the amount of information (Quartet Informativeness, QI) of internal nodes. For more detail, see [here](https://github.com/FePhyFoFum/quartetsampling)
+* QS assesses the confidence, consistency, and informativeness of each internal branch by the relative frequency of the three possible quartet topologies at each node. QS estimates branch support and conflict by sampling quartets from the species tree and the corresponding concatenated alignment and calculating the proportion of the three possible topologies at each node. As a result, it simultaneously evaluates the consistency of information (Quartet Concordance, QC), the presence of secondary evolutionary histories (Quartet Differential, QD), and the amount of information (Quartet Informativeness, QI) of internal nodes. For more details, see [here](https://github.com/FePhyFoFum/quartetsampling)
 
-* To run QS you need a ***rooted*** reference trees and a concatenated alignment. In this case, we are going to use the output of IQ-tree, the same for the concordance factors
+* To run QS, you need a ***rooted*** reference tree and a concatenated alignment. In this case, we are going to use the output of IQ-tree, the same for the concordance factors
 	
 	To see the options for QS, do
 	
@@ -114,7 +114,7 @@
 		#python3 quartet_sampling.py --tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr --align meliaceae_MO_500_8_concat.fa --genetrees meliaceae_MO_500_8_concat.model --reps 1000 --engine-exec iqtree --threads 120
 	
 	
-	Quartet sampling can take several hours to run so I have done this in advance. You can see the output files here `/data_tmp/$USERNAME/output/04_analyses/12_QS`
+	Quartet sampling can take several hours to run, so I have done this in advance. You can see the output files here: `/data_tmp/$USERNAME/output/04_analyses/12_QS`
 
 	
 	Where `--tree meliaceae_334_MO_orthologs.ASTRAL.tre.rr` is the rooted concatenated tree. `--align meliaceae_MO_500_8_concat.phy` is the concatenated alignment in PHYLIP format. This is the same alignment we used before but in a different format. The `concatenate_matrices_phyx.py` we have used in the previous tutorial produces this file as well as the FASTA one.  `meliaceae_MO_500_8_concat.model` is the model partition. `--reps 1000` is the number of quartet repetitions. `--engine-exec raxml-ng` is the software to calculate the likelihood score of each quartet. It used `raxml-ng`, which is another software to estimate ML trees. It could be `iqtree` as well.
@@ -211,13 +211,13 @@
 		set trees.transformType="cladogram";
 		end;
 
-	Plot the tree on Figtree as we have done before. For the node label, choose `score` Play around. You can also transform the branches, so it is easier to see. For this, go to the tab "Trees" -> "Transform Branches" and select "Cladogram"
+	Plot the tree on Figtree as we have done before. For the node label, choose `score`. Play around. You can also transform the branches so it is easier to see. For this, go to the tab "Trees" -> "Transform Branches" and select "Cladogram".
 
 	You should see this
 	
 	<p align="center"><img src="images/qs.png" alt="qs" width="900"></p>
 	
-* Here is a guide how to interpret the scores
+* Here is a guide on how to interpret the scores
 	
 	<p align="center"><img src="images/qsi.png" alt="qsi" width="900"></p>
 	
@@ -226,9 +226,9 @@
 <a name="phyparts"></a>
 ## Conflict analysis with Phyparts
 
-* Phyparts calculates the number of conflicting/concordant bipartitions of the gene tree with respect to a reference tree (e.g., concatenated or coalescent-based tree). This is a relatively simple mapping analysis intended to allow for the exploration of large datasets. For details on how the mapping works, see [here](https://bitbucket.org/blackrim/phyparts/wiki/Mapping_concordance_and_conflict)
+* Phyparts calculates the number of conflicting/concordant bipartitions of the gene tree with respect to a reference tree (e.g., a concatenated or coalescent-based tree). This is a relatively simple mapping analysis intended to allow for the exploration of large datasets. For details on how the mapping works, see [here](https://bitbucket.org/blackrim/phyparts/wiki/Mapping_concordance_and_conflict)
 
-* Phyparts assume rooted gene trees and rooted reference tree. So we are going to root all these trees
+* Phyparts assume rooted gene trees and a rooted reference tree. So we are going to root all these trees
 
 	First, let's make a new directory for Phyparts
 
@@ -236,7 +236,7 @@
 
 		mkdir 12_phyparts
 		
-	Now let's make a directory for the rooted gene trees
+	Now, let's make a directory for the rooted gene trees
 	
 		cd 12_phyparts
 		
@@ -244,7 +244,7 @@
 		
 	The gene tree we are going to root is the ortholog gene tree. The same we used for ASTRAL. If you remember from the previous tutorial, the files are located here: `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
 	
-	The script to root multiple gene trees at ones is `root_trees_multiple_outgroups_MO.py`
+	The script to root multiple gene trees at once is `root_trees_multiple_outgroups_MO.py`
 	
 		deactivate conda
 	
@@ -263,7 +263,7 @@
 
 	It should take seconds to run
 	
-	Now check the output files
+	Now, check the output files
 	
 		ls 00_rooted_gene_trees/
 		
@@ -340,7 +340,7 @@
 		 -x,--secret <arg>
 		 -y,--secret2
 	
-	First, were are going to run a simple analysis of concordance, taking in consideration all nodes in the input gene trees `-a 0`
+	First, we are going to run a simple analysis of concordance, taking in consideration all nodes in the input gene trees `-a 0`
 	
 		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_gene_trees -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_a0
 
@@ -400,11 +400,11 @@
 		t1<-read.tree("meliaceae_MO_500_8_concat_IQtree.treefile.rr")
 		tng<-334
 		
-	The above lines are loading the output files of the phypart analyses that have the number of concordand and discordant trees, and the reference tree. The next line provides the number of gene trees you mapped.
+	The above lines are loading the output files of the phypart analyses that have the number of concordant and discordant trees and the reference tree. The next line provides the number of gene trees you mapped.
 	
-	The next block from lines 20 to 65 is calculating the proportion of concordant, discordant, uninformative, and missing. You can just run that code.
+	The next block, from lines 20 to 65, calculates the proportion of concordant, discordant, uninformative, and missing data. You can just run that code.
 	
-	Then, starting in Line 69, you will see two options for plotting the piecharts in the tree
+	Then, starting in Line 69, you will see two options for plotting the pie charts in the tree
 	
 * `proportional` The pie charts will be proportional only to the number of informing gene trees - it does not take into consideration the missing data
 	
@@ -427,7 +427,7 @@
 			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 
 	
-* `total including missing genes` The pie chats will include missing data and are proportional to the total number of trees - 334
+* `total including missing genes` The pie charts will include missing data and are proportional to the total number of trees - 334
 	
 	Run those three lines of code, and you should see
 	
@@ -449,7 +449,7 @@
 	
 * Plot concordant/discordant gene trees
 
-	To plot the number of concordant and discordant gene trees for each node, run the code lines 83 to 86
+	To plot the number of concordant and discordant gene trees for each node, run code lines 83 to 86
 	
 	You should see
 	

@@ -30,7 +30,7 @@ Make sure to activate the `CONDA` environment
 <a name="iqtree"></a>
 ## Maximum-likelihood phylogenetic inference with IQ-TREE
 
-Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximize the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths, as well as all parameters of the substitution model (e.g., GTR) assumed in the inference. 
+Maximum-likelihood phylogenetic inference aims to find the parameters of an evolutionary model that maximizes the likelihood of observing the dataset at hand. The model parameters include the tree topology and its branch lengths, as well as all parameters of the substitution model (e.g., GTR) assumed in the inference. 
 
 * To see the many options available in IQ-TREE, you can type the following in the command line:
 
@@ -38,7 +38,7 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 * You can scroll up and down to check all the available options. <p align="center"><img src="images/Iqtree_1.png" alt="IQTREE" width="900"></p>		
 		
-* IQ-TREE can be started just by providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analyses (i.e. Model selection followed of ML inference using one CPU)
+* IQ-TREE can be started just by providing the alignment name. We can try this with one of the individual alignments. IQ-TREE will run a default analysis (i.e., Model selection followed by ML inference using one CPU)
 
 		cd /data_tmp/$USERNAME/data/04_individual_aln
 
@@ -50,9 +50,9 @@ Maximum-likelihood phylogenetic inference aims to find the parameters of an evol
 
 * Scroll back in the IQ-TREE output. Which one was the Best-fit model? 
 
-* Scroll to the end, and there, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
+* Scroll to the end, and there, you'll find parameter estimates for the selected substitution model, the maximum-likelihood value (given as a logarithm after "BEST SCORE FOUND"), information on the run time, and the names of output files.
 
-* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to file `4471.aln.clipkit.treefile`
+* According to the IQ-TREE screen output, the best-scoring maximum-likelihood tree was written to the file `4471.aln.clipkit.treefile`
 
 	<p align="center"><img src="images/Iqtree_3.png" alt="IQTREE" width="900"></p>
 
@@ -77,11 +77,11 @@ Here, we will explore how phylogenetic trees are encoded in Newick format, the m
 
 <p align="center"><img src="images/figtree_1.png" alt="FigTree" width="900"></p>
 
-* To correct the rooting of the phylogeny, we can specify an outgroup. In case we are going to use the samples of Rutaceae. Click on the branch leading to "RUTA_Citrus_hystrix, RUTA_Ruta_graveolens, and RUTA_Melicope_ternata", as shown in the next screenshot.
+* To correct the rooting of the phylogeny, we can specify an outgroup. In this case, we are going to use the samples of Rutaceae. Click on the branch leading to "RUTA_Citrus_hystrix, RUTA_Ruta_graveolens, and RUTA_Melicope_ternata", as shown in the next screenshot.
 
 <p align="center"><img src="images/figtree_2.png" alt="FigTree" width="900"></p>
 
-* Then, with that branch being selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
+* Then, with that branch selected, click on the "Reroot" icon with the yellow arrow in the menu bar. The phylogeny should then look as shown in the next screenshot.
 
 <p align="center"><img src="images/figtree_3.png" alt="FigTree" width="900"></p>
 
@@ -98,11 +98,11 @@ Here, we will explore how phylogenetic trees are encoded in Newick format, the m
 
 We will now perform a bootstrap analysis to identify which nodes in the phylogeny are more or less trustworthy.
 
-* To see again the available options in IQ-TREE type:
+* To see the available options in IQ-TREE again, type:
 
 		iqtree --help
 
-* Scroll towards the top of the help text; there, you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion we are going to use the `-B` option to perform [Ultrafast Bootstrap](https://academic.oup.com/mbe/article/35/2/518/4565479) which is a significantly fast implementation of the standard non-parametric bootstrap [Felsenstein, 1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x). IQ-TREE recommends a a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable also after a lower number of replicates.
+* Scroll towards the top of the help text; there, you should find two sections titled "ULTRAFAST BOOTSTRAP/JACKKNIFE" and "NON-PARAMETRIC BOOTSTRAP/JACKKNIFE". In this occasion, we are going to use the `-B` option to perform [Ultrafast Bootstrap](https://academic.oup.com/mbe/article/35/2/518/4565479), which is a significantly fast implementation of the standard non-parametric bootstrap [Felsenstein, 1986](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x). IQ-TREE recommends a minimum of 1,000 replicates, but IQ-TREE will automatically reduce this number if it detects that the resulting node-support values are stable after a lower number of replicates.
 
 
 		 iqtree  -s 4471.aln.clipkit -B 1000 --prefix 4471.aln.clipkit.bootstrap -T 4
@@ -168,7 +168,7 @@ We will now perform a bootstrap analysis to identify which nodes in the phylogen
 	
 The partition file specifies the kind of partition `DNA` a unique name of each partition (e.g., `4744.ortho.aln.clipkit;` this is just the name of the original alignment file), and the size of each partition (i.e., the range of each partition in the alignment).
 
-* To tell IQ-TREE to determine the ideal partitioning scheme itself, we need to use the options `-m MFP --merge`. This tells IQ-TREE to perform model selection on each partition and combine similar partition to find the best scheme. This uses the implementation of Kalyaanamoorthy et al. ([2017](http://dx.doi.org/10.1038/nmeth.4285))
+* To tell IQ-TREE to determine the ideal partitioning scheme itself, we need to use the options `-m MFP --merge`. This tells IQ-TREE to perform model selection on each partition and combine similar partitions to find the best scheme. This uses the implementation of Kalyaanamoorthy et al., ([2017](http://dx.doi.org/10.1038/nmeth.4285))
 
 * As in the individual gene tree, we are going to use an ultrafast bootstrap procedure with the `-B` option. 
 
@@ -176,7 +176,7 @@ The partition file specifies the kind of partition `DNA` a unique name of each p
 
 		iqtree  -m MFP --merge -s meliaceae_4_loci_concat.fa -T 4 -B 1000 -p meliaceae_4_loci_concat.model --prefix meliaceae_4_loci_concat_iqtree
 
-* Running this analysis should take longer than the previous analyses of one individual locus. One way to speed things up is running IQ-TREE using multiple CPUs with the `-T` options. In this case, I will use `-T 2`. If you are not sure about the number of CPUs available, you can use `-T AUTO`
+* Running this analysis should take longer than the previous analyses of one individual locus. One way to speed things up is by running IQ-TREE using multiple CPUs with the `-T` options. In this case, I will use `-T 2`. If you are not sure about the number of CPUs available, you can use `-T AUTO`
 
 	The	run should take a couple of minutes
 	

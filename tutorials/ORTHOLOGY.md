@@ -29,7 +29,7 @@
 
 * For more detail on the phylogenomics workflow that we will follow, see [here](https://doi.org/10.1093/sysbio/syab032)
 
-	But in general consists of the following steps.
+	But in general, it consists of the following steps.
 	
 	<p align="center"><img src="images/wf.png" alt="wf" width="400"></p>
 
@@ -43,7 +43,7 @@
 	
 	I just want to point out the last command for Captus (align)
 
-		captus align -e 03_extraction/ -m NUC -f GE --max_paralogs 5 --min_samples 4 --align_method mafft_auto --outgroup RUTA_Citrus_hystrix,RUTA_Melicope_ternata,RUTA_Ruta_graveolens --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 90 --concurrent 30	
+		#captus align -e 03_extraction/ -m NUC -f GE --max_paralogs 5 --min_samples 4 --align_method mafft_auto --outgroup RUTA_Citrus_hystrix,RUTA_Melicope_ternata,RUTA_Ruta_graveolens --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 90 --concurrent 30	
 
 	Here, I want you to point attention to the flag `--max_paralogs 5`, meaning that the loci that we will work with have up to 5 copies per sample. This is the part referred to as `Paralog assessment` in the workflow. Other assembly pipelines required additional steps to identify and collect gene copies. With Captus, it is as simple as using one flag to collect them.
 	
@@ -114,7 +114,7 @@
 
 * Now, we are going to infer ML homolog trees. Here, we refer to homolog trees, the gene trees that have all gene copies.
 
-* To use the scripts for the phylogenomics workflow, an `@` symbol needs to be added to the fasta headers to identify paralogs of the same sample.
+* To use the scripts for the phylogenomics workflow, the fasta headers must be modified to include an `@` symbol to identify paralogs of the same sample.
 
 	This means that instead of having the long fasta headers you see above, we want something that looks like this:
 	
@@ -156,7 +156,12 @@
 		>RUTA_Ruta_graveolens@pg_00
 		>RUTA_Ruta_graveolens@pg_01
 
-* First, we going to make a copy of the alignments to a new directory so we can reformat them
+* First, we are going to make a copy of the alignments to a new directory so we can reformat them
+
+		
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses/
+		
+		mkdir 01_clean_alignments
 
 		cp /data_tmp/$USERNAME/output/03_captus/04_alignments/03_trimmed/04_unfiltered/01_coding_NUC/03_genes/*.fna /data_tmp/$USERNAME/data/07_phylogenomic_analyses/01_clean_alignments
 		
@@ -176,13 +181,13 @@
 		sed -i -E 's/(>.+)( \[query=.+)/\1@pg_uq/' $i
 		done
 		
-	After it is done, you can verify if the format is the correct.
+	After it is done, you can verify if the format is correct.
 	
 		grep ">" 4471.fna
 		
 * Now, all these alignments are ready for ML tree inference
 
-	Because of time restrictions, we are not going to run all `348` trees. I ran this previously. As we learned before, I use IQ-Tree for this. I run the following command for each tree. This is so that you know what I did.
+	Because of time restrictions, we are not going to run all `348` trees. I ran this previously. As we learned before, I use IQ-Tree for this. I run the following command for each tree so that you know what I did.
 	
 	
 		iqtree -m MFP -s [alignment] -T 4 --seqtype DNA #Do not run this
@@ -209,6 +214,8 @@
 * To reformat the tree files, we first are going to make a copy of all the `*.treefile` in a new directory
 	
 	
+		mkdir /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees
+		
 		cp /data_tmp/$USERNAME/output/04_analyses/00_iqtree/*.treefile /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees
 		
 		
@@ -238,7 +245,7 @@
 <a name="masking"></a>
 ## Prune clades and paraphyletic grades of the same species
 
-* In this step, we are going to mask clades and paraphyletic grades that belonged to the same taxon were pruned by keeping only the tip with the highest number of characters in the trimmed alignment
+* In this step, we are going to mask clades and paraphyletic grades that belonged to the same taxon by keeping only the tip with the highest number of characters in the trimmed alignment
 
 	First, we are going to make a new directory called `03_masked`
 	
@@ -263,7 +270,7 @@
 	
 		(base) $USERNAME@p620-small:/data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
-	run the below command until you don't see any environment
+	Run the below command until you don't see any environment
 	
 		conda deactivate
 		
@@ -375,7 +382,7 @@
 
 	It should take 3 to 4 minutes to complete
 	
-	It outputs the tips that were trimmed in the file .txt and the trimmed trees in the file ``*.ts`. You would need to test different quantiles to see which one better fits your data. Make sure you open the tree file to check whether TreeShrink removes your outgroups. This is often the cse, so we can provide a list of outgroups to prevent them from being removed.
+	It outputs the tips that were trimmed in the file .txt and the trimmed trees in the file ``*.ts`. You would need to test different quantiles to see which one better fits your data. Make sure you open the tree file to check whether TreeShrink removes your outgroups. This is often the case, so we can provide a list of outgroups to prevent them from being removed.
 
 	Make a list of the output directory to verify it worked
 	
@@ -408,7 +415,7 @@
 <a name="ortho"></a>
 ## Orthology inference
 
-* We are going to prune orthologs to the tree-based methods called Monophyletic Outgroup (MO). The MO approach filters for homolog trees with outgroup taxa being monophyletic and single-copy, and therefore filters for single- and low-copy genes.  MO root the gene tree by the outgroups, traverse the rooted tree from root to tip, and remove the side with fewer taxa. In the case of MO, homolog trees with nonmonophyletic outgroups or duplicated taxa in the outgroups are discarded. If no taxon duplication is detected in a homolog tree, the MO approach outputs a one-to-one ortholog. 
+* We are going to prune orthologs using the tree-based method called Monophyletic Outgroup (MO). The MO approach filters for homolog trees with outgroup taxa being monophyletic and single-copy, and therefore filters for single- and low-copy genes.  MO roots the gene tree by the outgroups, traverses the rooted tree from root to tip, and removes the side with fewer taxa. In the case of MO, homolog trees with nonmonophyletic outgroups or duplicated taxa in the outgroups are discarded. If no taxon duplication is detected in a homolog tree, the MO approach outputs a one-to-one ortholog. 
 <p align="center"><img src="images/ortho.png" alt="ts" width="500"></p>
 
 	
@@ -455,7 +462,7 @@
 		OUT	RUTA_Melicope_ternata
 		OUT	RUTA_Ruta_graveolens
 		
-* Now let's make a directory for the ortholog inference output
+* Now, let's make a directory for the ortholog inference output
 
 		mkdir /data_tmp/$USERNAME/data/07_phylogenomic_analyses/05_MO_orthologs
 		
@@ -468,7 +475,7 @@
 		Usage:
 		python prune_paralogs_MO.py homoTreeDIR tree_file_ending minimal_taxa outDIR taxon_file
 		
-* MO pruning also requires a minimum number of taxa for the ortholog to be retained. I usually use 25% of the number of taxa. In case we will use 8
+* MO pruning also requires a minimum number of taxa for the ortholog to be retained. I usually use 25% of the number of taxa. In this case we will use 8
 	
 * Now, we can prune MO orthologs
 
@@ -514,7 +521,7 @@
 		
 	`334`
 		
-	How does this number compare with the starting number of gene trees? Are there less or more? 
+	How does this number compare with the starting number of gene trees? Are there fewer or more? 
 	
 	
 	You can also count  each of the two kinds of orthologs
@@ -552,7 +559,7 @@
 		
 	You should see `ortho_stats.txt` and `taxon_stats.txt`
 	
-	Let's open RStudio. In your browser address bar, type `10.153.134.10:8787` When you are prompted to the login information, use the same USERNAME and password you have been using for login into the workstation
+	Let's open RStudio. In your browser address bar, type `10.153.134.10:8787` When you are prompted for the login information, use the same USERNAME and password you have been using for login into the workstation
 	
 	
 	<p align="center"><img src="images/R.png" alt="R" width="400"></p>
@@ -626,6 +633,8 @@
 	
 	We can make a copy of this directory.
 	
+		/data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files
+	
 		cp -r /data_tmp/$USERNAME/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files
 	
 	Let's create an output directory.
@@ -634,7 +643,7 @@
 		
 		mkdir 06_MO_fasta_files
 		
-	Now let's write the ortholog fasta files.
+	Now, let's write the ortholog fasta files.
 	
 		python /data_tmp/$USERNAME/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/ 
 	
@@ -686,7 +695,7 @@
  
  	You should see `334 meliaceae_334_MO_orthologs.tre`
  	
- 	On this occasion, we will do an additional step before inferring the ASTRAL tree. We are going to collapse uninformative nodes from the species trees. This is to avoid introducing noise to our inference from these non-supported nodes.
+ 	On this occasion, before inferring the ASTRAL tree, we will take an additional step: collapse uninformative nodes from the species trees. This will avoid introducing noise into our inference from these non-supported nodes.
  	
  		python /data_tmp/$USERNAME/script/collapse_branches_bs_multiphylo.py
  		
@@ -723,7 +732,7 @@
 
 * Now we can infer a concatenated tree with IQ-Tree
 
-	First, we need to concatenate the clean alignments. The alignments are in the same directory as before `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
+	First, we need to concatenate the clean alignments. The alignments are in the same directory as before, `/data_tmp/$USERNAME/output/04_analyses/05_MO_fasta_files`
 	
 	To concatenate the alignments and create the partition file, you will need the script `/data_tmp/$USERNAME/script/concatenate_matrices_phyx.py`
 	
@@ -735,7 +744,7 @@
 		python concatenate_matrices_phix.py aln-clnDIR numofsitesFilter numoftaxaFilter outname
 		
 
-	You need to specify the alignments directory from above, and also, you need to specify a minimum number of sites and species so you can filter alignments with just a few samples and potentially informative sites. There is no rule of thumb for this, but usually use 500bp and 25% of the original number of samples (in this case, we will use 8) when working with target enrichment
+	You need to specify the alignments directory from above, and you also need to specify a minimum number of sites and species so you can filter alignments with just a few samples and potentially informative sites. There is no rule of thumb for this, but usually use 500bp and 25% of the original number of samples (in this case, we will use 8) when working with target enrichment
 	
 	First, let's make a directory where we will place the output files
 	
@@ -817,7 +826,7 @@
 <a name="homolog"></a>
 ## Species tree inference from homologs
 
-* Another way to get coalescent species trees is to use directly the homologs trees and ASTRAL-Pro. ASTRAL-Pro can directly handle paralogs and duplication and takes as input multi-copy gene trees (homolog). The advantage of ASTRAL-Pro is that you can estimate a species of trees without the need to prune orthologs and that you can potentially use all the information from the gene families that are lost during the paralog pruning. The disadvantage is ASTRAL-Pro only will output the final trees and not any ortholog or alignments, so you won't have those for downstream analyses (e.g. conflict)
+* Another way to get coalescent species trees is to use directly the homologs trees and ASTRAL-Pro. ASTRAL-Pro can directly handle paralogs and duplication and takes as input multi-copy gene trees (homolog). The advantage of ASTRAL-Pro is that you can estimate a species of trees without the need to prune orthologs and that you can potentially use all the information from the gene families that are lost during the paralog pruning. The disadvantage is ASTRAL-Pro will only output the final trees and not any ortholog or alignments, so you won't have those for downstream analyses (e.g., conflict)
 
 * To use ASTRAL-Pro, we first need to infer the final homolog trees (similar to what we did for the orthologs)
 
@@ -865,7 +874,7 @@
 		4471.homolog.fa           5355.iqtree.iqtree        5840.iqtree.treefile      6114.homolog.aln          6462.homolog.aln.clipkit  6860.homolog.fa
 		4471.iqtree.iqtree        5355.iqtree.treefile      5841.homolog.aln          6114.homolog.aln.clipkit  6462.homolog.fa           ...
 		
-* Now let's make a new directory for our ASTRAL-Pro inference and concatenate all the gene trees to have the input of ASTRAL-pro
+* Now, let's make a new directory for our ASTRAL-Pro inference and concatenate all the gene trees to have the input of ASTRAL-pro
 	
 		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
@@ -895,7 +904,7 @@
 		Usage:
 		python short_tip_lables.py inMultiTree
 		
-	Now let's run the script and check the output file `meliaceae_348_homologs_short_label.tre`
+	Now, let's run the script and check the output file `meliaceae_348_homologs_short_label.tre`
 	
 		python /data_tmp/$USERNAME/script/short_tip_labels_multiphylo.py meliaceae_348_homologs.tre
 		
@@ -915,7 +924,7 @@
 		
 		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral-pro -i meliaceae_348_homologs_short_label.tre -o meliaceae_348_homologs.ASTRAL-Pro.tre 2> >(tee -a ASTRAL.log >&2)
 
-	Now, you can open the file, plot, root, sort, and show the node label (LPP) in Figtree, and should have the following
+	Now, you can open the file, plot, root, sort, and show the node label (LPP) in Figtree, and you should have the following
 	
 
 		cat meliaceae_348_homologs.ASTRAL-Pro.tre

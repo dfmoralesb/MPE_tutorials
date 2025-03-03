@@ -103,7 +103,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre 2> >(tee -a ASTRAL.log >&2)	
 		
 		
-Here are some of the important information captured in the log:
+Here is some of the important information captured in the log:
 
 		less ASTRAL.log
 
@@ -141,7 +141,7 @@ You should see (along with other information)
 		
 		(((((((((((((MELI_Dysoxylum_alliaceum,MELI_Aphanamixis_polystachya)0.425841:0.000000,MELI_Cabralea_canjerana)0.666667:0.287682,MELI_Neoguarea_glomerulata)0.666667:0.287682,(MELI_Turraeanthus_manii,MELI_Heckeldora_staudtii)0.666667:0.287682)0.500325:0.057158,((MELI_Chisocheton_longistipitatus,MELI_Guarea_pubescens)0.825438:0.575364,MELI_Aglaia_spectabilis)0.249163:0.000000)0.782360:0.433190,MELI_Vavaea_amicorum)0.666667:0.287682,MELI_Trichilia_hirta)0.416667:0.000000,MELI_Turraea_virens)0.824039:0.510826,MELI_Quivisianthe_papinae)0.952381:0.980829,((MELI_Azadirachta_indica,MELI_Melia_azedarach)0.866667:0.693147,MELI_Owenia_reticulata)0.952381:0.980829)0.952381:0.980829,((((MELI_Swietenia_macrophylla,MELI_Swietenia_mahagoni)0.333333:0.000000,MELI_Carapa_procera)0.666667:0.287682,(MELI_Lovoa_sywnnertonii,MELI_Toona_ciliata)0.713915:0.344840)0.840580:0.510826,(MELI_Chukrasia_tabularis,MELI_Schmardaea_microphylla)0.952381:0.980829)0.983740:1.203973)0.952381:0.980829,(RUTA_Ruta_graveolens,RUTA_Melicope_ternata)0.666667:0.287682),RUTA_Citrus_hystrix);		
 
-* Open FigTree, copy the above tree string and paste it into the new FigTree window. You'll see a phylogeny, as shown in the screenshot below.
+* Open FigTree, copy the above tree string, and paste it into the new FigTree window. You'll see a phylogeny, as shown in the screenshot below.
 
 <p align="center"><img src="images/asfigtree_1.png" alt="asfigtree_1" width="900"></p>
 
@@ -157,7 +157,7 @@ You should see (along with other information)
 
 <p align="center"><img src="images/asfigtree_4.png" alt="asfigtree_4" width="900"></p>
 
-* To see node-support values based on LPP, set a tick in the checkbox for "Node Labels," and select "label" from the "Display" drop-down menu, as shown in the screenshot below. 
+* To see node-support values based on LPP, set a tick in the checkbox for "Node Labels", and select "label" from the "Display" drop-down menu, as shown in the screenshot below. 
 
 <p align="center"><img src="images/asfigtree_5.png" alt="asfigtree_5" width="900"></p>
 

@@ -50,7 +50,7 @@
 
 Line 1 begins with a '@' character and is followed by a sequence identifier and an optional description from the sequencing machine.
 Line 2 is the sequence.
-Line 3 begins with a '+' character. Usually the only character in the line.
+Line 3 begins with a '+' character. Usually, the only character in the line.
 Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2 and must contain the same number of symbols as letters.
 
 * The quality goes from 0 to 40
@@ -96,7 +96,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 		MELI_Aglaia_spectabilis_G09645_R1_fastqc.html
 		MELI_Aglaia_spectabilis_G09645_R1_fastqc.zip
 
-* The first is a `HTML` report that you download and open locally in your internet browser, and the second is a `zip` containing the stats files that we will use later.
+* The first is an `HTML` report that you download and open locally in your internet browser, and the second is a `zip` containing the stats files that we will use later.
 
 * To copy the `html` file to your laptop, do
 
@@ -146,7 +146,7 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 		cd /data_tmp/$USERNAME/output/all_samples_reports
 	
-#### There you can find the report for this and future steps for all samples
+#### There you can find the report for this and future steps for all samples.
 
 
 	scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/output/all_samples_reports/multiqc_report_all_samples_raw.html ~/Desktop
@@ -163,11 +163,11 @@ Line 4 encodes the quality values (in ASCII encoding) for the sequence in Line 2
 
 * We are going to deduplicate the reads with the tool `clumpify.sh` of `BBmap`
 
-* First, let's create a new directory where to place the deduplicated reads
+* First, let's create a new directory where to place the deduplicated reads.
 
 		mkdir /data_tmp/$USERNAME/data/01_dedup
 	
-* Now, let's move back to the folder with the raw data
+* Now, let's move back to the folder with the raw data.
 
 		cd /data_tmp/$USERNAME/data/00_raw_reads
 
