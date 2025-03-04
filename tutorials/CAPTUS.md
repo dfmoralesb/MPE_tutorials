@@ -150,7 +150,7 @@
 
 		cd /data_tmp/$USERNAME/data/03_captus/
 
-		captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 4 --concurrent 2 --disable_mapping --min_contig_depth 0
+		captus assemble -r 01_clean_reads --min_count 10 --min_contig_len 300 --threads 6 --concurrent 2 --disable_mapping --min_contig_depth 0
 	
 	Then you should start seeing this
 
@@ -184,7 +184,7 @@
 		    Output directory: /data_tmp/$USERNAME/data/03_captus/02_assemblies
 		                      Output directory successfully created
 		
-	The assembly of these two samples should take 20 minutes
+	The assembly of these two samples should take 20 minutes or less
 
 * Once it is finished, you will see a directory called `02_assemblies`. Move to that directory and make a list
 
