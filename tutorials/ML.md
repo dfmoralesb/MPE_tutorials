@@ -4,7 +4,6 @@
 * [Reading and visualizing tree files](#figtree)
 * [Assessing node support with bootstrapping](#boot)
 * [Inferring a concatenated ML tree](#concat)
-* [Alternative node support values - Concordance factors](#concordance)
 
 
 #### How to login to the workstation
