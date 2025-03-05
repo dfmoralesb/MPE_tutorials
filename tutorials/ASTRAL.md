@@ -69,7 +69,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 		
 	You can verify that the file has the four trees by counting its lines.
 	
-		wc -l meliaceae_4_gene_trees
+		wc -l  meliaceae_4_gene_trees.tre
 		
 	The output should be 4
 	
