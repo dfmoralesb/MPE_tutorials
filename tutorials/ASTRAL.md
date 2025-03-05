@@ -90,7 +90,7 @@ ASTRAL program for estimating a species tree given a set of unrooted gene trees.
 	
 * To run ASTRAL, you just need to provide the gene trees file with the `-i` option and the output file name with the `-o` file. 
 
-		java -jar /home/morales/Apps/ASTRAL/astral.5.7.8.jar -i DATA/ASTRAL/input/all_gene_trees_2419.tre -o DATA/ASTRAL/output/ASTRAL_all_gene_trees_2419.tre
+		/data_tmp/$USERNAME/apps/ASTER-Linux_old/bin/astral -i meliaceae_4_gene_trees.tre -o meliaceae_4_gene_trees.ASTRAL.tre
 
 <a name="log"></a>
 
