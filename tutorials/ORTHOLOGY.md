@@ -314,7 +314,7 @@
 	
 	Open, plot, root, and order the nodes in Figtree of one of the original homologs trees.
 	
-		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/02_raw_homolog_trees/4471.iqtree.treefile
 		
 	<p align="center"><img src="images/unmasked.png" alt="um" width="900"></p>
 
