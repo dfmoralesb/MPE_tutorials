@@ -43,7 +43,7 @@
 	
 	I just want to point out the last command for Captus (align)
 
-		#captus align -e 03_extraction/ -m NUC -f GE --max_paralogs 5 --min_samples 4 --align_method mafft_auto --outgroup RUTA_Citrus_hystrix,RUTA_Melicope_ternata,RUTA_Ruta_graveolens --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 90 --concurrent 30	
+		#captus align -e 03_extraction/ -m NUC -f GE --max_paralogs 5 --min_samples 4 --align_method mafft_auto --outgroup RUTA_Citrus_hystrix,RUTA_Melicope_ternata,RUTA_Ruta_graveolens --filter_method none --clipkit_method gappy --clipkit_gaps 0.9 --threads 90 --concurrent 30
 
 	Here, I want you to point attention to the flag `--max_paralogs 5`, meaning that the loci that we will work with have up to 5 copies per sample. This is the part referred to as `Paralog assessment` in the workflow. Other assembly pipelines required additional steps to identify and collect gene copies. With Captus, it is as simple as using one flag to collect them.
 	
@@ -187,7 +187,7 @@
 		
 * Now, all these alignments are ready for ML tree inference
 
-	Because of time restrictions, we are not going to run all `348` trees. I ran this previously. As we learned before, I use IQ-Tree for this. I run the following command for each tree so that you know what I did.
+	Because of time restrictions, we are not going to run all `348` trees. I ran this previously. As we learned before, I use IQ-Tree for this. I ran the following command for each tree so that you know what I did.
 	
 	
 		iqtree -m MFP -s [alignment] -T 4 --seqtype DNA #Do not run this
@@ -399,13 +399,13 @@
 	
 	Open, plot, root, and order the nodes in Figtree of one masked tree.
 	
-		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/6498.iqtree.treefile.mm	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/03_masked/6498.iqtree.treefile.mm
 		
 	<p align="center"><img src="images/masked1.png" alt="mm1" width="900"></p>
 
 	Open, plot, root, and order the nodes in Figtree of the same tree but cleaned with TreeShrink.
 	
-		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6498.iqtree.treefile.mm.tr.ts	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/6498.iqtree.treefile.mm.tr.ts
 	
 	<p align="center"><img src="images/ts.png" alt="ts" width="900"></p>
 	
@@ -475,7 +475,7 @@
 		Usage:
 		python prune_paralogs_MO.py homoTreeDIR tree_file_ending minimal_taxa outDIR taxon_file
 		
-* MO pruning also requires a minimum number of taxa for the ortholog to be retained. I usually use 25% of the number of taxa. In this case we will use 8
+* MO pruning also requires a minimum number of taxa for the ortholog to be retained. I usually use 25% of the number of taxa. In this case, we will use 8
 	
 * Now, we can prune MO orthologs
 
@@ -483,7 +483,7 @@
 		
 		python /data_tmp/$USERNAME/script/prune_paralogs_MO_1to1_MO.py 04_ts/ ts 8 05_MO_orthologs/ in_out_list.txt
 
-	You should start seeing.		
+	You should start seeing.
 		
 		27 ingroup taxa and 3 outgroup taxa read
 		5858.iqtree.treefile.mm.tr.ts
@@ -536,16 +536,16 @@
 	
 * Let's compare a cleaned homolog vs an ortholog
 
-		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/4471.iqtree.treefile.mm.tr.ts	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/04_ts/4471.iqtree.treefile.mm.tr.ts
 		
 	<p align="center"><img src="images/homologdup.png" alt="hd" width="900"></p>
 
 
-		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/05_MO_orthologs/4471.iqtree.ortho.tre	
+		cat /data_tmp/$USERNAME/data/07_phylogenomic_analyses/05_MO_orthologs/4471.iqtree.ortho.tre
 		
 	<p align="center"><img src="images/orthologsc.png" alt="sc" width="900"></p>
 	
-	Can you identify the duplication in this gene	
+	Can you identify the duplication in this gene
 
 	
 * We can make some stats about the orthologs
@@ -645,11 +645,11 @@
 		
 	Now, let's write the ortholog fasta files.
 	
-		python /data_tmp/$USERNAME/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/ 
+		python /data_tmp/$USERNAME/script/write_ortholog_fasta_from_multiple_aln.py 00_unaligned_fasta_files 05_MO_orthologs/ fna tre 06_MO_fasta_files/
 	
 	You can check the output fasta files.
 	
-		ls 06_MO_fasta_files/ 
+		ls 06_MO_fasta_files/
  
  	A list of the new fasta files will be created.
  	
@@ -660,7 +660,7 @@
 
 
 <a name="sptree"></a>
-## Species tree inference		
+## Species tree inference
 
 * Now that we have ortholog fasta files, we will process to infer individual trees and then coalescent-based and concatenation-based tree inference. All this is similar to what we did in the previous tutorials
 
@@ -679,7 +679,7 @@
 		4471.ortho.aln          5366.ortho.aln          5842.ortho.aln          6119.ortho.aln          6487.ortho.aln          6864.ortho.aln
 		4471.ortho.aln.clipkit  5366.ortho.aln.clipkit  5842.ortho.aln.clipkit  6119.ortho.aln.clipkit  6487.ortho.aln.clipkit  ...
 		
-	Now let's make a new directory for our ASTRAL inference and concatenate all the gene trees to have the input of ASTRAL.
+	Now, let's make a new directory for our ASTRAL inference and concatenate all the gene trees to have the input of ASTRAL.
 	
 		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
 		
@@ -826,7 +826,7 @@
 <a name="homolog"></a>
 ## Species tree inference from homologs
 
-* Another way to get coalescent species trees is to use directly the homologs trees and ASTRAL-Pro. ASTRAL-Pro can directly handle paralogs and duplication and takes as input multi-copy gene trees (homolog). The advantage of ASTRAL-Pro is that you can estimate a species of trees without the need to prune orthologs and that you can potentially use all the information from the gene families that are lost during the paralog pruning. The disadvantage is ASTRAL-Pro will only output the final trees and not any ortholog or alignments, so you won't have those for downstream analyses (e.g., conflict)
+* Another way to get coalescent species trees is to use directly the homologs trees and ASTRAL-Pro. ASTRAL-Pro can directly handle paralogs and duplication and takes as input multi-copy gene trees (homolog). The advantage of ASTRAL-Pro is that you can estimate a species of trees without the need to prune orthologs and that you can potentially use all the information from the gene families that are lost during the paralog pruning. The disadvantage is that ASTRAL-Pro will only output the final trees and not any ortholog or alignments, so you won't have those for downstream analyses (e.g., conflict)
 
 * To use ASTRAL-Pro, we first need to infer the final homolog trees (similar to what we did for the orthologs)
 
