@@ -592,7 +592,7 @@
 			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 	
 	
-	####Because we map homolog trees you only need to plot the `proportional` piecharts
+	#### Because we map homolog trees you only need to plot the `proportional` piecharts
 	
 * Plot concordant/discordant gene trees numbers
 
