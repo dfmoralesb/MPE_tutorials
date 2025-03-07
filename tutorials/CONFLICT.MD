@@ -456,6 +456,9 @@
 	<p align="center"><img src="images/number.png" alt="number" width="900"></p>
 	
 	As before, you can save and download the plot.
+	
+* If you are interested in plotting the main alternative topology, see instructions [here](https://bitbucket.org/yanglab/conflict-analysis/src/master/) and the scripts [here](https://bitbucket.org/dfmoralesb/target_enrichment_orthology/src/master/)	
+	
 
 	
 

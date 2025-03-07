@@ -632,9 +632,7 @@
 	You need the original unaligned fasta files from Captus. Those are at `/data_tmp/$USERNAME/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/` The ortholog directory 05_MO_orthologs, the extension for the files of those two directories, `fna` and `tre`, respectively, and an output directory.
 	
 	We can make a copy of this directory.
-	
-		/data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files
-	
+		
 		cp -r /data_tmp/$USERNAME/output/03_captus/04_alignments/01_unaligned/01_coding_NUC/03_genes/ /data_tmp/$USERNAME/data/07_phylogenomic_analyses/00_unaligned_fasta_files
 	
 	Let's create an output directory.
