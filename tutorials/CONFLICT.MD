@@ -446,7 +446,7 @@
 	
 	#### What is the difference between the two plots? How does this compare to the CF and QS?
 	
-* Plot concordant/discordant gene trees
+* Plot concordant/discordant gene trees numbers
 
 	To plot the number of concordant and discordant gene trees for each node, run code lines 83 to 86
 	
@@ -455,6 +455,157 @@
 	<p align="center"><img src="images/number.png" alt="number" width="900"></p>
 	
 	As before, you can save and download the plot.
+	
+### Phyparts with homolog trees
+
+* Phyparts can also be done using homologs trees. This could be useful if you decided not to get orthologs or to verify or compare the number of trees mapped for a specific taxon that seem to have lot's of missing on the ortholog mapping from the previous step.
+	
+	
+	First, let's make a new directory for Phyparts with homologs
+
+		cd /data_tmp/$USERNAME/data/07_phylogenomic_analyses
+
+		mkdir 12_1_phyparts_homologs
+		
+	Now, let's make a directory for the rooted gene trees
+	
+		cd 12_1_phyparts_homologs
+		
+		mkdir 00_rooted_gene_trees
+	
+	
+	The gene tree we are going to root are the homologs  tree. The same we used for ASTRAL-Pro. If you remember from the previous tutorial, the files are located here: `/data_tmp/$USERNAME/output/04_analyses/07_final_homologs`
+	
+	The script to root multiple gene trees at once is same one as before `root_trees_multiple_outgroups_MO.py`
+	
+		deactivate conda
+	
+		python /data_tmp/$USERNAME/script/root_trees_multiple_outgroups_MO.py
+		
+	You should see
+	
+		Usage:
+		python root_trees_mulitple_outgroup_MO.py inDIR tree_file_ending outDIR outgroup_list
+		
+	We need to provide the directory where the gene tree files are, the extension of the files, the output directory, and the list of outgroups (the same we use to run TreeShrink)
+	
+	Let's root the trees
+	
+		python /data_tmp/$USERNAME/script/root_trees_multiple_outgroups_MO.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_rooted_homologs /data_tmp/$USERNAME/data/07_phylogenomic_analyses/outgroup_list.txt
+
+	It should take seconds to run
+	
+	Now, check the output files
+	
+		ls 00_rooted_homologs/
+		
+	You should see
+	
+		4471.reroot  5162.reroot  5366.reroot  5594.reroot  5842.reroot  5949.reroot  6119.reroot  6373.reroot  6487.reroot  6639.reroot  6864.reroot  7067.reroot
+		4527.reroot  5163.reroot  5398.reroot  5596.reroot  5843.reroot  5950.reroot  6128.reroot  6376.reroot  6488.reroot  6641.reroot  6865.reroot  7111.reroot
+		4691.reroot  5168.reroot  5404.reroot  5599.reroot  5849.reroot  5958.reroot  6130.reroot  6378.reroot  6492.reroot  6649.reroot  6875.reroot  ...
+
+	Now, we just copy the same *rooted* species tree we got from the previous Phyparts run
+	
+		cp /data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/meliaceae_MO_500_8_concat_IQtree.treefile.rr .
+		
+	Now, we can run Phyparts as before, first with no support threshold and then with 70% bootstrap support.
+	
+		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_homologs/ -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_homologs_a0_s0
+		
+	You should see 
+	
+		Mapping tree:meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		Read 341 trees
+		Finished initializing deconstructor
+		Finished calculating clades
+		Total number of clades: 9621
+		Average number of clades/tree: 28.21407624633431
+		Total number of unique clades: 7063
+		tree:1 / 341
+		tree:2 / 341
+ 		...
+	Can you notice the difference in the number of clades between the orthologs and homologs?
+ 
+ 
+ 		java -jar /data_tmp/$USERNAME/apps/phyparts/target/phyparts-0.0.1-SNAPSHOT-jar-with-dependencies.jar -a 0 -d 00_rooted_homologs/ -m meliaceae_MO_500_8_concat_IQtree.treefile.rr -o meliaceae_phyparts_homologs_a0_s70 -s 70
+ 		 		
+	You should see
+	
+		Mapping tree:meliaceae_MO_500_8_concat_IQtree.treefile.rr
+		Read 341 trees
+		Finished initializing deconstructor
+		Finished calculating clades
+		Total number of clades: 7300
+		Average number of clades/tree: 21.407624633431084
+		Total number of unique clades: 5143
+		tree:1 / 341
+		tree:2 / 341
+		...
+
+* Let's plot the result of phyparts in R. We are going to plot the number of concordant, discordant, uninformative, and missing as piecharts
+
+
+	Open RStudio, your internet browser, again by typing `10.153.134.10:8787` and log in with your workstation credentials.
+	
+	In RStudio, go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/$USERNAME/script/piechars_homologs.R` and click "Open". Make sure to use  your username
+	
+	<p align="center"><img src="images/open.png" alt="open" width="500"></p>
+	
+	You should see this
+	
+	<p align="center"><img src="images/open2.png" alt="open2" width="900"></p>
+	
+	Now you are going to replace in the first line of the script `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts` for `mpemaster` for your own USERNAME and `12_phyparts` with `12_1_phyparts_homologs/`
+
+	Then you will see
+	
+		A0<-read.tree("meliaceae_phyparts_homologs_a0_s0.concon.tre)
+		A0S50<-read.tree("meliaceae_phyparts_homologs_a0_s70.concon.tre")
+		t1<-read.tree("meliaceae_MO_500_8_concat_IQtree.treefile.rrr")
+		tng<-341
+		
+	The above lines are loading the output files of the phypart analyses that have the number of concordant and discordant trees and the reference tree. The next line provides the number of gene trees you mapped.
+	
+	The next block, from lines 20 to 65, calculates the proportion of concordant, discordant, uninformative, and missing data. You can just run that code.
+	
+	Then, starting in Line 69, you will see two options for plotting the pie charts in the tree
+	
+* `proportional` The pie charts will be proportional only to the number of informing gene trees - it does not take into consideration the missing data
+	
+	Run those three lines of code, and you should see
+	
+	<p align="center"><img src="images/prophomolog.png" alt="prop" width="900"></p>
+	
+	Click on Zoom if you want to make the image larger.
+	
+	Blue = concordant
+
+	Red = disordant
+	
+	Dark grey = uninformative (BS < 70)
+
+	If you want to save the images, click on "Export" -> "Save as PDF" and provide a name (e.g., porportional.pdf). Choose "Landscape" and a size of 10 by 12. The files will be saved in `/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts`
+	
+	You can copy those files to your laptop as we did for the HTML reports in the first tutorial
+	
+			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
+	
+	
+	####Because we map homolog trees you only need to plot the `proportional` piecharts####
+	
+* Plot concordant/discordant gene trees numbers
+
+	To plot the number of concordant and discordant gene trees for each node, run code lines 79 to 82
+	
+	You should see
+	
+	<p align="center"><img src="images/numberhomolog.png" alt="number" width="900"></p>
+	
+	As before, you can save and download the plot.
+
+	
+
 	
 * If you are interested in plotting the main alternative topology, see instructions [here](https://bitbucket.org/yanglab/conflict-analysis/src/master/) and the scripts [here](https://bitbucket.org/dfmoralesb/target_enrichment_orthology/src/master/)	
 	
