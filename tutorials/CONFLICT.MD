@@ -550,11 +550,11 @@
 	
 	In RStudio, go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/$USERNAME/script/piechars_homologs.R` and click "Open". Make sure to use  your username
 	
-	<p align="center"><img src="images/open.png" alt="open" width="500"></p>
+	<p align="center"><img src="images/openhomologs.png" alt="open" width="500"></p>
 	
 	You should see this
 	
-	<p align="center"><img src="images/open2.png" alt="open2" width="900"></p>
+	<p align="center"><img src="images/openhomologs2.png" alt="open2" width="900"></p>
 	
 	Now you are going to replace in the first line of the script `/data_tmp/mpemaster/data/07_phylogenomic_analyses/12_phyparts` for `mpemaster` for your own USERNAME and `12_phyparts` with `12_1_phyparts_homologs/`
 
