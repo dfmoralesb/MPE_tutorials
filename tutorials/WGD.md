@@ -60,7 +60,7 @@
 		
 	Now, let's extract the orthogroups
 	
-		python /data_tmp/$USERNAME/script/extract_clades.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_orthogroups ../in_out_list.txt orthogroup
+		python /data_tmp/$USERNAME/script/extract_clades.py /data_tmp/$USERNAME/output/04_analyses/07_final_homologs treefile 00_orthogroups 8 ../in_out_list.txt orthogroup
 		
 	You should see 
 	
