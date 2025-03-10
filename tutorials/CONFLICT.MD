@@ -471,7 +471,7 @@
 	
 		cd 12_1_phyparts_homologs
 		
-		mkdir 00_rooted_gene_trees
+		mkdir 00_rooted_homologs
 	
 	
 	The gene tree we are going to root are the homologs  tree. The same we used for ASTRAL-Pro. If you remember from the previous tutorial, the files are located here: `/data_tmp/$USERNAME/output/04_analyses/07_final_homologs`
