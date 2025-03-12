@@ -95,9 +95,9 @@ By Lizzy
 
 * [Divergence Time Estimation II](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/DivergenceTimeEstimation_BEAST_TargetCapture.md)<br>
 
-* [Biogeographic reconstruction with BioGeoBEARs](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Area_Reconstruction.md)<br>
+* [Ancestral Area Reconstruction](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Area_Reconstruction.md)<br>
 
-* [Biogeographic reconstruction with BioGeoBEARs](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Trait_Reconstruction.md)<br>
+* [Ancestral State Reconstruction in R](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Trait_Reconstruction.md)<br>
 
 
 
