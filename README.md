@@ -97,7 +97,7 @@ By Lizzy
 
 * [Ancestral Area Reconstruction](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Area_Reconstruction.md)<br>
 
-* [Ancestral State Reconstruction in R](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Trait_Reconstruction.md)<br>
+* [Ancestral State Reconstruction](https://github.com/joyceem/MPEP_tutorials/blob/main/tutorials/Ancestral_Trait_Reconstruction.md)<br>
 
 
 
