@@ -2,6 +2,8 @@
 
 This repository contains the instructions and tutorials for the **Molecular Phylogenetics and Evolution of Plants course - 2025**.
 
+For tutorial from the **Molecular Phylogenetics and Evolution of Plants course - 2022**, click [here](https://github.com/dfmoralesb/MPE_tutorials_2022/)
+
 
 ## Preparation
 
