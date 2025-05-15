@@ -22,7 +22,7 @@ For tutorial from the **Molecular Phylogenetics and Evolution of Plants course -
 
 #### How to login to the workstation
 
-	ssh -p 22110 $USERNAME@10.153.134.10
+	ssh -p 22110 $USERNAME@
 	
 The password will be provided at the beginning of the first practicum. 
 
