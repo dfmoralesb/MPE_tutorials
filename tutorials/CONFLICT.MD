@@ -7,7 +7,7 @@
 
 #### How to login to the workstation
 
-	ssh -p 22110 USERNAME@10.153.134.10
+	ssh -p 22110 USERNAME@xx.xxx.xxx.xx
 
 
 ### Every time you see `$USERNAME` in the example command, you need to replace it with your own [USERNAME](https://github.com/dfmoralesb/MPE_tutorials/blob/main/README.md)<br>
@@ -380,7 +380,7 @@
 * Let's plot the result of phyparts in R. We are going to plot the number of concordant, discordant, uninformative, and missing as piecharts
 
 
-	Open RStudio, your internet browser, again by typing `10.153.134.10:8787` and log in with your workstation credentials.
+	Open RStudio, your internet browser, again by typing `xx.xxx.xxx.xx:8787` and log in with your workstation credentials.
 	
 	In RStudio, go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/$USERNAME/script/piechars.R` and click "Open"
 	
@@ -423,7 +423,7 @@
 	
 	You can copy those files to your laptop as we did for the HTML reports in the first tutorial
 	
-			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
+			scp -P 22110 USERNAME@xx.xxx.xxx.xx:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 
 	
 * `total including missing genes` The pie charts will include missing data and are proportional to the total number of trees - 334
@@ -546,7 +546,7 @@
 * Let's plot the result of phyparts in R. We are going to plot the number of concordant, discordant, uninformative, and missing as piecharts
 
 
-	Open RStudio, your internet browser, again by typing `10.153.134.10:8787` and log in with your workstation credentials.
+	Open RStudio, your internet browser, again by typing `xx.xxx.xxx.xx:8787` and log in with your workstation credentials.
 	
 	In RStudio, go to the tab "File" then "Open File..." and in "File name:" paste `/data_tmp/$USERNAME/script/piechars_homologs.R` and click "Open". Make sure to use  your username
 	
@@ -589,7 +589,7 @@
 	
 	You can copy those files to your laptop as we did for the HTML reports in the first tutorial
 	
-			scp -P 22110 USERNAME@10.153.134.10:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
+			scp -P 22110 USERNAME@xx.xxx.xxx.xx:/data_tmp/$USERNAME/data/07_phylogenomic_analyses/12_phyparts/porportional.pdf ~/Desktop
 	
 	
 	#### Because we map homolog trees you only need to plot the `proportional` piecharts
